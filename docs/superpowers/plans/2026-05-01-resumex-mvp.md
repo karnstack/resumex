@@ -812,7 +812,7 @@ git commit -m "feat(parser): frontmatter + section detection (no entries yet)"
 
 **Files:** `src/lib/parser.ts` (modify), `src/lib/parser.test.ts` (extend)
 
-- [ ] **Step 1: Add failing tests**
+- [x] **Step 1: Add failing tests**
 
 Append to `parser.test.ts`:
 ```ts
@@ -889,12 +889,12 @@ name: Karn
 })
 ```
 
-- [ ] **Step 2: Run — verify fail**
+- [x] **Step 2: Run — verify fail**
 
 Run: `pnpm test:run src/lib/parser.test.ts`
 Expected: FAILS on entry tests (entries is empty).
 
-- [ ] **Step 3: Implement entry parsing**
+- [x] **Step 3: Implement entry parsing**
 
 Update `parser.ts` — replace the section-build block with entry-aware parsing. Add helpers:
 
@@ -985,12 +985,12 @@ const body = entries.length === 0 && bodyNodes.length > 0
   : undefined
 ```
 
-- [ ] **Step 4: Run tests**
+- [x] **Step 4: Run tests**
 
 Run: `pnpm test:run src/lib/parser.test.ts`
 Expected: PASS (6 tests).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/lib/parser.ts src/lib/parser.test.ts
