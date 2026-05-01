@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import matter from 'gray-matter'
+import { matter } from '@/lib/frontmatter'
 import { TopBar } from './TopBar'
 import { FrontmatterForm } from './FrontmatterForm'
 import { MarkdownEditor } from './MarkdownEditor'

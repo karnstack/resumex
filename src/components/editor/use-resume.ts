@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
-import matter from 'gray-matter'
+import { matter, matterStringify } from '@/lib/frontmatter'
 import { parseResume } from '@/lib/parser'
 import { ResumeFrontmatterSchema, type ResumeFrontmatter, type ParsedResume } from '@/lib/schema'
 import { loadVariantSource, saveVariantSource } from '@/lib/load-resume'
@@ -66,7 +66,7 @@ export function useResume(variant: string) {
       if (state.phase !== 'ready') return
       const validated = ResumeFrontmatterSchema.parse(next)
       const { content } = matter(state.source)
-      const newSource = matter.stringify(content, validated)
+      const newSource = matterStringify(content, validated)
       setSource(newSource)
     },
     [state, setSource],
@@ -76,7 +76,7 @@ export function useResume(variant: string) {
     (newBody: string) => {
       if (state.phase !== 'ready') return
       const { data } = matter(state.source)
-      const newSource = matter.stringify(newBody, data)
+      const newSource = matterStringify(newBody, data)
       setSource(newSource)
     },
     [state, setSource],
