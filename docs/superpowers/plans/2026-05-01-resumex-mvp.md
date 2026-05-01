@@ -1069,7 +1069,7 @@ git commit -m "test(parser): freeform sections + edge cases"
 
 **Files:** `src/lib/template-registry.ts`
 
-- [ ] **Step 1: Write `src/lib/template-registry.ts`**
+- [x] **Step 1: Write `src/lib/template-registry.ts`**
 
 ```ts
 import type { ParsedResume } from './schema'
@@ -1105,7 +1105,7 @@ export function listTemplates(): ResumeTemplateMeta[] {
 }
 ```
 
-- [ ] **Step 2: Stub `src/generated/templates.ts`** so types resolve before plugin runs
+- [x] **Step 2: Stub `src/generated/templates.ts`** so types resolve before plugin runs
 
 ```ts
 // stub — replaced by sync-templates plugin at dev/build time
@@ -1113,7 +1113,7 @@ import type { TemplateModule } from '@/lib/template-registry'
 export const templates: Record<string, TemplateModule> = {}
 ```
 
-- [ ] **Step 3: Adjust `.gitignore`**
+- [x] **Step 3: Adjust `.gitignore`**
 
 The stub is committed but the plugin overwrites it on dev/build. To avoid merge conflicts, EITHER:
 - (chosen) commit the stub and let the plugin overwrite it locally; the file change is tracked via a `// generated` banner the plugin writes that we'll accept being noisy, OR
@@ -1125,7 +1125,7 @@ So **delete the stub file** and **rely on Task 10's plugin** to write it before 
 rm -f src/generated/templates.ts
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/lib/template-registry.ts
