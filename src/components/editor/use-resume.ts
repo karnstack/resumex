@@ -46,15 +46,11 @@ export function useResume(variant: string) {
     (newSource: string) => {
       try {
         const parsed = parseResume(newSource)
-        setState((s) =>
-          s.phase === 'ready' ? { ...s, source: newSource, parsed } : s,
-        )
+        setState((s) => (s.phase === 'ready' ? { ...s, source: newSource, parsed } : s))
         flush(newSource)
       } catch (e) {
         // keep last good parsed; report error inline (optional UI)
-        setState((s) =>
-          s.phase === 'ready' ? { ...s, source: newSource } : s,
-        )
+        setState((s) => (s.phase === 'ready' ? { ...s, source: newSource } : s))
         flush(newSource)
       }
     },

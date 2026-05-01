@@ -9,21 +9,14 @@ export function FrontmatterForm({
   value: ResumeFrontmatter
   onChange: (next: ResumeFrontmatter) => void
 }) {
-  function update<K extends keyof ResumeFrontmatter>(
-    key: K,
-    val: ResumeFrontmatter[K],
-  ) {
+  function update<K extends keyof ResumeFrontmatter>(key: K, val: ResumeFrontmatter[K]) {
     onChange({ ...value, [key]: val })
   }
 
   return (
-    <div className="space-y-4 rounded-xl border border-border bg-card p-4 text-sm">
+    <div className="border-border bg-card space-y-4 rounded-xl border p-4 text-sm">
       <Field label="name" htmlFor="fm-name">
-        <Input
-          id="fm-name"
-          value={value.name}
-          onChange={(e) => update('name', e.target.value)}
-        />
+        <Input id="fm-name" value={value.name} onChange={(e) => update('name', e.target.value)} />
       </Field>
       <Field label="title" htmlFor="fm-title">
         <Input
@@ -73,7 +66,7 @@ function Field({
     <div className="flex flex-col gap-1.5">
       <Label
         htmlFor={htmlFor}
-        className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
+        className="text-muted-foreground text-xs font-medium tracking-widest uppercase"
       >
         {label}
       </Label>

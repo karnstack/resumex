@@ -17,18 +17,18 @@ export function TopBar({
   onSwitchVariant: (v: string) => void
 }) {
   return (
-    <div className="flex items-center justify-between gap-3 border-b border-border bg-background p-3">
+    <div className="border-border bg-background flex items-center justify-between gap-3 border-b p-3">
       <div className="flex items-center gap-3">
         <Link
           to="/"
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground hover:text-foreground text-sm transition-colors"
         >
           ←
         </Link>
         <select
           value={variant}
           onChange={(e) => onSwitchVariant(e.target.value)}
-          className="rounded-md border border-input bg-background px-3 py-1.5 text-sm text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/50 transition-[color,box-shadow]"
+          className="border-input bg-background text-foreground focus:border-ring focus:ring-ring/50 rounded-md border px-3 py-1.5 text-sm transition-[color,box-shadow] outline-none focus:ring-2"
         >
           {variants.map((v) => (
             <option key={v} value={v}>
@@ -39,7 +39,7 @@ export function TopBar({
         <select
           value={templateId}
           onChange={(e) => onTemplateChange(e.target.value)}
-          className="rounded-md border border-input bg-background px-3 py-1.5 text-sm text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/50 transition-[color,box-shadow]"
+          className="border-input bg-background text-foreground focus:border-ring focus:ring-ring/50 rounded-md border px-3 py-1.5 text-sm transition-[color,box-shadow] outline-none focus:ring-2"
         >
           {templateOptions.map((t) => (
             <option key={t.id} value={t.id}>

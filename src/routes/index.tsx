@@ -30,34 +30,31 @@ function IndexRoute() {
   return (
     <main className="mx-auto max-w-3xl p-8">
       <header className="mb-8">
-        <p className="mb-1 font-mono text-xs text-muted-foreground">
-          // resumes
-        </p>
+        <p className="text-muted-foreground mb-1 font-mono text-xs">// resumes</p>
         <h1 className="text-2xl font-semibold tracking-tight">resumex</h1>
-        <p className="text-sm text-muted-foreground">
-          your resumes live in <code className="font-mono text-foreground">resumes/</code>. talk to claude code or edit in the ui.
+        <p className="text-muted-foreground text-sm">
+          your resumes live in <code className="text-foreground font-mono">resumes/</code>. talk to
+          claude code or edit in the ui.
         </p>
       </header>
 
       {error && (
-        <p className="mb-4 rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+        <p className="border-destructive/30 bg-destructive/5 text-destructive mb-4 rounded-md border px-3 py-2 text-sm">
           {error}
         </p>
       )}
 
       <section>
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+        <h2 className="text-muted-foreground mb-3 text-xs font-semibold tracking-widest uppercase">
           your resumes
         </h2>
         {variants === null ? (
-          <p className="text-sm text-muted-foreground">loading…</p>
+          <p className="text-muted-foreground text-sm">loading…</p>
         ) : variants.length === 0 ? (
           <Card className="border-dashed shadow-none">
             <CardContent className="flex flex-col gap-1 py-8 text-center">
-              <p className="text-sm text-muted-foreground">
-                no resumes yet.
-              </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">no resumes yet.</p>
+              <p className="text-muted-foreground text-sm">
                 ask claude code:{' '}
                 <em className="text-foreground not-italic">
                   "create a new resume from my linkedin"
@@ -69,12 +66,8 @@ function IndexRoute() {
           <ul className="space-y-2">
             {variants.map((v) => (
               <li key={v}>
-                <Link
-                  to="/$variant"
-                  params={{ variant: v }}
-                  className="block"
-                >
-                  <Card className="cursor-pointer py-4 shadow-none transition-shadow hover:shadow-derek">
+                <Link to="/$variant" params={{ variant: v }} className="block">
+                  <Card className="hover:shadow-derek cursor-pointer py-4 shadow-none transition-shadow">
                     <CardContent className="flex items-center justify-between gap-3 px-4">
                       <span className="font-medium">{v}</span>
                       <Badge variant="secondary" className="font-mono text-xs">
@@ -91,12 +84,12 @@ function IndexRoute() {
 
       <section className="mt-12">
         <div className="mb-3 flex items-baseline justify-between">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          <h2 className="text-muted-foreground text-xs font-semibold tracking-widest uppercase">
             templates
           </h2>
           <Link
             to="/templates"
-            className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground font-mono text-xs transition-colors"
           >
             browse all →
           </Link>

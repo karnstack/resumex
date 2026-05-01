@@ -15,7 +15,9 @@ function VariantRoute() {
   const { variant } = Route.useParams()
   const [variants, setVariants] = useState<string[]>([])
   useEffect(() => {
-    listVariants().then(setVariants).catch(() => setVariants([]))
+    listVariants()
+      .then(setVariants)
+      .catch(() => setVariants([]))
   }, [])
   return <Editor variant={variant} variants={variants} />
 }

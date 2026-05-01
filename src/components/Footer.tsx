@@ -10,8 +10,7 @@ function KarnstackWordmark() {
       rel="noopener noreferrer"
       className="font-semibold tracking-tight transition-opacity hover:opacity-80"
       style={{
-        background:
-          'linear-gradient(90deg, var(--primary) 0%, var(--primary-gradient-end) 100%)',
+        background: 'linear-gradient(90deg, var(--primary) 0%, var(--primary-gradient-end) 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
@@ -32,17 +31,17 @@ export function Footer() {
   return (
     <footer
       data-print-hide="true"
-      className="mt-16 flex flex-col items-center justify-center gap-1 px-6 py-12 text-xs text-muted-foreground/70 sm:flex-row sm:gap-2"
+      className="text-muted-foreground/70 mt-16 flex flex-col items-center justify-center gap-1 px-6 py-12 text-xs sm:flex-row sm:gap-2"
     >
       <a
         href="https://github.com/karnstack/resumex"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-mono transition-colors hover:text-muted-foreground"
+        className="hover:text-muted-foreground font-mono transition-colors"
       >
         github.com/karnstack/resumex
       </a>
-      <span className="hidden text-muted-foreground/40 sm:inline">·</span>
+      <span className="text-muted-foreground/40 hidden sm:inline">·</span>
       <span>
         powered by <KarnstackWordmark />
       </span>
