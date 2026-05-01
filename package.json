@@ -10,7 +10,10 @@
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\" \"templates/**/*.{ts,tsx,css}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\" \"templates/**/*.{ts,tsx,css}\"",
+    "sync-templates": "node scripts/sync-templates.mjs",
+    "prepare": "node scripts/sync-templates.mjs",
+    "pretypecheck": "node scripts/sync-templates.mjs"
   },
   "engines": {
     "node": ">=24",
