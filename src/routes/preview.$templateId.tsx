@@ -3,6 +3,7 @@ import { useMemo, useState, type CSSProperties } from 'react'
 import { z } from 'zod'
 import { getTemplate } from '@/lib/template-registry'
 import { loadSample } from '@/lib/load-sample'
+import { usePageMeta } from '@/lib/use-page-meta'
 import { PreviewToolbar, type Density } from '@/components/preview-toolbar/PreviewToolbar'
 import { PageFrameProvider } from '@/components/page-frame/PageFrame'
 import { Stage } from '@/components/stage/Stage'
@@ -22,6 +23,7 @@ function PreviewRoute() {
   const { templateId } = Route.useParams()
   const { embed } = Route.useSearch()
   const tpl = getTemplate(templateId)
+  usePageMeta(tpl ? `${tpl.meta.name} preview` : 'preview', tpl?.meta.description)
   const [appliedScale, setAppliedScale] = useState(1)
   const [forcedScale, setForcedScale] = useState<number | undefined>(undefined)
   const [density, setDensity] = useState<Density>(DEFAULT_DENSITY)
@@ -50,7 +52,7 @@ function PreviewRoute() {
     return <Template resume={resume} />
   }
 
-  // CSS vars on the density wrapper — templates that opt into them via
+  // CSS vars on the density wrapper - templates that opt into them via
   // padding-top: var(--page-pad-top, default) pick up the override; others
   // ignore it. Only set when slider is dirty so the template default wins.
   const wrapperStyle: CSSProperties = {}

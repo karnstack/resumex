@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Editor } from '@/components/editor/Editor'
 import { listVariants } from '@/lib/load-resume'
 import { isPublic } from '@/lib/mode'
+import { usePageMeta } from '@/lib/use-page-meta'
 
 export const Route = createFileRoute('/$variant')({
   beforeLoad: () => {
@@ -13,6 +14,7 @@ export const Route = createFileRoute('/$variant')({
 
 function VariantRoute() {
   const { variant } = Route.useParams()
+  usePageMeta(`${variant}`, `Edit your ${variant} resume - resumex by karnstack.com.`)
   const [variants, setVariants] = useState<string[]>([])
   useEffect(() => {
     listVariants()

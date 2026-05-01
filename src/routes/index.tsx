@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { listVariants } from '@/lib/load-resume'
 import { isPublic } from '@/lib/mode'
 import { listTemplates } from '@/lib/template-registry'
+import { usePageMeta } from '@/lib/use-page-meta'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Footer } from '@/components/Footer'
@@ -18,6 +19,7 @@ export const Route = createFileRoute('/')({
 })
 
 function IndexRoute() {
+  usePageMeta('resumex - by karnstack.com')
   const [variants, setVariants] = useState<string[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const templates = useMemo(() => listTemplates(), [])
