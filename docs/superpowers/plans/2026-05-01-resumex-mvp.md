@@ -550,13 +550,13 @@ git commit -m "feat: tailwind v4 + shared print-base"
 
 **Files:** `src/lib/schema.ts`
 
-- [ ] **Step 1: Install zod**
+- [x] **Step 1: Install zod**
 
 ```bash
 pnpm add zod
 ```
 
-- [ ] **Step 2: Write `src/lib/schema.ts`**
+- [x] **Step 2: Write `src/lib/schema.ts`**
 
 ```ts
 import { z } from 'zod'
@@ -610,7 +610,7 @@ export type ParsedResume = {
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/lib/schema.ts package.json pnpm-lock.yaml
