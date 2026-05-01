@@ -1271,7 +1271,7 @@ git commit -m "feat(templates): sync-templates vite plugin (auto-registry + mani
 
 Engine-level shared utility. A template that opts in wraps its content in `<PageFrame paper="a4">` and gets a fixed-size page that auto-scales content down (transform-scale) to fit one page. ATS-style templates can skip this and let content flow naturally.
 
-- [ ] **Step 1: `src/components/page-frame/use-fit-to-page.ts`**
+- [x] **Step 1: `src/components/page-frame/use-fit-to-page.ts`**
 
 ```ts
 import { useLayoutEffect, useRef, useState, type DependencyList } from 'react'
@@ -1324,7 +1324,7 @@ export function useFitToPage<T extends HTMLElement = HTMLDivElement>(
 }
 ```
 
-- [ ] **Step 2: `src/components/page-frame/PageFrame.tsx`**
+- [x] **Step 2: `src/components/page-frame/PageFrame.tsx`**
 
 ```tsx
 import type { ReactNode } from 'react'
@@ -1378,7 +1378,7 @@ export function PageFrame({
 }
 ```
 
-- [ ] **Step 3: Print-mode override**
+- [x] **Step 3: Print-mode override**
 
 Append to `src/styles/print-base.css`:
 ```css
@@ -1396,7 +1396,7 @@ Append to `src/styles/print-base.css`:
 
 (Templates set their own `@page size`. PageFrame sets margin to zero so the page IS the frame.)
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/components/page-frame src/styles/print-base.css
