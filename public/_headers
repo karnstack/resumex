@@ -5,7 +5,7 @@
 # CSP frame-ancestors is the modern, browser-respected directive. X-Frame-Options
 # ALLOW-FROM is shipped alongside for legacy compatibility; modern browsers ignore it.
 /preview/*
-  Content-Security-Policy: frame-ancestors 'self' https://karnstack.com https://*.karnstack.com
+  Content-Security-Policy: frame-ancestors 'self' https://karnstack.com https://*.karnstack.com http://localhost:* http://127.0.0.1:*
   X-Frame-Options: ALLOW-FROM https://karnstack.com
 
 # Templates manifest is read by the karnstack landing page. Short cache so newly
