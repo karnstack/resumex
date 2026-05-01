@@ -103,7 +103,7 @@ function IndexRoute() {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {templates.map((t) => (
-            <TemplateCard key={t.id} meta={t} size="compact" />
+            <TemplateCard key={t.id} meta={t} />
           ))}
         </div>
       </section>
