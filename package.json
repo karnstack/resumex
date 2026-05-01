@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "pnpm run build && wrangler dev",
     "test": "vitest --passWithNoTests",
     "test:run": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit",
@@ -18,7 +18,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "prepare": "node scripts/sync-templates.mjs && node scripts/sync-resumes.mjs",
-    "pretypecheck": "node scripts/sync-templates.mjs && node scripts/sync-resumes.mjs"
+    "pretypecheck": "node scripts/sync-templates.mjs && node scripts/sync-resumes.mjs",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "engines": {
     "node": ">=24",
@@ -53,6 +54,7 @@
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
     "vite": "^8.0.10",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.5",
+    "wrangler": "^4.87.0"
   }
 }
