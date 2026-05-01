@@ -22,7 +22,14 @@ function IndexRoute() {
   const resumes = useMemo(() => listResumes(), [])
   const templates = useMemo(() => listTemplates(), [])
 
-  const featured = templates.slice(0, 4)
+  // Hand-picked to maximize visual variety: a quiet Swiss-minimal, a polished
+  // two-column with color, a bold serif-editorial, and a mono CLI. One template
+  // per DNA family, four very different aesthetics.
+  const FEATURED_IDS = ['swiss', 'emerald-twocol', 'editorial-vogue', 'terminal']
+  const byId = new Map(templates.map((t) => [t.id, t]))
+  const featured = FEATURED_IDS.map((id) => byId.get(id)).filter(
+    (t): t is NonNullable<typeof t> => t !== undefined,
+  )
 
   return (
     <main className="mx-auto max-w-7xl p-8">
