@@ -1,13 +1,16 @@
 # resumex Plan 2: Public Deploy + karnstack Landing Page
 
-> **Status:** Not yet executed. This plan documents the work needed to ship the public preview-only deploy at `resumex.karnstack.com` and the marketing/gallery page at `karnstack.com/resumex`. Plan 1 (the MVP, tagged `v0.1.0-mvp`) is the prerequisite.
+> **Status:** Not yet executed. This plan documents the work needed to ship the public deploy at `resumex.karnstack.com` and the marketing/gallery page at `karnstack.com/resumex`.
+>
+> **Refreshed 2026-05-02** to match the standalone-component architecture (no markdown layer, no API middleware, no `/$variant/print` route). See `docs/superpowers/specs/2026-05-02-standalone-resumes-design.md` for the underlying refactor.
 
-**Goal:** Make resumex publicly visible. The cloned-repo product itself stays local-only — the public surfaces are (a) a deployed preview-only build of resumex serving template iframes, and (b) a karnstack landing page that pitches the product and embeds those iframes.
+**Goal:** Make resumex publicly visible. The cloned-repo product itself stays local-only — the public surfaces are (a) a deployed build of resumex serving the home page + template/resume previews + iframe-embeds, and (b) a karnstack landing page that pitches the product and embeds those iframes.
 
-**Architecture recap (from Plan 1):**
-- Same resumex codebase serves both modes. `VITE_RESUMEX_MODE=public` build flag exposes ONLY `/preview/:templateId` routes; everything else (`/`, `/:variant`, `/:variant/print`, `/templates`, `/api/*`) is gated.
-- Local-only constraint preserved: no resume content ever leaves a user's machine. The public deploy renders only templates against the bundled `.gallery/sample.md` (synthesized public-content sample, no PII).
-- Templates ship and update independently of karnstack's deploy cycle; the karnstack page reads a manifest from the resumex deploy so adding a template doesn't require a karnstack rebuild (assuming a runtime fetch — see Phase 2 design choices below).
+**Architecture recap:**
+- Same resumex codebase serves both modes. `VITE_RESUMEX_MODE=public` flips `/` to redirect to GitHub. Other routes (`/$variant`, `/preview/$templateId`, `/templates`) work in public mode because resumes and templates are bundled TS components — there is no per-user API or markdown content layer to gate.
+- Local-only constraint preserved by convention: a user's fork lives on their machine. The repo on GitHub (and the deploy) carries no `resumes/<variant>/` content — only templates with placeholder content. Forks are users' personal data.
+- Templates and resumes ship as standalone React components (`<id>/{index.tsx, styles.css, meta.ts}`). The `sync-templates` plugin emits `public/templates.json` so external consumers can read the template list.
+- The karnstack landing page reads that manifest from the resumex deploy so adding a template doesn't require a karnstack rebuild.
 
 **Tech recap:** Vite 8 · React 19 · TanStack Router · Tailwind v4 · Cloudflare Pages.
 
@@ -40,7 +43,7 @@ apps/web/src/lib/resumex-manifest.ts             — build-time or runtime fetch
 
 ## Phasing
 
-- **Phase 1** — Cloudflare Pages deploy of `resumex.karnstack.com` (Tasks 1–4). After this, the public preview-only site is live and serves iframes.
+- **Phase 1** — Cloudflare Pages deploy of `resumex.karnstack.com` (Tasks 1–4). After this, the public site is live (home redirects to GitHub; templates and previews are browseable + iframe-embeddable).
 - **Phase 2** — karnstack landing page route (Tasks 5–9). After this, `karnstack.com/resumex` is live with the gallery.
 
 Each phase produces a working, releasable surface. Phase 2 depends on Phase 1 being live first (the iframe `src` URLs need to resolve).
@@ -73,9 +76,9 @@ Each phase produces a working, releasable surface. Phase 2 depends on Phase 1 be
 **Verification:**
 
 - `curl -fsS https://resumex.pages.dev/preview/minimal-mono` returns 200 with the resume HTML shell.
-- `curl -fsS https://resumex.pages.dev/templates.json` returns the manifest JSON (e.g., `[{"id":"minimal-mono"},{"id":"karnstack-twocol"}]`).
+- `curl -fsS https://resumex.pages.dev/templates.json` returns the manifest JSON (e.g., `[{"id":"minimal-mono"},{"id":"emerald-twocol"}]`).
 - Visit `https://resumex.pages.dev/` in a browser — should redirect to GitHub (`/` route's `beforeLoad` calls `window.location.replace('https://github.com/karnstack/resumex')`).
-- Visit `https://resumex.pages.dev/templates` — should error / not navigate (route's `beforeLoad` throws when `isPublic`).
+- Visit `https://resumex.pages.dev/templates` and `/preview/<id>` — both render normally. Public mode only redirects the home page; everything else is browseable.
 
 If anything fails: `VITE_RESUMEX_MODE` likely isn't being picked up. Vite reads `VITE_*`-prefixed env vars at build time, so the env var must be set when `pnpm build` runs on Cloudflare's build agent — confirm it's in the project's "Production" env and not just "Preview."
 
@@ -91,36 +94,33 @@ If anything fails: `VITE_RESUMEX_MODE` likely isn't being picked up. Vite reads 
 
 **Verification:**
 
-- `curl -fsS https://resumex.karnstack.com/preview/karnstack-twocol -o /dev/null -w "%{http_code}\n"` → `200`
+- `curl -fsS https://resumex.karnstack.com/preview/emerald-twocol -o /dev/null -w "%{http_code}\n"` → `200`
 - HTTPS cert is valid (`curl -v` shows the cert chain without `--insecure`).
 - The TLS cert covers `resumex.karnstack.com` specifically.
 
-### Task 3: Lock down public routes — verify mode gating works under real conditions
+### Task 3: Verify the deploy ships only template content (no personal resumes)
 
-The MVP gates routes via `beforeLoad`-thrown errors, but the `window.location.replace` redirect on `/` only fires after JS loads. A bot, prefetcher, or curl will see 200 + the SPA shell. That's fine — there's no sensitive data in the bundle (the only "data" is `.gallery/sample.md` which is intentionally public).
+The repo's `main` branch carries no `resumes/<variant>/` content — that's user data and lives on each user's local clone. The deploy bundle should likewise contain only template code.
 
 **Steps:**
 
-1. Verify the `/api/*` routes are NOT served on the public deploy. The save-middleware and list-middleware are Vite *dev-server* plugins; they don't run in production. Confirm `curl https://resumex.karnstack.com/api/resumes` returns 404 (or whatever Cloudflare's default for unmatched routes is — likely a 404 SPA fallback).
-2. Confirm there is NO `resumes/` content in the deploy bundle. The build output should NOT include `resumes/*.md`. (`.gitignore` has `resumes/` excluded? Actually `resumes/.keep` IS tracked. Cloudflare's Vite build only includes files imported by `src/` — local resume markdown files aren't imported, so they won't end up in `dist/`. Verify with `pnpm build` locally and `ls dist/` — should NOT contain any resumes/*.md.)
-
-**Verification:**
+1. Confirm `main` does not contain any `resumes/<variant>/` folders. The home page in public mode redirects anyway, so there's no surface that lists them — but better to enforce at the source.
+2. Confirm the build's `dist/` only contains compiled template + page code:
 
 ```bash
 pnpm build
-find dist -name '*.md' | head    # should be empty
 ls dist/                          # expect: index.html, assets/, templates.json
-cat dist/templates.json            # expect: [{"id":"minimal-mono"},{"id":"karnstack-twocol"}]
+cat dist/templates.json            # expect: [{"id":"emerald-twocol"},{"id":"minimal-mono"}]
 ```
 
-If `dist/` contains anything resume-shaped, fix the build (most likely a Vite config oversight).
+3. (Optional) Add a CI guard that fails the build if `resumes/` is non-empty when `VITE_RESUMEX_MODE=public`. Future-proofs against accidental commits.
 
 ### Task 4: Runtime smoke + monitoring
 
 **Steps:**
 
-1. Visit `https://resumex.karnstack.com/preview/minimal-mono` and `https://resumex.karnstack.com/preview/karnstack-twocol` in a real browser. Confirm:
-   - Templates render with the sample data (Karn's content).
+1. Visit `https://resumex.karnstack.com/preview/minimal-mono` and `https://resumex.karnstack.com/preview/emerald-twocol` in a real browser. Confirm:
+   - Templates render with their bundled placeholder content.
    - Fonts load (Figtree + JetBrains Mono).
    - No console errors.
    - The page is iframe-able (no `X-Frame-Options: DENY` header — Cloudflare Pages default is `SAMEORIGIN` which would BLOCK karnstack.com from iframing). **This is the critical config check.**
@@ -145,7 +145,7 @@ If `dist/` contains anything resume-shaped, fix the build (most likely a Vite co
 
 ```bash
 git add public/_headers .env.example
-git commit -m "feat(deploy): cloudflare pages preview-only deploy + frame-ancestors for karnstack embedding"
+git commit -m "feat(deploy): cloudflare pages deploy + frame-ancestors for karnstack embedding"
 ```
 
 ---
@@ -219,7 +219,7 @@ Use whatever code-block component karnstack already has. Match karnstack's monos
 
 **Manifest fetch — design choice:**
 
-The resumex public deploy emits `https://resumex.karnstack.com/templates.json` (e.g., `[{"id":"minimal-mono"},{"id":"karnstack-twocol"}]`). Two ways to consume it:
+The resumex public deploy emits `https://resumex.karnstack.com/templates.json` (e.g., `[{"id":"emerald-twocol"},{"id":"minimal-mono"}]`). Two ways to consume it:
 
 - **Option A — Build-time fetch.** karnstack's build script fetches the manifest URL during build, bakes the list into the bundle. Adding a new template requires a karnstack redeploy. Pro: zero runtime fetches. Con: adding templates needs karnstack-side deploy.
 - **Option B — Runtime fetch.** The Gallery component fetches the manifest in a `useEffect`. Adding a template appears immediately on next page load. Pro: fully decoupled. Con: extra HTTP request.
@@ -229,7 +229,7 @@ The resumex public deploy emits `https://resumex.karnstack.com/templates.json` (
 **`resumex-manifest.ts`:**
 
 ```ts
-const FALLBACK = [{ id: 'karnstack-twocol' }, { id: 'minimal-mono' }]
+const FALLBACK = [{ id: 'emerald-twocol' }, { id: 'minimal-mono' }]
 const MANIFEST_URL = 'https://resumex.karnstack.com/templates.json'
 
 export type ResumexTemplate = { id: string }
@@ -284,7 +284,7 @@ export async function fetchResumexManifest(): Promise<ResumexTemplate[]> {
 
 2. **Cross-origin iframe height.** If the parent (karnstack.com) wants to dynamically size iframes to match content height, that requires postMessage. For v1, fixed aspect-ratio is fine. If we want dynamic heights later, the resumex deploy would need to `postMessage` its height up to the parent — small addition.
 
-3. **Manifest-meta gap.** The resumex MVP's `templates.json` only contains `{id}` entries. The plan's gallery shows template name + description — currently hardcoded in karnstack. If we want auto-growing names/descriptions, the resumex sync-templates plugin needs to also extract `meta.ts` content into the manifest JSON. Small follow-up to Plan 1 if/when needed.
+3. **Manifest-meta gap.** `templates.json` only contains `{id}` entries. The plan's gallery shows template name + description — currently hardcoded in karnstack. If we want auto-growing names/descriptions, the `sync-templates` plugin needs to also extract `meta.ts` content into the manifest JSON. Small follow-up if/when needed.
 
 4. **Cache invalidation.** The manifest fetch in Gallery.tsx uses `cache: 'force-cache'`. Cloudflare's CDN will cache `templates.json` aggressively. If the user adds a new template and pushes, it can take minutes for the manifest URL to reflect it. Acceptable trade. If urgent, set `Cache-Control: max-age=60` on `templates.json` via a `_headers` rule.
 
