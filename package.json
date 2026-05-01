@@ -17,6 +17,7 @@
     "sync": "node scripts/sync-templates.mjs && node scripts/sync-resumes.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
+    "release": "node scripts/release-tag.mjs",
     "prepare": "node scripts/sync-templates.mjs && node scripts/sync-resumes.mjs",
     "pretypecheck": "node scripts/sync-templates.mjs && node scripts/sync-resumes.mjs",
     "deploy": "pnpm run build && wrangler deploy"
@@ -40,6 +41,7 @@
     "zod": "^4.4.1"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.6.0",
     "@changesets/cli": "^2.31.0",
     "@tailwindcss/vite": "^4.2.4",
     "@tanstack/router-plugin": "^1.167.31",
