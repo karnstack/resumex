@@ -41,7 +41,7 @@ function nodeText(node: { children?: unknown[] } | unknown): string {
 }
 
 function parseMetadataLine(text: string): { dateRange?: string; location?: string } {
-  // text like "Mar 2024 – Present · Remote" — split on ' · '
+  // text like "Mar 2024 – Present · Remote" — split on '·' then trim each part
   const parts = text.split('·').map((p) => p.trim())
   if (parts.length === 0) return {}
   if (parts.length === 1) return { dateRange: parts[0] || undefined }

@@ -164,3 +164,57 @@ just some text with no headings
     expect(result.sections).toHaveLength(0)
   })
 })
+
+describe('parseResume — coverage gaps', () => {
+  it('renders bold markdown in bullets as <strong> HTML', () => {
+    const source = `---
+template: minimal-mono
+name: Karn
+---
+
+## Experience
+
+### Engineer @ Acme
+*2022 – 2024*
+
+- Led **high-impact** initiative
+`
+    const result = parseResume(source)
+    const bullet = result.sections[0].entries[0].bullets[0]
+    expect(bullet).toContain('<strong>high-impact</strong>')
+  })
+
+  it('places a second <ul> block (after a paragraph) into entry body', () => {
+    const source = `---
+template: minimal-mono
+name: Karn
+---
+
+## Experience
+
+### Engineer @ Acme
+*2022 – 2024*
+
+- First bullet
+
+Some separating paragraph.
+
+- Second bullet
+`
+    const result = parseResume(source)
+    const entry = result.sections[0].entries[0]
+    expect(entry.bullets).toHaveLength(1)
+    expect(entry.bullets[0]).toContain('First bullet')
+    expect(entry.body).toContain('Second bullet')
+  })
+
+  it('throws when frontmatter contains an unknown key', () => {
+    const source = `---
+template: minimal-mono
+name: Karn
+bogus: 1
+---
+`
+    expect(() => parseResume(source)).toThrow()
+  })
+})
