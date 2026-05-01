@@ -35,12 +35,12 @@ export function Footer() {
       className="mt-16 flex flex-col items-center justify-center gap-1 px-6 py-12 text-xs text-muted-foreground/70 sm:flex-row sm:gap-2"
     >
       <a
-        href="https://github.com/karngyan/resumex"
+        href="https://github.com/karnstack/resumex"
         target="_blank"
         rel="noopener noreferrer"
         className="font-mono transition-colors hover:text-muted-foreground"
       >
-        github.com/karngyan/resumex
+        github.com/karnstack/resumex
       </a>
       <span className="hidden text-muted-foreground/40 sm:inline">·</span>
       <span>

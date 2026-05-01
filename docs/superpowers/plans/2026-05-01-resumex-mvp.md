@@ -2883,7 +2883,7 @@ import { isPublic } from '@/lib/mode'
 export const Route = createFileRoute('/')({
   beforeLoad: () => {
     if (isPublic) {
-      window.location.replace('https://github.com/karngyan/resumex')
+      window.location.replace('https://github.com/karnstack/resumex')
     }
   },
   component: IndexRoute,
@@ -3205,7 +3205,7 @@ VITE_RESUMEX_MODE=public pnpm dev
 ```
 
 Visit:
-- `/` → expected redirect to github.com/karngyan/resumex (won't actually navigate in dev — `window.location.replace` does)
+- `/` → expected redirect to github.com/karnstack/resumex (won't actually navigate in dev — `window.location.replace` does)
 - `/templates` → throws "not available on public deploy"
 - `/preview/minimal-mono` → renders correctly
 
@@ -4218,7 +4218,7 @@ AI-first resume builder for Claude Code. Clone, talk naturally, ship a beautiful
 ## Quickstart
 
 ```bash
-git clone https://github.com/karngyan/resumex && cd resumex
+git clone https://github.com/karnstack/resumex && cd resumex
 claude        # then say:  /start
 ```
 

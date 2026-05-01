@@ -11,7 +11,7 @@ AI-first resume builder for Claude Code. Clone, talk naturally, ship a beautiful
 ## Quickstart
 
 ```bash
-git clone https://github.com/karngyan/resumex && cd resumex
+git clone https://github.com/karnstack/resumex && cd resumex
 claude        # then say:  /start
 ```
 

@@ -1,15 +1,17 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { listVariants } from '@/lib/load-resume'
 import { isPublic } from '@/lib/mode'
+import { listTemplates } from '@/lib/template-registry'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Footer } from '@/components/Footer'
+import { TemplateCard } from '@/components/TemplateCard'
 
 export const Route = createFileRoute('/')({
   beforeLoad: () => {
     if (isPublic) {
-      window.location.replace('https://github.com/karngyan/resumex')
+      window.location.replace('https://github.com/karnstack/resumex')
     }
   },
   component: IndexRoute,
@@ -18,6 +20,7 @@ export const Route = createFileRoute('/')({
 function IndexRoute() {
   const [variants, setVariants] = useState<string[] | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const templates = useMemo(() => listTemplates(), [])
   useEffect(() => {
     listVariants()
       .then(setVariants)
@@ -86,11 +89,25 @@ function IndexRoute() {
         )}
       </section>
 
-      <p className="mt-10 text-xs text-muted-foreground">
-        <Link to="/templates" className="hover:text-foreground transition-colors">
-          browse templates →
-        </Link>
-      </p>
+      <section className="mt-12">
+        <div className="mb-3 flex items-baseline justify-between">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            templates
+          </h2>
+          <Link
+            to="/templates"
+            className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            browse all →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {templates.map((t) => (
+            <TemplateCard key={t.id} meta={t} size="compact" />
+          ))}
+        </div>
+      </section>
+
       <Footer />
     </main>
   )

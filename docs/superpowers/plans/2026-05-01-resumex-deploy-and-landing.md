@@ -58,7 +58,7 @@ Each phase produces a working, releasable surface. Phase 2 depends on Phase 1 be
 1. Create a new Cloudflare Pages project:
    - **Project name:** `resumex`
    - **Production branch:** `main`
-   - **Source:** GitHub repo `karngyan/resumex` (push the local repo to GitHub first if not already)
+   - **Source:** GitHub repo `karnstack/resumex` (push the local repo to GitHub first if not already)
 2. Build configuration:
    - **Framework preset:** Vite
    - **Build command:** `pnpm install --frozen-lockfile && pnpm build`
@@ -74,7 +74,7 @@ Each phase produces a working, releasable surface. Phase 2 depends on Phase 1 be
 
 - `curl -fsS https://resumex.pages.dev/preview/minimal-mono` returns 200 with the resume HTML shell.
 - `curl -fsS https://resumex.pages.dev/templates.json` returns the manifest JSON (e.g., `[{"id":"minimal-mono"},{"id":"karnstack-twocol"}]`).
-- Visit `https://resumex.pages.dev/` in a browser — should redirect to GitHub (`/` route's `beforeLoad` calls `window.location.replace('https://github.com/karngyan/resumex')`).
+- Visit `https://resumex.pages.dev/` in a browser — should redirect to GitHub (`/` route's `beforeLoad` calls `window.location.replace('https://github.com/karnstack/resumex')`).
 - Visit `https://resumex.pages.dev/templates` — should error / not navigate (route's `beforeLoad` throws when `isPublic`).
 
 If anything fails: `VITE_RESUMEX_MODE` likely isn't being picked up. Vite reads `VITE_*`-prefixed env vars at build time, so the env var must be set when `pnpm build` runs on Cloudflare's build agent — confirm it's in the project's "Production" env and not just "Preview."
@@ -188,14 +188,14 @@ git commit -m "feat(deploy): cloudflare pages preview-only deploy + frame-ancest
 - Title: `resumex`
 - Tagline: `AI-first resume builder for Claude Code. Local-only. Beautiful templates.`
 - Two CTAs:
-  - Primary: `Clone the repo →` (link to `https://github.com/karngyan/resumex`)
+  - Primary: `Clone the repo →` (link to `https://github.com/karnstack/resumex`)
   - Secondary: `View templates ↓` (anchor link to gallery section)
 
 **HowItWorks** — three numbered steps with code blocks:
 
 ```
 1. Clone
-   git clone https://github.com/karngyan/resumex && cd resumex
+   git clone https://github.com/karnstack/resumex && cd resumex
 
 2. Bootstrap
    claude
@@ -253,7 +253,7 @@ export async function fetchResumexManifest(): Promise<ResumexTemplate[]> {
   - `<iframe src="https://resumex.karnstack.com/preview/<id>" loading="lazy" sandbox="allow-scripts" />`
   - Fixed aspect ratio matching A4 portrait (roughly `1 / 1.414`).
   - Caption with template name (looked up from a small inline name map, or `id` formatted as Title Case as a fallback).
-  - "Use this template →" link to `https://github.com/karngyan/resumex#quickstart`.
+  - "Use this template →" link to `https://github.com/karnstack/resumex#quickstart`.
 - IntersectionObserver to lazy-load iframes as they enter viewport (in addition to the `loading="lazy"` attribute, which not all browsers honor for iframes the same way).
 
 **Sandbox + security:** the iframe loads from `resumex.karnstack.com` which we control. `sandbox="allow-scripts"` is sufficient. No `allow-same-origin` needed — templates don't need parent-frame access.
