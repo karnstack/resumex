@@ -1552,7 +1552,7 @@ git commit -m "feat(templates): _starter template (scaffold source for /new-temp
 
 The ATS-friendly baseline. Single-column, mono font, content flows naturally — no PageFrame, no fit-to-page. If a resume runs long, it spills onto a second printed page (which is correct ATS behavior for long careers).
 
-- [ ] **Step 1: `templates/minimal-mono/meta.ts`**
+- [x] **Step 1: `templates/minimal-mono/meta.ts`**
 
 ```ts
 import type { ResumeTemplateMeta } from '@/lib/template-registry'
@@ -1567,7 +1567,7 @@ export const meta: ResumeTemplateMeta = {
 }
 ```
 
-- [ ] **Step 2: `templates/minimal-mono/styles.css`**
+- [x] **Step 2: `templates/minimal-mono/styles.css`**
 
 ```css
 .resume-minimal-mono {
@@ -1613,7 +1613,7 @@ export const meta: ResumeTemplateMeta = {
 }
 ```
 
-- [ ] **Step 3: `templates/minimal-mono/index.tsx`**
+- [x] **Step 3: `templates/minimal-mono/index.tsx`**
 
 ```tsx
 import './styles.css'
@@ -1699,12 +1699,12 @@ const MinimalMono: ResumeTemplate = ({ resume }) => {
 export default MinimalMono
 ```
 
-- [ ] **Step 4: Verify plugin picks it up**
+- [x] **Step 4: Verify plugin picks it up**
 
 Run: `pnpm dev`
 Open `src/generated/templates.ts` — should now contain the `minimal-mono` import and registry entry. Kill server.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add templates/minimal-mono

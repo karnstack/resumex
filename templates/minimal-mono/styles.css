@@ -1,0 +1,41 @@
+.resume-minimal-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  max-width: 8.5in;
+  margin: 0 auto;
+  padding: 0.55in 0.7in;
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: #111;
+  background: white;
+}
+.resume-minimal-mono .header { display: grid; grid-template-columns: 1fr auto; gap: 1.5em; align-items: end; margin-bottom: 1em; }
+.resume-minimal-mono h1 { font-size: 16pt; margin: 0; letter-spacing: -0.01em; }
+.resume-minimal-mono .title { font-size: 10pt; color: #333; margin-top: 2pt; }
+.resume-minimal-mono .contact { font-size: 8.5pt; color: #333; text-align: right; }
+.resume-minimal-mono .contact div { margin: 0.5pt 0; }
+.resume-minimal-mono .contact a { color: inherit; text-decoration: none; border-bottom: 1px solid #aaa; }
+.resume-minimal-mono section { margin-top: 1em; }
+.resume-minimal-mono h2 {
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5em;
+  padding-bottom: 2pt;
+  border-bottom: 1px solid #111;
+  font-weight: 600;
+}
+.resume-minimal-mono .entry { margin-bottom: 0.7em; }
+.resume-minimal-mono .entry-head { display: flex; justify-content: space-between; gap: 1em; }
+.resume-minimal-mono .entry-title { font-weight: 600; font-size: 10pt; }
+.resume-minimal-mono .entry-subtitle { color: #444; font-weight: 500; }
+.resume-minimal-mono .entry-meta { color: #555; font-size: 8.5pt; white-space: nowrap; }
+.resume-minimal-mono ul { margin: 0.3em 0 0; padding-left: 1.2em; }
+.resume-minimal-mono li { margin: 1pt 0; }
+.resume-minimal-mono .skills-row { font-size: 9pt; }
+.resume-minimal-mono .skills-row strong { font-weight: 600; }
+
+@media print {
+  @page { size: letter; margin: 0.5in; }
+  .resume-minimal-mono { padding: 0; }
+  .resume-minimal-mono .entry { page-break-inside: avoid; break-inside: avoid; }
+}
