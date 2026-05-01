@@ -1,0 +1,334 @@
+/* traditional-tight — denser two-column for experience-heavy candidates.
+   Smaller body (9.5pt), tighter leading (1.45), tighter margins.
+   Class prefix: .trt-. Root: .resume-traditional-tight. */
+
+.resume-traditional-tight {
+  --trt-ink: #111418;
+  --trt-fg: #1c2128;
+  --trt-muted: #565d6a;
+  --trt-faint: #8a91a0;
+  --trt-rule: #1c2128;
+  --trt-hair: #d8dbe1;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--trt-fg);
+  background: white;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-traditional-tight .trt-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+  border-bottom: 1.25px solid var(--trt-rule);
+}
+.resume-traditional-tight .trt-head-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8mm;
+  align-items: end;
+}
+.resume-traditional-tight .trt-name {
+  margin: 0;
+  font-size: 21pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--trt-ink);
+}
+.resume-traditional-tight .trt-title {
+  margin-top: 1.5mm;
+  font-size: 10pt;
+  font-weight: 500;
+  color: var(--trt-muted);
+}
+.resume-traditional-tight .trt-headline {
+  max-width: 75mm;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trt-muted);
+  text-align: right;
+  font-style: italic;
+}
+
+/* BODY GRID ----------------------------------------------------------- */
+
+.resume-traditional-tight .trt-body {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  column-gap: 7mm;
+  align-items: start;
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-traditional-tight .trt-side {
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+  min-width: 0;
+}
+.resume-traditional-tight .trt-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-traditional-tight .trt-side-h {
+  margin: 0 0 1.5mm;
+  padding-bottom: 1mm;
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--trt-ink);
+  border-bottom: 1px solid var(--trt-rule);
+}
+.resume-traditional-tight .trt-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+  font-size: 8.5pt;
+  color: var(--trt-fg);
+  line-height: 1.4;
+}
+.resume-traditional-tight .trt-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--trt-hair);
+}
+.resume-traditional-tight .trt-contact a:hover {
+  border-bottom-color: var(--trt-ink);
+}
+
+.resume-traditional-tight .trt-skill-group {
+  margin-bottom: 1.25mm;
+}
+.resume-traditional-tight .trt-skill-group:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-tight .trt-skill-label {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--trt-muted);
+  margin-bottom: 0.25mm;
+}
+.resume-traditional-tight .trt-skill-body {
+  font-size: 8.75pt;
+  line-height: 1.4;
+  color: var(--trt-fg);
+}
+
+.resume-traditional-tight .trt-side-entry {
+  margin-bottom: 1.5mm;
+}
+.resume-traditional-tight .trt-side-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-tight .trt-side-title {
+  font-size: 9.25pt;
+  font-weight: 600;
+  color: var(--trt-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-tight .trt-side-sub {
+  font-size: 8.25pt;
+  color: var(--trt-muted);
+}
+.resume-traditional-tight .trt-side-meta {
+  font-size: 8pt;
+  color: var(--trt-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-tight .trt-side-prose {
+  margin: 0.5mm 0 0;
+  font-size: 8.5pt;
+  line-height: 1.4;
+  color: var(--trt-fg);
+  text-wrap: pretty;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-traditional-tight .trt-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+.resume-traditional-tight .trt-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.resume-traditional-tight .trt-main-h {
+  margin: 0 0 0.5mm;
+  padding-bottom: 1mm;
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--trt-ink);
+  border-bottom: 1.25px solid var(--trt-rule);
+}
+.resume-traditional-tight .trt-summary {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--trt-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-traditional-tight .trt-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-traditional-tight .trt-entry + .trt-entry {
+  margin-top: 2.75mm;
+}
+.resume-traditional-tight .trt-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-traditional-tight .trt-role {
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--trt-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-tight .trt-company {
+  font-size: 8.75pt;
+  color: var(--trt-muted);
+  margin-top: 0.25mm;
+}
+.resume-traditional-tight .trt-dates {
+  font-size: 8.5pt;
+  color: var(--trt-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-tight .trt-bullets {
+  list-style: none;
+  margin: 0.5mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75mm;
+}
+.resume-traditional-tight .trt-bullets li {
+  position: relative;
+  padding-left: 11px;
+  font-size: 9.25pt;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: var(--trt-fg);
+}
+.resume-traditional-tight .trt-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 999px;
+  background: var(--trt-ink);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-traditional-tight .trt-section,
+  .resume-traditional-tight .trt-side-section,
+  .resume-traditional-tight .trt-entry,
+  .resume-traditional-tight [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support
+   NOTE: traditional-tight is already a tight-density variant in its base form
+   (9.5pt body, 1.45 line-height). The toolbar density selector still produces
+   a visible difference: tight compresses further (9pt, smaller gaps), roomy
+   relaxes back toward a comfortable density (~10.25pt body). */
+.density-tight .resume-traditional-tight {
+  font-size: 9pt;
+  line-height: 1.4;
+  padding: var(--page-pad-top, 10mm) 10mm var(--page-pad-bot, 10mm);
+}
+.density-tight .resume-traditional-tight .trt-head {
+  padding-bottom: 2.5mm;
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-traditional-tight .trt-side {
+  gap: 3mm;
+}
+.density-tight .resume-traditional-tight .trt-main {
+  gap: 3mm;
+}
+.density-tight .resume-traditional-tight .trt-section {
+  gap: 1.5mm;
+}
+.density-tight .resume-traditional-tight .trt-entry + .trt-entry {
+  margin-top: 2mm;
+}
+.density-tight .resume-traditional-tight .trt-bullets {
+  gap: 0.5mm;
+}
+.density-tight .resume-traditional-tight .trt-side-entry {
+  margin-bottom: 1mm;
+}
+.density-tight .resume-traditional-tight .trt-bullets li {
+  font-size: 8.75pt;
+  line-height: 1.4;
+}
+
+.density-roomy .resume-traditional-tight {
+  font-size: 10.25pt;
+  line-height: 1.55;
+  padding: var(--page-pad-top, 15mm) 15mm var(--page-pad-bot, 15mm);
+}
+.density-roomy .resume-traditional-tight .trt-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6.5mm;
+}
+.density-roomy .resume-traditional-tight .trt-side {
+  gap: 6.5mm;
+}
+.density-roomy .resume-traditional-tight .trt-main {
+  gap: 6mm;
+}
+.density-roomy .resume-traditional-tight .trt-section {
+  gap: 3mm;
+}
+.density-roomy .resume-traditional-tight .trt-entry + .trt-entry {
+  margin-top: 4.5mm;
+}
+.density-roomy .resume-traditional-tight .trt-bullets {
+  gap: 1.4mm;
+}
+.density-roomy .resume-traditional-tight .trt-side-entry {
+  margin-bottom: 2.5mm;
+}
+.density-roomy .resume-traditional-tight .trt-bullets li {
+  font-size: 10pt;
+  line-height: 1.55;
+}

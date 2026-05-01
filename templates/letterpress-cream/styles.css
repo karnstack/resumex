@@ -1,0 +1,304 @@
+/* letterpress-cream — letterpress on warm cream paper.
+   Same skeleton as base; chromatic palette, sepia-ink contrast.
+   Class prefix: .lpc-. Root: .resume-letterpress-cream. */
+
+.resume-letterpress-cream {
+  --lpc-paper: #faf6ee;
+  --lpc-paper-shade: #f3edde;
+  --lpc-ink: #2a200f;
+  --lpc-fg: #322712;
+  --lpc-muted: #6e5e3f;
+  --lpc-faint: #b6a37e;
+  --lpc-hair: #d8c9a4;
+  --lpc-rule: #5b4724;
+
+  font-family: 'Caslon', 'Garamond', 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  padding: var(--page-pad-top, 22mm) 24mm var(--page-pad-bot, 22mm);
+  font-size: 10.75pt;
+  line-height: 1.6;
+  color: var(--lpc-fg);
+  background: var(--lpc-paper);
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-letterpress-cream .lpc-head {
+  text-align: center;
+  margin-bottom: 9mm;
+}
+
+.resume-letterpress-cream .lpc-eyebrow {
+  font-size: 8.5pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lpc-muted);
+  font-style: italic;
+  font-variant: small-caps;
+  margin-bottom: 5mm;
+}
+
+.resume-letterpress-cream .lpc-name {
+  font-size: 32pt;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.05;
+  margin: 0 auto 5mm;
+  color: var(--lpc-ink);
+  font-feature-settings: 'kern', 'liga', 'lnum';
+}
+
+.resume-letterpress-cream .lpc-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 5mm;
+  width: 65mm;
+  max-width: 75%;
+}
+.resume-letterpress-cream .lpc-rule span {
+  display: block;
+  flex: 1;
+  height: 0;
+  border-top: 0.75px solid var(--lpc-rule);
+}
+.resume-letterpress-cream .lpc-rule .lpc-rule-dot {
+  flex: 0 0 auto;
+  width: 4px;
+  height: 4px;
+  border: none;
+  border-radius: 50%;
+  background: var(--lpc-rule);
+  opacity: 0.85;
+}
+
+.resume-letterpress-cream .lpc-title {
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--lpc-fg);
+  margin: 0 0 4mm;
+  letter-spacing: 0.01em;
+}
+
+.resume-letterpress-cream .lpc-contact {
+  font-size: 9pt;
+  color: var(--lpc-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+}
+.resume-letterpress-cream .lpc-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--lpc-faint);
+}
+.resume-letterpress-cream .lpc-sep {
+  color: var(--lpc-faint);
+}
+
+/* HAIRLINE ------------------------------------------------------------ */
+
+.resume-letterpress-cream .lpc-hair {
+  border: 0;
+  border-top: 0.5px solid var(--lpc-hair);
+  margin: 6mm 0;
+  width: 100%;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-letterpress-cream .lpc-section {
+  margin: 4mm 0;
+}
+
+.resume-letterpress-cream .lpc-section-label {
+  font-size: 9pt;
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.34em;
+  text-transform: lowercase;
+  color: var(--lpc-ink);
+  text-align: center;
+  margin: 0 0 5mm;
+  font-style: italic;
+}
+
+.resume-letterpress-cream .lpc-lede {
+  margin: 0;
+  font-size: 11.25pt;
+  line-height: 1.7;
+  color: var(--lpc-fg);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
+  text-indent: 4mm;
+  font-feature-settings: 'kern', 'liga';
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-letterpress-cream .lpc-entry {
+  margin: 0 0 5mm;
+}
+.resume-letterpress-cream .lpc-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-letterpress-cream .lpc-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.5mm;
+  flex-wrap: wrap;
+}
+.resume-letterpress-cream .lpc-entry-title {
+  font-size: 11.25pt;
+  font-weight: 500;
+  color: var(--lpc-ink);
+}
+.resume-letterpress-cream .lpc-org {
+  font-style: italic;
+  font-weight: 400;
+}
+.resume-letterpress-cream .lpc-entry-meta {
+  font-size: 9pt;
+  color: var(--lpc-muted);
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.resume-letterpress-cream .lpc-entry-meta em {
+  font-style: italic;
+}
+.resume-letterpress-cream .lpc-entry-meta span:not(:first-child)::before {
+  content: '·';
+  color: var(--lpc-faint);
+  margin-right: 6px;
+}
+
+.resume-letterpress-cream .lpc-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.resume-letterpress-cream .lpc-bullets li {
+  position: relative;
+  padding-left: 5mm;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  margin: 0.7mm 0;
+  text-wrap: pretty;
+  color: var(--lpc-fg);
+}
+.resume-letterpress-cream .lpc-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 1.5mm;
+  top: -0.05em;
+  color: var(--lpc-muted);
+  font-size: 14pt;
+  line-height: 1;
+}
+
+.resume-letterpress-cream .lpc-prose {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--lpc-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-letterpress-cream .lpc-skills {
+  margin: 0;
+}
+.resume-letterpress-cream .lpc-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  align-items: baseline;
+}
+.resume-letterpress-cream .lpc-skill-row + .lpc-skill-row {
+  border-top: 0.5px dotted var(--lpc-hair);
+}
+.resume-letterpress-cream .lpc-skills dt {
+  font-size: 9.25pt;
+  font-style: italic;
+  color: var(--lpc-muted);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.resume-letterpress-cream .lpc-skills dd {
+  margin: 0;
+  font-size: 10.5pt;
+  color: var(--lpc-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-letterpress-cream .lpc-section,
+  .resume-letterpress-cream .lpc-entry,
+  .resume-letterpress-cream [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10.75pt / 1.6 body, lpc-entry margin 5mm, section margin 4mm,
+   lpc-hair margin 6mm. */
+
+.density-tight .resume-letterpress-cream {
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.density-tight .resume-letterpress-cream .lpc-head {
+  margin-bottom: 6.5mm;
+}
+.density-tight .resume-letterpress-cream .lpc-hair {
+  margin: 4.5mm 0;
+}
+.density-tight .resume-letterpress-cream .lpc-section {
+  margin: 3mm 0;
+}
+.density-tight .resume-letterpress-cream .lpc-section-label {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress-cream .lpc-entry {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress-cream .lpc-bullets li {
+  margin: 0.4mm 0;
+}
+
+.density-roomy .resume-letterpress-cream {
+  font-size: 11.25pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-letterpress-cream .lpc-head {
+  margin-bottom: 12mm;
+}
+.density-roomy .resume-letterpress-cream .lpc-hair {
+  margin: 8.5mm 0;
+}
+.density-roomy .resume-letterpress-cream .lpc-section {
+  margin: 6mm 0;
+}
+.density-roomy .resume-letterpress-cream .lpc-section-label {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress-cream .lpc-entry {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress-cream .lpc-bullets li {
+  margin: 1.1mm 0;
+}

@@ -1,0 +1,294 @@
+/* academic-tight — publication-heavy LaTeX CV.
+   Tighter spacing, 9.5pt body, reduced section gaps. Hanging-indent
+   reference list. Same LaTeX-CM feel via fallback serif.
+
+   Class prefix: .act- for stable scoping. Root: .resume-academic-tight. */
+
+.resume-academic-tight {
+  --act-ink: #0f1012;
+  --act-fg: #181a1d;
+  --act-muted: #4a4d52;
+  --act-faint: #8a8d92;
+  --act-rule: #0f1012;
+  --act-hair: #c9ccd1;
+
+  font-family:
+    'Computer Modern', 'CMU Serif', 'Latin Modern Roman', 'EB Garamond', Georgia, 'Times New Roman',
+    serif;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 9.5pt;
+  line-height: 1.36;
+  color: var(--act-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  text-rendering: optimizeLegibility;
+}
+
+.resume-academic-tight a {
+  color: inherit;
+  text-decoration: none;
+}
+.resume-academic-tight a:hover {
+  text-decoration: underline;
+}
+.resume-academic-tight em {
+  font-style: italic;
+}
+.resume-academic-tight strong {
+  font-weight: 700;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-academic-tight .act-head {
+  margin-bottom: 3mm;
+}
+.resume-academic-tight .act-head-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6mm;
+  align-items: end;
+}
+.resume-academic-tight .act-name {
+  margin: 0 0 0.5mm;
+  font-size: 19pt;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.05;
+  color: var(--act-ink);
+}
+.resume-academic-tight .act-affil {
+  font-size: 9.5pt;
+  color: var(--act-fg);
+}
+.resume-academic-tight .act-head-r {
+  font-size: 8.5pt;
+  color: var(--act-muted);
+  text-align: right;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums oldstyle-nums;
+}
+.resume-academic-tight .act-rule {
+  margin-top: 2.5mm;
+  border-top: 0.5px solid var(--act-rule);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-academic-tight .act-section {
+  margin-top: 3mm;
+}
+.resume-academic-tight .act-h2 {
+  margin: 0 0 1.25mm;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--act-ink);
+  border-bottom: 0.5px solid var(--act-ink);
+  padding-bottom: 0.5pt;
+}
+
+.resume-academic-tight .act-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.42;
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-academic-tight .act-entry {
+  margin-top: 1.25mm;
+}
+.resume-academic-tight .act-entry:first-of-type {
+  margin-top: 0;
+}
+.resume-academic-tight .act-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  font-size: 9.5pt;
+}
+.resume-academic-tight .act-entry-head > div:first-child {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.resume-academic-tight .act-date {
+  font-size: 9pt;
+  color: var(--act-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums oldstyle-nums;
+}
+.resume-academic-tight .act-sub {
+  font-size: 9.25pt;
+  color: var(--act-fg);
+  margin-top: 0.25mm;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+/* BULLETS ------------------------------------------------------------- */
+
+.resume-academic-tight .act-bullets {
+  list-style: none;
+  margin: 0.5mm 0 0;
+  padding: 0;
+}
+.resume-academic-tight .act-bullets li {
+  position: relative;
+  padding-left: 1.4em;
+  margin: 0;
+  font-size: 9.25pt;
+  line-height: 1.4;
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+.resume-academic-tight .act-bullets li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0.4em;
+  top: 0;
+  color: var(--act-fg);
+}
+
+/* PUBLICATIONS / REFERENCES ------------------------------------------- */
+
+.resume-academic-tight .act-refs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: ref;
+  font-size: 9.25pt;
+  line-height: 1.4;
+}
+.resume-academic-tight .act-refs li {
+  position: relative;
+  padding-left: 1.6em;
+  text-indent: 0;
+  margin: 0.5mm 0;
+  text-wrap: pretty;
+  hyphens: auto;
+  counter-increment: ref;
+}
+.resume-academic-tight .act-refs li::before {
+  content: '[' counter(ref) ']';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.6em;
+  font-variant-numeric: tabular-nums;
+  color: var(--act-fg);
+}
+
+/* PROJECTS ------------------------------------------------------------ */
+
+.resume-academic-tight .act-proj {
+  margin: 0.5mm 0;
+  font-size: 9.25pt;
+  line-height: 1.4;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.resume-academic-tight .act-proj-url {
+  color: var(--act-muted);
+}
+
+/* AWARDS -------------------------------------------------------------- */
+
+.resume-academic-tight .act-awards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 9.25pt;
+  line-height: 1.4;
+}
+.resume-academic-tight .act-awards li {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+  margin: 0.25mm 0;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-academic-tight .act-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-academic-tight .act-skills > div {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 3mm;
+  font-size: 9.25pt;
+  line-height: 1.4;
+  align-items: baseline;
+}
+.resume-academic-tight .act-skills dt {
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--act-ink);
+}
+.resume-academic-tight .act-skills dd {
+  margin: 0;
+  color: var(--act-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-academic-tight .act-section,
+  .resume-academic-tight .act-entry,
+  .resume-academic-tight [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-academic-tight {
+  font-size: 8.75pt;
+  line-height: 1.3;
+}
+.density-tight .resume-academic-tight .act-head {
+  margin-bottom: 2mm;
+}
+.density-tight .resume-academic-tight .act-section {
+  margin-top: 2mm;
+}
+.density-tight .resume-academic-tight .act-entry {
+  margin-top: 0.85mm;
+}
+.density-tight .resume-academic-tight .act-refs li {
+  margin: 0.3mm 0;
+}
+.density-tight .resume-academic-tight .act-awards li {
+  margin: 0.15mm 0;
+}
+
+.density-roomy .resume-academic-tight {
+  font-size: 10pt;
+  line-height: 1.48;
+}
+.density-roomy .resume-academic-tight .act-head {
+  margin-bottom: 4mm;
+}
+.density-roomy .resume-academic-tight .act-section {
+  margin-top: 4.5mm;
+}
+.density-roomy .resume-academic-tight .act-entry {
+  margin-top: 1.85mm;
+}
+.density-roomy .resume-academic-tight .act-refs li {
+  margin: 0.85mm 0;
+}
+.density-roomy .resume-academic-tight .act-awards li {
+  margin: 0.4mm 0;
+}

@@ -1,0 +1,302 @@
+/* saas-violet - SaaS DNA, violet accent variant.
+   Same skeleton as `saas`; section heads pick up a left-bar indicator and
+   chips lean into the violet tint to feel distinct. */
+
+.resume-saas-violet {
+  --ss-fg: #1c1917;
+  --ss-body: #27272a;
+  --ss-muted: #6b7280;
+  --ss-faint: #a1a1aa;
+  --ss-line: #e7e5e4;
+  --ss-soft: #f5f5f4;
+  --ss-accent: #8b5cf6;
+  --ss-accent-soft: #f3e8ff;
+  --ss-accent-ink: #6d28d9;
+
+  font-family: 'Inter', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 16mm) 18mm var(--page-pad-bot, 16mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ss-body);
+  background: white;
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume-saas-violet .ss-head {
+  margin-bottom: 7mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px solid var(--ss-line);
+}
+.resume-saas-violet .ss-head-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4pt;
+}
+.resume-saas-violet .ss-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ss-accent-ink);
+  background: var(--ss-accent-soft);
+  padding: 2pt 7pt;
+  border-radius: 999px;
+}
+.resume-saas-violet .ss-name {
+  margin: 0 0 2pt;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--ss-fg);
+}
+.resume-saas-violet .ss-title {
+  font-size: 11pt;
+  color: var(--ss-muted);
+  margin-bottom: 4mm;
+  font-weight: 500;
+}
+.resume-saas-violet .ss-contact {
+  font-size: 9pt;
+  color: var(--ss-body);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-saas-violet .ss-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ss-line);
+  padding-bottom: 0.5px;
+  transition: border-color 0.15s;
+}
+.resume-saas-violet .ss-contact a:hover {
+  border-bottom-color: var(--ss-accent);
+}
+.resume-saas-violet .ss-sep {
+  color: var(--ss-faint);
+  margin: 0 8px;
+}
+
+.resume-saas-violet .ss-section {
+  margin-bottom: 5.5mm;
+}
+.resume-saas-violet .ss-section:last-child {
+  margin-bottom: 0;
+}
+/* violet variant: section heading reads as a left-bar indicator instead of
+   the underline ribbon used by the base. Distinct silhouette. */
+.resume-saas-violet .ss-h2 {
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ss-accent-ink);
+  margin: 0 0 3mm;
+  padding-left: 8pt;
+  position: relative;
+}
+.resume-saas-violet .ss-h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1pt;
+  bottom: 1pt;
+  width: 2.5pt;
+  background: var(--ss-accent);
+  border-radius: 2pt;
+}
+
+.resume-saas-violet .ss-summary .ss-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--ss-body);
+  text-wrap: pretty;
+}
+.resume-saas-violet .ss-mark {
+  background: var(--ss-accent-soft);
+  color: var(--ss-accent-ink);
+  padding: 0 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.resume-saas-violet .ss-entry {
+  margin-bottom: 4mm;
+}
+.resume-saas-violet .ss-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-saas-violet .ss-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2pt;
+}
+.resume-saas-violet .ss-entry-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  min-width: 0;
+}
+.resume-saas-violet .ss-role {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ss-fg);
+  letter-spacing: -0.005em;
+}
+.resume-saas-violet .ss-at {
+  font-size: 9pt;
+  color: var(--ss-faint);
+  font-weight: 400;
+}
+.resume-saas-violet .ss-org {
+  font-size: 10pt;
+  color: var(--ss-muted);
+  font-weight: 500;
+}
+.resume-saas-violet .ss-stamp {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--ss-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.resume-saas-violet .ss-bullets {
+  list-style: none;
+  margin: 2pt 0 0;
+  padding: 0;
+}
+.resume-saas-violet .ss-bullets li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  margin: 1.5pt 0;
+  text-wrap: pretty;
+}
+/* violet variant: chevron-style square dot to differentiate from the base round bullet */
+.resume-saas-violet .ss-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  background: var(--ss-accent);
+  transform: rotate(45deg);
+}
+
+.resume-saas-violet .ss-prose {
+  margin: 2pt 0 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ss-body);
+}
+
+.resume-saas-violet .ss-skill-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25mm;
+}
+.resume-saas-violet .ss-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  gap: 4mm;
+  align-items: baseline;
+}
+.resume-saas-violet .ss-skill-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--ss-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+.resume-saas-violet .ss-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.resume-saas-violet .ss-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 8px;
+  border: 1px solid color-mix(in srgb, var(--ss-accent) 28%, transparent);
+  background: color-mix(in srgb, var(--ss-accent-soft) 60%, white);
+  border-radius: 999px;
+  font-size: 8.5pt;
+  line-height: 1;
+  color: var(--ss-accent-ink);
+  font-weight: 500;
+}
+
+@media print {
+  .resume-saas-violet .ss-section,
+  .resume-saas-violet .ss-entry {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10pt / 1.55 body, ss-entry margin 4mm, ss-section margin 5.5mm. */
+
+.density-tight .resume-saas-violet {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-saas-violet .ss-head {
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+}
+.density-tight .resume-saas-violet .ss-section {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-saas-violet .ss-h2 {
+  margin: 0 0 2.2mm;
+}
+.density-tight .resume-saas-violet .ss-entry {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-saas-violet .ss-bullets li {
+  margin: 1pt 0;
+}
+.density-tight .resume-saas-violet .ss-skill-grid {
+  gap: 1.5mm;
+}
+
+.density-roomy .resume-saas-violet {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-saas-violet .ss-head {
+  margin-bottom: 9.5mm;
+  padding-bottom: 7mm;
+}
+.density-roomy .resume-saas-violet .ss-section {
+  margin-bottom: 7.5mm;
+}
+.density-roomy .resume-saas-violet .ss-h2 {
+  margin: 0 0 4.2mm;
+}
+.density-roomy .resume-saas-violet .ss-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-saas-violet .ss-bullets li {
+  margin: 2.5pt 0;
+}
+.density-roomy .resume-saas-violet .ss-skill-grid {
+  gap: 3.2mm;
+}

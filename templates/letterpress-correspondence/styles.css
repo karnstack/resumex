@@ -1,0 +1,351 @@
+/* letterpress-correspondence — letter-aesthetic letterpress.
+   Letterhead with small-caps name and dotted address rules,
+   a dated salutation, and an italic signature flourish at the foot.
+   Class prefix: .lpx-. Root: .resume-letterpress-correspondence. */
+
+.resume-letterpress-correspondence {
+  --lpx-ink: #14110d;
+  --lpx-fg: #1d1a14;
+  --lpx-muted: #6b6457;
+  --lpx-faint: #a39c8d;
+  --lpx-hair: #c9c2b3;
+  --lpx-rule: #1d1a14;
+
+  font-family: 'Caslon', 'Garamond', 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  padding: var(--page-pad-top, 22mm) 26mm var(--page-pad-bot, 22mm);
+  font-size: 10.75pt;
+  line-height: 1.6;
+  color: var(--lpx-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* LETTERHEAD ---------------------------------------------------------- */
+
+.resume-letterpress-correspondence .lpx-letterhead {
+  text-align: center;
+  padding-bottom: 6mm;
+  border-bottom: 0.75px solid var(--lpx-rule);
+  margin-bottom: 6mm;
+}
+
+.resume-letterpress-correspondence .lpx-mark {
+  font-size: 14pt;
+  color: var(--lpx-rule);
+  margin-bottom: 2mm;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  font-style: italic;
+}
+
+.resume-letterpress-correspondence .lpx-name {
+  font-size: 18pt;
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.32em;
+  color: var(--lpx-ink);
+  margin: 0 0 2mm;
+  line-height: 1.1;
+  font-feature-settings: 'kern', 'liga', 'lnum';
+}
+
+.resume-letterpress-correspondence .lpx-tag {
+  font-size: 10pt;
+  font-style: italic;
+  color: var(--lpx-fg);
+  margin: 0 0 5mm;
+  letter-spacing: 0.01em;
+}
+
+.resume-letterpress-correspondence .lpx-address {
+  margin: 0 auto;
+  max-width: 130mm;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-align: left;
+}
+.resume-letterpress-correspondence .lpx-addr-row {
+  display: grid;
+  grid-template-columns: 35mm 1fr;
+  align-items: baseline;
+  column-gap: 6px;
+  padding: 1.2mm 0;
+  border-bottom: 0.5px dotted var(--lpx-hair);
+  font-size: 9pt;
+}
+.resume-letterpress-correspondence .lpx-addr-row:last-child {
+  border-bottom: 0;
+}
+.resume-letterpress-correspondence .lpx-address dt {
+  font-style: italic;
+  color: var(--lpx-muted);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 8.5pt;
+}
+.resume-letterpress-correspondence .lpx-address dd {
+  margin: 0;
+  color: var(--lpx-fg);
+  text-align: right;
+}
+
+/* DATELINE / SALUTATION ----------------------------------------------- */
+
+.resume-letterpress-correspondence .lpx-dateline {
+  font-size: 10pt;
+  color: var(--lpx-fg);
+  text-align: right;
+  margin: 0 0 4mm;
+  font-feature-settings: 'kern', 'liga';
+}
+.resume-letterpress-correspondence .lpx-dateline em {
+  font-style: italic;
+}
+.resume-letterpress-correspondence .lpx-date-sep {
+  color: var(--lpx-faint);
+}
+
+.resume-letterpress-correspondence .lpx-salutation {
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--lpx-ink);
+  margin: 0 0 4mm;
+}
+
+/* HAIRLINE ------------------------------------------------------------ */
+
+.resume-letterpress-correspondence .lpx-hair {
+  border: 0;
+  border-top: 0.5px solid var(--lpx-hair);
+  margin: 6mm 0;
+  width: 100%;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-letterpress-correspondence .lpx-section {
+  margin: 4mm 0;
+}
+
+.resume-letterpress-correspondence .lpx-section-label {
+  font-size: 10pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lpx-ink);
+  text-align: left;
+  margin: 0 0 4mm;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+}
+
+.resume-letterpress-correspondence .lpx-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--lpx-fg);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
+  text-indent: 5mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-letterpress-correspondence .lpx-entry {
+  margin: 0 0 5mm;
+}
+.resume-letterpress-correspondence .lpx-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-letterpress-correspondence .lpx-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.5mm;
+  flex-wrap: wrap;
+}
+.resume-letterpress-correspondence .lpx-entry-title {
+  font-size: 11.25pt;
+  font-weight: 500;
+  color: var(--lpx-ink);
+}
+.resume-letterpress-correspondence .lpx-org {
+  font-style: italic;
+  font-weight: 400;
+}
+.resume-letterpress-correspondence .lpx-entry-meta {
+  font-size: 9pt;
+  color: var(--lpx-muted);
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.resume-letterpress-correspondence .lpx-entry-meta em {
+  font-style: italic;
+}
+.resume-letterpress-correspondence .lpx-entry-meta span:not(:first-child)::before {
+  content: '·';
+  color: var(--lpx-faint);
+  margin-right: 6px;
+}
+
+.resume-letterpress-correspondence .lpx-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.resume-letterpress-correspondence .lpx-bullets li {
+  position: relative;
+  padding-left: 5mm;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  margin: 0.7mm 0;
+  text-wrap: pretty;
+  color: var(--lpx-fg);
+}
+.resume-letterpress-correspondence .lpx-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 1.5mm;
+  top: -0.05em;
+  color: var(--lpx-muted);
+  font-size: 14pt;
+  line-height: 1;
+}
+
+.resume-letterpress-correspondence .lpx-prose {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--lpx-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-letterpress-correspondence .lpx-skills {
+  margin: 0;
+}
+.resume-letterpress-correspondence .lpx-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  align-items: baseline;
+}
+.resume-letterpress-correspondence .lpx-skill-row + .lpx-skill-row {
+  border-top: 0.5px dotted var(--lpx-hair);
+}
+.resume-letterpress-correspondence .lpx-skills dt {
+  font-size: 9.25pt;
+  font-style: italic;
+  color: var(--lpx-muted);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.resume-letterpress-correspondence .lpx-skills dd {
+  margin: 0;
+  font-size: 10.5pt;
+  color: var(--lpx-fg);
+}
+
+/* FOOT / SIGNATURE ---------------------------------------------------- */
+
+.resume-letterpress-correspondence .lpx-foot {
+  margin-top: 8mm;
+  text-align: right;
+  break-inside: avoid;
+}
+.resume-letterpress-correspondence .lpx-valediction {
+  font-size: 10.5pt;
+  font-style: italic;
+  color: var(--lpx-fg);
+  margin-bottom: 2mm;
+}
+.resume-letterpress-correspondence .lpx-signature {
+  font-size: 16pt;
+  font-style: italic;
+  color: var(--lpx-ink);
+  letter-spacing: 0.01em;
+  font-feature-settings: 'kern', 'liga';
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-letterpress-correspondence .lpx-section,
+  .resume-letterpress-correspondence .lpx-entry,
+  .resume-letterpress-correspondence .lpx-foot,
+  .resume-letterpress-correspondence [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10.75pt / 1.6 body, lpx-entry margin 5mm, section margin 4mm,
+   lpx-hair margin 6mm. */
+
+.density-tight .resume-letterpress-correspondence {
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.density-tight .resume-letterpress-correspondence .lpx-letterhead {
+  padding-bottom: 4.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-letterpress-correspondence .lpx-hair {
+  margin: 4.5mm 0;
+}
+.density-tight .resume-letterpress-correspondence .lpx-section {
+  margin: 3mm 0;
+}
+.density-tight .resume-letterpress-correspondence .lpx-section-label {
+  margin: 0 0 2.8mm;
+}
+.density-tight .resume-letterpress-correspondence .lpx-entry {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress-correspondence .lpx-bullets li {
+  margin: 0.4mm 0;
+}
+.density-tight .resume-letterpress-correspondence .lpx-foot {
+  margin-top: 6mm;
+}
+
+.density-roomy .resume-letterpress-correspondence {
+  font-size: 11.25pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-letterhead {
+  padding-bottom: 8mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-hair {
+  margin: 8.5mm 0;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-section {
+  margin: 6mm 0;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-section-label {
+  margin: 0 0 5.5mm;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-entry {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-bullets li {
+  margin: 1.1mm 0;
+}
+.density-roomy .resume-letterpress-correspondence .lpx-foot {
+  margin-top: 11mm;
+}

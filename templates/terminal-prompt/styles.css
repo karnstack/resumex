@@ -1,0 +1,304 @@
+/* terminal-prompt — every line begins with a `>` marker.
+   The whole document reads as a single uninterrupted stream of prompted
+   responses. No prompt-line headers per section; instead, sections get a
+   `> sectionname` label. Slate accent (cool blue-gray) keeps the marker
+   visible without competing with the body.
+
+   Class prefix: .tp- for stable scoping. Root: .resume-terminal-prompt. */
+
+.resume-terminal-prompt {
+  --tp-ink: #0c1422;
+  --tp-fg: #16203a;
+  --tp-muted: #506a8c;
+  --tp-faint: #94a8c4;
+  --tp-rule: #d6dde7;
+  --tp-hair: #e7ecf2;
+  --tp-paper: #ffffff;
+  --tp-accent: #4f46e5; /* indigo-600, marker */
+  --tp-accent-deep: #3730a3; /* indigo-800, section labels */
+  --tp-secondary: #0369a1; /* sky-700, links */
+  --tp-comment: #94a3b8;
+
+  font-family:
+    'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', Menlo, Consolas, ui-monospace, SFMono-Regular,
+    monospace;
+  padding: var(--page-pad-top, 15mm) 16mm var(--page-pad-bot, 15mm);
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--tp-fg);
+  background: var(--tp-paper);
+  font-feature-settings:
+    'kern',
+    'calt' 0,
+    'liga' 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* MARKER -------------------------------------------------------------- */
+
+.resume-terminal-prompt .tp-marker {
+  color: var(--tp-accent);
+  font-weight: 700;
+  user-select: none;
+  flex-shrink: 0;
+  width: 1.25em;
+  display: inline-block;
+}
+.resume-terminal-prompt .tp-marker-section {
+  color: var(--tp-accent-deep);
+}
+.resume-terminal-prompt .tp-marker-lg {
+  font-size: 1.6em;
+  line-height: 1;
+  color: var(--tp-accent);
+  margin-right: 0.2em;
+  align-self: center;
+}
+
+/* LINE PRIMITIVE ------------------------------------------------------ */
+
+.resume-terminal-prompt .tp-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font-size: 9.25pt;
+  line-height: 1.55;
+  margin: 0;
+  padding: 0.25mm 0;
+}
+.resume-terminal-prompt .tp-line-prose {
+  align-items: flex-start;
+}
+.resume-terminal-prompt .tp-line-meta .tp-meta-text {
+  color: var(--tp-muted);
+  font-size: 8.5pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-terminal-prompt .tp-head {
+  margin-bottom: 7mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px solid var(--tp-rule);
+}
+.resume-terminal-prompt .tp-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+  margin: 2mm 0 1mm;
+}
+.resume-terminal-prompt .tp-name {
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--tp-ink);
+  display: inline-flex;
+  align-items: baseline;
+}
+.resume-terminal-prompt .tp-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--tp-accent);
+  margin-left: 4px;
+  transform: translateY(2px);
+  opacity: 0.85;
+}
+.resume-terminal-prompt .tp-title-line {
+  margin-bottom: 3mm;
+}
+.resume-terminal-prompt .tp-title {
+  color: var(--tp-muted);
+  font-size: 9.5pt;
+}
+.resume-terminal-prompt .tp-contact {
+  margin-top: 1mm;
+}
+.resume-terminal-prompt .tp-key {
+  color: var(--tp-accent-deep);
+  font-weight: 600;
+  min-width: 16mm;
+  display: inline-block;
+  font-size: 8.75pt;
+}
+.resume-terminal-prompt .tp-val {
+  color: var(--tp-fg);
+  font-size: 8.75pt;
+}
+.resume-terminal-prompt .tp-link {
+  color: var(--tp-secondary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--tp-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-terminal-prompt .tp-section {
+  margin-top: 5.5mm;
+}
+.resume-terminal-prompt .tp-section:first-of-type {
+  margin-top: 0;
+}
+.resume-terminal-prompt .tp-section-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: lowercase;
+  color: var(--tp-accent-deep);
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--tp-hair);
+  letter-spacing: 0;
+}
+.resume-terminal-prompt .tp-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: var(--tp-fg);
+  text-wrap: pretty;
+  flex: 1;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-terminal-prompt .tp-entry {
+  margin-top: 3mm;
+}
+.resume-terminal-prompt .tp-entry:first-of-type {
+  margin-top: 1mm;
+}
+.resume-terminal-prompt .tp-line-head {
+  flex-wrap: wrap;
+  margin-bottom: 0.5mm;
+  row-gap: 1pt;
+}
+.resume-terminal-prompt .tp-role {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--tp-ink);
+}
+.resume-terminal-prompt .tp-sep {
+  color: var(--tp-faint);
+}
+.resume-terminal-prompt .tp-company {
+  font-size: 9.5pt;
+  color: var(--tp-accent-deep);
+  font-weight: 500;
+}
+.resume-terminal-prompt .tp-meta {
+  margin-left: auto;
+  font-size: 8.5pt;
+  color: var(--tp-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-terminal-prompt .tp-bullet {
+  font-size: 9.25pt;
+  color: var(--tp-fg);
+  text-wrap: pretty;
+  flex: 1;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-terminal-prompt .tp-skill-key {
+  color: var(--tp-accent-deep);
+  font-weight: 600;
+  min-width: 22mm;
+  font-size: 9pt;
+}
+.resume-terminal-prompt .tp-skill-val {
+  font-size: 9pt;
+  color: var(--tp-fg);
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-terminal-prompt .tp-footer {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--tp-hair);
+  font-size: 8pt;
+  display: flex;
+  gap: 0.5em;
+  align-items: baseline;
+}
+.resume-terminal-prompt .tp-comment {
+  color: var(--tp-comment);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-terminal-prompt .tp-section,
+  .resume-terminal-prompt .tp-entry,
+  .resume-terminal-prompt [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .resume-terminal-prompt .tp-cursor {
+    opacity: 0.7;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-terminal-prompt {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal-prompt .tp-section {
+  margin-top: 4mm;
+}
+.density-tight .resume-terminal-prompt .tp-section-label {
+  margin: 0 0 1.5mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-terminal-prompt .tp-entry {
+  margin-top: 2mm;
+}
+.density-tight .resume-terminal-prompt .tp-line {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal-prompt .tp-bullet {
+  font-size: 8.75pt;
+}
+.density-tight .resume-terminal-prompt .tp-head {
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+}
+
+.density-roomy .resume-terminal-prompt {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal-prompt .tp-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-terminal-prompt .tp-section-label {
+  margin: 0 0 3mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-terminal-prompt .tp-entry {
+  margin-top: 4.5mm;
+}
+.density-roomy .resume-terminal-prompt .tp-line {
+  font-size: 9.75pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal-prompt .tp-bullet {
+  font-size: 9.75pt;
+}
+.density-roomy .resume-terminal-prompt .tp-head {
+  margin-bottom: 10mm;
+  padding-bottom: 7mm;
+}

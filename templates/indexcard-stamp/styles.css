@@ -1,0 +1,341 @@
+/* indexcard-stamp — library-stamp aesthetic.
+   Rotated bracketed date-stamp on the header, mini "RECVD" stamps under each entry.
+   Class prefix: .ics- for stable scoping. */
+
+.resume-indexcard-stamp {
+  --ics-ink: #1a1812;
+  --ics-fg: #2a2620;
+  --ics-muted: #6b6557;
+  --ics-faint: #aea797;
+  --ics-rule: #1f1d18;
+  --ics-hair: #d8d2c2;
+  --ics-paper: #fbf6e9;
+  --ics-stamp: #a32820;
+  --ics-stamp-soft: rgba(163, 40, 32, 0.85);
+  --ics-line: rgba(60, 50, 30, 0.05);
+
+  font-family: var(
+    --font-sans,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif
+  );
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ics-fg);
+  background-color: var(--ics-paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 5.4mm,
+    var(--ics-line) 5.4mm,
+    var(--ics-line) calc(5.4mm + 0.5px)
+  );
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'liga';
+}
+
+.resume-indexcard-stamp a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ics-faint);
+}
+
+/* HEADER -------------------------------------------------------------- */
+
+.resume-indexcard-stamp .ics-head {
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 1.5px solid var(--ics-rule);
+}
+.resume-indexcard-stamp .ics-head-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6mm;
+  align-items: center;
+}
+.resume-indexcard-stamp .ics-eyebrow {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7.5pt;
+  letter-spacing: 0.22em;
+  color: var(--ics-muted);
+  text-transform: uppercase;
+  margin-bottom: 3mm;
+}
+.resume-indexcard-stamp .ics-name {
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  color: var(--ics-ink);
+  margin: 0 0 2mm;
+}
+.resume-indexcard-stamp .ics-title {
+  font-size: 10pt;
+  color: var(--ics-fg);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* big rotated stamp */
+.resume-indexcard-stamp .ics-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  color: var(--ics-stamp);
+  border: 2.5px double var(--ics-stamp-soft);
+  padding: 2.5mm 5mm;
+  transform: rotate(-6deg);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-size: 10pt;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0.92;
+  background: rgba(163, 40, 32, 0.04);
+}
+.resume-indexcard-stamp .ics-stamp-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  align-items: center;
+  font-size: 9pt;
+}
+.resume-indexcard-stamp .ics-stamp-mid > span:first-child {
+  font-size: 7.5pt;
+  letter-spacing: 0.24em;
+}
+.resume-indexcard-stamp .ics-stamp-bracket-l,
+.resume-indexcard-stamp .ics-stamp-bracket-r {
+  font-size: 16pt;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.resume-indexcard-stamp .ics-contact {
+  margin: 4mm 0 0;
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8pt;
+  color: var(--ics-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  letter-spacing: 0.04em;
+}
+.resume-indexcard-stamp .ics-contact .ics-sep {
+  color: var(--ics-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-indexcard-stamp .ics-section {
+  margin-top: 5mm;
+  position: relative;
+}
+.resume-indexcard-stamp .ics-section h2 {
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ics-ink);
+  margin: 0 0 3mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--ics-hair);
+}
+
+.resume-indexcard-stamp .ics-lede {
+  margin: 0;
+  font-size: 10.25pt;
+  line-height: 1.6;
+  color: var(--ics-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* mini stamps */
+.resume-indexcard-stamp .ics-mini-stamp {
+  display: inline-block;
+  margin-top: 2.5mm;
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ics-stamp);
+  border: 1.5px solid var(--ics-stamp-soft);
+  padding: 0.8mm 2mm;
+  transform: rotate(-2deg);
+  opacity: 0.85;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-indexcard-stamp .ics-entry + .ics-entry {
+  margin-top: 4mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--ics-hair);
+}
+.resume-indexcard-stamp .ics-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-indexcard-stamp .ics-role {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--ics-ink);
+}
+.resume-indexcard-stamp .ics-org {
+  color: var(--ics-fg);
+  font-weight: 500;
+}
+.resume-indexcard-stamp .ics-date {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: var(--ics-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.resume-indexcard-stamp .ics-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-indexcard-stamp .ics-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--ics-fg);
+}
+.resume-indexcard-stamp .ics-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  top: -1px;
+  font-weight: 700;
+  color: var(--ics-stamp);
+}
+
+.resume-indexcard-stamp .ics-prose {
+  margin: 1.5mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ics-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-indexcard-stamp .ics-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+.resume-indexcard-stamp .ics-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  border-bottom: 1px dotted var(--ics-hair);
+  align-items: baseline;
+}
+.resume-indexcard-stamp .ics-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-indexcard-stamp .ics-skills dt {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7.75pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--ics-muted);
+}
+.resume-indexcard-stamp .ics-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--ics-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-indexcard-stamp .ics-section,
+  .resume-indexcard-stamp .ics-entry,
+  .resume-indexcard-stamp [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-indexcard-stamp {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 11mm) 13mm var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-indexcard-stamp .ics-head {
+  margin-bottom: 3.5mm;
+  padding-bottom: 3mm;
+}
+.density-tight .resume-indexcard-stamp .ics-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-indexcard-stamp .ics-section h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-indexcard-stamp .ics-entry + .ics-entry {
+  margin-top: 3mm;
+  padding-top: 2.2mm;
+}
+.density-tight .resume-indexcard-stamp .ics-bullets {
+  gap: 0.9mm;
+  margin-top: 1mm;
+}
+.density-tight .resume-indexcard-stamp .ics-skill-row {
+  padding: 1mm 0;
+}
+
+.density-roomy .resume-indexcard-stamp {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 18mm) 19mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-indexcard-stamp .ics-head {
+  margin-bottom: 7mm;
+  padding-bottom: 6mm;
+}
+.density-roomy .resume-indexcard-stamp .ics-section {
+  margin-top: 7mm;
+}
+.density-roomy .resume-indexcard-stamp .ics-section h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-indexcard-stamp .ics-entry + .ics-entry {
+  margin-top: 5.5mm;
+  padding-top: 4mm;
+}
+.density-roomy .resume-indexcard-stamp .ics-bullets {
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.density-roomy .resume-indexcard-stamp .ics-skill-row {
+  padding: 2mm 0;
+}

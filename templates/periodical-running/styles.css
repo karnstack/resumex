@@ -1,0 +1,311 @@
+/* periodical-running — running header repeats per section.
+   Signature: each section starts with a thin header band that reads
+   "Avery Park / <Section> / Engineering Quarterly · Vol · Iss / NN".
+   The band gives every section its own chrome.
+
+   Class prefix .pdr- for stable scoping. Root: .resume-periodical-running. */
+
+.resume-periodical-running {
+  --pdr-ink: #14171c;
+  --pdr-fg: #1a1d24;
+  --pdr-muted: #5b6270;
+  --pdr-faint: #98a0ad;
+  --pdr-hair: #d6dae0;
+  --pdr-rule: #14171c;
+  --pdr-band: #14171c;
+  --pdr-band-fg: #f3f1ea;
+  --pdr-accent: #c5773a;
+
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--pdr-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* RUNNING HEAD BAND --------------------------------------------------- */
+
+.resume-periodical-running .pdr-runhead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 6mm;
+  padding: 0 14mm;
+  background: var(--pdr-band);
+  color: var(--pdr-band-fg);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.resume-periodical-running .pdr-runhead-name {
+  font-weight: 700;
+}
+.resume-periodical-running .pdr-runhead-section {
+  color: var(--pdr-accent);
+  font-weight: 700;
+}
+.resume-periodical-running .pdr-runhead-pub {
+  color: #b9b3a3;
+}
+.resume-periodical-running .pdr-runhead-sep {
+  color: #6b6757;
+  letter-spacing: 0;
+}
+.resume-periodical-running .pdr-runhead-spacer {
+  flex: 1;
+}
+.resume-periodical-running .pdr-runhead-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* MASTHEAD ------------------------------------------------------------- */
+
+.resume-periodical-running .pdr-masthead {
+  margin-bottom: 4mm;
+}
+.resume-periodical-running .pdr-masthead-body {
+  padding: 8mm 14mm 6mm;
+  border-bottom: 2px solid var(--pdr-rule);
+}
+.resume-periodical-running .pdr-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pdr-muted);
+  margin-bottom: 3mm;
+}
+.resume-periodical-running .pdr-name {
+  margin: 0;
+  font-size: 32pt;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--pdr-ink);
+}
+.resume-periodical-running .pdr-strap {
+  margin-top: 3mm;
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--pdr-fg);
+  line-height: 1.5;
+  max-width: 150mm;
+}
+.resume-periodical-running .pdr-contact {
+  margin-top: 4mm;
+  font-size: 8.75pt;
+  color: var(--pdr-fg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-running .pdr-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--pdr-hair);
+}
+.resume-periodical-running .pdr-contact span {
+  color: var(--pdr-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------- */
+
+.resume-periodical-running .pdr-section {
+  margin-top: 5mm;
+}
+.resume-periodical-running .pdr-section-body {
+  padding: 4mm 14mm 0;
+}
+
+.resume-periodical-running .pdr-summary {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* ENTRIES -------------------------------------------------------------- */
+
+.resume-periodical-running .pdr-entry + .pdr-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--pdr-hair);
+}
+.resume-periodical-running .pdr-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 0.5mm;
+}
+.resume-periodical-running .pdr-role {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--pdr-ink);
+}
+.resume-periodical-running .pdr-dates {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  color: var(--pdr-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-running .pdr-org-line {
+  font-size: 9pt;
+  color: var(--pdr-muted);
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5mm;
+}
+.resume-periodical-running .pdr-org {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--pdr-fg);
+}
+.resume-periodical-running .pdr-org-line span:not(.pdr-org) {
+  color: var(--pdr-faint);
+}
+.resume-periodical-running .pdr-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-periodical-running .pdr-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.resume-periodical-running .pdr-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 7px;
+  height: 1.5px;
+  background: var(--pdr-accent);
+}
+.resume-periodical-running .pdr-prose {
+  margin: 1mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* SKILLS --------------------------------------------------------------- */
+
+.resume-periodical-running .pdr-skills {
+  margin: 0;
+}
+.resume-periodical-running .pdr-skills > div {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 5mm;
+  padding: 1.25mm 0;
+  border-bottom: 1px dotted var(--pdr-hair);
+  align-items: baseline;
+}
+.resume-periodical-running .pdr-skills > div:last-child {
+  border-bottom: none;
+}
+.resume-periodical-running .pdr-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pdr-muted);
+}
+.resume-periodical-running .pdr-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--pdr-fg);
+}
+
+/* PRINT ---------------------------------------------------------------- */
+
+@media print {
+  .resume-periodical-running .pdr-section,
+  .resume-periodical-running .pdr-entry,
+  .resume-periodical-running [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-periodical-running {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-periodical-running .pdr-masthead {
+  margin-bottom: 3mm;
+}
+.density-tight .resume-periodical-running .pdr-masthead-body {
+  padding: 6mm 11mm 4.5mm;
+}
+.density-tight .resume-periodical-running .pdr-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-periodical-running .pdr-section-body {
+  padding: 3mm 11mm 0;
+}
+.density-tight .resume-periodical-running .pdr-entry + .pdr-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-periodical-running .pdr-bullets {
+  gap: 0.9mm;
+  margin-top: 0.7mm;
+}
+.density-tight .resume-periodical-running .pdr-skills > div {
+  padding: 0.9mm 0;
+}
+
+.density-roomy .resume-periodical-running {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 17mm);
+}
+.density-roomy .resume-periodical-running .pdr-masthead {
+  margin-bottom: 6mm;
+}
+.density-roomy .resume-periodical-running .pdr-masthead-body {
+  padding: 11mm 17mm 8.5mm;
+}
+.density-roomy .resume-periodical-running .pdr-section {
+  margin-top: 7mm;
+}
+.density-roomy .resume-periodical-running .pdr-section-body {
+  padding: 6mm 17mm 0;
+}
+.density-roomy .resume-periodical-running .pdr-entry + .pdr-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-periodical-running .pdr-bullets {
+  gap: 1.8mm;
+  margin-top: 1.8mm;
+}
+.density-roomy .resume-periodical-running .pdr-skills > div {
+  padding: 1.8mm 0;
+}

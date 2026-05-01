@@ -1,0 +1,358 @@
+/* mirror-bold — sidebar-right with a strong dark identity block at the
+   top of the sidebar. Name reversed on graphite. Main column unchanged
+   from the family baseline. */
+
+.resume-mirror-bold {
+  --mb-ink: #0f1115;
+  --mb-fg: #181c23;
+  --mb-muted: #5a6470;
+  --mb-faint: #8a939f;
+  --mb-rule: #1a1d24;
+  --mb-hair: #d8dde2;
+  --mb-block: #14181f;
+  --mb-block-fg: #f4f5f7;
+  --mb-block-muted: #aab1bd;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--mb-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+
+  /* root has no padding — main + side own their own padding so the
+     sidebar's dark block can run flush to the right edge */
+  padding: 0;
+  min-height: 297mm;
+}
+
+/* GRID ---------------------------------------------------------------- */
+
+.resume-mirror-bold .mb-grid {
+  display: grid;
+  grid-template-columns: 1fr 64mm;
+  align-items: start;
+  min-height: 297mm;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-mirror-bold .mb-main {
+  min-width: 0;
+  padding: var(--page-pad-top, 18mm) 12mm var(--page-pad-bot, 16mm) 18mm;
+}
+.resume-mirror-bold .mb-main-head {
+  margin-bottom: 6mm;
+  padding-bottom: 4mm;
+  border-bottom: 1px solid var(--mb-rule);
+}
+.resume-mirror-bold .mb-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--mb-muted);
+  margin-bottom: 2mm;
+}
+.resume-mirror-bold .mb-role {
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--mb-ink);
+  letter-spacing: -0.01em;
+}
+
+.resume-mirror-bold .mb-section + .mb-section {
+  margin-top: 6mm;
+}
+.resume-mirror-bold .mb-section h2 {
+  margin: 0 0 3mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mb-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--mb-rule);
+}
+.resume-mirror-bold .mb-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-mirror-bold .mb-entry + .mb-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--mb-hair);
+}
+.resume-mirror-bold .mb-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-mirror-bold .mb-entry-title {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--mb-ink);
+}
+.resume-mirror-bold .mb-entry-meta {
+  font-size: 8.5pt;
+  color: var(--mb-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-mirror-bold .mb-entry-sub {
+  margin: 1pt 0 2.5mm;
+  font-size: 9.25pt;
+  color: var(--mb-muted);
+}
+.resume-mirror-bold .mb-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4mm;
+}
+.resume-mirror-bold .mb-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--mb-fg);
+  text-wrap: pretty;
+}
+.resume-mirror-bold .mb-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 1.5px;
+  background: var(--mb-ink);
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-mirror-bold .mb-side {
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+.resume-mirror-bold .mb-id {
+  background: var(--mb-block);
+  color: var(--mb-block-fg);
+  padding: var(--page-pad-top, 18mm) 10mm 8mm;
+  margin-bottom: 6mm;
+}
+.resume-mirror-bold .mb-name {
+  margin: 0 0 2mm;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--mb-block-fg);
+  text-wrap: balance;
+}
+.resume-mirror-bold .mb-id-role {
+  font-size: 9.5pt;
+  font-weight: 500;
+  color: var(--mb-block-fg);
+  letter-spacing: 0;
+}
+.resume-mirror-bold .mb-id-team {
+  margin-top: 1mm;
+  font-size: 8.25pt;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mb-block-muted);
+}
+
+.resume-mirror-bold .mb-side-section {
+  padding: 0 10mm;
+  margin-bottom: 6mm;
+}
+.resume-mirror-bold .mb-side-section:last-child {
+  padding-bottom: var(--page-pad-bot, 16mm);
+}
+.resume-mirror-bold .mb-side-section h3 {
+  margin: 0 0 2mm;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mb-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1.5px solid var(--mb-rule);
+}
+.resume-mirror-bold .mb-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8.75pt;
+  line-height: 1.55;
+  color: var(--mb-fg);
+}
+.resume-mirror-bold .mb-contact li {
+  padding: 0.4mm 0;
+  word-break: break-word;
+}
+.resume-mirror-bold .mb-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--mb-hair);
+}
+
+.resume-mirror-bold .mb-skills {
+  margin: 0;
+}
+.resume-mirror-bold .mb-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mb-muted);
+  margin-top: 1mm;
+}
+.resume-mirror-bold .mb-skills dt:first-child {
+  margin-top: 0;
+}
+.resume-mirror-bold .mb-skills dd {
+  margin: 0.5mm 0 0;
+  font-size: 9pt;
+  color: var(--mb-fg);
+}
+
+.resume-mirror-bold .mb-side-entry + .mb-side-entry {
+  margin-top: 2.5mm;
+  padding-top: 2.5mm;
+  border-top: 1px solid var(--mb-hair);
+}
+.resume-mirror-bold .mb-side-title {
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--mb-ink);
+  line-height: 1.3;
+}
+.resume-mirror-bold .mb-side-sub {
+  font-size: 8.75pt;
+  color: var(--mb-fg);
+  line-height: 1.4;
+  margin-top: 0.4mm;
+}
+.resume-mirror-bold .mb-side-meta {
+  font-size: 8.25pt;
+  color: var(--mb-muted);
+  margin-top: 0.5mm;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-mirror-bold .mb-section,
+  .resume-mirror-bold .mb-side-section,
+  .resume-mirror-bold .mb-entry,
+  .resume-mirror-bold [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-mirror-bold {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-mirror-bold .mb-main {
+  padding: var(--page-pad-top, 14mm) 9mm var(--page-pad-bot, 13mm) 14mm;
+}
+.density-tight .resume-mirror-bold .mb-main-head {
+  margin-bottom: 4.5mm;
+  padding-bottom: 3mm;
+}
+.density-tight .resume-mirror-bold .mb-section + .mb-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-mirror-bold .mb-section h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-mirror-bold .mb-entry + .mb-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-mirror-bold .mb-bullets {
+  gap: 1mm;
+}
+.density-tight .resume-mirror-bold .mb-id {
+  padding: var(--page-pad-top, 14mm) 8mm 6mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-mirror-bold .mb-side-section {
+  padding: 0 8mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-mirror-bold .mb-side-section:last-child {
+  padding-bottom: var(--page-pad-bot, 13mm);
+}
+.density-tight .resume-mirror-bold .mb-side-entry + .mb-side-entry {
+  margin-top: 1.8mm;
+  padding-top: 1.8mm;
+}
+
+.density-roomy .resume-mirror-bold {
+  font-size: 10.5pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-mirror-bold .mb-main {
+  padding: var(--page-pad-top, 22mm) 15mm var(--page-pad-bot, 19mm) 22mm;
+}
+.density-roomy .resume-mirror-bold .mb-main-head {
+  margin-bottom: 8mm;
+  padding-bottom: 5.5mm;
+}
+.density-roomy .resume-mirror-bold .mb-section + .mb-section {
+  margin-top: 8.5mm;
+}
+.density-roomy .resume-mirror-bold .mb-section h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-mirror-bold .mb-entry + .mb-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-mirror-bold .mb-bullets {
+  gap: 2mm;
+}
+.density-roomy .resume-mirror-bold .mb-id {
+  padding: var(--page-pad-top, 22mm) 12mm 10mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-mirror-bold .mb-side-section {
+  padding: 0 12mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-mirror-bold .mb-side-section:last-child {
+  padding-bottom: var(--page-pad-bot, 19mm);
+}
+.density-roomy .resume-mirror-bold .mb-side-entry + .mb-side-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}

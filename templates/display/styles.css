@@ -1,0 +1,274 @@
+/* display — heavy display-sans contrast, base.
+   900-weight headline, 300-weight body. Black ink, paper background.
+   Strong vertical contrast: big quiet name, tiny precise meta.
+   Class prefix .dp- for stable scoping. Root: .resume-display. */
+
+.resume-display {
+  --dp-ink: #0a0a0a;
+  --dp-fg: #1a1a1a;
+  --dp-muted: #6a6a6a;
+  --dp-faint: #b5b5b5;
+  --dp-rule: #0a0a0a;
+  --dp-hair: #d8d8d8;
+  --dp-paper: #faf8f3;
+
+  font-family: 'Untitled Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 18mm);
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--dp-fg);
+  background: var(--dp-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-display .dp-head {
+  padding-bottom: 8mm;
+  border-bottom: 2.5px solid var(--dp-rule);
+  margin-bottom: 9mm;
+}
+.resume-display .dp-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 7.5pt;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dp-muted);
+  margin-bottom: 6mm;
+}
+.resume-display .dp-eyebrow-dot {
+  width: 3px;
+  height: 3px;
+  background: var(--dp-faint);
+  border-radius: 50%;
+}
+.resume-display .dp-name {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 56pt;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  margin: 0 0 4mm;
+  color: var(--dp-ink);
+  text-wrap: balance;
+}
+.resume-display .dp-tag {
+  font-size: 12pt;
+  font-weight: 300;
+  color: var(--dp-fg);
+  margin: 0 0 6mm;
+  max-width: 145mm;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+.resume-display .dp-contact {
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: var(--dp-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  letter-spacing: 0.02em;
+}
+.resume-display .dp-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--dp-hair);
+}
+.resume-display .dp-sep {
+  color: var(--dp-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-display .dp-section + .dp-section {
+  margin-top: 8mm;
+}
+.resume-display .dp-h2 {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 9pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dp-ink);
+  margin: 0 0 5mm;
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--dp-rule);
+}
+
+/* LEDE ---------------------------------------------------------------- */
+
+.resume-display .dp-lede {
+  margin: 0;
+  font-size: 11.5pt;
+  font-weight: 300;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: var(--dp-fg);
+  max-width: 150mm;
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-display .dp-entry + .dp-entry {
+  margin-top: 5mm;
+  padding-top: 5mm;
+  border-top: 1px solid var(--dp-hair);
+}
+.resume-display .dp-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-display .dp-role {
+  font-size: 12pt;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--dp-ink);
+  line-height: 1.2;
+}
+.resume-display .dp-dates {
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--dp-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-display .dp-org {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--dp-fg);
+  margin: 1.5pt 0 2.5mm;
+}
+
+.resume-display .dp-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-display .dp-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dp-fg);
+  text-wrap: pretty;
+}
+.resume-display .dp-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--dp-ink);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-display .dp-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.resume-display .dp-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 6mm;
+  padding: 2mm 0;
+  border-bottom: 1px solid var(--dp-hair);
+  align-items: baseline;
+}
+.resume-display .dp-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-display .dp-skills dt {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--dp-ink);
+}
+.resume-display .dp-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  font-weight: 300;
+  color: var(--dp-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-display .dp-section,
+  .resume-display .dp-entry,
+  .resume-display [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 9.75pt / 1.6 body, dp-entry top margin 5mm, section margin 8mm. */
+
+.density-tight .resume-display {
+  font-size: 9pt;
+  line-height: 1.5;
+}
+.density-tight .resume-display .dp-head {
+  padding-bottom: 6mm;
+  margin-bottom: 6.5mm;
+}
+.density-tight .resume-display .dp-section + .dp-section {
+  margin-top: 6mm;
+}
+.density-tight .resume-display .dp-h2 {
+  margin: 0 0 3.5mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-display .dp-entry + .dp-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .resume-display .dp-bullets {
+  gap: 1.1mm;
+}
+
+.density-roomy .resume-display {
+  font-size: 10.25pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-display .dp-head {
+  padding-bottom: 10mm;
+  margin-bottom: 12mm;
+}
+.density-roomy .resume-display .dp-section + .dp-section {
+  margin-top: 11mm;
+}
+.density-roomy .resume-display .dp-h2 {
+  margin: 0 0 7mm;
+  padding-bottom: 3mm;
+}
+.density-roomy .resume-display .dp-entry + .dp-entry {
+  margin-top: 7mm;
+  padding-top: 7mm;
+}
+.density-roomy .resume-display .dp-bullets {
+  gap: 2.1mm;
+}

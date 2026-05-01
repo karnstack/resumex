@@ -1,0 +1,333 @@
+/* terminal — CLI / terminal aesthetic. White paper, cyan syntax accents.
+   Full mono. Prompt-style section headers. Designed to read as a shell
+   session that happens to also be a resume. Light theme on purpose:
+   dark print eats toner and looks bad on the page.
+
+   Class prefix: .tm- for stable scoping. Root: .resume-terminal. */
+
+.resume-terminal {
+  --tm-ink: #0e1116;
+  --tm-fg: #14181f;
+  --tm-muted: #5a6573;
+  --tm-faint: #9aa3ad;
+  --tm-rule: #d6dbe1;
+  --tm-hair: #e9ecf1;
+  --tm-paper: #ffffff;
+  --tm-accent: #0891b2; /* cyan-600 */
+  --tm-accent-soft: #0e7490; /* cyan-700 */
+  --tm-keyword: #2563eb; /* blue-600, "keyword" */
+  --tm-string: #15803d; /* green-700, "string" */
+  --tm-comment: #94a3b8; /* slate-400, "comment" */
+
+  font-family:
+    'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', Menlo, Consolas, ui-monospace, SFMono-Regular,
+    monospace;
+  padding: var(--page-pad-top, 15mm) 16mm var(--page-pad-bot, 15mm);
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--tm-fg);
+  background: var(--tm-paper);
+  font-feature-settings:
+    'kern',
+    'calt' 0,
+    'liga' 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-terminal .tm-head {
+  margin-bottom: 7mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px dashed var(--tm-rule);
+}
+.resume-terminal .tm-prompt-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  font-size: 8.75pt;
+  color: var(--tm-muted);
+  margin-bottom: 4mm;
+  align-items: baseline;
+}
+.resume-terminal .tm-user {
+  color: var(--tm-string);
+  font-weight: 600;
+}
+.resume-terminal .tm-at,
+.resume-terminal .tm-colon {
+  color: var(--tm-faint);
+}
+.resume-terminal .tm-host {
+  color: var(--tm-keyword);
+  font-weight: 600;
+}
+.resume-terminal .tm-path {
+  color: var(--tm-accent);
+}
+.resume-terminal .tm-dollar {
+  color: var(--tm-accent);
+  font-weight: 700;
+}
+.resume-terminal .tm-cmd {
+  color: var(--tm-ink);
+  font-weight: 700;
+}
+.resume-terminal .tm-arg {
+  color: var(--tm-string);
+}
+
+.resume-terminal .tm-name {
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 2mm;
+  color: var(--tm-ink);
+  display: inline-flex;
+  align-items: baseline;
+}
+.resume-terminal .tm-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--tm-accent);
+  margin-left: 4px;
+  transform: translateY(2px);
+  opacity: 0.85;
+}
+.resume-terminal .tm-title {
+  font-size: 9.5pt;
+  color: var(--tm-muted);
+  margin-bottom: 4mm;
+}
+.resume-terminal .tm-title::before {
+  content: '// ';
+  color: var(--tm-comment);
+}
+
+.resume-terminal .tm-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8mm;
+  row-gap: 1.25mm;
+  font-size: 8.5pt;
+}
+.resume-terminal .tm-kv {
+  display: grid;
+  grid-template-columns: 16mm 4mm 1fr;
+  column-gap: 4px;
+  align-items: baseline;
+  min-width: 0;
+}
+.resume-terminal .tm-key {
+  color: var(--tm-accent);
+  font-weight: 600;
+}
+.resume-terminal .tm-eq {
+  color: var(--tm-faint);
+  text-align: center;
+}
+.resume-terminal .tm-val {
+  color: var(--tm-string);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resume-terminal .tm-link {
+  color: var(--tm-string);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--tm-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-terminal .tm-section {
+  margin-top: 5.5mm;
+}
+.resume-terminal .tm-section:first-of-type {
+  margin-top: 0;
+}
+.resume-terminal .tm-prompt {
+  display: flex;
+  gap: 0.4em;
+  font-size: 9.5pt;
+  margin-bottom: 2.5mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--tm-hair);
+  align-items: baseline;
+}
+.resume-terminal .tm-prompt .tm-dollar {
+  color: var(--tm-accent);
+  font-weight: 700;
+}
+.resume-terminal .tm-prompt .tm-cmd {
+  color: var(--tm-keyword);
+  font-weight: 700;
+}
+.resume-terminal .tm-prompt .tm-arg {
+  color: var(--tm-string);
+}
+
+.resume-terminal .tm-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: var(--tm-fg);
+  text-wrap: pretty;
+  max-width: 150mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-terminal .tm-entry {
+  margin-top: 3.5mm;
+}
+.resume-terminal .tm-entry:first-of-type {
+  margin-top: 1.5mm;
+}
+.resume-terminal .tm-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5em;
+  row-gap: 1pt;
+  margin-bottom: 1.5mm;
+}
+.resume-terminal .tm-role {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--tm-ink);
+}
+.resume-terminal .tm-sep {
+  color: var(--tm-faint);
+}
+.resume-terminal .tm-company {
+  font-size: 9.5pt;
+  color: var(--tm-keyword);
+  font-weight: 500;
+}
+.resume-terminal .tm-meta {
+  margin-left: auto;
+  font-size: 8.5pt;
+  color: var(--tm-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-terminal .tm-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-terminal .tm-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.55;
+  color: var(--tm-fg);
+  text-wrap: pretty;
+  padding-left: 0;
+}
+.resume-terminal .tm-glyph {
+  color: var(--tm-comment);
+  margin-right: 0.4em;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-terminal .tm-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  font-size: 9pt;
+}
+.resume-terminal .tm-skill-row {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+}
+.resume-terminal .tm-skills dt {
+  color: var(--tm-accent);
+  font-weight: 600;
+}
+.resume-terminal .tm-skills dd {
+  margin: 0;
+  color: var(--tm-string);
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-terminal .tm-footer {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--tm-hair);
+  font-size: 8pt;
+}
+.resume-terminal .tm-comment {
+  color: var(--tm-comment);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-terminal .tm-section,
+  .resume-terminal .tm-entry,
+  .resume-terminal [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .resume-terminal .tm-cursor {
+    opacity: 0.7;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-terminal {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal .tm-section {
+  margin-top: 4mm;
+}
+.density-tight .resume-terminal .tm-entry {
+  margin-top: 2.5mm;
+}
+.density-tight .resume-terminal .tm-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-terminal .tm-bullets li {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal .tm-head {
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+}
+
+.density-roomy .resume-terminal {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal .tm-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-terminal .tm-entry {
+  margin-top: 5mm;
+}
+.density-roomy .resume-terminal .tm-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-terminal .tm-bullets li {
+  font-size: 9.75pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal .tm-head {
+  margin-bottom: 10mm;
+  padding-bottom: 7mm;
+}

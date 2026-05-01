@@ -1,0 +1,326 @@
+/* traditional-divider — sidebar-left two-column with strong vertical rule
+   between the columns. The 1.75px divider IS the structure.
+   Class prefix: .trd-. Root: .resume-traditional-divider. */
+
+.resume-traditional-divider {
+  --trd-ink: #0f1115;
+  --trd-fg: #181c23;
+  --trd-muted: #555c6a;
+  --trd-faint: #8a91a0;
+  --trd-rule: #0f1115;
+  --trd-hair: #d8dbe1;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: var(--page-pad-top, 15mm) 14mm var(--page-pad-bot, 15mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--trd-fg);
+  background: white;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-traditional-divider .trd-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+  border-bottom: 2px solid var(--trd-rule);
+}
+.resume-traditional-divider .trd-name {
+  margin: 0;
+  font-size: 25pt;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.05;
+  color: var(--trd-ink);
+}
+.resume-traditional-divider .trd-title {
+  margin-top: 2.5mm;
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--trd-muted);
+}
+
+/* BODY GRID with vertical divider ------------------------------------- */
+
+.resume-traditional-divider .trd-body {
+  display: grid;
+  grid-template-columns: 33% 1.75px 1fr;
+  column-gap: 7mm;
+  align-items: stretch;
+  /* the divider is the middle column - a single rule that spans the full
+     content height. Implement as background on a pseudo-element of .trd-body
+     so it auto-stretches to body height. */
+  position: relative;
+}
+.resume-traditional-divider .trd-body::before {
+  content: '';
+  grid-column: 2;
+  grid-row: 1 / -1;
+  justify-self: center;
+  background: var(--trd-rule);
+  width: 1.75px;
+  align-self: stretch;
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-traditional-divider .trd-side {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  min-width: 0;
+  padding-right: 4mm;
+}
+.resume-traditional-divider .trd-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.resume-traditional-divider .trd-side-h {
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--trd-ink);
+  border-bottom: 1px solid var(--trd-rule);
+}
+.resume-traditional-divider .trd-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  font-size: 9pt;
+  color: var(--trd-fg);
+}
+.resume-traditional-divider .trd-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--trd-hair);
+}
+.resume-traditional-divider .trd-contact a:hover {
+  border-bottom-color: var(--trd-ink);
+}
+
+.resume-traditional-divider .trd-skill-group {
+  margin-bottom: 1.75mm;
+}
+.resume-traditional-divider .trd-skill-group:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-divider .trd-skill-label {
+  font-size: 8.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--trd-muted);
+  margin-bottom: 0.5mm;
+}
+.resume-traditional-divider .trd-skill-body {
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trd-fg);
+}
+
+.resume-traditional-divider .trd-side-entry {
+  margin-bottom: 2mm;
+}
+.resume-traditional-divider .trd-side-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-divider .trd-side-title {
+  font-size: 9.75pt;
+  font-weight: 600;
+  color: var(--trd-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-divider .trd-side-sub {
+  font-size: 8.75pt;
+  color: var(--trd-muted);
+  margin-top: 0.5mm;
+}
+.resume-traditional-divider .trd-side-meta {
+  font-size: 8.5pt;
+  color: var(--trd-muted);
+  margin-top: 0.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-divider .trd-side-prose {
+  margin: 1mm 0 0;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trd-fg);
+  text-wrap: pretty;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-traditional-divider .trd-main {
+  grid-column: 3;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+  padding-left: 4mm;
+}
+.resume-traditional-divider .trd-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
+.resume-traditional-divider .trd-main-h {
+  margin: 0 0 1mm;
+  padding-bottom: 1.5mm;
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--trd-ink);
+  border-bottom: 1.5px solid var(--trd-rule);
+}
+.resume-traditional-divider .trd-summary {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--trd-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-traditional-divider .trd-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-traditional-divider .trd-entry + .trd-entry {
+  margin-top: 4mm;
+}
+.resume-traditional-divider .trd-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-traditional-divider .trd-role {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--trd-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-divider .trd-company {
+  font-size: 9.25pt;
+  color: var(--trd-muted);
+  margin-top: 0.5mm;
+}
+.resume-traditional-divider .trd-dates {
+  font-size: 9pt;
+  color: var(--trd-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-divider .trd-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-traditional-divider .trd-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--trd-fg);
+}
+.resume-traditional-divider .trd-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--trd-ink);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-traditional-divider .trd-section,
+  .resume-traditional-divider .trd-side-section,
+  .resume-traditional-divider .trd-entry,
+  .resume-traditional-divider [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-traditional-divider {
+  font-size: 9.25pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+}
+.density-tight .resume-traditional-divider .trd-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-traditional-divider .trd-side {
+  gap: 4.5mm;
+}
+.density-tight .resume-traditional-divider .trd-main {
+  gap: 3.5mm;
+}
+.density-tight .resume-traditional-divider .trd-section {
+  gap: 1.8mm;
+}
+.density-tight .resume-traditional-divider .trd-entry + .trd-entry {
+  margin-top: 2.8mm;
+}
+.density-tight .resume-traditional-divider .trd-bullets {
+  gap: 0.85mm;
+}
+.density-tight .resume-traditional-divider .trd-side-entry {
+  margin-bottom: 1.4mm;
+}
+
+.density-roomy .resume-traditional-divider {
+  font-size: 10.5pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 18mm) 16mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-traditional-divider .trd-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-traditional-divider .trd-side {
+  gap: 8.5mm;
+}
+.density-roomy .resume-traditional-divider .trd-main {
+  gap: 7mm;
+}
+.density-roomy .resume-traditional-divider .trd-section {
+  gap: 3.5mm;
+}
+.density-roomy .resume-traditional-divider .trd-entry + .trd-entry {
+  margin-top: 5.5mm;
+}
+.density-roomy .resume-traditional-divider .trd-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-traditional-divider .trd-side-entry {
+  margin-bottom: 2.8mm;
+}

@@ -1,0 +1,312 @@
+/* saas-banner - SaaS DNA with a colored banner header.
+   45mm-tall indigo banner sits flush to the page edges with name in white;
+   body below is the same body styling as the base saas. The banner is
+   distinct enough silhouette-wise that it reads as its own template at a
+   glance even though shares the SaaS palette+chip system. */
+
+.resume-saas-banner {
+  --ss-fg: #111827;
+  --ss-body: #1f2937;
+  --ss-muted: #6b7280;
+  --ss-faint: #9ca3af;
+  --ss-line: #e5e7eb;
+  --ss-soft: #f3f4f6;
+  --ss-accent: #6366f1;
+  --ss-accent-deep: #4f46e5;
+  --ss-accent-soft: #eef2ff;
+  --ss-accent-ink: #4338ca;
+
+  font-family: 'Inter', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  /* root has zero side padding so the banner can extend edge-to-edge.
+     `--page-pad-top` is consumed by the banner; `--page-pad-bot` by the body. */
+  padding: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ss-body);
+  background: white;
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* banner */
+.resume-saas-banner .ss-banner {
+  background: linear-gradient(135deg, var(--ss-accent) 0%, var(--ss-accent-deep) 100%);
+  color: white;
+  padding: var(--page-pad-top, 14mm) 18mm 11mm;
+  margin-bottom: 9mm;
+}
+.resume-saas-banner .ss-banner-inner {
+  display: flex;
+  flex-direction: column;
+}
+.resume-saas-banner .ss-banner-eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: white;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 2pt 8pt;
+  border-radius: 999px;
+  margin-bottom: 5pt;
+}
+.resume-saas-banner .ss-name {
+  margin: 0 0 2pt;
+  font-size: 30pt;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: white;
+}
+.resume-saas-banner .ss-title {
+  font-size: 11.5pt;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 4mm;
+  font-weight: 500;
+}
+.resume-saas-banner .ss-contact {
+  font-size: 9pt;
+  color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-saas-banner .ss-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 0.5px;
+}
+.resume-saas-banner .ss-sep {
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 8px;
+}
+
+/* body */
+.resume-saas-banner .ss-body {
+  padding: 0 18mm var(--page-pad-bot, 14mm);
+}
+.resume-saas-banner .ss-section {
+  margin-bottom: 5.5mm;
+}
+.resume-saas-banner .ss-section:last-child {
+  margin-bottom: 0;
+}
+.resume-saas-banner .ss-h2 {
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ss-accent-ink);
+  margin: 0 0 3mm;
+  padding-bottom: 2pt;
+  position: relative;
+}
+.resume-saas-banner .ss-h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 18pt;
+  height: 1.5pt;
+  background: var(--ss-accent);
+  border-radius: 1pt;
+}
+
+.resume-saas-banner .ss-summary .ss-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--ss-body);
+  text-wrap: pretty;
+}
+.resume-saas-banner .ss-mark {
+  background: var(--ss-accent-soft);
+  color: var(--ss-accent-ink);
+  padding: 0 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.resume-saas-banner .ss-entry {
+  margin-bottom: 4mm;
+}
+.resume-saas-banner .ss-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-saas-banner .ss-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2pt;
+}
+.resume-saas-banner .ss-entry-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  min-width: 0;
+}
+.resume-saas-banner .ss-role {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ss-fg);
+  letter-spacing: -0.005em;
+}
+.resume-saas-banner .ss-at {
+  font-size: 9pt;
+  color: var(--ss-faint);
+  font-weight: 400;
+}
+.resume-saas-banner .ss-org {
+  font-size: 10pt;
+  color: var(--ss-muted);
+  font-weight: 500;
+}
+.resume-saas-banner .ss-stamp {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--ss-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.resume-saas-banner .ss-bullets {
+  list-style: none;
+  margin: 2pt 0 0;
+  padding: 0;
+}
+.resume-saas-banner .ss-bullets li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  margin: 1.5pt 0;
+  text-wrap: pretty;
+}
+.resume-saas-banner .ss-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ss-accent);
+}
+
+.resume-saas-banner .ss-prose {
+  margin: 2pt 0 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ss-body);
+}
+
+.resume-saas-banner .ss-skill-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25mm;
+}
+.resume-saas-banner .ss-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  gap: 4mm;
+  align-items: baseline;
+}
+.resume-saas-banner .ss-skill-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--ss-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+.resume-saas-banner .ss-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.resume-saas-banner .ss-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 8px;
+  border: 1px solid var(--ss-line);
+  background: white;
+  border-radius: 999px;
+  font-size: 8.5pt;
+  line-height: 1;
+  color: var(--ss-body);
+  font-weight: 500;
+}
+
+@media print {
+  .resume-saas-banner .ss-section,
+  .resume-saas-banner .ss-entry {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10pt / 1.55 body, ss-entry margin 4mm, ss-section margin 5.5mm.
+   Banner + body are discrete regions with their own padding. */
+
+.density-tight .resume-saas-banner {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-saas-banner .ss-banner {
+  padding: var(--page-pad-top, 11mm) 18mm 7.5mm;
+  margin-bottom: 6mm;
+}
+.density-tight .resume-saas-banner .ss-body {
+  padding: 0 18mm var(--page-pad-bot, 10mm);
+}
+.density-tight .resume-saas-banner .ss-section {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-saas-banner .ss-h2 {
+  margin: 0 0 2.2mm;
+}
+.density-tight .resume-saas-banner .ss-entry {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-saas-banner .ss-bullets li {
+  margin: 1pt 0;
+}
+.density-tight .resume-saas-banner .ss-skill-grid {
+  gap: 1.5mm;
+}
+
+.density-roomy .resume-saas-banner {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-saas-banner .ss-banner {
+  padding: var(--page-pad-top, 18mm) 18mm 14mm;
+  margin-bottom: 12mm;
+}
+.density-roomy .resume-saas-banner .ss-body {
+  padding: 0 18mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-saas-banner .ss-section {
+  margin-bottom: 7.5mm;
+}
+.density-roomy .resume-saas-banner .ss-h2 {
+  margin: 0 0 4.2mm;
+}
+.density-roomy .resume-saas-banner .ss-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-saas-banner .ss-bullets li {
+  margin: 2.5pt 0;
+}
+.density-roomy .resume-saas-banner .ss-skill-grid {
+  gap: 3.2mm;
+}

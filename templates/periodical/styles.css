@@ -1,0 +1,406 @@
+/* periodical — contemporary-magazine running header.
+   Signature: a thin running header bar at the very top with name · publication
+   · Vol · Issue · floated date. Body is editorial single-column with a
+   sectioned No. 01 / No. 02 / ... rhythm. Distinct from `magazine` (cover-energy)
+   and `newspaper` (old masthead).
+
+   Class prefix .pd- for stable scoping. Root: .resume-periodical. */
+
+.resume-periodical {
+  --pd-ink: #14171c;
+  --pd-fg: #1d2129;
+  --pd-muted: #5b6270;
+  --pd-faint: #98a0ad;
+  --pd-rule: #1d2129;
+  --pd-hair: #d8dce3;
+  --pd-paper: #fbfaf6;
+  --pd-accent: #2a3a8c;
+
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--pd-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* RUNNING HEADER ------------------------------------------------------- */
+
+.resume-periodical .pd-runner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 7mm;
+  padding: 0 14mm;
+  background: var(--pd-ink);
+  color: #f4f3ee;
+  font-size: 7.75pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.resume-periodical .pd-runner-name {
+  font-weight: 700;
+}
+.resume-periodical .pd-runner-pub,
+.resume-periodical .pd-runner-vol,
+.resume-periodical .pd-runner-iss {
+  color: #cbc7b8;
+}
+.resume-periodical .pd-runner-dot {
+  color: #807c70;
+  letter-spacing: 0;
+}
+.resume-periodical .pd-runner-spacer {
+  flex: 1;
+}
+.resume-periodical .pd-runner-date {
+  font-variant-numeric: tabular-nums;
+  color: #f4f3ee;
+}
+
+/* MASTHEAD ------------------------------------------------------------- */
+
+.resume-periodical .pd-masthead {
+  padding: 10mm 14mm 6mm;
+  border-bottom: 1px solid var(--pd-rule);
+}
+.resume-periodical .pd-masthead-row {
+  display: grid;
+  grid-template-columns: 1fr 56mm;
+  column-gap: 10mm;
+  align-items: end;
+}
+.resume-periodical .pd-eyebrow {
+  font-size: 7.75pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pd-accent);
+  margin-bottom: 3mm;
+}
+.resume-periodical .pd-name {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 30pt;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--pd-ink);
+}
+.resume-periodical .pd-strap {
+  margin-top: 3mm;
+  font-size: 11pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--pd-fg);
+  line-height: 1.45;
+  max-width: 110mm;
+}
+.resume-periodical .pd-masthead-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25pt;
+  font-size: 8.5pt;
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical .pd-meta-row {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+  border-bottom: 1px dotted var(--pd-hair);
+  padding-bottom: 1mm;
+}
+.resume-periodical .pd-meta-row:last-child {
+  border-bottom: none;
+}
+.resume-periodical .pd-meta-key {
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pd-muted);
+}
+.resume-periodical .pd-masthead-right a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0;
+}
+.resume-periodical .pd-masthead-right a:hover {
+  color: var(--pd-accent);
+}
+
+/* SECTIONS ------------------------------------------------------------- */
+
+.resume-periodical .pd-section {
+  padding: 6mm 14mm 0;
+}
+.resume-periodical .pd-section + .pd-section {
+  padding-top: 5mm;
+}
+.resume-periodical .pd-section-mark {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--pd-muted);
+  padding-bottom: 2mm;
+  margin-bottom: 4mm;
+  border-bottom: 1px solid var(--pd-hair);
+}
+
+.resume-periodical .pd-summary {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--pd-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+.resume-periodical .pd-dropcap {
+  float: left;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 0.9;
+  padding: 1mm 2mm 0 0;
+  color: var(--pd-ink);
+}
+
+/* ENTRIES -------------------------------------------------------------- */
+
+.resume-periodical .pd-entry + .pd-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--pd-hair);
+}
+.resume-periodical .pd-entry-head {
+  margin-bottom: 1.5mm;
+}
+.resume-periodical .pd-entry-role {
+  margin: 0;
+  font-size: 11.25pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--pd-ink);
+  line-height: 1.2;
+}
+.resume-periodical .pd-entry-meta {
+  margin-top: 0.5mm;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 9pt;
+  color: var(--pd-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical .pd-entry-meta .pd-org {
+  font-weight: 600;
+  font-style: italic;
+  color: var(--pd-fg);
+}
+.resume-periodical .pd-sep {
+  color: var(--pd-faint);
+}
+.resume-periodical .pd-bullets {
+  list-style: none;
+  margin: 2mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-periodical .pd-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.resume-periodical .pd-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--pd-accent);
+}
+.resume-periodical .pd-prose {
+  margin: 1mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* TWO-COLUMN BLOCK ----------------------------------------------------- */
+
+.resume-periodical .pd-twocol-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+.resume-periodical .pd-col {
+  min-width: 0;
+}
+.resume-periodical .pd-subhead {
+  margin: 0 0 2mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--pd-fg);
+}
+.resume-periodical .pd-entry-compact + .pd-entry-compact {
+  margin-top: 3mm;
+  padding-top: 3mm;
+  border-top: 1px dotted var(--pd-hair);
+}
+.resume-periodical .pd-entry-role-sm {
+  margin: 0;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--pd-ink);
+}
+.resume-periodical .pd-entry-meta-sm {
+  font-size: 8.5pt;
+  color: var(--pd-muted);
+  margin-top: 0.5mm;
+  font-variant-numeric: tabular-nums;
+}
+
+/* SKILLS --------------------------------------------------------------- */
+
+.resume-periodical .pd-skills {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.resume-periodical .pd-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px dotted var(--pd-hair);
+}
+.resume-periodical .pd-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-periodical .pd-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pd-muted);
+  align-self: center;
+}
+.resume-periodical .pd-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--pd-fg);
+}
+
+/* COLOPHON ------------------------------------------------------------- */
+
+.resume-periodical .pd-colophon {
+  margin: 8mm 14mm 0;
+  padding-top: 3mm;
+  border-top: 1px solid var(--pd-rule);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--pd-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* PRINT ---------------------------------------------------------------- */
+
+@media print {
+  .resume-periodical .pd-section,
+  .resume-periodical .pd-entry,
+  .resume-periodical [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-periodical {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-periodical .pd-masthead {
+  padding: 7mm 11mm 4.5mm;
+}
+.density-tight .resume-periodical .pd-section {
+  padding: 4.5mm 11mm 0;
+}
+.density-tight .resume-periodical .pd-section + .pd-section {
+  padding-top: 3.5mm;
+}
+.density-tight .resume-periodical .pd-section-mark {
+  padding-bottom: 1.4mm;
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-periodical .pd-entry + .pd-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-periodical .pd-bullets {
+  gap: 0.9mm;
+  margin-top: 1.5mm;
+}
+.density-tight .resume-periodical .pd-skill-row {
+  padding: 1mm 0;
+}
+.density-tight .resume-periodical .pd-colophon {
+  margin: 6mm 11mm 0;
+  padding-top: 2mm;
+}
+
+.density-roomy .resume-periodical {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 17mm);
+}
+.density-roomy .resume-periodical .pd-masthead {
+  padding: 13mm 17mm 8mm;
+}
+.density-roomy .resume-periodical .pd-section {
+  padding: 8.5mm 17mm 0;
+}
+.density-roomy .resume-periodical .pd-section + .pd-section {
+  padding-top: 7mm;
+}
+.density-roomy .resume-periodical .pd-section-mark {
+  padding-bottom: 2.8mm;
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-periodical .pd-entry + .pd-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-periodical .pd-bullets {
+  gap: 1.8mm;
+  margin-top: 3mm;
+}
+.density-roomy .resume-periodical .pd-skill-row {
+  padding: 2.2mm 0;
+}
+.density-roomy .resume-periodical .pd-colophon {
+  margin: 11mm 17mm 0;
+  padding-top: 4mm;
+}

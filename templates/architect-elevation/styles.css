@@ -1,0 +1,329 @@
+/* architect-elevation — vertical timeline on the left with year ticks
+   (level markers like an elevation drawing). Main body to the right.
+   Mono level labels.
+   Class prefix: .el- for stable scoping. Root: .resume-architect-elevation. */
+
+.resume-architect-elevation {
+  --el-ink: #0f1115;
+  --el-fg: #1a1d22;
+  --el-muted: #5d6470;
+  --el-faint: #9aa1ac;
+  --el-rule: #1a1d22;
+  --el-hair: #c8ccd2;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--el-fg);
+  background: white;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-architect-elevation .el-head {
+  padding-bottom: 5mm;
+  margin-bottom: 5mm;
+  border-bottom: 0.7pt solid var(--el-rule);
+}
+.resume-architect-elevation .el-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--el-muted);
+  margin-bottom: 3mm;
+}
+.resume-architect-elevation .el-head-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 6mm;
+}
+.resume-architect-elevation .el-name {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1;
+  color: var(--el-ink);
+}
+.resume-architect-elevation .el-title {
+  margin-top: 2mm;
+  font-size: 9.75pt;
+  color: var(--el-fg);
+  letter-spacing: 0.01em;
+}
+.resume-architect-elevation .el-head-contact {
+  display: grid;
+  row-gap: 1pt;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  color: var(--el-fg);
+}
+.resume-architect-elevation .el-kv {
+  display: grid;
+  grid-template-columns: 8mm 1fr;
+  column-gap: 4px;
+  align-items: baseline;
+}
+.resume-architect-elevation .el-k {
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--el-muted);
+}
+.resume-architect-elevation .el-head-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.4pt solid var(--el-hair);
+}
+
+/* BLOCK = axis + body ------------------------------------------------- */
+
+.resume-architect-elevation .el-block {
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  column-gap: 6mm;
+  margin-bottom: 5mm;
+}
+
+/* AXIS (left rail) ---------------------------------------------------- */
+
+.resume-architect-elevation .el-axis {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2mm;
+  position: relative;
+}
+.resume-architect-elevation .el-axis-cap {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--el-ink);
+  text-align: right;
+  padding-right: 4mm;
+  padding-top: 1mm;
+  border-bottom: 0.5pt solid var(--el-rule);
+  padding-bottom: 1.5mm;
+}
+.resume-architect-elevation .el-axis-line {
+  flex: 1;
+  border-right: 0.5pt solid var(--el-rule);
+  margin-right: -0.25pt;
+}
+
+/* BODY (right) -------------------------------------------------------- */
+
+.resume-architect-elevation .el-block-body {
+  min-width: 0;
+}
+.resume-architect-elevation .el-cap {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--el-ink);
+  margin-bottom: 2mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 0.5pt solid var(--el-rule);
+}
+.resume-architect-elevation .el-lede {
+  margin: 1mm 0 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--el-fg);
+  text-wrap: pretty;
+  max-width: 155mm;
+}
+
+/* STACK + ROW (each row owns its own tick on the left) ---------------- */
+
+.resume-architect-elevation .el-stack {
+  display: flex;
+  flex-direction: column;
+}
+.resume-architect-elevation .el-row {
+  display: grid;
+  grid-template-columns: 14mm 1fr;
+  column-gap: 4mm;
+  padding: 3mm 0;
+  border-top: 0.3pt solid var(--el-hair);
+  align-items: start;
+}
+.resume-architect-elevation .el-row:first-child {
+  border-top: none;
+  padding-top: 1mm;
+}
+.resume-architect-elevation .el-tick {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  padding-top: 2pt;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--el-ink);
+  font-variant-numeric: tabular-nums;
+  position: relative;
+}
+.resume-architect-elevation .el-year {
+  white-space: nowrap;
+}
+.resume-architect-elevation .el-tick-dot {
+  width: 5mm;
+  height: 0.7pt;
+  background: var(--el-rule);
+  flex-shrink: 0;
+}
+
+/* ENTRY --------------------------------------------------------------- */
+
+.resume-architect-elevation .el-entry {
+  min-width: 0;
+}
+.resume-architect-elevation .el-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-architect-elevation .el-entry-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--el-ink);
+}
+.resume-architect-elevation .el-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--el-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-architect-elevation .el-entry-sub {
+  margin: 1pt 0 2.5mm;
+  font-size: 9pt;
+  color: var(--el-fg);
+}
+.resume-architect-elevation .el-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-architect-elevation .el-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--el-fg);
+}
+.resume-architect-elevation .el-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 0.5pt;
+  background: var(--el-rule);
+}
+.resume-architect-elevation .el-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--el-fg);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-architect-elevation .el-skills {
+  margin: 0;
+}
+.resume-architect-elevation .el-skill-row {
+  display: grid;
+  grid-template-columns: 14mm 1fr;
+  column-gap: 5mm;
+  padding: 1.6mm 0;
+  border-top: 0.3pt solid var(--el-hair);
+  align-items: baseline;
+}
+.resume-architect-elevation .el-skill-row:first-child {
+  border-top: none;
+}
+.resume-architect-elevation .el-skills dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--el-muted);
+}
+.resume-architect-elevation .el-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--el-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-architect-elevation .el-block,
+  .resume-architect-elevation .el-row,
+  .resume-architect-elevation [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-architect-elevation {
+  font-size: 9pt;
+  line-height: 1.42;
+}
+.density-tight .resume-architect-elevation .el-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-architect-elevation .el-block {
+  margin-bottom: 3.5mm;
+  column-gap: 4.5mm;
+}
+.density-tight .resume-architect-elevation .el-row {
+  padding: 2mm 0;
+}
+.density-tight .resume-architect-elevation .el-bullets {
+  gap: 0.9mm;
+}
+.density-tight .resume-architect-elevation .el-skill-row {
+  padding: 1.1mm 0;
+}
+
+.density-roomy .resume-architect-elevation {
+  font-size: 10.25pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-architect-elevation .el-head {
+  padding-bottom: 6.5mm;
+  margin-bottom: 6.5mm;
+}
+.density-roomy .resume-architect-elevation .el-block {
+  margin-bottom: 7mm;
+  column-gap: 8mm;
+}
+.density-roomy .resume-architect-elevation .el-row {
+  padding: 4.5mm 0;
+}
+.density-roomy .resume-architect-elevation .el-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-architect-elevation .el-skill-row {
+  padding: 2.2mm 0;
+}

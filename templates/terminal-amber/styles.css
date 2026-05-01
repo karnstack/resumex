@@ -1,0 +1,345 @@
+/* terminal-amber — CRT amber feel. Warm orange syntax accents on white.
+   `>>` prompt prefix gives a more "machine output" rhythm than the
+   interactive shell of the base terminal. Bracketed timestamps, all-caps
+   field labels — feels like reading a system log.
+
+   Class prefix: .ta- for stable scoping. Root: .resume-terminal-amber. */
+
+.resume-terminal-amber {
+  --ta-ink: #1a1108;
+  --ta-fg: #1f1610;
+  --ta-muted: #6b5742;
+  --ta-faint: #b39a82;
+  --ta-rule: #e6dccf;
+  --ta-hair: #efe7dc;
+  --ta-paper: #ffffff;
+  --ta-accent: #d97706; /* amber-600 */
+  --ta-accent-deep: #b45309; /* amber-700 */
+  --ta-accent-bg: #fff7ed; /* amber-50 */
+  --ta-secondary: #92400e; /* amber-800, for company names */
+  --ta-comment: #a8a29e; /* warm gray */
+
+  font-family:
+    'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', Menlo, Consolas, ui-monospace, SFMono-Regular,
+    monospace;
+  padding: var(--page-pad-top, 15mm) 16mm var(--page-pad-bot, 15mm);
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--ta-fg);
+  background: var(--ta-paper);
+  font-feature-settings:
+    'kern',
+    'calt' 0,
+    'liga' 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-terminal-amber .ta-head {
+  margin-bottom: 7mm;
+  padding-bottom: 5mm;
+  border-bottom: 2px solid var(--ta-accent);
+}
+.resume-terminal-amber .ta-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--ta-accent-bg);
+  border: 1px solid var(--ta-accent);
+  color: var(--ta-accent-deep);
+  padding: 1mm 2.5mm;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 4mm;
+}
+.resume-terminal-amber .ta-banner-glyph {
+  color: var(--ta-accent);
+}
+.resume-terminal-amber .ta-prompt-line {
+  display: flex;
+  gap: 0.4em;
+  font-size: 9pt;
+  margin-bottom: 3mm;
+  align-items: baseline;
+}
+.resume-terminal-amber .ta-prefix {
+  color: var(--ta-accent);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.resume-terminal-amber .ta-prompt-line .ta-cmd {
+  color: var(--ta-accent-deep);
+  font-weight: 700;
+}
+.resume-terminal-amber .ta-prompt-line .ta-arg {
+  color: var(--ta-secondary);
+}
+
+.resume-terminal-amber .ta-name {
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 2mm;
+  color: var(--ta-ink);
+  display: inline-flex;
+  align-items: baseline;
+  text-transform: uppercase;
+}
+.resume-terminal-amber .ta-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--ta-accent);
+  margin-left: 4px;
+  transform: translateY(2px);
+  opacity: 0.9;
+}
+.resume-terminal-amber .ta-title {
+  font-size: 9.5pt;
+  color: var(--ta-muted);
+  margin-bottom: 5mm;
+}
+.resume-terminal-amber .ta-title::before {
+  content: '// ';
+  color: var(--ta-comment);
+}
+
+.resume-terminal-amber .ta-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8mm;
+  row-gap: 1.25mm;
+  font-size: 8.5pt;
+}
+.resume-terminal-amber .ta-kv {
+  display: grid;
+  grid-template-columns: 14mm 4mm 1fr;
+  column-gap: 4px;
+  align-items: baseline;
+  min-width: 0;
+}
+.resume-terminal-amber .ta-key {
+  color: var(--ta-accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.resume-terminal-amber .ta-arrow {
+  color: var(--ta-faint);
+}
+.resume-terminal-amber .ta-val {
+  color: var(--ta-fg);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resume-terminal-amber .ta-link {
+  color: var(--ta-secondary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ta-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-terminal-amber .ta-section {
+  margin-top: 5.5mm;
+}
+.resume-terminal-amber .ta-section:first-of-type {
+  margin-top: 0;
+}
+.resume-terminal-amber .ta-prompt {
+  display: flex;
+  gap: 0.4em;
+  font-size: 9.5pt;
+  margin-bottom: 2.5mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px dashed var(--ta-rule);
+  align-items: baseline;
+}
+.resume-terminal-amber .ta-prompt .ta-prefix {
+  color: var(--ta-accent);
+  font-weight: 700;
+}
+.resume-terminal-amber .ta-prompt .ta-cmd {
+  color: var(--ta-accent-deep);
+  font-weight: 700;
+}
+.resume-terminal-amber .ta-prompt .ta-arg {
+  color: var(--ta-secondary);
+}
+
+.resume-terminal-amber .ta-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: var(--ta-fg);
+  text-wrap: pretty;
+  max-width: 150mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-terminal-amber .ta-entry {
+  margin-top: 3.5mm;
+}
+.resume-terminal-amber .ta-entry:first-of-type {
+  margin-top: 1.5mm;
+}
+.resume-terminal-amber .ta-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5em;
+  row-gap: 1pt;
+  margin-bottom: 1.5mm;
+}
+.resume-terminal-amber .ta-role {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--ta-ink);
+}
+.resume-terminal-amber .ta-sep {
+  color: var(--ta-faint);
+}
+.resume-terminal-amber .ta-company {
+  font-size: 9.5pt;
+  color: var(--ta-secondary);
+  font-weight: 500;
+}
+.resume-terminal-amber .ta-meta {
+  margin-left: auto;
+  font-size: 8.25pt;
+  color: var(--ta-accent-deep);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.resume-terminal-amber .ta-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-terminal-amber .ta-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.55;
+  color: var(--ta-fg);
+  text-wrap: pretty;
+}
+.resume-terminal-amber .ta-glyph {
+  color: var(--ta-accent);
+  margin-right: 0.4em;
+  font-weight: 700;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-terminal-amber .ta-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  font-size: 9pt;
+}
+.resume-terminal-amber .ta-skill-row {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+  padding: 1mm 0;
+  border-bottom: 1px dotted var(--ta-hair);
+}
+.resume-terminal-amber .ta-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-terminal-amber .ta-skills dt {
+  color: var(--ta-accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 8.25pt;
+}
+.resume-terminal-amber .ta-skills dd {
+  margin: 0;
+  color: var(--ta-fg);
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-terminal-amber .ta-footer {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--ta-hair);
+  font-size: 8pt;
+  display: flex;
+  gap: 0.4em;
+  align-items: baseline;
+}
+.resume-terminal-amber .ta-comment {
+  color: var(--ta-comment);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-terminal-amber .ta-section,
+  .resume-terminal-amber .ta-entry,
+  .resume-terminal-amber [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .resume-terminal-amber .ta-cursor {
+    opacity: 0.7;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-terminal-amber {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal-amber .ta-section {
+  margin-top: 4mm;
+}
+.density-tight .resume-terminal-amber .ta-entry {
+  margin-top: 2.5mm;
+}
+.density-tight .resume-terminal-amber .ta-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-terminal-amber .ta-bullets li {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal-amber .ta-head {
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+}
+
+.density-roomy .resume-terminal-amber {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal-amber .ta-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-terminal-amber .ta-entry {
+  margin-top: 5mm;
+}
+.density-roomy .resume-terminal-amber .ta-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-terminal-amber .ta-bullets li {
+  font-size: 9.75pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal-amber .ta-head {
+  margin-bottom: 10mm;
+  padding-bottom: 7mm;
+}

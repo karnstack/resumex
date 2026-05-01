@@ -1,0 +1,350 @@
+/* swiss-rose — Swiss / International Style with rose accent.
+   Same disciplined skeleton as `swiss`, with a warmer-neutral palette and
+   an editorial rose color block (not pink-y). Slight structural tweaks at
+   the masthead to differentiate from the cobalt sibling.
+
+   Class prefix: .swr- for stable scoping. Root: .resume-swiss-rose. */
+
+.resume-swiss-rose {
+  --swr-ink: #14110f;
+  --swr-fg: #1c1815;
+  --swr-muted: #6c5e55;
+  --swr-faint: #a99a8e;
+  --swr-rule: #1a1714;
+  --swr-hair: #e2dad2;
+  --swr-paper: #faf6f1;
+  --swr-accent: #b03a52;
+  --swr-accent-soft: #f3dfe1;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 18mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--swr-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-swiss-rose .swr-head {
+  margin-bottom: 8mm;
+}
+.resume-swiss-rose .swr-head-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1.5px solid var(--swr-rule);
+  border-bottom: 1px solid var(--swr-hair);
+  padding: 2.5mm 0;
+  margin-bottom: 7mm;
+}
+.resume-swiss-rose .swr-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--swr-muted);
+}
+.resume-swiss-rose .swr-eyebrow-block {
+  width: 14px;
+  height: 4px;
+  background: var(--swr-accent);
+  display: inline-block;
+}
+.resume-swiss-rose .swr-id {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--swr-muted);
+}
+
+.resume-swiss-rose .swr-head-grid {
+  display: grid;
+  grid-template-columns: 6mm 1fr auto;
+  column-gap: 8mm;
+  align-items: end;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px solid var(--swr-rule);
+}
+.resume-swiss-rose .swr-rail {
+  align-self: stretch;
+  background: var(--swr-accent);
+  width: 4mm;
+  min-height: 32mm;
+  position: relative;
+}
+.resume-swiss-rose .swr-rail::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10mm;
+  width: 4mm;
+  height: 4mm;
+  background: var(--swr-accent);
+  opacity: 0.35;
+}
+.resume-swiss-rose .swr-head-body {
+  min-width: 0;
+}
+.resume-swiss-rose .swr-name {
+  font-size: 32pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+  margin: 0 0 3mm;
+  color: var(--swr-ink);
+}
+.resume-swiss-rose .swr-title {
+  font-size: 10.5pt;
+  font-weight: 500;
+  color: var(--swr-fg);
+  margin: 0;
+}
+
+.resume-swiss-rose .swr-contact {
+  display: grid;
+  row-gap: 1.5pt;
+  font-size: 8.5pt;
+  color: var(--swr-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss-rose .swr-contact-row {
+  display: grid;
+  grid-template-columns: 14pt 1fr;
+  column-gap: 4px;
+  align-items: baseline;
+}
+.resume-swiss-rose .swr-key {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--swr-accent);
+}
+.resume-swiss-rose .swr-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--swr-hair);
+}
+.resume-swiss-rose .swr-contact a:hover {
+  color: var(--swr-accent);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-swiss-rose .swr-section {
+  display: grid;
+  grid-template-columns: 38mm 1fr;
+  column-gap: 10mm;
+  padding: 6mm 0;
+  border-top: 1px solid var(--swr-hair);
+}
+.resume-swiss-rose .swr-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.resume-swiss-rose .swr-section-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--swr-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  padding-top: 1pt;
+}
+.resume-swiss-rose .swr-num {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--swr-accent);
+}
+
+.resume-swiss-rose .swr-section-body {
+  min-width: 0;
+}
+
+.resume-swiss-rose .swr-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--swr-fg);
+  text-wrap: pretty;
+  max-width: 145mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-swiss-rose .swr-entry + .swr-entry {
+  margin-top: 5mm;
+  padding-top: 5mm;
+  border-top: 1px solid var(--swr-hair);
+}
+.resume-swiss-rose .swr-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-swiss-rose .swr-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--swr-ink);
+}
+.resume-swiss-rose .swr-entry-meta {
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--swr-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss-rose .swr-entry-sub {
+  margin: 1.5pt 0 2.5mm;
+  font-size: 9pt;
+  color: var(--swr-fg);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.resume-swiss-rose .swr-entry-sub .swr-dot {
+  color: var(--swr-faint);
+}
+
+.resume-swiss-rose .swr-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-swiss-rose .swr-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--swr-fg);
+}
+.resume-swiss-rose .swr-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  background: var(--swr-accent);
+}
+
+.resume-swiss-rose .swr-prose {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--swr-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-swiss-rose .swr-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-swiss-rose .swr-skill-row {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px dotted var(--swr-hair);
+  align-items: baseline;
+}
+.resume-swiss-rose .swr-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-swiss-rose .swr-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--swr-muted);
+}
+.resume-swiss-rose .swr-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--swr-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-swiss-rose .swr-section,
+  .resume-swiss-rose .swr-entry,
+  .resume-swiss-rose [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-swiss-rose {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-swiss-rose .swr-section {
+  padding: 4.5mm 0;
+}
+.density-tight .resume-swiss-rose .swr-entry + .swr-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .resume-swiss-rose .swr-bullets {
+  gap: 1mm;
+}
+.density-tight .resume-swiss-rose .swr-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-swiss-rose .swr-head {
+  margin-bottom: 6mm;
+}
+.density-tight .resume-swiss-rose .swr-head-grid {
+  padding-bottom: 4.5mm;
+}
+
+.density-roomy .resume-swiss-rose {
+  font-size: 10.5pt;
+  line-height: 1.62;
+}
+.density-roomy .resume-swiss-rose .swr-section {
+  padding: 8mm 0;
+}
+.density-roomy .resume-swiss-rose .swr-entry + .swr-entry {
+  margin-top: 7mm;
+  padding-top: 7mm;
+}
+.density-roomy .resume-swiss-rose .swr-bullets {
+  gap: 2.2mm;
+}
+.density-roomy .resume-swiss-rose .swr-bullets li {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-swiss-rose .swr-head {
+  margin-bottom: 11mm;
+}
+.density-roomy .resume-swiss-rose .swr-head-grid {
+  padding-bottom: 8mm;
+}

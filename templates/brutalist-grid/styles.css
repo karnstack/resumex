@@ -1,0 +1,389 @@
+/* brutalist-grid - subtle 2px grid printed across the page background.
+   Content anchors to the grid; harsh borders + mono labels remain.
+   Print-color-adjust: exact required to keep the gridlines on print.
+   Class prefix: .bg- for stable scoping. */
+
+.resume-brutalist-grid {
+  --bgr-ink: #050505;
+  --bgr-fg: #111111;
+  --bgr-mute: #555555;
+  --bgr-paper: #ffffff;
+  --bgr-grid: rgba(5, 5, 5, 0.08);
+  --bgr-grid-strong: rgba(5, 5, 5, 0.18);
+
+  position: relative;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--bgr-fg);
+  background-color: var(--bgr-paper);
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--bgr-grid) 0,
+      var(--bgr-grid) 1px,
+      transparent 1px,
+      transparent 7mm
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--bgr-grid) 0,
+      var(--bgr-grid) 1px,
+      transparent 1px,
+      transparent 7mm
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--bgr-grid-strong) 0,
+      var(--bgr-grid-strong) 1px,
+      transparent 1px,
+      transparent 35mm
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--bgr-grid-strong) 0,
+      var(--bgr-grid-strong) 1px,
+      transparent 1px,
+      transparent 35mm
+    );
+  letter-spacing: -0.005em;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume-brutalist-grid a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--bgr-ink);
+}
+
+/* CORNERS ------------------------------------------------------------ */
+
+.resume-brutalist-grid .bg-corner {
+  position: absolute;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--bgr-ink);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.resume-brutalist-grid .bg-tl {
+  top: 5mm;
+  left: 5mm;
+}
+.resume-brutalist-grid .bg-tr {
+  top: 5mm;
+  right: 5mm;
+}
+.resume-brutalist-grid .bg-bl {
+  bottom: 5mm;
+  left: 5mm;
+}
+.resume-brutalist-grid .bg-br {
+  bottom: 5mm;
+  right: 5mm;
+}
+
+/* HEAD --------------------------------------------------------------- */
+
+.resume-brutalist-grid .bg-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 6mm;
+  padding-bottom: 5mm;
+  border-bottom: 3px solid var(--bgr-ink);
+  margin-bottom: 6mm;
+  background: var(--bgr-paper);
+  padding-top: 1mm;
+  padding-left: 1mm;
+  padding-right: 1mm;
+}
+
+.resume-brutalist-grid .bg-eyebrow {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bgr-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4mm;
+  background: var(--bgr-paper);
+  padding: 1mm 2mm;
+  border: 2px solid var(--bgr-ink);
+}
+.resume-brutalist-grid .bg-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--bgr-ink);
+  display: inline-block;
+}
+
+.resume-brutalist-grid .bg-name {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 36pt;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  margin: 0 0 3mm;
+  color: var(--bgr-ink);
+  text-transform: uppercase;
+  background: var(--bgr-paper);
+  display: inline-block;
+  padding-right: 4mm;
+}
+
+.resume-brutalist-grid .bg-title {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--bgr-ink);
+  background: var(--bgr-paper);
+  display: inline-block;
+  padding: 1mm 2mm 1mm 0;
+}
+
+.resume-brutalist-grid .bg-contact {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 7.75pt;
+  line-height: 1.65;
+  background: var(--bgr-paper);
+  border: 2px solid var(--bgr-ink);
+  padding: 3mm 4mm;
+  min-width: 58mm;
+}
+.resume-brutalist-grid .bg-contact div {
+  white-space: nowrap;
+}
+.resume-brutalist-grid .bg-key {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--bgr-ink);
+  margin-right: 4px;
+}
+.resume-brutalist-grid .bg-contact a {
+  border-bottom: none;
+}
+
+/* SECTIONS ----------------------------------------------------------- */
+
+.resume-brutalist-grid .bg-section {
+  margin-top: 6mm;
+  background: var(--bgr-paper);
+  border: 2px solid var(--bgr-ink);
+  padding: 4mm 5mm 5mm;
+}
+.resume-brutalist-grid .bg-section:first-of-type {
+  margin-top: 0;
+}
+
+.resume-brutalist-grid .bg-h2 {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 4mm;
+  color: var(--bgr-ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 2px solid var(--bgr-ink);
+  padding-bottom: 1.5mm;
+}
+.resume-brutalist-grid .bg-h2-num {
+  font-size: 7.5pt;
+  font-weight: 500;
+  color: var(--bgr-mute);
+  letter-spacing: 0.18em;
+}
+
+.resume-brutalist-grid .bg-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: var(--bgr-fg);
+  text-wrap: pretty;
+  font-weight: 500;
+  max-width: 145mm;
+}
+
+/* ENTRIES ------------------------------------------------------------ */
+
+.resume-brutalist-grid .bg-entry + .bg-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px dashed var(--bgr-ink);
+}
+.resume-brutalist-grid .bg-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  margin-bottom: 2mm;
+}
+.resume-brutalist-grid .bg-role {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--bgr-ink);
+  line-height: 1.15;
+}
+.resume-brutalist-grid .bg-org {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--bgr-fg);
+  margin-top: 1mm;
+}
+.resume-brutalist-grid .bg-date {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--bgr-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  border: 2px solid var(--bgr-ink);
+  padding: 1mm 2mm;
+  background: var(--bgr-paper);
+}
+
+.resume-brutalist-grid .bg-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-brutalist-grid .bg-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--bgr-fg);
+  text-wrap: pretty;
+}
+.resume-brutalist-grid .bg-bullets li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 700;
+  color: var(--bgr-ink);
+  line-height: 1.5;
+}
+
+.resume-brutalist-grid .bg-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--bgr-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS ------------------------------------------------------------- */
+
+.resume-brutalist-grid .bg-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-brutalist-grid .bg-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 4mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px solid var(--bgr-ink);
+  align-items: baseline;
+}
+.resume-brutalist-grid .bg-skill-row:first-child {
+  border-top: 1px solid var(--bgr-ink);
+}
+.resume-brutalist-grid .bg-skills dt {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--bgr-ink);
+}
+.resume-brutalist-grid .bg-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--bgr-fg);
+}
+
+/* PRINT -------------------------------------------------------------- */
+
+@media print {
+  .resume-brutalist-grid .bg-section,
+  .resume-brutalist-grid .bg-entry,
+  .resume-brutalist-grid [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-brutalist-grid {
+  font-size: 9pt;
+  line-height: 1.4;
+}
+.density-tight .resume-brutalist-grid .bg-section {
+  margin-top: 4.5mm;
+  padding: 3mm 4mm 4mm;
+}
+.density-tight .resume-brutalist-grid .bg-entry + .bg-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-brutalist-grid .bg-bullets {
+  gap: 0.6mm;
+}
+.density-tight .resume-brutalist-grid .bg-bullets li {
+  font-size: 9pt;
+  line-height: 1.4;
+}
+.density-tight .resume-brutalist-grid .bg-head {
+  padding-bottom: 4mm;
+  margin-bottom: 4.5mm;
+}
+
+.density-roomy .resume-brutalist-grid {
+  font-size: 10.25pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-brutalist-grid .bg-section {
+  margin-top: 8.5mm;
+  padding: 5.5mm 6mm 6.5mm;
+}
+.density-roomy .resume-brutalist-grid .bg-entry + .bg-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-brutalist-grid .bg-bullets {
+  gap: 1.6mm;
+}
+.density-roomy .resume-brutalist-grid .bg-bullets li {
+  font-size: 10pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-brutalist-grid .bg-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8.5mm;
+}

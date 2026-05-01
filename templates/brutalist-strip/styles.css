@@ -1,0 +1,392 @@
+/* brutalist-strip - vertical strip of mono-coded contact info on the right
+   edge, forming a sidebar. Main body left. Brutalist harshness retained.
+   Class prefix: .bst- for stable scoping. */
+
+.resume-brutalist-strip {
+  --bst-ink: #050505;
+  --bst-fg: #111111;
+  --bst-mute: #555555;
+  --bst-paper: #ffffff;
+  --bst-strip-w: 26mm;
+
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 0mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--bst-fg);
+  background: var(--bst-paper);
+  letter-spacing: -0.005em;
+}
+
+.resume-brutalist-strip a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--bst-ink);
+}
+
+/* GRID --------------------------------------------------------------- */
+
+.resume-brutalist-strip .bst-grid {
+  display: grid;
+  grid-template-columns: 1fr var(--bst-strip-w);
+  align-items: stretch;
+  min-height: 100%;
+}
+
+.resume-brutalist-strip .bst-main {
+  padding: 14mm 12mm 14mm 14mm;
+  min-width: 0;
+}
+
+/* HEAD --------------------------------------------------------------- */
+
+.resume-brutalist-strip .bst-head {
+  border-bottom: 3px solid var(--bst-ink);
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+}
+
+.resume-brutalist-strip .bst-eyebrow {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bst-ink);
+  margin-bottom: 4mm;
+  border: 2px solid var(--bst-ink);
+  padding: 1mm 2mm;
+  display: inline-block;
+}
+
+.resume-brutalist-strip .bst-name {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 40pt;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  margin: 0 0 3mm;
+  color: var(--bst-ink);
+  text-transform: uppercase;
+}
+
+.resume-brutalist-strip .bst-title {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--bst-ink);
+}
+
+/* SECTIONS ----------------------------------------------------------- */
+
+.resume-brutalist-strip .bst-section {
+  margin-top: 6mm;
+  padding-top: 5mm;
+  border-top: 2px solid var(--bst-ink);
+}
+.resume-brutalist-strip .bst-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.resume-brutalist-strip .bst-h2 {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 4mm;
+  color: var(--bst-ink);
+  border-left: 5px solid var(--bst-ink);
+  padding-left: 8px;
+}
+
+.resume-brutalist-strip .bst-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: var(--bst-fg);
+  text-wrap: pretty;
+  font-weight: 500;
+  max-width: 130mm;
+}
+
+/* ENTRIES ------------------------------------------------------------ */
+
+.resume-brutalist-strip .bst-entry + .bst-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--bst-ink);
+}
+.resume-brutalist-strip .bst-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  margin-bottom: 2mm;
+}
+.resume-brutalist-strip .bst-role {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--bst-ink);
+  line-height: 1.15;
+}
+.resume-brutalist-strip .bst-org {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--bst-fg);
+  margin-top: 1mm;
+}
+.resume-brutalist-strip .bst-date {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--bst-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  border: 2px solid var(--bst-ink);
+  padding: 1mm 2mm;
+}
+
+.resume-brutalist-strip .bst-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-brutalist-strip .bst-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--bst-fg);
+  text-wrap: pretty;
+}
+.resume-brutalist-strip .bst-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--bst-ink);
+}
+
+.resume-brutalist-strip .bst-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--bst-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS ------------------------------------------------------------- */
+
+.resume-brutalist-strip .bst-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-brutalist-strip .bst-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 4mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px solid var(--bst-ink);
+  align-items: baseline;
+}
+.resume-brutalist-strip .bst-skill-row:first-child {
+  border-top: 1px solid var(--bst-ink);
+}
+.resume-brutalist-strip .bst-skills dt {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--bst-ink);
+}
+.resume-brutalist-strip .bst-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--bst-fg);
+}
+
+/* STRIP -------------------------------------------------------------- */
+
+.resume-brutalist-strip .bst-strip {
+  border-left: 3px solid var(--bst-ink);
+  padding: 14mm 5mm 14mm 5mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.resume-brutalist-strip .bst-strip-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5mm;
+}
+
+.resume-brutalist-strip .bst-strip-mark {
+  font-size: 14pt;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--bst-ink);
+  border: 3px solid var(--bst-ink);
+  padding: 1.5mm 3mm;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-brutalist-strip .bst-strip-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--bst-ink);
+  line-height: 1.1;
+}
+.resume-brutalist-strip .bst-strip-stack span {
+  display: block;
+}
+
+.resume-brutalist-strip .bst-strip-rows {
+  border-top: 2px solid var(--bst-ink);
+  border-bottom: 2px solid var(--bst-ink);
+  padding: 4mm 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.resume-brutalist-strip .bst-strip-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+
+.resume-brutalist-strip .bst-strip-key {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--bst-mute);
+  border-bottom: 1px solid var(--bst-ink);
+  padding-bottom: 1mm;
+}
+
+.resume-brutalist-strip .bst-strip-val {
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--bst-ink);
+  word-break: break-all;
+  line-height: 1.35;
+  border-bottom: none;
+}
+
+.resume-brutalist-strip .bst-strip-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4mm;
+}
+.resume-brutalist-strip .bst-strip-bar {
+  width: 12mm;
+  height: 4px;
+  background: var(--bst-ink);
+}
+.resume-brutalist-strip .bst-strip-vertfoot {
+  font-size: 8pt;
+  letter-spacing: 0.04em;
+}
+
+/* PRINT -------------------------------------------------------------- */
+
+@media print {
+  .resume-brutalist-strip .bst-section,
+  .resume-brutalist-strip .bst-entry,
+  .resume-brutalist-strip [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-brutalist-strip {
+  font-size: 9pt;
+  line-height: 1.4;
+}
+.density-tight .resume-brutalist-strip .bst-main {
+  padding: 11mm 9mm 11mm 11mm;
+}
+.density-tight .resume-brutalist-strip .bst-section {
+  margin-top: 4.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .resume-brutalist-strip .bst-entry + .bst-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-brutalist-strip .bst-bullets {
+  gap: 0.6mm;
+}
+.density-tight .resume-brutalist-strip .bst-bullets li {
+  font-size: 9pt;
+  line-height: 1.4;
+}
+.density-tight .resume-brutalist-strip .bst-head {
+  padding-bottom: 4mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-brutalist-strip .bst-strip {
+  padding: 11mm 4mm 11mm 4mm;
+  gap: 4.5mm;
+}
+
+.density-roomy .resume-brutalist-strip {
+  font-size: 10.25pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-brutalist-strip .bst-main {
+  padding: 17mm 15mm 17mm 17mm;
+}
+.density-roomy .resume-brutalist-strip .bst-section {
+  margin-top: 8.5mm;
+  padding-top: 7mm;
+}
+.density-roomy .resume-brutalist-strip .bst-entry + .bst-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-brutalist-strip .bst-bullets {
+  gap: 1.6mm;
+}
+.density-roomy .resume-brutalist-strip .bst-bullets li {
+  font-size: 10pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-brutalist-strip .bst-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8.5mm;
+}
+.density-roomy .resume-brutalist-strip .bst-strip {
+  padding: 17mm 6mm 17mm 6mm;
+  gap: 8.5mm;
+}

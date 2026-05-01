@@ -1,0 +1,347 @@
+/* architect-section — section-cut markings (chevrons) between sections,
+   title-block in bottom-right corner of the sheet (architectural drawing
+   convention).
+   Class prefix: .sc- for stable scoping. Root: .resume-architect-section. */
+
+.resume-architect-section {
+  --sc-ink: #0f1115;
+  --sc-fg: #1a1d22;
+  --sc-muted: #5d6470;
+  --sc-faint: #9aa1ac;
+  --sc-rule: #1a1d22;
+  --sc-hair: #c8ccd2;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--sc-fg);
+  background: white;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* SHEET --------------------------------------------------------------- */
+
+.resume-architect-section .sc-sheet {
+  position: relative;
+  padding-bottom: 28mm; /* reserve space for the corner title-block */
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-architect-section .sc-head {
+  padding-bottom: 5mm;
+  border-bottom: 0.7pt solid var(--sc-rule);
+  margin-bottom: 0;
+}
+.resume-architect-section .sc-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.25pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--sc-muted);
+  margin-bottom: 3mm;
+}
+.resume-architect-section .sc-chev {
+  color: var(--sc-ink);
+  font-size: 8pt;
+  line-height: 1;
+}
+.resume-architect-section .sc-name {
+  margin: 0;
+  font-size: 28pt;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1;
+  color: var(--sc-ink);
+}
+.resume-architect-section .sc-title {
+  margin-top: 2mm;
+  font-size: 10pt;
+  color: var(--sc-fg);
+  letter-spacing: 0.01em;
+}
+.resume-architect-section .sc-head-contact {
+  margin-top: 3mm;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+  align-items: baseline;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--sc-fg);
+}
+.resume-architect-section .sc-sep {
+  color: var(--sc-faint);
+}
+.resume-architect-section .sc-head-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.4pt solid var(--sc-hair);
+}
+
+/* SECTION CUTS -------------------------------------------------------- */
+
+.resume-architect-section .sc-cut {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin: 6mm 0 4mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.22em;
+  color: var(--sc-ink);
+}
+.resume-architect-section .sc-cut-chev {
+  font-size: 10pt;
+  line-height: 1;
+  color: var(--sc-ink);
+  flex-shrink: 0;
+}
+.resume-architect-section .sc-cut-line {
+  flex: 1;
+  height: 0.5pt;
+  background: var(--sc-rule);
+}
+.resume-architect-section .sc-cut-label {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* SECTION ------------------------------------------------------------- */
+
+.resume-architect-section .sc-section {
+  margin: 0;
+}
+.resume-architect-section .sc-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--sc-fg);
+  text-wrap: pretty;
+  max-width: 160mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-architect-section .sc-entry {
+  display: grid;
+  grid-template-columns: 6mm 10mm 1fr;
+  column-gap: 3mm;
+  padding: 3mm 0;
+  border-top: 0.4pt solid var(--sc-hair);
+}
+.resume-architect-section .sc-entry:first-child {
+  border-top: none;
+  padding-top: 1mm;
+}
+.resume-architect-section .sc-entry-marker {
+  font-size: 9pt;
+  line-height: 1.2;
+  color: var(--sc-ink);
+  padding-top: 2pt;
+}
+.resume-architect-section .sc-entry-num {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--sc-muted);
+  font-variant-numeric: tabular-nums;
+  padding-top: 1pt;
+}
+.resume-architect-section .sc-entry-body {
+  min-width: 0;
+}
+.resume-architect-section .sc-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-architect-section .sc-entry-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--sc-ink);
+}
+.resume-architect-section .sc-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--sc-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-architect-section .sc-entry-sub {
+  margin: 1pt 0 2.5mm;
+  font-size: 9pt;
+  color: var(--sc-fg);
+}
+
+.resume-architect-section .sc-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-architect-section .sc-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--sc-fg);
+}
+.resume-architect-section .sc-bullets li::before {
+  content: '\25B8'; /* triangle-right (chevron-like) */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 7pt;
+  line-height: 1.7;
+  color: var(--sc-ink);
+}
+.resume-architect-section .sc-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--sc-fg);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-architect-section .sc-skills dl {
+  margin: 0;
+}
+.resume-architect-section .sc-skill-row {
+  display: grid;
+  grid-template-columns: 14mm 1fr;
+  column-gap: 5mm;
+  padding: 1.6mm 0;
+  border-top: 0.4pt solid var(--sc-hair);
+  align-items: baseline;
+}
+.resume-architect-section .sc-skill-row:first-child {
+  border-top: none;
+}
+.resume-architect-section .sc-skills dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--sc-muted);
+}
+.resume-architect-section .sc-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--sc-fg);
+}
+
+/* TITLE BLOCK (bottom-right corner) ---------------------------------- */
+
+.resume-architect-section .sc-titleblock {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 70mm;
+  border: 0.7pt solid var(--sc-rule);
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  background: white;
+}
+.resume-architect-section .sc-tb-row {
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  border-top: 0.4pt solid var(--sc-hair);
+  min-height: 4.5mm;
+  align-items: center;
+}
+.resume-architect-section .sc-tb-row:first-child {
+  border-top: none;
+}
+.resume-architect-section .sc-tb-head {
+  grid-template-columns: 1fr;
+  background: var(--sc-ink);
+  color: white;
+  padding: 1.5mm 3mm;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-align: center;
+  font-size: 7pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.resume-architect-section .sc-tb-k {
+  padding: 1.2mm 3mm;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--sc-muted);
+  border-right: 0.4pt solid var(--sc-hair);
+}
+.resume-architect-section .sc-tb-v {
+  padding: 1.2mm 3mm;
+  font-weight: 600;
+  color: var(--sc-ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-architect-section .sc-section,
+  .resume-architect-section .sc-entry,
+  .resume-architect-section [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-architect-section {
+  font-size: 9pt;
+  line-height: 1.42;
+}
+.density-tight .resume-architect-section .sc-head {
+  padding-bottom: 3.5mm;
+}
+.density-tight .resume-architect-section .sc-cut {
+  margin: 4mm 0 2.5mm;
+}
+.density-tight .resume-architect-section .sc-entry {
+  padding: 2mm 0;
+}
+.density-tight .resume-architect-section .sc-bullets {
+  gap: 0.9mm;
+}
+.density-tight .resume-architect-section .sc-skill-row {
+  padding: 1.1mm 0;
+}
+
+.density-roomy .resume-architect-section {
+  font-size: 10.25pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-architect-section .sc-head {
+  padding-bottom: 6.5mm;
+}
+.density-roomy .resume-architect-section .sc-cut {
+  margin: 8mm 0 5.5mm;
+}
+.density-roomy .resume-architect-section .sc-entry {
+  padding: 4.5mm 0;
+}
+.density-roomy .resume-architect-section .sc-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-architect-section .sc-skill-row {
+  padding: 2.2mm 0;
+}

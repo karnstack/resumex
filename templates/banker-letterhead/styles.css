@@ -1,0 +1,357 @@
+/* banker-letterhead - banker DNA dressed as letterhead.
+   Top: ornamental rule with sextile mark, small-caps "AVERY · PARK"
+   between two hairlines. Below: full centered name larger, italic title,
+   inline contact. Footer mirrors the top with name + "Curriculum Vitæ"
+   between matching ornamental rules. Navy ink throughout. */
+
+.resume-banker-letterhead {
+  --bkl-ink: #14171c;
+  --bkl-fg: #1a1d22;
+  --bkl-muted: #4a5563;
+  --bkl-faint: #8a93a1;
+  --bkl-rule: #2a3340;
+  --bkl-hair: #c9cfd6;
+  --bkl-paper: #fdfcf8;
+  --bkl-accent: #1e3a5f;
+  --bkl-accent-deep: #142a47;
+
+  font-family:
+    'Caslon', 'Big Caslon', 'Garamond', 'Iowan Old Style', 'EB Garamond', 'Hoefler Text', Georgia,
+    'Times New Roman', serif;
+  padding: var(--page-pad-top, 14mm) 20mm var(--page-pad-bot, 14mm);
+  font-size: 10.25pt;
+  line-height: 1.5;
+  color: var(--bkl-fg);
+  background: var(--bkl-paper);
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-ligatures: common-ligatures;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* LETTERHEAD ---------------------------------------------------------- */
+
+.resume-banker-letterhead .bkl-letterhead {
+  text-align: center;
+  margin: 0 0 7mm;
+}
+.resume-banker-letterhead .bkl-orn-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 1.5mm 0;
+}
+.resume-banker-letterhead .bkl-orn-line {
+  flex: 1;
+  height: 1px;
+  background: var(--bkl-accent);
+}
+.resume-banker-letterhead .bkl-orn-mark {
+  font-size: 9pt;
+  color: var(--bkl-accent);
+  line-height: 1;
+}
+.resume-banker-letterhead .bkl-smallcaps {
+  font-size: 10.5pt;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--bkl-accent-deep);
+  font-weight: 500;
+  padding: 1mm 0;
+}
+
+/* NAME BLOCK ---------------------------------------------------------- */
+
+.resume-banker-letterhead .bkl-name-block {
+  text-align: center;
+  margin: 0 0 8mm;
+}
+.resume-banker-letterhead .bkl-name {
+  font-size: 28pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 2.5mm;
+  color: var(--bkl-accent-deep);
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-banker-letterhead .bkl-title {
+  font-size: 10.5pt;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--bkl-muted);
+  margin: 0 0 4mm;
+}
+.resume-banker-letterhead .bkl-contact {
+  font-size: 9pt;
+  color: var(--bkl-fg);
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums lining-nums;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px 8px;
+}
+.resume-banker-letterhead .bkl-sep {
+  color: var(--bkl-faint);
+  font-size: 9pt;
+}
+.resume-banker-letterhead .bkl-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--bkl-hair);
+  padding-bottom: 0.5px;
+}
+.resume-banker-letterhead .bkl-contact a:hover {
+  color: var(--bkl-accent);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-banker-letterhead .bkl-section {
+  margin-top: 6mm;
+}
+.resume-banker-letterhead .bkl-section:first-of-type {
+  margin-top: 0;
+}
+.resume-banker-letterhead .bkl-section-title {
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--bkl-accent);
+  margin: 0 0 4mm;
+  padding-bottom: 1.25mm;
+  border-bottom: 0.5px solid var(--bkl-accent);
+  font-variant-caps: small-caps;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.resume-banker-letterhead .bkl-section-title::after {
+  content: '';
+  flex: 0 0 6px;
+  height: 1px;
+  background: var(--bkl-accent);
+  margin-bottom: 2px;
+}
+.resume-banker-letterhead .bkl-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--bkl-fg);
+  font-style: italic;
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-banker-letterhead .bkl-entry {
+  margin-top: 4mm;
+}
+.resume-banker-letterhead .bkl-entry:first-child {
+  margin-top: 0;
+}
+.resume-banker-letterhead .bkl-entry-tight {
+  margin-top: 2.75mm;
+}
+.resume-banker-letterhead .bkl-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.5mm;
+}
+.resume-banker-letterhead .bkl-entry-role {
+  font-size: 11pt;
+  color: var(--bkl-ink);
+  line-height: 1.3;
+}
+.resume-banker-letterhead .bkl-role {
+  font-weight: 600;
+  color: var(--bkl-accent-deep);
+}
+.resume-banker-letterhead .bkl-firm {
+  font-style: italic;
+  color: var(--bkl-fg);
+  font-weight: 400;
+}
+.resume-banker-letterhead .bkl-comma {
+  color: var(--bkl-muted);
+  font-weight: 400;
+  font-style: normal;
+}
+.resume-banker-letterhead .bkl-entry-meta {
+  font-size: 8.75pt;
+  color: var(--bkl-muted);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.resume-banker-letterhead .bkl-loc::after {
+  content: '\00a0\00b7';
+  margin-left: 4px;
+  color: var(--bkl-faint);
+}
+.resume-banker-letterhead .bkl-dates {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.resume-banker-letterhead .bkl-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-banker-letterhead .bkl-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 10.25pt;
+  line-height: 1.5;
+  color: var(--bkl-fg);
+  text-wrap: pretty;
+}
+.resume-banker-letterhead .bkl-bullets li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: var(--bkl-accent);
+}
+
+.resume-banker-letterhead .bkl-prose {
+  margin: 1mm 0 0;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--bkl-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-banker-letterhead .bkl-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-banker-letterhead .bkl-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  border-bottom: 0.5px solid var(--bkl-hair);
+  align-items: baseline;
+}
+.resume-banker-letterhead .bkl-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-banker-letterhead .bkl-skills dt {
+  font-size: 9.25pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bkl-accent);
+  letter-spacing: 0.02em;
+}
+.resume-banker-letterhead .bkl-skills dd {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--bkl-fg);
+  font-variant-numeric: tabular-nums;
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-banker-letterhead .bkl-foot {
+  margin-top: 8mm;
+  text-align: center;
+}
+.resume-banker-letterhead .bkl-foot-line {
+  margin-top: 1mm;
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bkl-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.resume-banker-letterhead .bkl-foot-dot {
+  color: var(--bkl-accent);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-banker-letterhead .bkl-section,
+  .resume-banker-letterhead .bkl-entry,
+  .resume-banker-letterhead [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-banker-letterhead {
+  font-size: 9.5pt;
+  line-height: 1.42;
+}
+.density-tight .resume-banker-letterhead .bkl-letterhead {
+  margin-bottom: 5mm;
+}
+.density-tight .resume-banker-letterhead .bkl-name-block {
+  margin-bottom: 5.5mm;
+}
+.density-tight .resume-banker-letterhead .bkl-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-banker-letterhead .bkl-section-title {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-banker-letterhead .bkl-entry {
+  margin-top: 2.8mm;
+}
+.density-tight .resume-banker-letterhead .bkl-bullets {
+  gap: 0.9mm;
+}
+.density-tight .resume-banker-letterhead .bkl-skill-row {
+  padding: 1.1mm 0;
+}
+.density-tight .resume-banker-letterhead .bkl-foot {
+  margin-top: 5.5mm;
+}
+
+.density-roomy .resume-banker-letterhead {
+  font-size: 10.75pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-banker-letterhead .bkl-letterhead {
+  margin-bottom: 9.5mm;
+}
+.density-roomy .resume-banker-letterhead .bkl-name-block {
+  margin-bottom: 11mm;
+}
+.density-roomy .resume-banker-letterhead .bkl-section {
+  margin-top: 8.5mm;
+}
+.density-roomy .resume-banker-letterhead .bkl-section-title {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-banker-letterhead .bkl-entry {
+  margin-top: 5.5mm;
+}
+.density-roomy .resume-banker-letterhead .bkl-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-banker-letterhead .bkl-skill-row {
+  padding: 2.2mm 0;
+}
+.density-roomy .resume-banker-letterhead .bkl-foot {
+  margin-top: 11mm;
+}

@@ -1,0 +1,412 @@
+/* periodical-folios — strong margin treatment.
+   Signature: thin folio numbers in left/right gutters with rotated running
+   titles and a per-section "p. 01" mark. Body sits in a narrower text block.
+
+   Class prefix .pdf- for stable scoping. Root: .resume-periodical-folios. */
+
+.resume-periodical-folios {
+  --pdf-ink: #14171c;
+  --pdf-fg: #1c1f26;
+  --pdf-muted: #5e6573;
+  --pdf-faint: #a4abb6;
+  --pdf-hair: #d6dae0;
+  --pdf-rule: #14171c;
+  --pdf-accent: #2d3640;
+
+  position: relative;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 12mm) 14mm var(--page-pad-bot, 12mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--pdf-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* GUTTERS -------------------------------------------------------------- */
+
+.resume-periodical-folios .pdf-gutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12mm 0;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pdf-muted);
+}
+.resume-periodical-folios .pdf-gutter-left {
+  left: 0;
+  border-right: 1px solid var(--pdf-hair);
+}
+.resume-periodical-folios .pdf-gutter-right {
+  right: 0;
+  border-left: 1px solid var(--pdf-hair);
+}
+.resume-periodical-folios .pdf-folio {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 11pt;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--pdf-ink);
+}
+.resume-periodical-folios .pdf-folio-bot {
+  font-size: 7.25pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--pdf-muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.resume-periodical-folios .pdf-running {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 7.25pt;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--pdf-fg);
+  white-space: nowrap;
+}
+.resume-periodical-folios .pdf-running-flip {
+  transform: rotate(0deg);
+  writing-mode: vertical-lr;
+}
+
+/* PAGE BLOCK ----------------------------------------------------------- */
+
+.resume-periodical-folios .pdf-page {
+  margin-left: 14mm;
+  margin-right: 14mm;
+  padding: 0 8mm;
+}
+
+/* MASTHEAD ------------------------------------------------------------- */
+
+.resume-periodical-folios .pdf-masthead {
+  padding: 4mm 0 6mm;
+  border-bottom: 0;
+}
+.resume-periodical-folios .pdf-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pdf-muted);
+  margin-bottom: 2mm;
+}
+.resume-periodical-folios .pdf-name {
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 32pt;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--pdf-ink);
+}
+.resume-periodical-folios .pdf-rule {
+  height: 2px;
+  background: var(--pdf-rule);
+  margin: 5mm 0 5mm;
+}
+.resume-periodical-folios .pdf-strap-row {
+  display: grid;
+  grid-template-columns: 1fr 56mm;
+  column-gap: 8mm;
+  align-items: start;
+}
+.resume-periodical-folios .pdf-strap {
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--pdf-fg);
+  line-height: 1.5;
+  max-width: 110mm;
+}
+.resume-periodical-folios .pdf-contact {
+  font-size: 8.5pt;
+  line-height: 1.55;
+  text-align: right;
+  color: var(--pdf-fg);
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-folios .pdf-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--pdf-hair);
+}
+
+/* SECTIONS ------------------------------------------------------------- */
+
+.resume-periodical-folios .pdf-section {
+  position: relative;
+  padding: 6mm 0 0;
+  margin-top: 5mm;
+  border-top: 1px solid var(--pdf-hair);
+}
+.resume-periodical-folios .pdf-folio-mark {
+  position: absolute;
+  top: 7mm;
+  right: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  color: var(--pdf-muted);
+  font-size: 9pt;
+}
+.resume-periodical-folios .pdf-folio-num {
+  font-size: 13pt;
+  font-weight: 700;
+  margin-left: 4px;
+  color: var(--pdf-ink);
+}
+.resume-periodical-folios .pdf-h2 {
+  margin: 0 0 4mm;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 14pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--pdf-ink);
+}
+.resume-periodical-folios .pdf-summary {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  max-width: 145mm;
+}
+
+/* ENTRIES (folio-prefixed) -------------------------------------------- */
+
+.resume-periodical-folios .pdf-entry {
+  display: grid;
+  grid-template-columns: 10mm 1fr;
+  column-gap: 4mm;
+}
+.resume-periodical-folios .pdf-entry + .pdf-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px dotted var(--pdf-hair);
+}
+.resume-periodical-folios .pdf-entry-folio {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--pdf-muted);
+  text-align: right;
+  padding-top: 0.5mm;
+}
+.resume-periodical-folios .pdf-entry-body {
+  min-width: 0;
+}
+.resume-periodical-folios .pdf-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 0.5mm;
+}
+.resume-periodical-folios .pdf-role {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--pdf-ink);
+}
+.resume-periodical-folios .pdf-dates {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  color: var(--pdf-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-folios .pdf-org-line {
+  font-size: 9pt;
+  color: var(--pdf-muted);
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5mm;
+}
+.resume-periodical-folios .pdf-org {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--pdf-fg);
+}
+.resume-periodical-folios .pdf-sep {
+  color: var(--pdf-faint);
+}
+.resume-periodical-folios .pdf-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-periodical-folios .pdf-bullets li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.resume-periodical-folios .pdf-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--pdf-ink);
+}
+
+/* SPLIT BLOCK ---------------------------------------------------------- */
+
+.resume-periodical-folios .pdf-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+.resume-periodical-folios .pdf-subhead {
+  margin: 0 0 2mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--pdf-fg);
+}
+.resume-periodical-folios .pdf-subhead-mt {
+  margin-top: 4mm;
+}
+.resume-periodical-folios .pdf-mini + .pdf-mini {
+  margin-top: 3mm;
+  padding-top: 3mm;
+  border-top: 1px dotted var(--pdf-hair);
+}
+.resume-periodical-folios .pdf-mini h4 {
+  margin: 0 0 0.5mm;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--pdf-ink);
+}
+.resume-periodical-folios .pdf-mini-meta {
+  font-size: 8.5pt;
+  color: var(--pdf-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-folios .pdf-mini p {
+  margin: 1mm 0 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.resume-periodical-folios .pdf-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-periodical-folios .pdf-skills > div {
+  display: grid;
+  grid-template-columns: 16mm 1fr;
+  column-gap: 4mm;
+  padding: 1mm 0;
+  border-bottom: 1px dotted var(--pdf-hair);
+  align-items: baseline;
+}
+.resume-periodical-folios .pdf-skills > div:last-child {
+  border-bottom: none;
+}
+.resume-periodical-folios .pdf-skills dt {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pdf-muted);
+}
+.resume-periodical-folios .pdf-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--pdf-fg);
+}
+
+/* PRINT ---------------------------------------------------------------- */
+
+@media print {
+  .resume-periodical-folios .pdf-section,
+  .resume-periodical-folios .pdf-entry,
+  .resume-periodical-folios [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-periodical-folios {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 9mm) 11mm var(--page-pad-bot, 9mm);
+}
+.density-tight .resume-periodical-folios .pdf-masthead {
+  padding: 3mm 0 4.5mm;
+}
+.density-tight .resume-periodical-folios .pdf-rule {
+  margin: 3.5mm 0 3.5mm;
+}
+.density-tight .resume-periodical-folios .pdf-section {
+  padding: 4.5mm 0 0;
+  margin-top: 3.5mm;
+}
+.density-tight .resume-periodical-folios .pdf-h2 {
+  margin: 0 0 2.8mm;
+}
+.density-tight .resume-periodical-folios .pdf-entry + .pdf-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-periodical-folios .pdf-bullets {
+  gap: 0.7mm;
+  margin-top: 0.7mm;
+}
+.density-tight .resume-periodical-folios .pdf-skills > div {
+  padding: 0.7mm 0;
+}
+
+.density-roomy .resume-periodical-folios {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 16mm) 17mm var(--page-pad-bot, 16mm);
+}
+.density-roomy .resume-periodical-folios .pdf-masthead {
+  padding: 6mm 0 8mm;
+}
+.density-roomy .resume-periodical-folios .pdf-rule {
+  margin: 7mm 0 7mm;
+}
+.density-roomy .resume-periodical-folios .pdf-section {
+  padding: 8.5mm 0 0;
+  margin-top: 7mm;
+}
+.density-roomy .resume-periodical-folios .pdf-h2 {
+  margin: 0 0 5.5mm;
+}
+.density-roomy .resume-periodical-folios .pdf-entry + .pdf-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-periodical-folios .pdf-bullets {
+  gap: 1.5mm;
+  margin-top: 1.8mm;
+}
+.density-roomy .resume-periodical-folios .pdf-skills > div {
+  padding: 1.5mm 0;
+}

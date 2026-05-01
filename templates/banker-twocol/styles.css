@@ -1,0 +1,349 @@
+/* banker-twocol - banker DNA in two columns.
+   Centered classical header band spans the page; below it, sidebar-left
+   (~33%) holds contact, education, competencies, projects; main-right
+   carries profile + experience. A vertical hairline separates the cols
+   in the spirit of double-entry ledgers. Navy ink, hairline rules. */
+
+.resume-banker-twocol {
+  --bkt-ink: #14171c;
+  --bkt-fg: #1a1d22;
+  --bkt-muted: #4a5563;
+  --bkt-faint: #8a93a1;
+  --bkt-rule: #2a3340;
+  --bkt-hair: #c9cfd6;
+  --bkt-paper: #fdfcf8;
+  --bkt-accent: #1e3a5f;
+  --bkt-accent-deep: #142a47;
+
+  font-family:
+    'Caslon', 'Big Caslon', 'Garamond', 'Iowan Old Style', 'EB Garamond', 'Hoefler Text', Georgia,
+    'Times New Roman', serif;
+  padding: var(--page-pad-top, 15mm) 18mm var(--page-pad-bot, 15mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--bkt-fg);
+  background: var(--bkt-paper);
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-ligatures: common-ligatures;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-banker-twocol .bkt-head {
+  text-align: center;
+  margin: 0 0 7mm;
+}
+.resume-banker-twocol .bkt-rule {
+  height: 1px;
+  background: var(--bkt-rule);
+  margin: 0 auto;
+  max-width: 60%;
+}
+.resume-banker-twocol .bkt-rule-top {
+  margin-bottom: 4mm;
+}
+.resume-banker-twocol .bkt-rule-bot {
+  margin-top: 3.5mm;
+}
+.resume-banker-twocol .bkt-name {
+  font-size: 28pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 2mm;
+  color: var(--bkt-accent-deep);
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-banker-twocol .bkt-title {
+  font-size: 10pt;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--bkt-muted);
+  margin: 0 0 3.5mm;
+}
+
+/* GRID ---------------------------------------------------------------- */
+
+.resume-banker-twocol .bkt-grid {
+  display: grid;
+  grid-template-columns: 56mm 1fr;
+  column-gap: 8mm;
+  align-items: start;
+}
+.resume-banker-twocol .bkt-side {
+  border-right: 0.5px solid var(--bkt-hair);
+  padding-right: 7mm;
+  min-width: 0;
+}
+.resume-banker-twocol .bkt-main {
+  min-width: 0;
+}
+
+/* SIDE ---------------------------------------------------------------- */
+
+.resume-banker-twocol .bkt-side-section {
+  margin-bottom: 6mm;
+}
+.resume-banker-twocol .bkt-side-section:last-child {
+  margin-bottom: 0;
+}
+.resume-banker-twocol .bkt-side-title {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--bkt-accent);
+  margin: 0 0 3mm;
+  padding-bottom: 1.25mm;
+  border-bottom: 0.5px solid var(--bkt-accent);
+  font-variant-caps: small-caps;
+}
+
+.resume-banker-twocol .bkt-meta-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  font-size: 9pt;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.resume-banker-twocol .bkt-meta-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+.resume-banker-twocol .bkt-meta-label {
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--bkt-muted);
+}
+.resume-banker-twocol .bkt-meta-list a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--bkt-hair);
+}
+.resume-banker-twocol .bkt-meta-list a:hover {
+  color: var(--bkt-accent);
+}
+
+.resume-banker-twocol .bkt-side-entry {
+  margin-bottom: 3.5mm;
+}
+.resume-banker-twocol .bkt-side-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-banker-twocol .bkt-side-role {
+  font-size: 9.75pt;
+  font-weight: 600;
+  color: var(--bkt-accent-deep);
+  line-height: 1.25;
+}
+.resume-banker-twocol .bkt-side-firm {
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--bkt-fg);
+  margin-top: 0.5mm;
+}
+.resume-banker-twocol .bkt-side-dates {
+  font-size: 8.5pt;
+  color: var(--bkt-muted);
+  font-variant-numeric: tabular-nums lining-nums;
+  margin-top: 0.5mm;
+}
+.resume-banker-twocol .bkt-side-prose {
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--bkt-fg);
+  margin: 1mm 0 0;
+  text-wrap: pretty;
+}
+
+.resume-banker-twocol .bkt-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75mm;
+}
+.resume-banker-twocol .bkt-skill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25mm;
+}
+.resume-banker-twocol .bkt-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--bkt-muted);
+}
+.resume-banker-twocol .bkt-skills dd {
+  margin: 0;
+  font-size: 9.25pt;
+  color: var(--bkt-fg);
+}
+
+/* MAIN / SECTIONS ----------------------------------------------------- */
+
+.resume-banker-twocol .bkt-section {
+  margin-bottom: 6mm;
+}
+.resume-banker-twocol .bkt-section:last-child {
+  margin-bottom: 0;
+}
+.resume-banker-twocol .bkt-section-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--bkt-accent);
+  margin: 0 0 4mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--bkt-accent);
+  font-variant-caps: small-caps;
+}
+.resume-banker-twocol .bkt-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--bkt-fg);
+  font-style: italic;
+  text-wrap: pretty;
+}
+
+.resume-banker-twocol .bkt-entry {
+  margin-bottom: 4.5mm;
+}
+.resume-banker-twocol .bkt-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-banker-twocol .bkt-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-banker-twocol .bkt-entry-role {
+  font-size: 10.75pt;
+  color: var(--bkt-ink);
+  line-height: 1.3;
+}
+.resume-banker-twocol .bkt-role {
+  font-weight: 600;
+  color: var(--bkt-accent-deep);
+}
+.resume-banker-twocol .bkt-firm {
+  font-style: italic;
+  color: var(--bkt-fg);
+  font-weight: 400;
+}
+.resume-banker-twocol .bkt-comma {
+  color: var(--bkt-muted);
+  font-weight: 400;
+  font-style: normal;
+}
+.resume-banker-twocol .bkt-entry-meta {
+  font-size: 8.75pt;
+  color: var(--bkt-muted);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.resume-banker-twocol .bkt-entry-loc {
+  font-size: 8.75pt;
+  font-style: italic;
+  color: var(--bkt-muted);
+  margin-top: 0.25mm;
+}
+.resume-banker-twocol .bkt-bullets {
+  list-style: none;
+  margin: 1.75mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-banker-twocol .bkt-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--bkt-fg);
+  text-wrap: pretty;
+}
+.resume-banker-twocol .bkt-bullets li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: var(--bkt-accent);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-banker-twocol .bkt-section,
+  .resume-banker-twocol .bkt-side-section,
+  .resume-banker-twocol .bkt-entry,
+  .resume-banker-twocol [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-banker-twocol {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-banker-twocol .bkt-head {
+  margin-bottom: 5mm;
+}
+.density-tight .resume-banker-twocol .bkt-section {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-banker-twocol .bkt-section-title {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-banker-twocol .bkt-side-section {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-banker-twocol .bkt-entry {
+  margin-bottom: 3.2mm;
+}
+.density-tight .resume-banker-twocol .bkt-bullets {
+  gap: 0.7mm;
+}
+.density-tight .resume-banker-twocol .bkt-side-entry {
+  margin-bottom: 2.5mm;
+}
+
+.density-roomy .resume-banker-twocol {
+  font-size: 10.5pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-banker-twocol .bkt-head {
+  margin-bottom: 10mm;
+}
+.density-roomy .resume-banker-twocol .bkt-section {
+  margin-bottom: 9mm;
+}
+.density-roomy .resume-banker-twocol .bkt-section-title {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-banker-twocol .bkt-side-section {
+  margin-bottom: 9mm;
+}
+.density-roomy .resume-banker-twocol .bkt-entry {
+  margin-bottom: 6.5mm;
+}
+.density-roomy .resume-banker-twocol .bkt-bullets {
+  gap: 1.4mm;
+}
+.density-roomy .resume-banker-twocol .bkt-side-entry {
+  margin-bottom: 5mm;
+}

@@ -1,0 +1,255 @@
+/* terminal-tabular — strict tabular two-column mono layout.
+   No prompt headers, no shell rhythm. Every entry is a record dump:
+   key (left, ~28mm) → value (right, fluid). Section labels are quiet.
+   Accent is a teal tone — distinct from cyan/amber/green/indigo of the
+   sibling variants. Reads like a printout from `db query --format=tsv`.
+
+   Class prefix: .tt- for stable scoping. Root: .resume-terminal-tabular. */
+
+.resume-terminal-tabular {
+  --tt-ink: #0d1417;
+  --tt-fg: #14201f;
+  --tt-muted: #4d6066;
+  --tt-faint: #98a8ad;
+  --tt-rule: #d8dee0;
+  --tt-hair: #e9eced;
+  --tt-paper: #ffffff;
+  --tt-accent: #0f766e; /* teal-700, key labels */
+  --tt-accent-deep: #115e59; /* teal-800 */
+  --tt-accent-soft: #f0fdfa; /* teal-50, alternating rows */
+  --tt-secondary: #b45309; /* amber-700 for the record tag */
+  --tt-comment: #94a3b8;
+
+  font-family:
+    'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', Menlo, Consolas, ui-monospace, SFMono-Regular,
+    monospace;
+  padding: var(--page-pad-top, 15mm) 16mm var(--page-pad-bot, 15mm);
+  font-size: 9.25pt;
+  line-height: 1.5;
+  color: var(--tt-fg);
+  background: var(--tt-paper);
+  font-feature-settings:
+    'kern',
+    'tnum',
+    'calt' 0,
+    'liga' 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-terminal-tabular .tt-head {
+  margin-bottom: 6mm;
+  padding-bottom: 4mm;
+  border-bottom: 1.5px solid var(--tt-ink);
+}
+.resume-terminal-tabular .tt-head-tag {
+  display: inline-block;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--tt-secondary);
+  margin-bottom: 3mm;
+  padding: 0.7mm 2mm;
+  border: 1px solid var(--tt-secondary);
+}
+.resume-terminal-tabular .tt-name {
+  font-size: 21pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0 0 1.5mm;
+  color: var(--tt-ink);
+}
+.resume-terminal-tabular .tt-title {
+  font-size: 9pt;
+  color: var(--tt-muted);
+  margin: 0;
+}
+.resume-terminal-tabular .tt-title::before {
+  content: '// ';
+  color: var(--tt-comment);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-terminal-tabular .tt-section {
+  margin-top: 5mm;
+}
+.resume-terminal-tabular .tt-section:first-of-type {
+  margin-top: 0;
+}
+.resume-terminal-tabular .tt-section-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--tt-accent-deep);
+  margin: 0 0 2mm;
+  padding-bottom: 1mm;
+  border-bottom: 1px solid var(--tt-rule);
+}
+
+/* TABLE PRIMITIVE ----------------------------------------------------- */
+
+.resume-terminal-tabular .tt-table {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--tt-hair);
+  border-radius: 0;
+}
+.resume-terminal-tabular .tt-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+  padding: 1.5mm 3mm;
+  border-bottom: 1px solid var(--tt-hair);
+  min-width: 0;
+}
+.resume-terminal-tabular .tt-row:last-child {
+  border-bottom: none;
+}
+.resume-terminal-tabular .tt-row:nth-child(odd) {
+  background: var(--tt-accent-soft);
+}
+.resume-terminal-tabular .tt-table dt {
+  font-size: 8.25pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--tt-accent);
+  text-transform: lowercase;
+}
+.resume-terminal-tabular .tt-table dd {
+  margin: 0;
+  font-size: 9.25pt;
+  color: var(--tt-fg);
+  text-wrap: pretty;
+  min-width: 0;
+}
+.resume-terminal-tabular .tt-strong {
+  font-weight: 700;
+  color: var(--tt-ink);
+}
+.resume-terminal-tabular .tt-link {
+  color: var(--tt-accent-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--tt-faint);
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-terminal-tabular .tt-entry {
+  margin-top: 2.5mm;
+}
+.resume-terminal-tabular .tt-entry:first-of-type {
+  margin-top: 1mm;
+}
+
+.resume-terminal-tabular .tt-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-terminal-tabular .tt-bullets li {
+  font-size: 9pt;
+  line-height: 1.5;
+  color: var(--tt-fg);
+  text-wrap: pretty;
+  position: relative;
+  padding-left: 1.1em;
+}
+.resume-terminal-tabular .tt-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--tt-accent);
+  font-weight: 700;
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-terminal-tabular .tt-footer {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 1px solid var(--tt-hair);
+  font-size: 8pt;
+}
+.resume-terminal-tabular .tt-comment {
+  color: var(--tt-comment);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-terminal-tabular .tt-section,
+  .resume-terminal-tabular .tt-entry,
+  .resume-terminal-tabular [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-terminal-tabular {
+  font-size: 8.5pt;
+  line-height: 1.4;
+}
+.density-tight .resume-terminal-tabular .tt-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-terminal-tabular .tt-section-label {
+  margin: 0 0 1.4mm;
+}
+.density-tight .resume-terminal-tabular .tt-entry {
+  margin-top: 1.8mm;
+}
+.density-tight .resume-terminal-tabular .tt-row {
+  padding: 1mm 2.5mm;
+}
+.density-tight .resume-terminal-tabular .tt-bullets {
+  gap: 0.6mm;
+}
+.density-tight .resume-terminal-tabular .tt-bullets li {
+  font-size: 8.5pt;
+  line-height: 1.4;
+}
+.density-tight .resume-terminal-tabular .tt-head {
+  margin-bottom: 4.5mm;
+  padding-bottom: 3mm;
+}
+
+.density-roomy .resume-terminal-tabular {
+  font-size: 9.75pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-terminal-tabular .tt-section {
+  margin-top: 7.5mm;
+}
+.density-roomy .resume-terminal-tabular .tt-section-label {
+  margin: 0 0 3mm;
+}
+.density-roomy .resume-terminal-tabular .tt-entry {
+  margin-top: 4mm;
+}
+.density-roomy .resume-terminal-tabular .tt-row {
+  padding: 2.2mm 4mm;
+}
+.density-roomy .resume-terminal-tabular .tt-bullets {
+  gap: 1.5mm;
+}
+.density-roomy .resume-terminal-tabular .tt-bullets li {
+  font-size: 9.5pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-terminal-tabular .tt-head {
+  margin-bottom: 8.5mm;
+  padding-bottom: 6mm;
+}

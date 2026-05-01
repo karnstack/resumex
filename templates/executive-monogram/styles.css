@@ -1,0 +1,302 @@
+/* executive-monogram — Boardroom executive with a refined "AP" monogram crest.
+   Thin-rule shield/square containing initials, very small. Wordmark name below.
+   Single dark-gray accent. Generous whitespace.
+
+   Class prefix: .exm- for stable scoping. Root: .resume-executive-monogram. */
+
+.resume-executive-monogram {
+  --exm-ink: #0f1216;
+  --exm-fg: #1a1d22;
+  --exm-muted: #5a6068;
+  --exm-faint: #8a9099;
+  --exm-rule: #1f2329;
+  --exm-hair: #d8dadd;
+  --exm-accent: #2a313a;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding: var(--page-pad-top, 22mm) 22mm var(--page-pad-bot, 20mm);
+  font-size: 10pt;
+  line-height: 1.6;
+  color: var(--exm-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01', 'liga';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-executive-monogram .exm-head {
+  text-align: center;
+  margin-bottom: 12mm;
+}
+.resume-executive-monogram .exm-crest {
+  width: 11mm;
+  height: 11mm;
+  margin: 0 auto 7mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--exm-accent);
+  position: relative;
+}
+.resume-executive-monogram .exm-crest::before,
+.resume-executive-monogram .exm-crest::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 4mm;
+  height: 1px;
+  background: var(--exm-accent);
+  transform: translateX(-50%);
+}
+.resume-executive-monogram .exm-crest::before {
+  top: -2.5mm;
+}
+.resume-executive-monogram .exm-crest::after {
+  bottom: -2.5mm;
+}
+.resume-executive-monogram .exm-crest-letters {
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--exm-accent);
+  text-indent: 0.18em;
+  font-feature-settings: 'kern';
+}
+
+.resume-executive-monogram .exm-wordmark {
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  line-height: 1.05;
+  margin: 0 0 4mm;
+  color: var(--exm-ink);
+  text-indent: 0.4em;
+}
+.resume-executive-monogram .exm-title {
+  font-size: 9.5pt;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--exm-muted);
+  margin: 0 0 6mm;
+}
+.resume-executive-monogram .exm-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 8px;
+  font-size: 8.75pt;
+  color: var(--exm-muted);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.resume-executive-monogram .exm-contact .exm-sep {
+  color: var(--exm-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-executive-monogram .exm-section {
+  margin-top: 10mm;
+}
+.resume-executive-monogram .exm-section:first-of-type {
+  margin-top: 0;
+}
+.resume-executive-monogram .exm-section h2 {
+  font-size: 8.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--exm-accent);
+  text-align: center;
+  margin: 0 0 5mm;
+  padding: 0;
+  position: relative;
+}
+.resume-executive-monogram .exm-section h2::before,
+.resume-executive-monogram .exm-section h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 18mm;
+  height: 1px;
+  background: var(--exm-hair);
+}
+.resume-executive-monogram .exm-section h2::before {
+  left: 50%;
+  margin-left: -45mm;
+}
+.resume-executive-monogram .exm-section h2::after {
+  right: 50%;
+  margin-right: -45mm;
+}
+
+.resume-executive-monogram .exm-lede {
+  margin: 0 auto;
+  font-size: 10.5pt;
+  line-height: 1.7;
+  color: var(--exm-fg);
+  text-wrap: pretty;
+  max-width: 155mm;
+  text-align: center;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-executive-monogram .exm-entry {
+  margin-bottom: 5mm;
+}
+.resume-executive-monogram .exm-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-executive-monogram .exm-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+}
+.resume-executive-monogram .exm-entry-title {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--exm-ink);
+}
+.resume-executive-monogram .exm-entry-meta {
+  font-size: 8.75pt;
+  color: var(--exm-muted);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.resume-executive-monogram .exm-entry-sub {
+  font-size: 9.5pt;
+  font-style: italic;
+  color: var(--exm-muted);
+  margin: 0.5mm 0 1.5mm;
+}
+
+.resume-executive-monogram .exm-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+}
+.resume-executive-monogram .exm-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.6;
+  margin: 0.6mm 0;
+  text-wrap: pretty;
+  color: var(--exm-fg);
+}
+.resume-executive-monogram .exm-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 5px;
+  height: 1px;
+  background: var(--exm-accent);
+}
+
+.resume-executive-monogram .exm-prose {
+  margin: 0.5mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.6;
+  color: var(--exm-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-executive-monogram .exm-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.resume-executive-monogram .exm-skill-row {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  align-items: baseline;
+}
+.resume-executive-monogram .exm-skill-row + .exm-skill-row {
+  border-top: 1px dotted var(--exm-hair);
+}
+.resume-executive-monogram .exm-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--exm-muted);
+}
+.resume-executive-monogram .exm-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--exm-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-executive-monogram .exm-section,
+  .resume-executive-monogram .exm-entry,
+  .resume-executive-monogram [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-executive-monogram {
+  font-size: 9.25pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 16mm);
+}
+.density-tight .resume-executive-monogram .exm-head {
+  margin-bottom: 8mm;
+}
+.density-tight .resume-executive-monogram .exm-section {
+  margin-top: 7mm;
+}
+.density-tight .resume-executive-monogram .exm-section h2 {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-executive-monogram .exm-entry {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-executive-monogram .exm-skill-row {
+  padding: 1mm 0;
+}
+
+.density-roomy .resume-executive-monogram {
+  font-size: 10.5pt;
+  line-height: 1.7;
+  padding: var(--page-pad-top, 26mm) 26mm var(--page-pad-bot, 24mm);
+}
+.density-roomy .resume-executive-monogram .exm-head {
+  margin-bottom: 16mm;
+}
+.density-roomy .resume-executive-monogram .exm-section {
+  margin-top: 13mm;
+}
+.density-roomy .resume-executive-monogram .exm-section h2 {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-executive-monogram .exm-entry {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-executive-monogram .exm-skill-row {
+  padding: 2.2mm 0;
+}

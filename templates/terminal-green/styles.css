@@ -1,0 +1,333 @@
+/* terminal-green — green CRT phosphor accent on white paper.
+   Mirrors the base terminal structure but tuned to a forest-green palette
+   that prints cleanly. Bullets use `+` (diff-style), values lean teal-ish
+   to differentiate from key labels.
+
+   Class prefix: .tg- for stable scoping. Root: .resume-terminal-green. */
+
+.resume-terminal-green {
+  --tg-ink: #0a1110;
+  --tg-fg: #11201b;
+  --tg-muted: #4f6a5e;
+  --tg-faint: #94aaa0;
+  --tg-rule: #d8e2dc;
+  --tg-hair: #e7eee9;
+  --tg-paper: #ffffff;
+  --tg-accent: #16a34a; /* green-600 */
+  --tg-accent-deep: #15803d; /* green-700 */
+  --tg-accent-soft: #166534; /* green-800 */
+  --tg-secondary: #0d9488; /* teal-600, for values */
+  --tg-comment: #94a3b8; /* slate-400 */
+
+  font-family:
+    'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', Menlo, Consolas, ui-monospace, SFMono-Regular,
+    monospace;
+  padding: var(--page-pad-top, 15mm) 16mm var(--page-pad-bot, 15mm);
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--tg-fg);
+  background: var(--tg-paper);
+  font-feature-settings:
+    'kern',
+    'calt' 0,
+    'liga' 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-terminal-green .tg-head {
+  margin-bottom: 7mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px dashed var(--tg-rule);
+}
+.resume-terminal-green .tg-prompt-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  font-size: 8.75pt;
+  color: var(--tg-muted);
+  margin-bottom: 4mm;
+  align-items: baseline;
+}
+.resume-terminal-green .tg-user {
+  color: var(--tg-accent);
+  font-weight: 700;
+}
+.resume-terminal-green .tg-at,
+.resume-terminal-green .tg-colon {
+  color: var(--tg-faint);
+}
+.resume-terminal-green .tg-host {
+  color: var(--tg-accent-deep);
+  font-weight: 600;
+}
+.resume-terminal-green .tg-path {
+  color: var(--tg-secondary);
+}
+.resume-terminal-green .tg-dollar {
+  color: var(--tg-accent);
+  font-weight: 700;
+}
+.resume-terminal-green .tg-cmd {
+  color: var(--tg-ink);
+  font-weight: 700;
+}
+.resume-terminal-green .tg-arg {
+  color: var(--tg-secondary);
+}
+
+.resume-terminal-green .tg-name {
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 2mm;
+  color: var(--tg-ink);
+  display: inline-flex;
+  align-items: baseline;
+}
+.resume-terminal-green .tg-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--tg-accent);
+  margin-left: 4px;
+  transform: translateY(2px);
+  opacity: 0.85;
+}
+.resume-terminal-green .tg-title {
+  font-size: 9.5pt;
+  color: var(--tg-muted);
+  margin-bottom: 4mm;
+}
+.resume-terminal-green .tg-title::before {
+  content: '# ';
+  color: var(--tg-comment);
+}
+
+.resume-terminal-green .tg-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8mm;
+  row-gap: 1.25mm;
+  font-size: 8.5pt;
+}
+.resume-terminal-green .tg-kv {
+  display: grid;
+  grid-template-columns: 16mm 4mm 1fr;
+  column-gap: 4px;
+  align-items: baseline;
+  min-width: 0;
+}
+.resume-terminal-green .tg-key {
+  color: var(--tg-accent-deep);
+  font-weight: 600;
+}
+.resume-terminal-green .tg-eq {
+  color: var(--tg-faint);
+  text-align: center;
+}
+.resume-terminal-green .tg-val {
+  color: var(--tg-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resume-terminal-green .tg-link {
+  color: var(--tg-secondary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--tg-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-terminal-green .tg-section {
+  margin-top: 5.5mm;
+}
+.resume-terminal-green .tg-section:first-of-type {
+  margin-top: 0;
+}
+.resume-terminal-green .tg-prompt {
+  display: flex;
+  gap: 0.4em;
+  font-size: 9.5pt;
+  margin-bottom: 2.5mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--tg-hair);
+  align-items: baseline;
+}
+.resume-terminal-green .tg-prompt .tg-dollar {
+  color: var(--tg-accent);
+  font-weight: 700;
+}
+.resume-terminal-green .tg-prompt .tg-cmd {
+  color: var(--tg-accent-deep);
+  font-weight: 700;
+}
+.resume-terminal-green .tg-prompt .tg-arg {
+  color: var(--tg-secondary);
+}
+
+.resume-terminal-green .tg-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: var(--tg-fg);
+  text-wrap: pretty;
+  max-width: 150mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-terminal-green .tg-entry {
+  margin-top: 3.5mm;
+}
+.resume-terminal-green .tg-entry:first-of-type {
+  margin-top: 1.5mm;
+}
+.resume-terminal-green .tg-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5em;
+  row-gap: 1pt;
+  margin-bottom: 1.5mm;
+}
+.resume-terminal-green .tg-role {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--tg-ink);
+}
+.resume-terminal-green .tg-sep {
+  color: var(--tg-faint);
+}
+.resume-terminal-green .tg-company {
+  font-size: 9.5pt;
+  color: var(--tg-accent-deep);
+  font-weight: 500;
+}
+.resume-terminal-green .tg-meta {
+  margin-left: auto;
+  font-size: 8.5pt;
+  color: var(--tg-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-terminal-green .tg-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-terminal-green .tg-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.55;
+  color: var(--tg-fg);
+  text-wrap: pretty;
+}
+.resume-terminal-green .tg-glyph {
+  color: var(--tg-accent);
+  margin-right: 0.4em;
+  font-weight: 700;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-terminal-green .tg-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  font-size: 9pt;
+}
+.resume-terminal-green .tg-skill-row {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+}
+.resume-terminal-green .tg-skills dt {
+  color: var(--tg-accent-deep);
+  font-weight: 600;
+}
+.resume-terminal-green .tg-skills dd {
+  margin: 0;
+  color: var(--tg-secondary);
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-terminal-green .tg-footer {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--tg-hair);
+  font-size: 8pt;
+}
+.resume-terminal-green .tg-comment {
+  color: var(--tg-comment);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-terminal-green .tg-section,
+  .resume-terminal-green .tg-entry,
+  .resume-terminal-green [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .resume-terminal-green .tg-cursor {
+    opacity: 0.7;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-terminal-green {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal-green .tg-section {
+  margin-top: 4mm;
+}
+.density-tight .resume-terminal-green .tg-entry {
+  margin-top: 2.5mm;
+}
+.density-tight .resume-terminal-green .tg-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-terminal-green .tg-bullets li {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.density-tight .resume-terminal-green .tg-head {
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+}
+
+.density-roomy .resume-terminal-green {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal-green .tg-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-terminal-green .tg-entry {
+  margin-top: 5mm;
+}
+.density-roomy .resume-terminal-green .tg-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-terminal-green .tg-bullets li {
+  font-size: 9.75pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-terminal-green .tg-head {
+  margin-bottom: 10mm;
+  padding-bottom: 7mm;
+}

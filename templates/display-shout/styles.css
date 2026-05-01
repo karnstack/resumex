@@ -1,0 +1,315 @@
+/* display-shout — full-width edge-to-edge name banner.
+   The name extends across the full content width as the big contrast
+   moment. Body small and quiet beneath. The "shout" is the banner;
+   the rest is whisper.
+   Class prefix .dpsh- for stable scoping. Root: .resume-display-shout. */
+
+.resume-display-shout {
+  --dpsh-ink: #0a0a0a;
+  --dpsh-fg: #1d1d1d;
+  --dpsh-muted: #5e5e5e;
+  --dpsh-faint: #b2b2b2;
+  --dpsh-rule: #0a0a0a;
+  --dpsh-hair: #d8d8d8;
+  --dpsh-paper: #f7f4ec;
+  --dpsh-paper-tinted: #ece6d2;
+
+  font-family: 'Untitled Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 0;
+  font-size: 9.5pt;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--dpsh-fg);
+  background: var(--dpsh-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* BANNER -------------------------------------------------------------- */
+
+.resume-display-shout .dpsh-banner {
+  background: var(--dpsh-ink);
+  color: var(--dpsh-paper);
+  padding: var(--page-pad-top, 14mm) 14mm 10mm;
+  margin-bottom: 0;
+}
+.resume-display-shout .dpsh-banner-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--dpsh-paper-tinted);
+  margin-bottom: 6mm;
+}
+.resume-display-shout .dpsh-eb-sep {
+  color: var(--dpsh-muted);
+}
+.resume-display-shout .dpsh-name {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 78pt;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  margin: 0 0 6mm;
+  color: var(--dpsh-paper);
+  text-wrap: balance;
+  /* full-width edge-to-edge feel — let the name claim the banner */
+  font-stretch: 100%;
+}
+.resume-display-shout .dpsh-banner-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 4mm;
+  border-top: 1px solid color-mix(in oklch, var(--dpsh-paper) 25%, transparent);
+}
+.resume-display-shout .dpsh-bf-role {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 9pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--dpsh-paper);
+}
+.resume-display-shout .dpsh-bf-rule {
+  flex: 0 0 24px;
+  height: 2px;
+  background: var(--dpsh-paper);
+  display: inline-block;
+}
+.resume-display-shout .dpsh-bf-meta {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--dpsh-paper-tinted);
+  letter-spacing: 0;
+}
+
+/* BODY ---------------------------------------------------------------- */
+
+.resume-display-shout .dpsh-body {
+  padding: 8mm 18mm var(--page-pad-bot, 14mm);
+}
+
+.resume-display-shout .dpsh-contact {
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: var(--dpsh-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  letter-spacing: 0.02em;
+  padding-bottom: 6mm;
+  border-bottom: 1px solid var(--dpsh-hair);
+  margin-bottom: 7mm;
+}
+.resume-display-shout .dpsh-contact a {
+  color: var(--dpsh-fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dpsh-hair);
+}
+.resume-display-shout .dpsh-c-sep {
+  color: var(--dpsh-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-display-shout .dpsh-section + .dpsh-section {
+  margin-top: 7mm;
+}
+.resume-display-shout .dpsh-h2 {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 9pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dpsh-ink);
+  margin: 0 0 4mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1.5px solid var(--dpsh-rule);
+}
+
+/* LEDE — quiet, never tries to compete with the banner */
+
+.resume-display-shout .dpsh-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpsh-fg);
+  max-width: 145mm;
+  text-wrap: pretty;
+}
+
+/* ENTRIES — small, restrained */
+
+.resume-display-shout .dpsh-entry + .dpsh-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--dpsh-hair);
+}
+.resume-display-shout .dpsh-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-display-shout .dpsh-role {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--dpsh-ink);
+  line-height: 1.2;
+}
+.resume-display-shout .dpsh-dates {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: var(--dpsh-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-display-shout .dpsh-org {
+  font-size: 9pt;
+  font-weight: 300;
+  color: var(--dpsh-fg);
+  margin: 1pt 0 2mm;
+}
+.resume-display-shout .dpsh-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4mm;
+}
+.resume-display-shout .dpsh-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpsh-fg);
+  text-wrap: pretty;
+}
+.resume-display-shout .dpsh-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--dpsh-ink);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-display-shout .dpsh-skills {
+  margin: 0;
+}
+.resume-display-shout .dpsh-skill-row {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 6mm;
+  padding: 1.6mm 0;
+  border-bottom: 1px dotted var(--dpsh-hair);
+  align-items: baseline;
+}
+.resume-display-shout .dpsh-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-display-shout .dpsh-skills dt {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dpsh-ink);
+}
+.resume-display-shout .dpsh-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--dpsh-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-display-shout .dpsh-section,
+  .resume-display-shout .dpsh-entry,
+  .resume-display-shout [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 9.5pt / 1.6 body, dpsh-entry margin 4mm, section margin 7mm.
+   Banner + body are discrete regions; both get padding overrides. */
+
+.density-tight .resume-display-shout {
+  font-size: 8.75pt;
+  line-height: 1.5;
+}
+.density-tight .resume-display-shout .dpsh-banner {
+  padding: var(--page-pad-top, 11mm) 14mm 7mm;
+}
+.density-tight .resume-display-shout .dpsh-body {
+  padding: 6mm 18mm var(--page-pad-bot, 10mm);
+}
+.density-tight .resume-display-shout .dpsh-contact {
+  padding-bottom: 4.5mm;
+  margin-bottom: 5mm;
+}
+.density-tight .resume-display-shout .dpsh-section + .dpsh-section {
+  margin-top: 5mm;
+}
+.density-tight .resume-display-shout .dpsh-h2 {
+  margin: 0 0 2.8mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-display-shout .dpsh-entry + .dpsh-entry {
+  margin-top: 2.8mm;
+  padding-top: 2.8mm;
+}
+.density-tight .resume-display-shout .dpsh-bullets {
+  gap: 1mm;
+}
+
+.density-roomy .resume-display-shout {
+  font-size: 10pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-display-shout .dpsh-banner {
+  padding: var(--page-pad-top, 18mm) 14mm 14mm;
+}
+.density-roomy .resume-display-shout .dpsh-body {
+  padding: 11mm 18mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-display-shout .dpsh-contact {
+  padding-bottom: 8mm;
+  margin-bottom: 9.5mm;
+}
+.density-roomy .resume-display-shout .dpsh-section + .dpsh-section {
+  margin-top: 9.5mm;
+}
+.density-roomy .resume-display-shout .dpsh-h2 {
+  margin: 0 0 5.5mm;
+  padding-bottom: 2.2mm;
+}
+.density-roomy .resume-display-shout .dpsh-entry + .dpsh-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-display-shout .dpsh-bullets {
+  gap: 2mm;
+}

@@ -1,0 +1,361 @@
+/* specsheet-callout — engineering-callout boxes per role.
+   Each experience entry sits in a bordered callout with a corner label
+   tag like "ROLE · 01". Spec-sheet header. Class prefix: .ssc-.
+   Root: .resume-specsheet-callout. */
+
+.resume-specsheet-callout {
+  --ssc-ink: #111418;
+  --ssc-fg: #1a1d22;
+  --ssc-muted: #5d6470;
+  --ssc-faint: #9aa1ac;
+  --ssc-rule: #1a1d22;
+  --ssc-hair: #c8ccd2;
+  --ssc-paper: #ffffff;
+  --ssc-soft: #f6f6f1;
+  --ssc-tag-bg: #111418;
+  --ssc-tag-fg: #f7f7f4;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 13mm) 13mm var(--page-pad-bot, 13mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--ssc-fg);
+  background: var(--ssc-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-specsheet-callout .ssc-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 6mm;
+  padding-bottom: 4mm;
+  border-bottom: 0.6pt solid var(--ssc-rule);
+  margin-bottom: 5mm;
+}
+.resume-specsheet-callout .ssc-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ssc-muted);
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet-callout .ssc-name {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--ssc-ink);
+}
+.resume-specsheet-callout .ssc-title {
+  margin-top: 2mm;
+  font-size: 10pt;
+  color: var(--ssc-fg);
+}
+.resume-specsheet-callout .ssc-head-right {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0;
+  border: 0.4pt solid var(--ssc-rule);
+}
+.resume-specsheet-callout .ssc-stamp {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 1.6mm 3mm;
+  border-bottom: 0.3pt solid var(--ssc-hair);
+  border-right: 0.3pt solid var(--ssc-hair);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+}
+.resume-specsheet-callout .ssc-stamp:nth-child(2n) {
+  border-right: none;
+}
+.resume-specsheet-callout .ssc-stamp:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+.resume-specsheet-callout .ssc-k {
+  font-weight: 700;
+  color: var(--ssc-muted);
+}
+.resume-specsheet-callout .ssc-v {
+  font-weight: 700;
+  color: var(--ssc-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* SECTION BAR --------------------------------------------------------- */
+
+.resume-specsheet-callout .ssc-section {
+  margin-top: 4mm;
+}
+.resume-specsheet-callout .ssc-section-bar {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet-callout .ssc-bar-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ssc-ink);
+  white-space: nowrap;
+}
+.resume-specsheet-callout .ssc-bar-rule {
+  flex: 1;
+  height: 0.4pt;
+  background: var(--ssc-rule);
+}
+
+/* CALLOUT ------------------------------------------------------------ */
+
+.resume-specsheet-callout .ssc-callout {
+  position: relative;
+  border: 0.5pt solid var(--ssc-rule);
+  background: var(--ssc-paper);
+  margin-top: 4mm;
+  padding: 4mm 4mm 3mm;
+}
+.resume-specsheet-callout .ssc-callout:first-child {
+  margin-top: 0;
+}
+.resume-specsheet-callout .ssc-callout-soft {
+  background: var(--ssc-soft);
+}
+.resume-specsheet-callout .ssc-callout-tag {
+  position: absolute;
+  top: -1px;
+  left: 6mm;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1pt 6pt;
+  background: var(--ssc-tag-bg);
+  color: var(--ssc-tag-fg);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+}
+.resume-specsheet-callout .ssc-tag-k {
+  opacity: 0.7;
+}
+.resume-specsheet-callout .ssc-tag-v {
+  font-variant-numeric: tabular-nums;
+}
+.resume-specsheet-callout .ssc-callout-body {
+  margin: 0;
+  padding-top: 2mm;
+}
+
+.resume-specsheet-callout .ssc-callout-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+}
+.resume-specsheet-callout .ssc-callout-half {
+  margin-top: 0;
+}
+
+.resume-specsheet-callout .ssc-callout p.ssc-callout-body {
+  font-size: 10.25pt;
+  line-height: 1.55;
+  color: var(--ssc-fg);
+  text-wrap: pretty;
+  margin: 0;
+  padding-top: 2mm;
+  max-width: 165mm;
+}
+
+/* ENTRY in callout */
+
+.resume-specsheet-callout .ssc-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: 2mm;
+}
+.resume-specsheet-callout .ssc-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ssc-ink);
+}
+.resume-specsheet-callout .ssc-entry-sub {
+  margin-top: 0.5pt;
+  font-size: 9pt;
+  color: var(--ssc-muted);
+}
+.resume-specsheet-callout .ssc-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ssc-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-specsheet-callout .ssc-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-specsheet-callout .ssc-bullets li {
+  display: grid;
+  grid-template-columns: 24mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+  border-top: 0.3pt dotted var(--ssc-hair);
+  padding-top: 1mm;
+}
+.resume-specsheet-callout .ssc-bullets li:first-child {
+  border-top: 0.3pt solid var(--ssc-hair);
+}
+.resume-specsheet-callout .ssc-li-k {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ssc-muted);
+  white-space: nowrap;
+}
+.resume-specsheet-callout .ssc-li-v {
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--ssc-fg);
+  text-wrap: pretty;
+}
+
+.resume-specsheet-callout .ssc-prose {
+  margin: 1mm 0 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--ssc-fg);
+  text-wrap: pretty;
+}
+
+/* SPEC GRID rows (info / education / skills) ------------------------- */
+
+.resume-specsheet-callout .ssc-grid {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-specsheet-callout .ssc-row {
+  display: grid;
+  grid-template-columns: 24mm 1fr;
+  column-gap: 5mm;
+  padding: 1.2mm 0;
+  border-top: 0.3pt dotted var(--ssc-hair);
+  align-items: baseline;
+}
+.resume-specsheet-callout .ssc-row:first-child {
+  border-top: 0.3pt solid var(--ssc-hair);
+}
+.resume-specsheet-callout .ssc-row:last-child {
+  border-bottom: 0.3pt solid var(--ssc-hair);
+}
+.resume-specsheet-callout .ssc-grid dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ssc-muted);
+}
+.resume-specsheet-callout .ssc-grid dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--ssc-fg);
+  text-wrap: pretty;
+}
+.resume-specsheet-callout .ssc-grid dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.3pt solid var(--ssc-hair);
+}
+
+.resume-specsheet-callout .ssc-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-specsheet-callout .ssc-section,
+  .resume-specsheet-callout .ssc-callout,
+  .resume-specsheet-callout [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-specsheet-callout {
+  font-size: 9pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 11mm) 11mm var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-specsheet-callout .ssc-head {
+  margin-bottom: 3.5mm;
+  padding-bottom: 3mm;
+}
+.density-tight .resume-specsheet-callout .ssc-section {
+  margin-top: 3mm;
+}
+.density-tight .resume-specsheet-callout .ssc-section-bar {
+  margin-bottom: 1.75mm;
+}
+.density-tight .resume-specsheet-callout .ssc-callout {
+  margin-top: 3mm;
+  padding: 3mm 3mm 2.5mm;
+}
+.density-tight .resume-specsheet-callout .ssc-bullets {
+  gap: 0.6mm;
+}
+.density-tight .resume-specsheet-callout .ssc-row {
+  padding: 0.9mm 0;
+}
+
+.density-roomy .resume-specsheet-callout {
+  font-size: 10.25pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 15mm) 15mm var(--page-pad-bot, 15mm);
+}
+.density-roomy .resume-specsheet-callout .ssc-head {
+  margin-bottom: 7mm;
+  padding-bottom: 6mm;
+}
+.density-roomy .resume-specsheet-callout .ssc-section {
+  margin-top: 6mm;
+}
+.density-roomy .resume-specsheet-callout .ssc-section-bar {
+  margin-bottom: 3.5mm;
+}
+.density-roomy .resume-specsheet-callout .ssc-callout {
+  margin-top: 6mm;
+  padding: 5.5mm 5mm 4.5mm;
+}
+.density-roomy .resume-specsheet-callout .ssc-bullets {
+  gap: 1.6mm;
+}
+.density-roomy .resume-specsheet-callout .ssc-row {
+  padding: 1.8mm 0;
+}

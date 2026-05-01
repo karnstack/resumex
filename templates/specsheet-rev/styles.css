@@ -1,0 +1,430 @@
+/* specsheet-rev — REV-A / REV-B markings prominent.
+   Each section gets a revision tag. Strong revision-history aesthetic.
+   Class prefix: .ssr- for stable scoping. Root: .resume-specsheet-rev. */
+
+.resume-specsheet-rev {
+  --ssr-ink: #111418;
+  --ssr-fg: #1a1d22;
+  --ssr-muted: #5d6470;
+  --ssr-faint: #9aa1ac;
+  --ssr-rule: #1a1d22;
+  --ssr-hair: #c8ccd2;
+  --ssr-paper: #ffffff;
+  --ssr-tag-bg: #f1f1ec;
+  --ssr-tag-fg: #111418;
+  --ssr-current-bg: #111418;
+  --ssr-current-fg: #f7f7f4;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--ssr-fg);
+  background: var(--ssr-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-specsheet-rev .ssr-head {
+  border: 0.6pt solid var(--ssr-rule);
+  margin-bottom: 5mm;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.resume-specsheet-rev .ssr-head-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border-bottom: 0.4pt solid var(--ssr-rule);
+}
+.resume-specsheet-rev .ssr-doctag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2.2mm 4mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.2em;
+  color: var(--ssr-fg);
+}
+.resume-specsheet-rev .ssr-doctag-k {
+  font-weight: 700;
+  color: var(--ssr-muted);
+}
+.resume-specsheet-rev .ssr-doctag-v {
+  font-weight: 700;
+  color: var(--ssr-ink);
+}
+.resume-specsheet-rev .ssr-revtag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2.2mm 4mm;
+  border-left: 0.4pt solid var(--ssr-rule);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  background: var(--ssr-current-bg);
+  color: var(--ssr-current-fg);
+}
+.resume-specsheet-rev .ssr-revtag-k {
+  font-weight: 700;
+  opacity: 0.65;
+}
+.resume-specsheet-rev .ssr-revtag-v {
+  font-weight: 700;
+  font-size: 11pt;
+  letter-spacing: 0;
+}
+.resume-specsheet-rev .ssr-head-body {
+  padding: 5mm 4mm 4mm;
+  border-bottom: 0.4pt solid var(--ssr-rule);
+}
+.resume-specsheet-rev .ssr-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ssr-muted);
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet-rev .ssr-name {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--ssr-ink);
+}
+.resume-specsheet-rev .ssr-title {
+  margin-top: 2mm;
+  font-size: 10pt;
+  color: var(--ssr-fg);
+  letter-spacing: 0.01em;
+}
+.resume-specsheet-rev .ssr-head-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+}
+.resume-specsheet-rev .ssr-kv {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 2mm 4mm;
+  border-right: 0.3pt solid var(--ssr-hair);
+}
+.resume-specsheet-rev .ssr-kv:last-child {
+  border-right: none;
+}
+.resume-specsheet-rev .ssr-k {
+  font-weight: 700;
+  color: var(--ssr-muted);
+}
+.resume-specsheet-rev .ssr-v {
+  font-weight: 700;
+  color: var(--ssr-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* SECTION BAR --------------------------------------------------------- */
+
+.resume-specsheet-rev .ssr-section,
+.resume-specsheet-rev .ssr-history {
+  margin-top: 5mm;
+}
+.resume-specsheet-rev .ssr-section-bar {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet-rev .ssr-bar-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ssr-ink);
+  white-space: nowrap;
+}
+.resume-specsheet-rev .ssr-bar-rule {
+  flex: 1;
+  height: 0.4pt;
+  background: var(--ssr-rule);
+}
+.resume-specsheet-rev .ssr-bar-revtag {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ssr-tag-fg);
+  background: var(--ssr-tag-bg);
+  padding: 1pt 5pt;
+  border: 0.3pt solid var(--ssr-rule);
+  white-space: nowrap;
+}
+
+/* REVISION HISTORY TABLE --------------------------------------------- */
+
+.resume-specsheet-rev .ssr-rev-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  border: 0.4pt solid var(--ssr-rule);
+}
+.resume-specsheet-rev .ssr-rev-table th {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ssr-muted);
+  text-align: left;
+  padding: 1.6mm 3mm;
+  border-bottom: 0.4pt solid var(--ssr-rule);
+  background: #f6f6f1;
+}
+.resume-specsheet-rev .ssr-rev-table td {
+  padding: 1.4mm 3mm;
+  border-top: 0.3pt dotted var(--ssr-hair);
+  vertical-align: top;
+  color: var(--ssr-fg);
+}
+.resume-specsheet-rev .ssr-rev-table td:first-child {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  width: 14mm;
+  color: var(--ssr-ink);
+}
+.resume-specsheet-rev .ssr-rev-table td:nth-child(2),
+.resume-specsheet-rev .ssr-rev-table td:nth-child(3) {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  width: 22mm;
+  color: var(--ssr-fg);
+}
+.resume-specsheet-rev .ssr-rev-current td {
+  background: #fbf6e8;
+  font-weight: 600;
+}
+
+/* GRID --------------------------------------------------------------- */
+
+.resume-specsheet-rev .ssr-grid {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-specsheet-rev .ssr-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.4mm 0;
+  border-top: 0.3pt dotted var(--ssr-hair);
+  align-items: baseline;
+}
+.resume-specsheet-rev .ssr-row:first-child {
+  border-top: 0.3pt solid var(--ssr-hair);
+}
+.resume-specsheet-rev .ssr-row:last-child {
+  border-bottom: 0.3pt solid var(--ssr-hair);
+}
+.resume-specsheet-rev .ssr-grid dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ssr-muted);
+}
+.resume-specsheet-rev .ssr-grid dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--ssr-fg);
+  text-wrap: pretty;
+}
+.resume-specsheet-rev .ssr-grid dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.3pt solid var(--ssr-hair);
+}
+
+/* LEDE / ENTRY ------------------------------------------------------- */
+
+.resume-specsheet-rev .ssr-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--ssr-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+.resume-specsheet-rev .ssr-entry {
+  padding: 3mm 0;
+  border-top: 0.3pt solid var(--ssr-hair);
+}
+.resume-specsheet-rev .ssr-entry:first-of-type {
+  border-top: none;
+  padding-top: 1mm;
+}
+.resume-specsheet-rev .ssr-entry-head {
+  display: grid;
+  grid-template-columns: 16mm 1fr auto;
+  column-gap: 4mm;
+  align-items: baseline;
+  margin-bottom: 1.5mm;
+}
+.resume-specsheet-rev .ssr-entry-tag {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ssr-current-fg);
+  background: var(--ssr-current-bg);
+  padding: 1pt 4pt;
+  text-align: center;
+  white-space: nowrap;
+  align-self: start;
+  margin-top: 1pt;
+}
+.resume-specsheet-rev .ssr-entry-body-head {
+  min-width: 0;
+}
+.resume-specsheet-rev .ssr-entry-title {
+  font-size: 10.75pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ssr-ink);
+}
+.resume-specsheet-rev .ssr-entry-sub {
+  margin-top: 0.5pt;
+  font-size: 9pt;
+  color: var(--ssr-muted);
+}
+.resume-specsheet-rev .ssr-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ssr-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-specsheet-rev .ssr-bullets {
+  list-style: none;
+  margin: 1mm 0 0 20mm;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-specsheet-rev .ssr-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--ssr-fg);
+}
+.resume-specsheet-rev .ssr-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 0.6pt;
+  background: var(--ssr-rule);
+}
+.resume-specsheet-rev .ssr-prose {
+  margin: 1mm 0 0 20mm;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--ssr-fg);
+  text-wrap: pretty;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-specsheet-rev .ssr-section,
+  .resume-specsheet-rev .ssr-history,
+  .resume-specsheet-rev .ssr-entry,
+  .resume-specsheet-rev [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-specsheet-rev {
+  font-size: 9pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+}
+.density-tight .resume-specsheet-rev .ssr-head {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-specsheet-rev .ssr-head-body {
+  padding: 3.5mm 3mm 3mm;
+}
+.density-tight .resume-specsheet-rev .ssr-section,
+.density-tight .resume-specsheet-rev .ssr-history {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-specsheet-rev .ssr-section-bar {
+  margin-bottom: 1.75mm;
+}
+.density-tight .resume-specsheet-rev .ssr-row {
+  padding: 1mm 0;
+}
+.density-tight .resume-specsheet-rev .ssr-entry {
+  padding: 2mm 0;
+}
+.density-tight .resume-specsheet-rev .ssr-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-specsheet-rev .ssr-rev-table td {
+  padding: 1mm 2.4mm;
+}
+
+.density-roomy .resume-specsheet-rev {
+  font-size: 10.25pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 16mm) 16mm var(--page-pad-bot, 16mm);
+}
+.density-roomy .resume-specsheet-rev .ssr-head {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-specsheet-rev .ssr-head-body {
+  padding: 7mm 5mm 6mm;
+}
+.density-roomy .resume-specsheet-rev .ssr-section,
+.density-roomy .resume-specsheet-rev .ssr-history {
+  margin-top: 7mm;
+}
+.density-roomy .resume-specsheet-rev .ssr-section-bar {
+  margin-bottom: 3.5mm;
+}
+.density-roomy .resume-specsheet-rev .ssr-row {
+  padding: 2mm 0;
+}
+.density-roomy .resume-specsheet-rev .ssr-entry {
+  padding: 4.5mm 0;
+}
+.density-roomy .resume-specsheet-rev .ssr-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-specsheet-rev .ssr-rev-table td {
+  padding: 2mm 4mm;
+}

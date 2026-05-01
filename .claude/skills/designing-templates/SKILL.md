@@ -68,13 +68,45 @@ A template that renders a plain `<article>` instead will appear to work, but:
 
 Pass the template's root class as `innerClassName`. The inner div is what `useFitToPage` measures and zooms. Don't add `max-width: 210mm` or `margin: 0 auto` to that class - PageFrame's inner div is dynamically sized to `${210 / scale}mm` and any clamp produces an asymmetric gap on the right.
 
-Use the `--page-pad-top` / `--page-pad-bot` CSS variables for inner padding so the toolbar's density / padding sliders can override them:
+Use the `--page-pad-top` / `--page-pad-bot` CSS variables for inner padding so the toolbar's padding sliders can override them:
 
 ```css
 .resume-my-template {
   padding: var(--page-pad-top, 15mm) 18mm var(--page-pad-bot, 15mm);
 }
 ```
+
+### Density support (mandatory)
+
+The preview toolbar exposes a density selector with three modes: `tight`, `regular`, `roomy`. The active mode is applied as a class on the page wrapper (`.density-tight` or `.density-roomy`; `regular` is the unstyled default).
+
+Every template MUST own its density overrides in its **own** `styles.css`, scoped to its root class. Don't put new template overrides into `src/components/stage/stage.css` - that file's existing entries are kept for backward compatibility but new templates own their own behavior so they scale independently.
+
+The pattern (model after `emerald-twocol` / `minimal-mono` blocks in `stage.css`):
+
+```css
+/* tight - fits more content; reduces type and gaps */
+.density-tight .resume-my-template {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .resume-my-template .entry { margin-bottom: 0.55em; }
+.density-tight .resume-my-template ul { margin-top: 0.3em; }
+.density-tight .resume-my-template section { margin-top: 0.85em; }
+/* …other tight overrides… */
+
+/* roomy - opens it up; useful when you have less content */
+.density-roomy .resume-my-template {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-my-template .entry { margin-bottom: 1.05em; }
+.density-roomy .resume-my-template ul { margin-top: 0.5em; }
+.density-roomy .resume-my-template section { margin-top: 1.45em; }
+/* …other roomy overrides… */
+```
+
+Three knobs, in order of leverage: (1) body type size + line-height, (2) structural gaps between entries / groups / sections, (3) inner padding of major regions. You don't need to override every selector — just enough that tight visibly fits more and roomy visibly breathes.
 
 ## Operations
 

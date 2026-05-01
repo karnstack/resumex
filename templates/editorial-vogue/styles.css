@@ -1,0 +1,380 @@
+/* editorial-vogue — Magazine cover treatment.
+   Oversized name (40pt), all-caps tracked-out section heads, asymmetric grid:
+   name on the far left, contact aligned right of a vertical hairline rule.
+   Pull-quote-like summary with hanging quotation mark.
+
+   Class prefix: .ev-. Root: .resume-editorial-vogue. */
+
+.resume-editorial-vogue {
+  --ev-ink: #111114;
+  --ev-fg: #1a1c20;
+  --ev-muted: #5a5d65;
+  --ev-faint: #8c9099;
+  --ev-rule: #14161a;
+  --ev-hair: #d8d4cc;
+
+  --ev-serif: 'Playfair Display', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --ev-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  font-family: var(--ev-sans);
+  padding: var(--page-pad-top, 16mm) 16mm var(--page-pad-bot, 16mm);
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ev-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-editorial-vogue .ev-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) auto minmax(0, 1fr);
+  column-gap: 7mm;
+  align-items: stretch;
+  padding-bottom: 7mm;
+  border-bottom: 1px solid var(--ev-rule);
+  margin-bottom: 7mm;
+}
+.resume-editorial-vogue .ev-head-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+}
+.resume-editorial-vogue .ev-eyebrow {
+  font-family: var(--ev-sans);
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  color: var(--ev-muted);
+  margin-bottom: 5mm;
+}
+.resume-editorial-vogue .ev-name {
+  font-family: var(--ev-serif);
+  font-size: 40pt;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 0.9;
+  margin: 0;
+  color: var(--ev-ink);
+  display: flex;
+  flex-direction: column;
+}
+.resume-editorial-vogue .ev-name span:nth-child(2) {
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 0.4em;
+}
+
+.resume-editorial-vogue .ev-rule {
+  width: 0.75px;
+  background: var(--ev-rule);
+  align-self: stretch;
+}
+
+.resume-editorial-vogue .ev-head-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+  justify-content: flex-end;
+}
+.resume-editorial-vogue .ev-contact-block {
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  column-gap: 3mm;
+  align-items: baseline;
+}
+.resume-editorial-vogue .ev-contact-key {
+  font-family: var(--ev-sans);
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ev-muted);
+  padding-top: 1pt;
+}
+.resume-editorial-vogue .ev-contact-val {
+  font-family: var(--ev-sans);
+  font-size: 8.75pt;
+  color: var(--ev-fg);
+  line-height: 1.45;
+}
+.resume-editorial-vogue .ev-contact-val em {
+  font-family: var(--ev-serif);
+  font-style: italic;
+  font-size: 9.75pt;
+  color: var(--ev-ink);
+  font-weight: 500;
+}
+.resume-editorial-vogue .ev-contact-val a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ev-hair);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-editorial-vogue .ev-section {
+  margin-top: 7mm;
+}
+.resume-editorial-vogue .ev-section:first-of-type {
+  margin-top: 0;
+}
+
+.resume-editorial-vogue .ev-section-label {
+  font-family: var(--ev-sans);
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  color: var(--ev-ink);
+  margin: 0 0 5mm;
+  padding-bottom: 2mm;
+  border-bottom: 0.5px solid var(--ev-rule);
+}
+
+/* PULL QUOTE / SUMMARY ------------------------------------------------ */
+
+.resume-editorial-vogue .ev-pullquote {
+  font-family: var(--ev-serif);
+  font-size: 16pt;
+  line-height: 1.35;
+  color: var(--ev-ink);
+  font-weight: 400;
+  margin: 0;
+  text-wrap: balance;
+  padding: 0 6mm 0 0;
+  position: relative;
+  letter-spacing: -0.005em;
+}
+.resume-editorial-vogue .ev-pullquote em {
+  font-style: italic;
+  color: var(--ev-ink);
+}
+.resume-editorial-vogue .ev-quote-mark {
+  font-family: var(--ev-serif);
+  font-style: italic;
+  font-size: 56pt;
+  line-height: 0.6;
+  color: var(--ev-faint);
+  display: inline-block;
+  margin-right: 6pt;
+  margin-left: -2mm;
+  vertical-align: -0.25em;
+  font-weight: 700;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-editorial-vogue .ev-entry {
+  margin-bottom: 5mm;
+}
+.resume-editorial-vogue .ev-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-editorial-vogue .ev-entry-grid {
+  display: grid;
+  grid-template-columns: 36mm 1fr;
+  column-gap: 6mm;
+  align-items: baseline;
+}
+.resume-editorial-vogue .ev-entry-when {
+  font-family: var(--ev-serif);
+  font-style: italic;
+  font-size: 9.5pt;
+  color: var(--ev-muted);
+  font-variant-numeric: tabular-nums;
+  padding-top: 2pt;
+  text-align: right;
+}
+.resume-editorial-vogue .ev-entry-body {
+  min-width: 0;
+}
+.resume-editorial-vogue .ev-role {
+  font-family: var(--ev-serif);
+  font-size: 14pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ev-ink);
+  margin: 0;
+  line-height: 1.15;
+}
+.resume-editorial-vogue .ev-meta {
+  font-family: var(--ev-sans);
+  font-size: 8.75pt;
+  color: var(--ev-muted);
+  margin: 1pt 0 2.5mm;
+  letter-spacing: 0.02em;
+}
+.resume-editorial-vogue .ev-meta em {
+  font-family: var(--ev-serif);
+  font-style: italic;
+  color: var(--ev-fg);
+  font-size: 10pt;
+  font-weight: 500;
+}
+
+.resume-editorial-vogue .ev-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-editorial-vogue .ev-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--ev-fg);
+}
+.resume-editorial-vogue .ev-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1px;
+  background: var(--ev-ink);
+}
+
+.resume-editorial-vogue .ev-prose {
+  margin: 1pt 0 0;
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--ev-fg);
+  text-wrap: pretty;
+}
+
+/* INDEX (PROJECTS / EDU / SKILLS) ------------------------------------- */
+
+.resume-editorial-vogue .ev-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+.resume-editorial-vogue .ev-index-col {
+  min-width: 0;
+}
+.resume-editorial-vogue .ev-index-head {
+  font-family: var(--ev-serif);
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--ev-ink);
+  margin: 0 0 3mm;
+  padding-bottom: 1mm;
+  border-bottom: 0.5px solid var(--ev-hair);
+}
+.resume-editorial-vogue .ev-index-head + .ev-index-head {
+  margin-top: 5mm;
+}
+.resume-editorial-vogue .ev-index-entry {
+  margin-bottom: 3.5mm;
+}
+.resume-editorial-vogue .ev-index-title {
+  font-family: var(--ev-serif);
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ev-ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-editorial-vogue .ev-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-editorial-vogue .ev-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 3mm;
+  padding: 0.75mm 0;
+  align-items: baseline;
+}
+.resume-editorial-vogue .ev-skills dt {
+  font-family: var(--ev-sans);
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ev-muted);
+}
+.resume-editorial-vogue .ev-skills dd {
+  margin: 0;
+  font-size: 9.25pt;
+  color: var(--ev-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-editorial-vogue .ev-section,
+  .resume-editorial-vogue .ev-entry,
+  .resume-editorial-vogue [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-editorial-vogue {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .resume-editorial-vogue .ev-section {
+  margin-top: 5mm;
+}
+.density-tight .resume-editorial-vogue .ev-section-label {
+  margin: 0 0 3.5mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-editorial-vogue .ev-entry {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-editorial-vogue .ev-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-editorial-vogue .ev-bullets li {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .resume-editorial-vogue .ev-head {
+  padding-bottom: 5mm;
+  margin-bottom: 5mm;
+}
+
+.density-roomy .resume-editorial-vogue {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-editorial-vogue .ev-section {
+  margin-top: 10mm;
+}
+.density-roomy .resume-editorial-vogue .ev-section-label {
+  margin: 0 0 7mm;
+  padding-bottom: 2.5mm;
+}
+.density-roomy .resume-editorial-vogue .ev-entry {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-editorial-vogue .ev-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-editorial-vogue .ev-bullets li {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-editorial-vogue .ev-head {
+  padding-bottom: 10mm;
+  margin-bottom: 10mm;
+}

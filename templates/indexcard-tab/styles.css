@@ -1,0 +1,330 @@
+/* indexcard-tab — left-edge tab markers anchor each section.
+   Small offset tabs labeled EXP / EDU / SKL like a card-catalog divider.
+   Class prefix: .ict- for stable scoping. */
+
+.resume-indexcard-tab {
+  --ict-ink: #181613;
+  --ict-fg: #2a2620;
+  --ict-muted: #6b6557;
+  --ict-faint: #aea797;
+  --ict-rule: #1f1d18;
+  --ict-hair: #d8d2c2;
+  --ict-paper: #fdfaf2;
+  --ict-tab: #2a2620;
+  --ict-tab-fg: #fdfaf2;
+  --ict-line: rgba(60, 50, 30, 0.06);
+
+  font-family: var(
+    --font-sans,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif
+  );
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm) 32mm;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ict-fg);
+  background-color: var(--ict-paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 5mm,
+    var(--ict-line) 5mm,
+    var(--ict-line) calc(5mm + 0.5px)
+  );
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'liga';
+}
+
+.resume-indexcard-tab a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ict-faint);
+}
+
+/* HEADER -------------------------------------------------------------- */
+
+.resume-indexcard-tab .ict-head {
+  margin-bottom: 6mm;
+  padding-bottom: 4mm;
+  border-bottom: 1.5px solid var(--ict-rule);
+}
+.resume-indexcard-tab .ict-head-meta {
+  display: flex;
+  gap: 6px;
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7.5pt;
+  letter-spacing: 0.22em;
+  color: var(--ict-muted);
+  text-transform: uppercase;
+  margin-bottom: 3mm;
+}
+.resume-indexcard-tab .ict-name {
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  color: var(--ict-ink);
+  margin: 0 0 2mm;
+}
+.resume-indexcard-tab .ict-title {
+  font-size: 10pt;
+  color: var(--ict-fg);
+  font-weight: 500;
+  margin: 0 0 3mm;
+}
+.resume-indexcard-tab .ict-contact {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8pt;
+  color: var(--ict-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.resume-indexcard-tab .ict-contact .ict-sep {
+  color: var(--ict-faint);
+}
+
+/* SECTIONS WITH TAB --------------------------------------------------- */
+
+.resume-indexcard-tab .ict-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0 1fr;
+  margin-top: 5mm;
+}
+.resume-indexcard-tab .ict-tab {
+  position: absolute;
+  left: -22mm;
+  top: 0;
+  width: 16mm;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.resume-indexcard-tab .ict-tab-label {
+  background: var(--ict-tab);
+  color: var(--ict-tab-fg);
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  padding: 1.6mm 0 1.6mm;
+  width: 100%;
+  text-align: center;
+  border-radius: 1mm 0 0 1mm;
+  position: relative;
+}
+.resume-indexcard-tab .ict-tab-label::after {
+  content: '';
+  position: absolute;
+  right: -3mm;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 3mm solid var(--ict-tab);
+  border-top: 4.6mm solid transparent;
+  border-bottom: 4.6mm solid transparent;
+}
+
+.resume-indexcard-tab .ict-body {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.resume-indexcard-tab .ict-section h2 {
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ict-ink);
+  margin: 0 0 3mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--ict-hair);
+}
+
+.resume-indexcard-tab .ict-lede {
+  margin: 0;
+  font-size: 10.25pt;
+  line-height: 1.6;
+  color: var(--ict-fg);
+  text-wrap: pretty;
+  max-width: 155mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-indexcard-tab .ict-entry + .ict-entry {
+  margin-top: 4mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--ict-hair);
+}
+.resume-indexcard-tab .ict-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-indexcard-tab .ict-role {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--ict-ink);
+}
+.resume-indexcard-tab .ict-org {
+  color: var(--ict-fg);
+  font-weight: 500;
+}
+.resume-indexcard-tab .ict-date {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: var(--ict-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.resume-indexcard-tab .ict-meta {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8pt;
+  color: var(--ict-muted);
+  letter-spacing: 0.06em;
+  margin: 0.5mm 0 1.5mm;
+}
+
+.resume-indexcard-tab .ict-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-indexcard-tab .ict-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--ict-fg);
+}
+.resume-indexcard-tab .ict-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--ict-tab);
+}
+
+.resume-indexcard-tab .ict-prose {
+  margin: 1.5mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ict-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-indexcard-tab .ict-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+.resume-indexcard-tab .ict-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  border-bottom: 1px dotted var(--ict-hair);
+  align-items: baseline;
+}
+.resume-indexcard-tab .ict-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-indexcard-tab .ict-skills dt {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7.75pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--ict-muted);
+}
+.resume-indexcard-tab .ict-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--ict-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-indexcard-tab .ict-section,
+  .resume-indexcard-tab .ict-entry,
+  .resume-indexcard-tab [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-indexcard-tab {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 11mm) 13mm var(--page-pad-bot, 11mm) 28mm;
+}
+.density-tight .resume-indexcard-tab .ict-head {
+  margin-bottom: 4.5mm;
+  padding-bottom: 3mm;
+}
+.density-tight .resume-indexcard-tab .ict-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-indexcard-tab .ict-section h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-indexcard-tab .ict-entry + .ict-entry {
+  margin-top: 3mm;
+  padding-top: 2.2mm;
+}
+.density-tight .resume-indexcard-tab .ict-bullets {
+  gap: 0.9mm;
+  margin-top: 1mm;
+}
+.density-tight .resume-indexcard-tab .ict-skill-row {
+  padding: 1mm 0;
+}
+
+.density-roomy .resume-indexcard-tab {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 18mm) 19mm var(--page-pad-bot, 18mm) 36mm;
+}
+.density-roomy .resume-indexcard-tab .ict-head {
+  margin-bottom: 8mm;
+  padding-bottom: 6mm;
+}
+.density-roomy .resume-indexcard-tab .ict-section {
+  margin-top: 7mm;
+}
+.density-roomy .resume-indexcard-tab .ict-section h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-indexcard-tab .ict-entry + .ict-entry {
+  margin-top: 5.5mm;
+  padding-top: 4mm;
+}
+.density-roomy .resume-indexcard-tab .ict-bullets {
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.density-roomy .resume-indexcard-tab .ict-skill-row {
+  padding: 2mm 0;
+}

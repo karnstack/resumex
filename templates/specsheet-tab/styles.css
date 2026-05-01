@@ -1,0 +1,380 @@
+/* specsheet-tab — tabbed sections with file-folder tabs.
+   Each section gets a row of file-style tabs; the active tab is filled.
+   Below sits the spec-row body. Class prefix: .sst-.
+   Root: .resume-specsheet-tab. */
+
+.resume-specsheet-tab {
+  --sst-ink: #111418;
+  --sst-fg: #1a1d22;
+  --sst-muted: #5d6470;
+  --sst-faint: #9aa1ac;
+  --sst-rule: #1a1d22;
+  --sst-hair: #c8ccd2;
+  --sst-paper: #ffffff;
+  --sst-tab-bg: #f1f1ec;
+  --sst-tab-active-bg: #111418;
+  --sst-tab-active-fg: #f7f7f4;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 13mm) 13mm var(--page-pad-bot, 13mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--sst-fg);
+  background: var(--sst-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-specsheet-tab .sst-head {
+  border: 0.6pt solid var(--sst-rule);
+  margin-bottom: 5mm;
+}
+.resume-specsheet-tab .sst-stamp {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 0.4pt solid var(--sst-rule);
+}
+.resume-specsheet-tab .sst-stamp-cell {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 1.8mm 3mm;
+  border-right: 0.3pt solid var(--sst-hair);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.2em;
+}
+.resume-specsheet-tab .sst-stamp-cell:last-child {
+  border-right: none;
+}
+.resume-specsheet-tab .sst-k {
+  font-weight: 700;
+  color: var(--sst-muted);
+}
+.resume-specsheet-tab .sst-v {
+  font-weight: 700;
+  color: var(--sst-ink);
+  font-variant-numeric: tabular-nums;
+}
+.resume-specsheet-tab .sst-head-body {
+  padding: 5mm 4mm 4mm;
+}
+.resume-specsheet-tab .sst-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--sst-muted);
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet-tab .sst-name {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--sst-ink);
+}
+.resume-specsheet-tab .sst-title {
+  margin-top: 2mm;
+  font-size: 10pt;
+  color: var(--sst-fg);
+}
+.resume-specsheet-tab .sst-contact {
+  margin: 4mm 0 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 0.3pt dotted var(--sst-hair);
+  padding-top: 2mm;
+}
+.resume-specsheet-tab .sst-contact > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  border-right: 0.3pt dotted var(--sst-hair);
+  padding: 0 3mm;
+}
+.resume-specsheet-tab .sst-contact > div:first-child {
+  padding-left: 0;
+}
+.resume-specsheet-tab .sst-contact > div:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.resume-specsheet-tab .sst-contact dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--sst-muted);
+}
+.resume-specsheet-tab .sst-contact dd {
+  margin: 0;
+  font-size: 8.5pt;
+  color: var(--sst-fg);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.resume-specsheet-tab .sst-contact dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.3pt solid var(--sst-hair);
+}
+
+/* SECTION ------------------------------------------------------------ */
+
+.resume-specsheet-tab .sst-section {
+  margin-top: 5mm;
+}
+.resume-specsheet-tab .sst-summary {
+  margin-top: 0;
+}
+
+.resume-specsheet-tab .sst-section-bar {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet-tab .sst-bar-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--sst-ink);
+  white-space: nowrap;
+}
+.resume-specsheet-tab .sst-bar-rule {
+  flex: 1;
+  height: 0.4pt;
+  background: var(--sst-rule);
+}
+
+/* TABS --------------------------------------------------------------- */
+
+.resume-specsheet-tab .sst-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -0.5pt;
+}
+.resume-specsheet-tab .sst-tab {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 1.6mm 4mm 1.4mm;
+  background: var(--sst-tab-bg);
+  color: var(--sst-muted);
+  border: 0.5pt solid var(--sst-rule);
+  border-bottom: none;
+  border-top-left-radius: 1.5mm;
+  border-top-right-radius: 1.5mm;
+  position: relative;
+  bottom: -0.5pt;
+}
+.resume-specsheet-tab .sst-tab-active {
+  background: var(--sst-tab-active-bg);
+  color: var(--sst-tab-active-fg);
+  bottom: 0;
+  padding: 1.8mm 4mm 1.6mm;
+}
+
+.resume-specsheet-tab .sst-panel {
+  border: 0.5pt solid var(--sst-rule);
+  background: var(--sst-paper);
+  padding: 4mm;
+}
+
+/* LEDE / ENTRIES ----------------------------------------------------- */
+
+.resume-specsheet-tab .sst-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--sst-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+  border-left: 1pt solid var(--sst-rule);
+  padding-left: 4mm;
+}
+
+.resume-specsheet-tab .sst-entry {
+  padding: 2.5mm 0;
+  border-top: 0.3pt dotted var(--sst-hair);
+}
+.resume-specsheet-tab .sst-entry:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.resume-specsheet-tab .sst-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: 1.5mm;
+}
+.resume-specsheet-tab .sst-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--sst-ink);
+}
+.resume-specsheet-tab .sst-entry-sub {
+  margin-top: 0.5pt;
+  font-size: 9pt;
+  color: var(--sst-muted);
+}
+.resume-specsheet-tab .sst-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--sst-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-specsheet-tab .sst-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-specsheet-tab .sst-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--sst-fg);
+}
+.resume-specsheet-tab .sst-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 0.6pt;
+  background: var(--sst-rule);
+}
+.resume-specsheet-tab .sst-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--sst-fg);
+  text-wrap: pretty;
+}
+
+/* SPEC GRID rows ----------------------------------------------------- */
+
+.resume-specsheet-tab .sst-grid {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-specsheet-tab .sst-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.2mm 0;
+  border-top: 0.3pt dotted var(--sst-hair);
+  align-items: baseline;
+}
+.resume-specsheet-tab .sst-row:first-child {
+  border-top: none;
+}
+.resume-specsheet-tab .sst-grid dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--sst-muted);
+}
+.resume-specsheet-tab .sst-grid dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--sst-fg);
+  text-wrap: pretty;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-specsheet-tab .sst-section,
+  .resume-specsheet-tab .sst-entry,
+  .resume-specsheet-tab .sst-panel,
+  .resume-specsheet-tab [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-specsheet-tab {
+  font-size: 9pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 11mm) 11mm var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-specsheet-tab .sst-head {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-specsheet-tab .sst-head-body {
+  padding: 3.5mm 3mm 3mm;
+}
+.density-tight .resume-specsheet-tab .sst-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-specsheet-tab .sst-section-bar {
+  margin-bottom: 1.75mm;
+}
+.density-tight .resume-specsheet-tab .sst-panel {
+  padding: 3mm;
+}
+.density-tight .resume-specsheet-tab .sst-entry {
+  padding: 1.6mm 0;
+}
+.density-tight .resume-specsheet-tab .sst-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-specsheet-tab .sst-row {
+  padding: 0.8mm 0;
+}
+
+.density-roomy .resume-specsheet-tab {
+  font-size: 10.25pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 15mm) 15mm var(--page-pad-bot, 15mm);
+}
+.density-roomy .resume-specsheet-tab .sst-head {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-specsheet-tab .sst-head-body {
+  padding: 7mm 5mm 6mm;
+}
+.density-roomy .resume-specsheet-tab .sst-section {
+  margin-top: 7mm;
+}
+.density-roomy .resume-specsheet-tab .sst-section-bar {
+  margin-bottom: 3.5mm;
+}
+.density-roomy .resume-specsheet-tab .sst-panel {
+  padding: 5.5mm;
+}
+.density-roomy .resume-specsheet-tab .sst-entry {
+  padding: 3.5mm 0;
+}
+.density-roomy .resume-specsheet-tab .sst-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-specsheet-tab .sst-row {
+  padding: 1.7mm 0;
+}

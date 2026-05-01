@@ -1,0 +1,274 @@
+/* specsheet — Product spec sheet aesthetic.
+   REV / DATE / OWNER stamp header. Key/value grid for personal info.
+   Mono labels with sans values. Section bodies as labeled spec rows.
+   Class prefix: .ss- for stable scoping. Root: .resume-specsheet. */
+
+.resume-specsheet {
+  --ss-ink: #111418;
+  --ss-fg: #1a1d22;
+  --ss-muted: #5d6470;
+  --ss-faint: #9aa1ac;
+  --ss-rule: #1a1d22;
+  --ss-hair: #c8ccd2;
+  --ss-paper: #fbfbf8;
+  --ss-tag-bg: #111418;
+  --ss-tag-fg: #f7f7f4;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--ss-fg);
+  background: var(--ss-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-specsheet .ss-head {
+  border: 0.6pt solid var(--ss-rule);
+  margin-bottom: 6mm;
+}
+.resume-specsheet .ss-head-stamp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 8px;
+  padding: 2.2mm 4mm;
+  border-bottom: 0.4pt solid var(--ss-rule);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.2em;
+  color: var(--ss-fg);
+  background: #f1f1ec;
+}
+.resume-specsheet .ss-stamp-k {
+  font-weight: 700;
+  color: var(--ss-muted);
+}
+.resume-specsheet .ss-stamp-v {
+  font-weight: 700;
+  color: var(--ss-ink);
+  font-variant-numeric: tabular-nums;
+  margin-left: 4px;
+}
+.resume-specsheet .ss-stamp-sep {
+  color: var(--ss-faint);
+  margin: 0 6px;
+}
+.resume-specsheet .ss-head-body {
+  padding: 5mm 4mm 5mm;
+}
+.resume-specsheet .ss-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ss-muted);
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet .ss-name {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--ss-ink);
+}
+.resume-specsheet .ss-title {
+  margin-top: 2mm;
+  font-size: 10pt;
+  color: var(--ss-fg);
+  letter-spacing: 0.01em;
+}
+
+/* SECTION BAR --------------------------------------------------------- */
+
+.resume-specsheet .ss-section {
+  margin-top: 5mm;
+}
+.resume-specsheet .ss-section:first-of-type {
+  margin-top: 0;
+}
+.resume-specsheet .ss-section-bar {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin-bottom: 2.5mm;
+}
+.resume-specsheet .ss-bar-tag {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ss-tag-fg);
+  background: var(--ss-tag-bg);
+  padding: 1pt 5pt;
+  line-height: 1.2;
+}
+.resume-specsheet .ss-bar-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ss-ink);
+  white-space: nowrap;
+}
+.resume-specsheet .ss-bar-rule {
+  flex: 1;
+  height: 0.4pt;
+  background: var(--ss-rule);
+}
+
+/* SPEC GRID (key/value rows) ----------------------------------------- */
+
+.resume-specsheet .ss-grid {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-specsheet .ss-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.4mm 0;
+  border-top: 0.3pt dotted var(--ss-hair);
+  align-items: baseline;
+}
+.resume-specsheet .ss-row:first-child {
+  border-top: 0.3pt solid var(--ss-hair);
+}
+.resume-specsheet .ss-row:last-child {
+  border-bottom: 0.3pt solid var(--ss-hair);
+}
+.resume-specsheet .ss-grid dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ss-muted);
+}
+.resume-specsheet .ss-grid dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--ss-fg);
+  text-wrap: pretty;
+}
+.resume-specsheet .ss-grid dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.3pt solid var(--ss-hair);
+}
+.resume-specsheet .ss-grid-tight .ss-row {
+  padding: 1mm 0;
+}
+
+/* LEDE / ENTRIES ------------------------------------------------------ */
+
+.resume-specsheet .ss-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--ss-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+  border-left: 1pt solid var(--ss-rule);
+  padding-left: 4mm;
+}
+.resume-specsheet .ss-entry {
+  padding: 3mm 0 1mm;
+  border-top: 0.4pt solid var(--ss-rule);
+}
+.resume-specsheet .ss-entry:first-of-type {
+  border-top: none;
+  padding-top: 1mm;
+}
+.resume-specsheet .ss-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: 2mm;
+}
+.resume-specsheet .ss-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ss-ink);
+}
+.resume-specsheet .ss-entry-sub {
+  margin-top: 0.5pt;
+  font-size: 9pt;
+  color: var(--ss-muted);
+}
+.resume-specsheet .ss-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ss-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-specsheet .ss-section,
+  .resume-specsheet .ss-entry,
+  .resume-specsheet [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-specsheet {
+  font-size: 9pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+}
+.density-tight .resume-specsheet .ss-head {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-specsheet .ss-head-body {
+  padding: 3.5mm 3mm 3.5mm;
+}
+.density-tight .resume-specsheet .ss-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-specsheet .ss-section-bar {
+  margin-bottom: 1.75mm;
+}
+.density-tight .resume-specsheet .ss-row {
+  padding: 1mm 0;
+}
+.density-tight .resume-specsheet .ss-entry {
+  padding: 2mm 0 0.5mm;
+}
+
+.density-roomy .resume-specsheet {
+  font-size: 10.25pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 16mm) 16mm var(--page-pad-bot, 16mm);
+}
+.density-roomy .resume-specsheet .ss-head {
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-specsheet .ss-head-body {
+  padding: 6.5mm 5mm 6.5mm;
+}
+.density-roomy .resume-specsheet .ss-section {
+  margin-top: 7mm;
+}
+.density-roomy .resume-specsheet .ss-section-bar {
+  margin-bottom: 3.5mm;
+}
+.density-roomy .resume-specsheet .ss-row {
+  padding: 2mm 0;
+}
+.density-roomy .resume-specsheet .ss-entry {
+  padding: 4.5mm 0 1.5mm;
+}

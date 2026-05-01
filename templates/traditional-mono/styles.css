@@ -1,0 +1,344 @@
+/* traditional-mono — sidebar-left two-column.
+   Mono accents on labels, eyebrows, dates; body still in a quiet sans.
+   Class prefix: .trm-. Root: .resume-traditional-mono. */
+
+.resume-traditional-mono {
+  --trm-ink: #111418;
+  --trm-fg: #1c2128;
+  --trm-muted: #5a6270;
+  --trm-faint: #8a91a0;
+  --trm-rule: #1c2128;
+  --trm-hair: #d8dbe1;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: var(--page-pad-top, 15mm) 14mm var(--page-pad-bot, 15mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--trm-fg);
+  background: white;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-traditional-mono .trm-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+  border-bottom: 1.5px solid var(--trm-rule);
+}
+.resume-traditional-mono .trm-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  letter-spacing: 0.04em;
+  color: var(--trm-muted);
+  margin-bottom: 2mm;
+}
+.resume-traditional-mono .trm-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--trm-ink);
+}
+.resume-traditional-mono .trm-title {
+  margin-top: 2.5mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9pt;
+  font-weight: 500;
+  color: var(--trm-muted);
+  letter-spacing: 0.02em;
+}
+
+/* BODY GRID ----------------------------------------------------------- */
+
+.resume-traditional-mono .trm-body {
+  display: grid;
+  grid-template-columns: 33% 1fr;
+  column-gap: 8mm;
+  align-items: start;
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-traditional-mono .trm-side {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  min-width: 0;
+}
+.resume-traditional-mono .trm-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.resume-traditional-mono .trm-side-h {
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: var(--trm-ink);
+  border-bottom: 1px solid var(--trm-rule);
+}
+.resume-traditional-mono .trm-side-h::before {
+  content: '// ';
+  color: var(--trm-muted);
+}
+.resume-traditional-mono .trm-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  font-size: 9pt;
+  color: var(--trm-fg);
+}
+.resume-traditional-mono .trm-contact li {
+  display: grid;
+  grid-template-columns: 10pt 1fr;
+  column-gap: 6px;
+  align-items: baseline;
+}
+.resume-traditional-mono .trm-key {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--trm-muted);
+}
+.resume-traditional-mono .trm-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--trm-hair);
+}
+.resume-traditional-mono .trm-contact a:hover {
+  border-bottom-color: var(--trm-ink);
+}
+
+.resume-traditional-mono .trm-skill-group {
+  margin-bottom: 1.75mm;
+}
+.resume-traditional-mono .trm-skill-group:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-mono .trm-skill-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  color: var(--trm-muted);
+  margin-bottom: 0.5mm;
+}
+.resume-traditional-mono .trm-skill-body {
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trm-fg);
+}
+
+.resume-traditional-mono .trm-side-entry {
+  margin-bottom: 2mm;
+}
+.resume-traditional-mono .trm-side-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-mono .trm-side-title {
+  font-size: 9.75pt;
+  font-weight: 600;
+  color: var(--trm-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-mono .trm-side-sub {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  color: var(--trm-muted);
+  margin-top: 0.5mm;
+  letter-spacing: 0.02em;
+}
+.resume-traditional-mono .trm-side-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--trm-muted);
+  margin-top: 0.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-mono .trm-side-prose {
+  margin: 1mm 0 0;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trm-fg);
+  text-wrap: pretty;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-traditional-mono .trm-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+}
+.resume-traditional-mono .trm-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
+.resume-traditional-mono .trm-main-h {
+  margin: 0 0 1mm;
+  padding-bottom: 1.5mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9pt;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: var(--trm-ink);
+  border-bottom: 1.5px solid var(--trm-rule);
+}
+.resume-traditional-mono .trm-main-h::before {
+  content: '// ';
+  color: var(--trm-muted);
+}
+.resume-traditional-mono .trm-summary {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--trm-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-traditional-mono .trm-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-traditional-mono .trm-entry + .trm-entry {
+  margin-top: 4mm;
+}
+.resume-traditional-mono .trm-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-traditional-mono .trm-role {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--trm-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-mono .trm-company {
+  font-size: 9.25pt;
+  color: var(--trm-muted);
+  margin-top: 0.5mm;
+}
+.resume-traditional-mono .trm-dates {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  color: var(--trm-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.resume-traditional-mono .trm-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-traditional-mono .trm-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--trm-fg);
+}
+.resume-traditional-mono .trm-bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9pt;
+  color: var(--trm-muted);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-traditional-mono .trm-section,
+  .resume-traditional-mono .trm-side-section,
+  .resume-traditional-mono .trm-entry,
+  .resume-traditional-mono [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-traditional-mono {
+  font-size: 9.25pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+}
+.density-tight .resume-traditional-mono .trm-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-traditional-mono .trm-side {
+  gap: 4.5mm;
+}
+.density-tight .resume-traditional-mono .trm-main {
+  gap: 3.5mm;
+}
+.density-tight .resume-traditional-mono .trm-section {
+  gap: 1.8mm;
+}
+.density-tight .resume-traditional-mono .trm-entry + .trm-entry {
+  margin-top: 2.8mm;
+}
+.density-tight .resume-traditional-mono .trm-bullets {
+  gap: 0.85mm;
+}
+.density-tight .resume-traditional-mono .trm-side-entry {
+  margin-bottom: 1.4mm;
+}
+
+.density-roomy .resume-traditional-mono {
+  font-size: 10.5pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 18mm) 16mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-traditional-mono .trm-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-traditional-mono .trm-side {
+  gap: 8.5mm;
+}
+.density-roomy .resume-traditional-mono .trm-main {
+  gap: 7mm;
+}
+.density-roomy .resume-traditional-mono .trm-section {
+  gap: 3.5mm;
+}
+.density-roomy .resume-traditional-mono .trm-entry + .trm-entry {
+  margin-top: 5.5mm;
+}
+.density-roomy .resume-traditional-mono .trm-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-traditional-mono .trm-side-entry {
+  margin-bottom: 2.8mm;
+}
