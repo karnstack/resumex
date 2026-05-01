@@ -6,3 +6,4 @@ dist
 .env.local
 src/generated/
 public/templates.json
+.worktrees/
