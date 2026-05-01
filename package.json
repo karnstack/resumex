@@ -1,6 +1,6 @@
 {
   "name": "resumex",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "resumex by karnstack.com - AI-first resume builder for Claude Code. Local-only. Beautiful, print-native templates.",
   "homepage": "https://resumex.karnstack.com",
