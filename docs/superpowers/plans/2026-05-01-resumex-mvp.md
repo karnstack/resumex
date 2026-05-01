@@ -2572,7 +2572,7 @@ git commit -m "test(templates): snapshot tests for minimal-mono + karnstack-twoc
 
 The `/preview/:templateId` route renders any template against the canonical `.gallery/sample.md`. Works in both local and public modes (the public deploy only ever exposes this route).
 
-- [ ] **Step 1: `src/lib/load-sample.ts`** — Vite-imports the sample at build time
+- [x] **Step 1: `src/lib/load-sample.ts`** — Vite-imports the sample at build time
 
 ```ts
 import sampleSource from '../../.gallery/sample.md?raw'
@@ -2585,7 +2585,7 @@ export function loadSample() {
 
 `?raw` is a Vite feature that imports a file as a string.
 
-- [ ] **Step 2: Tell TS about `?raw` imports**
+- [x] **Step 2: Tell TS about `?raw` imports**
 
 `src/vite-env.d.ts`:
 ```ts
@@ -2596,7 +2596,7 @@ declare module '*.md?raw' {
 }
 ```
 
-- [ ] **Step 3: `src/routes/preview.$templateId.tsx`**
+- [x] **Step 3: `src/routes/preview.$templateId.tsx`**
 
 ```tsx
 import { createFileRoute } from '@tanstack/react-router'
@@ -2625,12 +2625,12 @@ function PreviewRoute() {
 }
 ```
 
-- [ ] **Step 4: Verify**
+- [x] **Step 4: Verify**
 
 Run: `pnpm dev`
 Visit `http://localhost:5173/preview/minimal-mono`. Expected: rendered sample resume.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/routes/preview.$templateId.tsx src/lib/load-sample.ts src/vite-env.d.ts
@@ -2643,7 +2643,7 @@ git commit -m "feat(routes): /preview/:templateId renders against sample.md"
 
 **Files:** `src/lib/save-middleware.ts`, `vite.config.ts` (modify)
 
-- [ ] **Step 1: Write the plugin**
+- [x] **Step 1: Write the plugin**
 
 `src/lib/save-middleware.ts`:
 ```ts
@@ -2693,7 +2693,7 @@ export function saveMiddlewarePlugin(): Plugin {
 }
 ```
 
-- [ ] **Step 2: Wire into `vite.config.ts`**
+- [x] **Step 2: Wire into `vite.config.ts`**
 
 ```ts
 import { saveMiddlewarePlugin } from './src/lib/save-middleware'
@@ -2707,7 +2707,7 @@ plugins: [
 ],
 ```
 
-- [ ] **Step 3: Smoke test**
+- [x] **Step 3: Smoke test**
 
 ```bash
 pnpm dev &
@@ -2722,7 +2722,7 @@ kill %1
 
 Expected: file written, then removed.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/lib/save-middleware.ts vite.config.ts
@@ -2741,7 +2741,7 @@ We need two server-side helpers:
 
 These let the React app discover and load resumes without a build-time import (since `resumes/*.md` is user content that changes after build, we want runtime reads).
 
-- [ ] **Step 1: Write the plugin**
+- [x] **Step 1: Write the plugin**
 
 `src/lib/list-middleware.ts`:
 ```ts
@@ -2806,14 +2806,14 @@ export function listMiddlewarePlugin(): Plugin {
 }
 ```
 
-- [ ] **Step 2: Wire into `vite.config.ts`**
+- [x] **Step 2: Wire into `vite.config.ts`**
 
 ```ts
 import { listMiddlewarePlugin } from './src/lib/list-middleware'
 // add it to plugins after saveMiddlewarePlugin()
 ```
 
-- [ ] **Step 3: `src/lib/load-resume.ts`** — client-side helpers
+- [x] **Step 3: `src/lib/load-resume.ts`** — client-side helpers
 
 ```ts
 import { parseResume } from './parser'
@@ -2848,7 +2848,7 @@ export async function saveVariantSource(variant: string, content: string): Promi
 }
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/lib/list-middleware.ts src/lib/load-resume.ts vite.config.ts
@@ -2861,7 +2861,7 @@ git commit -m "feat(routes): list/load middleware + client load helpers"
 
 **Files:** `src/routes/index.tsx` (rewrite), `src/lib/mode.ts`
 
-- [ ] **Step 1: `src/lib/mode.ts`**
+- [x] **Step 1: `src/lib/mode.ts`**
 
 ```ts
 export const RESUMEX_MODE = (import.meta.env.VITE_RESUMEX_MODE ?? 'local') as
@@ -2872,7 +2872,7 @@ export const isLocal = RESUMEX_MODE === 'local'
 export const isPublic = RESUMEX_MODE === 'public'
 ```
 
-- [ ] **Step 2: Rewrite `src/routes/index.tsx`**
+- [x] **Step 2: Rewrite `src/routes/index.tsx`**
 
 ```tsx
 import { createFileRoute, Link } from '@tanstack/react-router'
@@ -2944,7 +2944,7 @@ function IndexRoute() {
 }
 ```
 
-- [ ] **Step 3: Verify**
+- [x] **Step 3: Verify**
 
 Run: `pnpm dev`. Visit `/`. Expected: empty-state message (no resumes yet). Add `resumes/karn.md` manually with sample frontmatter, refresh — expect to see "karn" in the list.
 
@@ -2964,7 +2964,7 @@ name: Karn
 EOF
 ```
 
-- [ ] **Step 4: Clean up test resume + commit**
+- [x] **Step 4: Clean up test resume + commit**
 
 ```bash
 rm resumes/karn.md
@@ -2980,7 +2980,7 @@ git commit -m "feat(routes): / lists resumes (with public-mode redirect to githu
 
 For now, this route renders just the parsed resume in the chosen template. Phase E adds the editor pane.
 
-- [ ] **Step 1: `src/routes/$variant.tsx`** — preview-only initial version
+- [x] **Step 1: `src/routes/$variant.tsx`** — preview-only initial version
 
 ```tsx
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
@@ -3067,7 +3067,7 @@ function VariantRoute() {
 }
 ```
 
-- [ ] **Step 2: `src/routes/$variant.print.tsx`** — print-only render
+- [x] **Step 2: `src/routes/$variant.print.tsx`** — print-only render
 
 ```tsx
 import { createFileRoute } from '@tanstack/react-router'
@@ -3105,11 +3105,11 @@ function PrintRoute() {
 }
 ```
 
-- [ ] **Step 3: Verify**
+- [x] **Step 3: Verify**
 
 Run: `pnpm dev`. Create `resumes/test.md` with sample content, visit `/test`. Expected: split view, source on left, rendered template on right. Visit `/test/print` — only the resume, no chrome. Cmd+P should give a clean PDF.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/routes/$variant.tsx src/routes/$variant.print.tsx
@@ -3122,7 +3122,7 @@ git commit -m "feat(routes): /:variant preview pane + /:variant/print"
 
 **Files:** `src/routes/templates.tsx`
 
-- [ ] **Step 1: Write `src/routes/templates.tsx`**
+- [x] **Step 1: Write `src/routes/templates.tsx`**
 
 ```tsx
 import { createFileRoute } from '@tanstack/react-router'
@@ -3172,11 +3172,11 @@ function TemplatesRoute() {
 }
 ```
 
-- [ ] **Step 2: Verify**
+- [x] **Step 2: Verify**
 
 Run: `pnpm dev`. Visit `/templates`. Expected: one card for `minimal-mono` with iframe rendering the sample.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/routes/templates.tsx
@@ -3191,14 +3191,14 @@ Already partially done via `src/lib/mode.ts` and `beforeLoad` redirects in earli
 
 **Files:** verify only — no new files
 
-- [ ] **Step 1: Add an `.env.example`**
+- [x] **Step 1: Add an `.env.example`**
 
 ```
 # default is 'local' — leave commented for local dev
 # VITE_RESUMEX_MODE=public
 ```
 
-- [ ] **Step 2: Verify public mode**
+- [x] **Step 2: Verify public mode**
 
 ```bash
 VITE_RESUMEX_MODE=public pnpm dev
@@ -3211,7 +3211,7 @@ Visit:
 
 Kill server.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add .env.example
