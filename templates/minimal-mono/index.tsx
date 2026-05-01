@@ -31,7 +31,7 @@ const MinimalMono: ResumeTemplate = ({ resume }) => {
           <h2>{s.name}</h2>
           {s.entries.length > 0
             ? s.entries.map((e, i) => (
-                <div key={i} className="entry">
+                <div key={i} className="entry" data-print-entry="true">
                   <div className="entry-head">
                     <div>
                       <span className="entry-title">{e.title}</span>

@@ -1,4 +1,17 @@
 @media print {
+  /* zero the page chrome and clamp body to the page itself. Without this,
+     sub-pixel rounding (297mm = 1122.52px → scrollHeight 1123) makes Chrome
+     spill onto a blank second page. The fixed-height + overflow:hidden tells
+     the print engine "stop here, no more pages." */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    background: white;
+    color: black;
+  }
   /* hide editor chrome by default; templates can override */
   [data-print-hide='true'] {
     display: none !important;
@@ -8,20 +21,11 @@
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  /* link-as-text default; templates can override */
-  a::after {
-    content: ' (' attr(href) ')';
-    font-weight: normal;
-    font-size: 0.85em;
-  }
-  /* but suppress for in-page anchors */
-  a[href^='#']::after {
-    content: '';
-  }
-  body {
-    background: white;
-    color: black;
-  }
+  /* No URL annotations after links by default. Resume templates already
+     show the URL as link text (e.g., "github.com/foo"), so appending
+     "(https://github.com/foo)" doubles the line width and pushes contact
+     columns past the page edge. Templates can opt in by adding their own
+     a::after rule scoped to specific selectors if they want footnotes. */
 }
 
 @media print {

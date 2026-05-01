@@ -1,0 +1,228 @@
+/* dotted stage background — quiet gray dots, surrounds the floating A4 page */
+.resumex-stage {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 32px 24px 96px;
+  background-color: var(--background);
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklch, var(--muted-foreground) 35%, transparent) 1.2px,
+    transparent 1.2px
+  );
+  background-size: 18px 18px;
+}
+
+/* the page floats above the stage with a subtle shadow + dashed side rules.
+   Applies to PageFrame-based templates (.resumex-page-frame) and to any
+   template whose root carries a `resume-*` class (e.g., .resume-minimal-mono). */
+.resumex-stage .resumex-page-frame,
+.resumex-stage > div > [class^='resume-'],
+.resumex-stage > [class^='resume-'] {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-derek);
+  border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+  border-radius: 10px;
+}
+
+/* Transform / width / min-height changes are driven by useFitToPage's
+   measurement loop. Animating them produces visible flicker during
+   continuous slider drags (each padding tick re-measures and the in-flight
+   transition reads as content "scaling from 1x"). Snapping is correct here. */
+
+/* density modes — global tone control. Applied as a class on the page wrapper
+   so templates can declare scoped overrides. Three knobs:
+     1. body type size + line-height (everything inherits unless overridden)
+     2. structural gaps (between entries, groups, sections)
+     3. paddings inside the major regions */
+
+/* TIGHT — fits more onto one page; reduces type and gaps everywhere. */
+.density-tight .kt-root,
+.density-tight .resume-minimal-mono {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .kt-bullets {
+  gap: 1.2mm;
+}
+.density-tight .kt-bullets li,
+.density-tight .resume-minimal-mono li {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .kt-entry {
+  gap: 1.5mm;
+}
+.density-tight .kt-entry + .kt-entry {
+  margin-top: 2.5mm;
+}
+.density-tight .kt-section-group + .kt-section-group {
+  margin-top: 3mm;
+  padding-top: 2.5mm;
+}
+.density-tight .kt-section + .kt-section {
+  margin-top: 1.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .kt-section-title {
+  margin-bottom: 3mm;
+  padding-bottom: 1mm;
+}
+.density-tight .kt-side {
+  gap: 5mm;
+  padding-top: 7mm;
+  padding-bottom: 7mm;
+}
+.density-tight .kt-main {
+  gap: 4.5mm;
+  padding-top: 7mm;
+  padding-bottom: 7mm;
+}
+.density-tight .kt-about {
+  padding-top: 6mm;
+  padding-bottom: 6mm;
+}
+.density-tight .kt-head {
+  padding-top: 18mm;
+  padding-bottom: 4mm;
+}
+.density-tight .resume-minimal-mono {
+  padding: 0.5in 0.6in;
+}
+.density-tight .resume-minimal-mono section {
+  margin-top: 0.85em;
+}
+.density-tight .resume-minimal-mono .entry {
+  margin-bottom: 0.55em;
+}
+.density-tight .resume-minimal-mono ul {
+  margin-top: 0.3em;
+}
+
+/* ROOMY — opens everything up; useful when you have less content. */
+.density-roomy .kt-root,
+.density-roomy .resume-minimal-mono {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .kt-bullets {
+  gap: 2.2mm;
+}
+.density-roomy .kt-bullets li,
+.density-roomy .resume-minimal-mono li {
+  font-size: 10pt;
+  line-height: 1.65;
+}
+.density-roomy .kt-entry {
+  gap: 2.5mm;
+}
+.density-roomy .kt-entry + .kt-entry {
+  margin-top: 5mm;
+}
+.density-roomy .kt-section-group + .kt-section-group {
+  margin-top: 6mm;
+  padding-top: 5mm;
+}
+.density-roomy .kt-section + .kt-section {
+  margin-top: 3mm;
+  padding-top: 6.5mm;
+}
+.density-roomy .kt-section-title {
+  margin-bottom: 5mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .kt-side {
+  gap: 9mm;
+  padding-top: 11mm;
+  padding-bottom: 11mm;
+}
+.density-roomy .kt-main {
+  gap: 8.5mm;
+  padding-top: 11mm;
+  padding-bottom: 11mm;
+}
+.density-roomy .kt-about {
+  padding-top: 10mm;
+  padding-bottom: 10mm;
+}
+.density-roomy .kt-head {
+  padding-top: 26mm;
+  padding-bottom: 8mm;
+}
+.density-roomy .resume-minimal-mono {
+  padding: 0.7in 0.8in;
+}
+.density-roomy .resume-minimal-mono section {
+  margin-top: 1.45em;
+}
+.density-roomy .resume-minimal-mono .entry {
+  margin-bottom: 1.05em;
+}
+.density-roomy .resume-minimal-mono ul {
+  margin-top: 0.5em;
+}
+
+/* range slider styling — tame the native dark-gray track and use a quiet
+   light track + emerald thumb to match the rest of the toolbar. Applied to
+   any range input rendered inside the stage (toolbar lives there). */
+input[type='range'].resumex-range,
+.resumex-stage input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 180px;
+  height: 16px;
+}
+.resumex-stage input[type='range']::-webkit-slider-runnable-track {
+  height: 3px;
+  background: color-mix(in oklch, var(--muted-foreground) 25%, transparent);
+  border-radius: 999px;
+}
+.resumex-stage input[type='range']::-moz-range-track {
+  height: 3px;
+  background: color-mix(in oklch, var(--muted-foreground) 25%, transparent);
+  border-radius: 999px;
+  border: none;
+}
+.resumex-stage input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  background: var(--primary);
+  border-radius: 999px;
+  border: 2px solid var(--background);
+  margin-top: -5px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.15);
+}
+.resumex-stage input[type='range']::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  background: var(--primary);
+  border-radius: 999px;
+  border: 2px solid var(--background);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.15);
+}
+
+@media print {
+  .resumex-stage {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    background: white !important;
+    background-image: none !important;
+  }
+  .resumex-stage > div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .resumex-stage .resumex-page-frame,
+  .resumex-stage > div > [class^='resume-'],
+  .resumex-stage > [class^='resume-'] {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+  }
+}
