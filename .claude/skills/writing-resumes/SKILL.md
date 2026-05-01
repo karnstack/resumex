@@ -19,7 +19,7 @@ YAML frontmatter, validated by zod. Fields:
 
 ```yaml
 ---
-template: minimal-mono              # required, must match a folder in templates/
+template: emerald-twocol            # required, must match a folder in templates/
 name: Karn Goyani                   # required
 title: Software Engineer            # optional tagline / role
 location: Bangalore, India          # optional
@@ -60,10 +60,13 @@ The body is markdown with conventions. Each `## Heading` is a section. Inside a 
 
 The user says something like *"create a new resume named frontend"* or *"new resume from my linkedin"*.
 
-1. Ask the user to either paste their LinkedIn / source material, or describe themselves if they want to build from scratch.
+1. Ask the user three things in a single message (don't ping-pong):
+   - **Source material** - one of: paste LinkedIn content directly, share a PDF/file path on disk, or describe themselves from scratch.
+   - **Variant name** - kebab-case (e.g. `frontend`, `staff-eng`). Default `default` if they don't care.
+   - **Template** - list the folders currently in `templates/` (excluding `_starter`). Default `emerald-twocol` if they don't care.
 2. Parse the content into the schema above. Be conservative - if a piece of info is ambiguous, leave it out rather than fabricate.
-3. Default `template: minimal-mono` unless the user names a different template.
-4. Write the file via `Write` tool to `resumes/<variant>.md`. Default variant name is `default` if the user didn't specify.
+3. Use the user's chosen `template`, falling back to `emerald-twocol`.
+4. Write the file via `Write` tool to `resumes/<variant>.md`, using the chosen variant name (default `default`).
 5. Briefly confirm what was created and suggest the user open `http://localhost:5173/<variant>` in their browser.
 6. Vite hot-reloads - the user will see the new resume immediately if the dev server is running.
 
