@@ -176,3 +176,19 @@ body,
 #root {
   height: 100%;
 }
+
+/* template thumbnail: iframe rendered at full A4 size, scaled down via
+ * container-query units so the aspect-ratio container always exactly fits.
+ * pointer-events disabled inside; click target is a sibling overlay. */
+.tn-thumb {
+  container-type: inline-size;
+}
+.tn-thumb iframe {
+  transform: scale(0.42); /* fallback for browsers without container queries */
+  transform-origin: top left;
+}
+@supports (container-type: inline-size) {
+  .tn-thumb iframe {
+    transform: scale(calc(100cqi / 793px));
+  }
+}
