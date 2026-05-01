@@ -27,7 +27,7 @@ Bootstrap the resumex repo for first use (or restart it).
 5. Print this short cheat sheet for the user:
 
    > resumex is up at http://localhost:5173.
-   > you can just talk to me — try:
+   > you can just talk to me - try:
    >   - "create a new resume from my linkedin"
    >   - "tighten the karnstack bullet in frontend"
    >   - "make a new bold editorial template"
@@ -35,5 +35,5 @@ Bootstrap the resumex repo for first use (or restart it).
 
 ## Notes
 
-- The dev server hot-reloads on filesystem changes — both your edits and any I make are picked up automatically.
+- The dev server hot-reloads on filesystem changes - both your edits and any I make are picked up automatically.
 - Your resume content lives in `resumes/<name>.md`. It never leaves this machine.

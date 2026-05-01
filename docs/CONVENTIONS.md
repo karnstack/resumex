@@ -43,7 +43,7 @@ sectionOrder: [experience, projects, education]   # optional
 
 - `## Heading` opens a new section.
 - Section keys are computed from heading text via slugification (`Experience` → `experience`).
-- A section without `### Entry` headings is "freeform" — its markdown body is rendered as-is by the template.
+- A section without `### Entry` headings is "freeform" - its markdown body is rendered as-is by the template.
 
 ### Entry rules
 
@@ -55,11 +55,11 @@ sectionOrder: [experience, projects, education]   # optional
 ## Common section names
 
 By convention but not requirement:
-- `Summary` — short paragraph, freeform.
-- `Experience` — entries with date ranges.
-- `Projects` — entries, often without subtitles.
-- `Education` — entries (degrees / schools).
-- `Speaking`, `Publications`, `Patents`, `Awards`, etc. — domain-specific, all use the entry pattern.
+- `Summary` - short paragraph, freeform.
+- `Experience` - entries with date ranges.
+- `Projects` - entries, often without subtitles.
+- `Education` - entries (degrees / schools).
+- `Speaking`, `Publications`, `Patents`, `Awards`, etc. - domain-specific, all use the entry pattern.
 
 ## Validation
 

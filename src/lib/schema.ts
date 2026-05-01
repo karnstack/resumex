@@ -39,7 +39,7 @@ export type ParsedSection = {
   key: string // 'experience' (slug of name)
   name: string // 'Experience'
   entries: ParsedEntry[]
-  body?: string // HTML — used when entries.length === 0
+  body?: string // HTML - used when entries.length === 0
 }
 
 export type ParsedResume = {

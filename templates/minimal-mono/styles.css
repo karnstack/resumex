@@ -1,4 +1,4 @@
-/* minimal-mono — single-column, mono, ATS-friendly, quiet hierarchy.
+/* minimal-mono - single-column, mono, ATS-friendly, quiet hierarchy.
    Hierarchy is created with size + weight + uppercase-small, never color. */
 
 .resume-minimal-mono {
@@ -12,7 +12,7 @@
   background: white;
 }
 
-/* header — name dominant, contact de-emphasized */
+/* header - name dominant, contact de-emphasized */
 .resume-minimal-mono .header {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -48,7 +48,7 @@
   border-bottom: 1px solid #bbb;
 }
 
-/* sections — uppercase-small label as section header (de-emphasized) */
+/* sections - uppercase-small label as section header (de-emphasized) */
 .resume-minimal-mono section {
   margin-top: 1.15em;
 }
@@ -62,7 +62,7 @@
   font-weight: 700;
 }
 
-/* entries — title is the strongest, dates/location are quietest */
+/* entries - title is the strongest, dates/location are quietest */
 .resume-minimal-mono .entry {
   margin-bottom: 0.85em;
 }
@@ -90,7 +90,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* bullets — slightly more breathing room than v1 */
+/* bullets - slightly more breathing room than v1 */
 .resume-minimal-mono ul {
   margin: 0.4em 0 0;
   padding-left: 1.25em;

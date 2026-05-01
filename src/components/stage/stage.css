@@ -1,4 +1,4 @@
-/* dotted stage background — quiet gray dots, surrounds the floating A4 page */
+/* dotted stage background - quiet gray dots, surrounds the floating A4 page */
 .resumex-stage {
   position: relative;
   min-height: 100vh;
@@ -31,13 +31,13 @@
    continuous slider drags (each padding tick re-measures and the in-flight
    transition reads as content "scaling from 1x"). Snapping is correct here. */
 
-/* density modes — global tone control. Applied as a class on the page wrapper
+/* density modes - global tone control. Applied as a class on the page wrapper
    so templates can declare scoped overrides. Three knobs:
      1. body type size + line-height (everything inherits unless overridden)
      2. structural gaps (between entries, groups, sections)
      3. paddings inside the major regions */
 
-/* TIGHT — fits more onto one page; reduces type and gaps everywhere. */
+/* TIGHT - fits more onto one page; reduces type and gaps everywhere. */
 .density-tight .kt-root,
 .density-tight .resume-minimal-mono {
   font-size: 9pt;
@@ -100,7 +100,7 @@
   margin-top: 0.3em;
 }
 
-/* ROOMY — opens everything up; useful when you have less content. */
+/* ROOMY - opens everything up; useful when you have less content. */
 .density-roomy .kt-root,
 .density-roomy .resume-minimal-mono {
   font-size: 10pt;
@@ -163,7 +163,7 @@
   margin-top: 0.5em;
 }
 
-/* range slider styling — tame the native dark-gray track and use a quiet
+/* range slider styling - tame the native dark-gray track and use a quiet
    light track + emerald thumb to match the rest of the toolbar. Applied to
    any range input rendered inside the stage (toolbar lives there). */
 input[type='range'].resumex-range,

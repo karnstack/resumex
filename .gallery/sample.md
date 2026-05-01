@@ -26,7 +26,7 @@ I build **resilient backend systems and the platforms that run them**. I prefer 
 *Mar 2024 – Present · New York, NY*
 
 - Led the migration of the events pipeline to a **horizontally-sharded Kafka cluster**, reducing p99 latency by 3x.
-- Owned the on-call rotation for the platform team — **reduced pages 60%** over two quarters through better alerting and runbooks.
+- Owned the on-call rotation for the platform team - **reduced pages 60%** over two quarters through better alerting and runbooks.
 - Mentored four engineers through L4 → L5 promotions.
 
 ### Software Engineer 2 @ Coral Labs
@@ -59,7 +59,7 @@ Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
 ### Tinytrace @ github.com/example/tinytrace
 *OSS · Rust*
 
-Minimal distributed tracing library — span model, OTLP export, ~3k lines.
+Minimal distributed tracing library - span model, OTLP export, ~3k lines.
 
 ## Awards
 

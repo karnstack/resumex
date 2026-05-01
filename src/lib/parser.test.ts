@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { parseResume } from './parser'
 
-describe('parseResume — frontmatter + sections', () => {
+describe('parseResume - frontmatter + sections', () => {
   it('extracts frontmatter and detects sections by H2', () => {
     const source = `---
 template: minimal-mono
@@ -51,7 +51,7 @@ bar
   })
 })
 
-describe('parseResume — entries within sections', () => {
+describe('parseResume - entries within sections', () => {
   it('parses entries with title @ subtitle pattern', () => {
     const source = `---
 template: minimal-mono
@@ -94,14 +94,14 @@ name: Karn
 
 ## Projects
 
-### Canvas — personal website
+### Canvas - personal website
 *2024*
 
 - built it
 `
     const result = parseResume(source)
     const proj = result.sections[0]
-    expect(proj.entries[0].title).toBe('Canvas — personal website')
+    expect(proj.entries[0].title).toBe('Canvas - personal website')
     expect(proj.entries[0].subtitle).toBeUndefined()
     expect(proj.entries[0].dateRange).toBe('2024')
     expect(proj.entries[0].location).toBeUndefined()
@@ -123,7 +123,7 @@ name: Karn
   })
 })
 
-describe('parseResume — freeform + edges', () => {
+describe('parseResume - freeform + edges', () => {
   it('renders freeform section when no entries (e.g. ## Summary)', () => {
     const source = `---
 template: minimal-mono
@@ -165,7 +165,7 @@ just some text with no headings
   })
 })
 
-describe('parseResume — coverage gaps', () => {
+describe('parseResume - coverage gaps', () => {
   it('renders bold markdown in bullets as <strong> HTML', () => {
     const source = `---
 template: minimal-mono

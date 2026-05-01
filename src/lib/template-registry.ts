@@ -16,7 +16,7 @@ export type TemplateModule = {
   meta: ResumeTemplateMeta
 }
 
-// loaded from generated registry — see Task 10
+// loaded from generated registry - see Task 10
 import * as Generated from '@/generated/templates'
 
 const registry: Record<string, TemplateModule> =

@@ -12,10 +12,10 @@ const PAD_MAX = 30
 const PAD_STEP = 1
 
 /**
- * PreviewToolbar — fixed-position floating controls for any template/resume
+ * PreviewToolbar - fixed-position floating controls for any template/resume
  * preview. Hidden in print via data-print-hide. Two clusters:
  *   - bottom-left: back link + slug pill + print button
- *   - top-right: tune panel — scale slider + density selector
+ *   - top-right: tune panel - scale slider + density selector
  *
  * Scale is informational unless `onScaleChange` is provided. Density is
  * informational unless `onDensityChange` is provided.
@@ -30,9 +30,9 @@ export type PreviewToolbarProps = {
   density?: Density
   defaultDensity?: Density
   onDensityChange?: (next: Density) => void
-  /** top padding (mm) — undefined = template default */
+  /** top padding (mm) - undefined = template default */
   padTop?: number
-  /** bottom padding (mm) — undefined = template default */
+  /** bottom padding (mm) - undefined = template default */
   padBot?: number
   defaultPadTop?: number
   defaultPadBot?: number

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import type { ResumeTemplateMeta } from '@/lib/template-registry'
 
 /**
- * TemplateCard — A4-thumbnail preview (transform-scaled iframe rendering the
+ * TemplateCard - A4-thumbnail preview (transform-scaled iframe rendering the
  * real template at full size, visually shrunk to fit the card's
  * 210:297 aspect-ratio) + name, description, tags, and a "preview" button
  * that navigates to /preview/<id> in the same tab. The preview page has its

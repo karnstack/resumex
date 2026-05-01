@@ -4,14 +4,14 @@ AI-first resume builder. Local-only. Filesystem is the source of truth. The user
 
 ## Layout
 
-- `resumes/<variant>.md` — user content (frontmatter + structured markdown)
-- `templates/<id>/` — React templates (default export + meta + styles.css)
-- `src/lib/parser.ts` — markdown → ParsedResume (the contract templates consume)
-- `src/lib/schema.ts` — zod schemas + types
-- `src/components/editor/` — the local in-browser editor UI
-- `.claude/commands/start.md` — bootstrap command
-- `.claude/skills/writing-resumes/SKILL.md` — content operations
-- `.claude/skills/designing-templates/SKILL.md` — template authoring
+- `resumes/<variant>.md` - user content (frontmatter + structured markdown)
+- `templates/<id>/` - React templates (default export + meta + styles.css)
+- `src/lib/parser.ts` - markdown → ParsedResume (the contract templates consume)
+- `src/lib/schema.ts` - zod schemas + types
+- `src/components/editor/` - the local in-browser editor UI
+- `.claude/commands/start.md` - bootstrap command
+- `.claude/skills/writing-resumes/SKILL.md` - content operations
+- `.claude/skills/designing-templates/SKILL.md` - template authoring
 
 ## Conventions
 
@@ -23,19 +23,19 @@ AI-first resume builder. Local-only. Filesystem is the source of truth. The user
 ## Don't
 
 - Don't add network calls or third-party services. The product is local-only.
-- Don't add a database — filesystem is the source of truth.
+- Don't add a database - filesystem is the source of truth.
 - Don't break the resume schema or template contract without bumping a version note in CONVENTIONS / TEMPLATE_GUIDE.
-- Don't ship templates as Tailwind utility classes — use scoped CSS in `templates/<id>/styles.css`.
+- Don't ship templates as Tailwind utility classes - use scoped CSS in `templates/<id>/styles.css`.
 
 ## Common operations
 
-- `pnpm dev` — start the dev server (port 5173).
-- `pnpm test` / `pnpm test:run` — vitest.
-- `pnpm typecheck` — tsc.
-- `pnpm format` — prettier.
+- `pnpm dev` - start the dev server (port 5173).
+- `pnpm test` / `pnpm test:run` - vitest.
+- `pnpm typecheck` - tsc.
+- `pnpm format` - prettier.
 
 ## When making changes
 
 - After editing `templates/`, the sync-templates plugin regenerates `src/generated/templates.ts` automatically.
-- After editing schemas, run typecheck across templates and editor — type changes ripple.
+- After editing schemas, run typecheck across templates and editor - type changes ripple.
 - Frontend changes: dev server hot-reloads. Server middleware changes (save / list): restart the dev server.

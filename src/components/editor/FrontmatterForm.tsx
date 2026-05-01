@@ -48,7 +48,7 @@ export function FrontmatterForm({
           onChange={(e) => update('location', e.target.value || undefined)}
         />
       </Field>
-      {/* links + skills are richer — for v1, edit via raw markdown */}
+      {/* links + skills are richer - for v1, edit via raw markdown */}
     </div>
   )
 }

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import './stage.css'
 
 /**
- * Stage — full-viewport wrapper for any "preview a single page" surface
+ * Stage - full-viewport wrapper for any "preview a single page" surface
  * (template gallery, resume preview). Provides a quiet gray dotted background
  * with generous padding so the contained page sits visually framed.
  *

@@ -1,5 +1,5 @@
-/* emerald-twocol — emerald palette, two-column A4.
-   class prefix .kt- kept for stable internal scoping (don't rename — touches
+/* emerald-twocol - emerald palette, two-column A4.
+   class prefix .kt- kept for stable internal scoping (don't rename - touches
    too many selectors and adds zero user-visible value). */
 
 .kt-root {
@@ -245,7 +245,7 @@
   border-top: 1px dashed color-mix(in oklch, var(--kt-border) 50%, transparent);
 }
 
-/* section-level title (e.g., "experience") — small mono eyebrow, quiet
+/* section-level title (e.g., "experience") - small mono eyebrow, quiet
    anchor; lets per-company group headings dominate. */
 .kt-section-title {
   margin-bottom: 4mm;
@@ -370,6 +370,6 @@
   border-top: 1px dashed color-mix(in oklch, var(--kt-border) 60%, transparent);
 }
 /* @page size is injected dynamically by PageFrame based on the template's
-   `paper` field. Don't add @page rules here — they would cascade with other
+   `paper` field. Don't add @page rules here - they would cascade with other
    templates' CSS (all bundled together) and the last-loaded one would win
    regardless of which template is active. */

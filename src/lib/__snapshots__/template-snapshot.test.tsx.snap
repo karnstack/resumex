@@ -305,7 +305,7 @@ exports[`templates render against sample.md > emerald-twocol renders without thr
                 class="kt-side-entry-body"
               >
                 <p>
-                  Minimal distributed tracing library — span model, OTLP export, ~3k lines.
+                  Minimal distributed tracing library - span model, OTLP export, ~3k lines.
                 </p>
               </div>
               <div
@@ -466,7 +466,7 @@ exports[`templates render against sample.md > emerald-twocol renders without thr
                   </li>
                   <li>
                     <p>
-                      Owned the on-call rotation for the platform team — 
+                      Owned the on-call rotation for the platform team - 
                       <strong>
                         reduced pages 60%
                       </strong>
@@ -824,7 +824,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           </li>
           <li>
             <p>
-              Owned the on-call rotation for the platform team — 
+              Owned the on-call rotation for the platform team - 
               <strong>
                 reduced pages 60%
               </strong>
@@ -1073,7 +1073,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
         </div>
         <div>
           <p>
-            Minimal distributed tracing library — span model, OTLP export, ~3k lines.
+            Minimal distributed tracing library - span model, OTLP export, ~3k lines.
           </p>
         </div>
       </div>

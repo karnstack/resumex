@@ -1,5 +1,5 @@
 /**
- * KarnstackWordmark — gradient-text logo, mirrors the karnstack site nav logo.
+ * KarnstackWordmark - gradient-text logo, mirrors the karnstack site nav logo.
  * Linear gradient from --primary → --primary-gradient-end, text-fill clipped.
  */
 function KarnstackWordmark() {
@@ -22,7 +22,7 @@ function KarnstackWordmark() {
 }
 
 /**
- * Footer — small "powered by karnstack" line + repo link. Centered, muted,
+ * Footer - small "powered by karnstack" line + repo link. Centered, muted,
  * generous vertical padding to match the karnstack site aesthetic.
  *
  * Hidden in print via data-print-hide.

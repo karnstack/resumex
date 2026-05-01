@@ -8,7 +8,7 @@ export function listMiddlewarePlugin(): Plugin {
   return {
     name: 'resumex-list',
     configureServer(server) {
-      // Vite strips the '/api/resumes' prefix — req.url will be '/' or '/<variant>'
+      // Vite strips the '/api/resumes' prefix - req.url will be '/' or '/<variant>'
       server.middlewares.use('/api/resumes', async (req, res, next) => {
         if (req.method !== 'GET') return next()
         try {

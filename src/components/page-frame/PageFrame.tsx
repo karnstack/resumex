@@ -10,13 +10,13 @@ type PageFrameContextValue = {
   forcedScale?: number
   onScaleChange?: (scale: number) => void
   /** Bumped by an outer wrapper (preview/editor) when something *outside* the
-   * template changes that affects layout — density toggle, padding sliders,
+   * template changes that affects layout - density toggle, padding sliders,
    * etc. Triggers PageFrame to re-measure even though the template's own
    * fitDeps (the resume) haven't changed. */
   fitKey?: string | number
 }
 
-/** Optional outer override — preview pages can wrap a template in this provider
+/** Optional outer override - preview pages can wrap a template in this provider
  * to drive PageFrame's scale (e.g., from a slider) without templates needing
  * to know about it. Templates remain pure functions of `ParsedResume`. */
 export const PageFrameContext = createContext<PageFrameContextValue>({})
@@ -80,7 +80,7 @@ export function PageFrame({
           minHeight: `${PAGE_HEIGHT_MM / scale}mm`,
           // `zoom` is preferred over `transform: scale` because Chrome's PDF
           // pipeline preserves layout for `zoom` but renders `transform`
-          // visually only — meaning content past the un-transformed layout
+          // visually only - meaning content past the un-transformed layout
           // box can leak into the printed page (and into the PDF) even when
           // the article has overflow:hidden. `zoom` also keeps the layout
           // consistent so scrollHeight measurements stay accurate.

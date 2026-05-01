@@ -13,7 +13,7 @@ const FIT_SAFETY_PX = 2
  *
  * Returns both `autoScale` (computed from measurement) and `scale` (the value
  * a consumer should apply). When `forcedScale` is provided, `scale === forcedScale`
- * and measurement is skipped — useful for a manual override slider in preview tools.
+ * and measurement is skipped - useful for a manual override slider in preview tools.
  */
 export function useFitToPage<T extends HTMLElement = HTMLDivElement>(
   deps: DependencyList = [],
