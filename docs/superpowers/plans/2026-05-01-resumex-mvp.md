@@ -1138,7 +1138,7 @@ git commit -m "feat(templates): contract types + registry loader"
 
 **Files:** `src/lib/sync-templates-plugin.ts`, `vite.config.ts` (modify)
 
-- [ ] **Step 1: Write the plugin**
+- [x] **Step 1: Write the plugin**
 
 `src/lib/sync-templates-plugin.ts`:
 ```ts
@@ -1238,7 +1238,7 @@ export function syncTemplatesPlugin(): Plugin {
 
 > **Note on the manifest:** the build-time plugin emits `public/templates.json` with just `{ id }` entries. The full meta (name, description, tags) is read at *runtime* via `listTemplates()` from `template-registry.ts`. The karnstack landing page (Plan 2) fetches a *runtime-emitted* manifest from the deployed resumex site that includes meta — that runtime emission is also Plan 2 work. For MVP, the public/templates.json with bare ids is sufficient.
 
-- [ ] **Step 2: Wire plugin into `vite.config.ts`**
+- [x] **Step 2: Wire plugin into `vite.config.ts`**
 
 ```ts
 import { syncTemplatesPlugin } from './src/lib/sync-templates-plugin'
@@ -1251,12 +1251,12 @@ plugins: [
 ],
 ```
 
-- [ ] **Step 3: Verify with empty templates dir**
+- [x] **Step 3: Verify with empty templates dir**
 
 Run: `pnpm dev`
 Expected: server starts, `src/generated/templates.ts` exists with empty `templates: {}`. Kill server.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/lib/sync-templates-plugin.ts vite.config.ts
