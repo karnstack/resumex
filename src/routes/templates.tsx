@@ -3,6 +3,7 @@ import { listTemplates } from '@/lib/template-registry'
 import { isPublic } from '@/lib/mode'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Footer } from '@/components/Footer'
 
 export const Route = createFileRoute('/templates')({
   beforeLoad: () => {
@@ -47,6 +48,7 @@ function TemplatesRoute() {
           </Card>
         ))}
       </div>
+      <Footer />
     </main>
   )
 }

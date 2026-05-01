@@ -4,6 +4,7 @@ import { listVariants } from '@/lib/load-resume'
 import { isPublic } from '@/lib/mode'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Footer } from '@/components/Footer'
 
 export const Route = createFileRoute('/')({
   beforeLoad: () => {
@@ -85,11 +86,12 @@ function IndexRoute() {
         )}
       </section>
 
-      <footer className="mt-10 text-xs text-muted-foreground">
+      <p className="mt-10 text-xs text-muted-foreground">
         <Link to="/templates" className="hover:text-foreground transition-colors">
           browse templates →
         </Link>
-      </footer>
+      </p>
+      <Footer />
     </main>
   )
 }
