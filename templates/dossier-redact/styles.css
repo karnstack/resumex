@@ -1,0 +1,401 @@
+/* dossier-redact — declassified dossier with playful redaction bars.
+   Slate palette + mono labels. Selected phrases rendered as black bars
+   that hide content visually but remain in the DOM (selectable).
+
+   Class prefix: .dr-. Root: .resume-dossier-redact. */
+
+.resume-dossier-redact {
+  --dr-paper: #f5f4ef;
+  --dr-ink: #14171d;
+  --dr-fg: #1c2028;
+  --dr-muted: #5a626d;
+  --dr-faint: #8c95a1;
+  --dr-rule: #232831;
+  --dr-hair: #c4c8ce;
+  --dr-redact: #0c0e12;
+  --dr-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --dr-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  font-family: var(--dr-sans);
+  background: var(--dr-paper);
+  color: var(--dr-fg);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 12mm) 14mm var(--page-pad-bot, 12mm);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* REDACTION BAR ------------------------------------------------------- */
+
+.resume-dossier-redact .dr-redact {
+  background: var(--dr-redact);
+  color: transparent;
+  padding: 0 4px;
+  border-radius: 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  /* keep underline-like artifacts off */
+  text-decoration: none;
+}
+
+/* CLASSIFICATION BANNER ----------------------------------------------- */
+
+.resume-dossier-redact .dr-classbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: var(--dr-ink);
+  color: #f3efe6;
+  font-family: var(--dr-mono);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 2.2mm 4mm;
+  margin: -2mm -4mm 6mm;
+  border-top: 2px solid var(--dr-ink);
+  border-bottom: 2px solid var(--dr-ink);
+}
+.resume-dossier-redact .dr-classbar-mid {
+  text-align: center;
+  border-left: 1px solid #4b515a;
+  border-right: 1px solid #4b515a;
+  padding: 0 6mm;
+}
+.resume-dossier-redact .dr-classbar-right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* HEADER -------------------------------------------------------------- */
+
+.resume-dossier-redact .dr-head {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  column-gap: 10mm;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px solid var(--dr-rule);
+  margin-bottom: 6mm;
+}
+.resume-dossier-redact .dr-eyebrow {
+  font-family: var(--dr-mono);
+  font-size: 7.25pt;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dr-muted);
+  margin-bottom: 3mm;
+}
+.resume-dossier-redact .dr-name {
+  font-size: 26pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0 0 2mm;
+  color: var(--dr-ink);
+}
+.resume-dossier-redact .dr-title {
+  font-family: var(--dr-mono);
+  font-size: 9pt;
+  letter-spacing: 0.05em;
+  color: var(--dr-fg);
+}
+
+.resume-dossier-redact .dr-id {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1pt;
+  font-family: var(--dr-mono);
+  font-size: 7.75pt;
+  border: 1px solid var(--dr-hair);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 3mm 4mm;
+}
+.resume-dossier-redact .dr-id-row {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+  padding: 0.6mm 0;
+}
+.resume-dossier-redact .dr-id-row + .dr-id-row {
+  border-top: 1px dotted var(--dr-hair);
+}
+.resume-dossier-redact .dr-id dt {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dr-muted);
+}
+.resume-dossier-redact .dr-id dd {
+  margin: 0;
+  color: var(--dr-fg);
+  word-break: break-word;
+}
+.resume-dossier-redact .dr-id a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--dr-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-dossier-redact .dr-section {
+  margin-top: 6mm;
+}
+.resume-dossier-redact .dr-section-head {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 4mm;
+  align-items: center;
+  margin-bottom: 3mm;
+}
+.resume-dossier-redact .dr-sec-num {
+  font-family: var(--dr-mono);
+  font-size: 7.75pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dr-muted);
+  font-weight: 700;
+}
+.resume-dossier-redact .dr-section h2 {
+  margin: 0;
+  font-size: 10.5pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dr-ink);
+}
+.resume-dossier-redact .dr-sec-rule {
+  display: block;
+  height: 1px;
+  background: var(--dr-rule);
+}
+
+.resume-dossier-redact .dr-summary {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--dr-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-dossier-redact .dr-entry {
+  margin-top: 3.5mm;
+  padding-top: 3mm;
+  border-top: 1px dotted var(--dr-hair);
+}
+.resume-dossier-redact .dr-entry:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+.resume-dossier-redact .dr-entry-head {
+  display: grid;
+  grid-template-columns: 14mm 1fr auto;
+  column-gap: 4mm;
+  align-items: baseline;
+}
+.resume-dossier-redact .dr-entry-num {
+  font-family: var(--dr-mono);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--dr-redact);
+  font-variant-numeric: tabular-nums;
+}
+.resume-dossier-redact .dr-entry-titles {
+  min-width: 0;
+}
+.resume-dossier-redact .dr-entry-title {
+  font-size: 10.75pt;
+  font-weight: 700;
+  color: var(--dr-ink);
+  letter-spacing: -0.005em;
+}
+.resume-dossier-redact .dr-entry-org {
+  font-size: 9pt;
+  color: var(--dr-fg);
+  margin-top: 0.5mm;
+}
+.resume-dossier-redact .dr-entry-period {
+  font-family: var(--dr-mono);
+  font-size: 7.75pt;
+  letter-spacing: 0.12em;
+  color: var(--dr-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-dossier-redact .dr-obs {
+  list-style: none;
+  margin: 2mm 0 0;
+  padding: 0 0 0 18mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-dossier-redact .dr-obs li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  color: var(--dr-fg);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.resume-dossier-redact .dr-obs li::before {
+  content: '◇';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--dr-mono);
+  font-size: 7pt;
+  color: var(--dr-muted);
+  line-height: 1.85;
+}
+
+.resume-dossier-redact .dr-prose {
+  margin: 2mm 0 0 18mm;
+  font-size: 9.5pt;
+  color: var(--dr-fg);
+  text-wrap: pretty;
+}
+
+/* GRID --------------------------------------------------------------- */
+
+.resume-dossier-redact .dr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  column-gap: 10mm;
+  margin-top: 6mm;
+}
+.resume-dossier-redact .dr-section--col {
+  margin-top: 0;
+}
+
+.resume-dossier-redact .dr-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-dossier-redact .dr-skill {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 4mm;
+  border-bottom: 1px dotted var(--dr-hair);
+  padding: 1mm 0;
+  align-items: baseline;
+}
+.resume-dossier-redact .dr-skill:last-child {
+  border-bottom: none;
+}
+.resume-dossier-redact .dr-skill dt {
+  font-family: var(--dr-mono);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--dr-muted);
+}
+.resume-dossier-redact .dr-skill dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--dr-fg);
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-dossier-redact .dr-foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 8mm;
+  margin-top: 8mm;
+  padding: 2.5mm 0 0;
+  border-top: 1.5px solid var(--dr-rule);
+  font-family: var(--dr-mono);
+  font-size: 7.25pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dr-muted);
+}
+.resume-dossier-redact .dr-foot > :nth-child(2) {
+  text-align: center;
+}
+.resume-dossier-redact .dr-foot > :last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-dossier-redact .dr-section,
+  .resume-dossier-redact .dr-entry,
+  .resume-dossier-redact [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .resume-dossier-redact .dr-redact {
+    background: var(--dr-redact) !important;
+    color: transparent !important;
+  }
+}
+
+/* density support */
+.density-tight .resume-dossier-redact {
+  font-size: 9pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 10mm) 12mm var(--page-pad-bot, 10mm);
+}
+.density-tight .resume-dossier-redact .dr-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-dossier-redact .dr-section-head {
+  margin-bottom: 2mm;
+}
+.density-tight .resume-dossier-redact .dr-entry {
+  margin-top: 2.5mm;
+  padding-top: 2mm;
+}
+.density-tight .resume-dossier-redact .dr-obs {
+  gap: 0.8mm;
+  margin-top: 1.5mm;
+}
+.density-tight .resume-dossier-redact .dr-head {
+  padding-bottom: 4.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-dossier-redact .dr-grid {
+  margin-top: 4.5mm;
+}
+
+.density-roomy .resume-dossier-redact {
+  font-size: 10.25pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+}
+.density-roomy .resume-dossier-redact .dr-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-dossier-redact .dr-section-head {
+  margin-bottom: 4mm;
+}
+.density-roomy .resume-dossier-redact .dr-entry {
+  margin-top: 5mm;
+  padding-top: 4mm;
+}
+.density-roomy .resume-dossier-redact .dr-obs {
+  gap: 1.8mm;
+  margin-top: 3mm;
+}
+.density-roomy .resume-dossier-redact .dr-head {
+  padding-bottom: 8mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-dossier-redact .dr-grid {
+  margin-top: 8mm;
+}

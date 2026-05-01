@@ -1,0 +1,302 @@
+/* letterpress — classical correspondence.
+   Centered name. Italic dates. Hairline rules. Generous air.
+   Caslon / Garamond serif fallback to Georgia. Single column.
+   Class prefix: .lp-. Root: .resume-letterpress. */
+
+.resume-letterpress {
+  --lp-ink: #14110d;
+  --lp-fg: #1d1a14;
+  --lp-muted: #6b6457;
+  --lp-faint: #a39c8d;
+  --lp-hair: #c9c2b3;
+  --lp-rule: #1d1a14;
+
+  font-family: 'Caslon', 'Garamond', 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  padding: var(--page-pad-top, 22mm) 24mm var(--page-pad-bot, 22mm);
+  font-size: 10.75pt;
+  line-height: 1.6;
+  color: var(--lp-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-letterpress .lp-head {
+  text-align: center;
+  margin-bottom: 9mm;
+}
+
+.resume-letterpress .lp-eyebrow {
+  font-size: 8.25pt;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--lp-muted);
+  font-style: italic;
+  font-variant: small-caps;
+  margin-bottom: 5mm;
+}
+
+.resume-letterpress .lp-name {
+  font-size: 30pt;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin: 0 auto 4.5mm;
+  color: var(--lp-ink);
+  font-feature-settings: 'kern', 'liga', 'lnum';
+}
+
+.resume-letterpress .lp-rule {
+  display: block;
+  margin: 0 auto 4.5mm;
+  width: 60mm;
+  max-width: 70%;
+}
+.resume-letterpress .lp-rule-double {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4pt;
+}
+.resume-letterpress .lp-rule-double span {
+  display: block;
+  height: 0;
+  border-top: 1px solid var(--lp-rule);
+}
+.resume-letterpress .lp-rule-double span:last-child {
+  border-top-width: 0.5px;
+  opacity: 0.7;
+}
+
+.resume-letterpress .lp-title {
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--lp-fg);
+  margin: 0 0 4mm;
+  letter-spacing: 0.01em;
+}
+
+.resume-letterpress .lp-contact {
+  font-size: 9pt;
+  color: var(--lp-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-letterpress .lp-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--lp-faint);
+}
+.resume-letterpress .lp-sep {
+  color: var(--lp-faint);
+}
+
+/* HAIRLINE ------------------------------------------------------------ */
+
+.resume-letterpress .lp-hair {
+  border: 0;
+  border-top: 0.5px solid var(--lp-hair);
+  margin: 6mm 0;
+  width: 100%;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-letterpress .lp-section {
+  margin: 4mm 0;
+}
+
+.resume-letterpress .lp-section-label {
+  font-size: 9pt;
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.32em;
+  text-transform: lowercase;
+  color: var(--lp-ink);
+  text-align: center;
+  margin: 0 0 5mm;
+  font-style: italic;
+}
+
+.resume-letterpress .lp-lede {
+  margin: 0;
+  font-size: 11.25pt;
+  line-height: 1.7;
+  color: var(--lp-fg);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
+  text-indent: 4mm;
+  font-feature-settings: 'kern', 'liga';
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-letterpress .lp-entry {
+  margin: 0 0 5mm;
+}
+.resume-letterpress .lp-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-letterpress .lp-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.5mm;
+  flex-wrap: wrap;
+}
+.resume-letterpress .lp-entry-title {
+  font-size: 11.25pt;
+  font-weight: 500;
+  color: var(--lp-ink);
+  letter-spacing: 0.005em;
+}
+.resume-letterpress .lp-org {
+  font-style: italic;
+  font-weight: 400;
+}
+.resume-letterpress .lp-entry-meta {
+  font-size: 9pt;
+  color: var(--lp-muted);
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  white-space: nowrap;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-letterpress .lp-entry-meta em {
+  font-style: italic;
+}
+.resume-letterpress .lp-entry-meta span:not(:first-child)::before {
+  content: '·';
+  color: var(--lp-faint);
+  margin-right: 6px;
+}
+
+.resume-letterpress .lp-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.resume-letterpress .lp-bullets li {
+  position: relative;
+  padding-left: 5mm;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  margin: 0.7mm 0;
+  text-wrap: pretty;
+  color: var(--lp-fg);
+}
+.resume-letterpress .lp-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 1.5mm;
+  top: -0.05em;
+  color: var(--lp-muted);
+  font-size: 14pt;
+  line-height: 1;
+}
+
+.resume-letterpress .lp-prose {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--lp-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-letterpress .lp-skills {
+  margin: 0;
+}
+.resume-letterpress .lp-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  align-items: baseline;
+}
+.resume-letterpress .lp-skill-row + .lp-skill-row {
+  border-top: 0.5px dotted var(--lp-hair);
+}
+.resume-letterpress .lp-skills dt {
+  font-size: 9.25pt;
+  font-style: italic;
+  color: var(--lp-muted);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.resume-letterpress .lp-skills dd {
+  margin: 0;
+  font-size: 10.5pt;
+  color: var(--lp-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-letterpress .lp-section,
+  .resume-letterpress .lp-entry,
+  .resume-letterpress [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10.75pt / 1.6 body, lp-entry margin 5mm, section margin 4mm,
+   lp-hair margin 6mm. */
+
+.density-tight .resume-letterpress {
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.density-tight .resume-letterpress .lp-head {
+  margin-bottom: 6.5mm;
+}
+.density-tight .resume-letterpress .lp-hair {
+  margin: 4.5mm 0;
+}
+.density-tight .resume-letterpress .lp-section {
+  margin: 3mm 0;
+}
+.density-tight .resume-letterpress .lp-section-label {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress .lp-entry {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress .lp-bullets li {
+  margin: 0.4mm 0;
+}
+
+.density-roomy .resume-letterpress {
+  font-size: 11.25pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-letterpress .lp-head {
+  margin-bottom: 12mm;
+}
+.density-roomy .resume-letterpress .lp-hair {
+  margin: 8.5mm 0;
+}
+.density-roomy .resume-letterpress .lp-section {
+  margin: 6mm 0;
+}
+.density-roomy .resume-letterpress .lp-section-label {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress .lp-entry {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress .lp-bullets li {
+  margin: 1.1mm 0;
+}

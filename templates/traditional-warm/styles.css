@@ -1,0 +1,323 @@
+/* traditional-warm — sidebar-left two-column, warm-gray / brown-tinted neutrals.
+   Body inks lean ~oklch warm; paper is bone-cream. The accent IS the warmth.
+   Class prefix: .trw-. Root: .resume-traditional-warm. */
+
+.resume-traditional-warm {
+  --trw-paper: oklch(0.985 0.008 75);
+  --trw-ink: oklch(0.22 0.02 60);
+  --trw-fg: oklch(0.3 0.018 60);
+  --trw-muted: oklch(0.5 0.02 55);
+  --trw-faint: oklch(0.68 0.022 60);
+  --trw-rule: oklch(0.32 0.022 55);
+  --trw-hair: oklch(0.86 0.012 70);
+  --trw-side-bg: oklch(0.96 0.012 75);
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: var(--page-pad-top, 15mm) 14mm var(--page-pad-bot, 15mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--trw-fg);
+  background: var(--trw-paper);
+  font-feature-settings: 'kern', 'ss01';
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-traditional-warm .trw-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+  border-bottom: 1.5px solid var(--trw-rule);
+}
+.resume-traditional-warm .trw-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--trw-ink);
+}
+.resume-traditional-warm .trw-title {
+  margin-top: 2.5mm;
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--trw-muted);
+  letter-spacing: 0.005em;
+  font-style: italic;
+}
+
+/* BODY GRID ----------------------------------------------------------- */
+
+.resume-traditional-warm .trw-body {
+  display: grid;
+  grid-template-columns: 33% 1fr;
+  column-gap: 8mm;
+  align-items: start;
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-traditional-warm .trw-side {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  min-width: 0;
+  padding: 4mm 5mm 5mm;
+  margin-left: -3mm;
+  background: var(--trw-side-bg);
+  border-radius: 1mm;
+}
+.resume-traditional-warm .trw-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.resume-traditional-warm .trw-side-h {
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--trw-ink);
+  border-bottom: 1px solid var(--trw-rule);
+}
+.resume-traditional-warm .trw-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  font-size: 9pt;
+  color: var(--trw-fg);
+}
+.resume-traditional-warm .trw-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--trw-hair);
+}
+.resume-traditional-warm .trw-contact a:hover {
+  border-bottom-color: var(--trw-ink);
+}
+
+.resume-traditional-warm .trw-skill-group {
+  margin-bottom: 1.75mm;
+}
+.resume-traditional-warm .trw-skill-group:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-warm .trw-skill-label {
+  font-size: 8.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--trw-muted);
+  margin-bottom: 0.5mm;
+}
+.resume-traditional-warm .trw-skill-body {
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trw-fg);
+}
+
+.resume-traditional-warm .trw-side-entry {
+  margin-bottom: 2mm;
+}
+.resume-traditional-warm .trw-side-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional-warm .trw-side-title {
+  font-size: 9.75pt;
+  font-weight: 600;
+  color: var(--trw-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-warm .trw-side-sub {
+  font-size: 8.75pt;
+  color: var(--trw-muted);
+  font-style: italic;
+  margin-top: 0.5mm;
+}
+.resume-traditional-warm .trw-side-meta {
+  font-size: 8.5pt;
+  color: var(--trw-muted);
+  margin-top: 0.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-warm .trw-side-prose {
+  margin: 1mm 0 0;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--trw-fg);
+  text-wrap: pretty;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-traditional-warm .trw-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+}
+.resume-traditional-warm .trw-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
+.resume-traditional-warm .trw-main-h {
+  margin: 0 0 1mm;
+  padding-bottom: 1.5mm;
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--trw-ink);
+  border-bottom: 1.5px solid var(--trw-rule);
+}
+.resume-traditional-warm .trw-summary {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--trw-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-traditional-warm .trw-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-traditional-warm .trw-entry + .trw-entry {
+  margin-top: 4mm;
+}
+.resume-traditional-warm .trw-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-traditional-warm .trw-role {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--trw-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional-warm .trw-company {
+  font-size: 9.25pt;
+  color: var(--trw-muted);
+  margin-top: 0.5mm;
+  font-style: italic;
+}
+.resume-traditional-warm .trw-dates {
+  font-size: 9pt;
+  color: var(--trw-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional-warm .trw-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-traditional-warm .trw-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--trw-fg);
+}
+.resume-traditional-warm .trw-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--trw-ink);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-traditional-warm .trw-section,
+  .resume-traditional-warm .trw-side-section,
+  .resume-traditional-warm .trw-entry,
+  .resume-traditional-warm [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-traditional-warm {
+  font-size: 9.25pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+}
+.density-tight .resume-traditional-warm .trw-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-traditional-warm .trw-side {
+  gap: 4.5mm;
+  padding: 3mm 4mm 4mm;
+}
+.density-tight .resume-traditional-warm .trw-main {
+  gap: 3.5mm;
+}
+.density-tight .resume-traditional-warm .trw-section {
+  gap: 1.8mm;
+}
+.density-tight .resume-traditional-warm .trw-entry + .trw-entry {
+  margin-top: 2.8mm;
+}
+.density-tight .resume-traditional-warm .trw-bullets {
+  gap: 0.85mm;
+}
+.density-tight .resume-traditional-warm .trw-side-entry {
+  margin-bottom: 1.4mm;
+}
+
+.density-roomy .resume-traditional-warm {
+  font-size: 10.5pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 18mm) 16mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-traditional-warm .trw-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-traditional-warm .trw-side {
+  gap: 8.5mm;
+  padding: 5mm 6mm 6mm;
+}
+.density-roomy .resume-traditional-warm .trw-main {
+  gap: 7mm;
+}
+.density-roomy .resume-traditional-warm .trw-section {
+  gap: 3.5mm;
+}
+.density-roomy .resume-traditional-warm .trw-entry + .trw-entry {
+  margin-top: 5.5mm;
+}
+.density-roomy .resume-traditional-warm .trw-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-traditional-warm .trw-side-entry {
+  margin-bottom: 2.8mm;
+}

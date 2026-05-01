@@ -1,0 +1,297 @@
+/* saas-mono - SaaS DNA, mono-body variant.
+   Inter for the name + section headers (so the visual hierarchy still reads
+   like SaaS marketing), JetBrains Mono for body, role names, and chips. The
+   body-type swap makes this read very different from the base saas. */
+
+.resume-saas-mono {
+  --ss-fg: #111827;
+  --ss-body: #1f2937;
+  --ss-muted: #6b7280;
+  --ss-faint: #9ca3af;
+  --ss-line: #e5e7eb;
+  --ss-soft: #f3f4f6;
+  --ss-accent: #6366f1;
+  --ss-accent-soft: #eef2ff;
+  --ss-accent-ink: #4338ca;
+
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  padding: var(--page-pad-top, 16mm) 18mm var(--page-pad-bot, 16mm);
+  font-size: 9pt;
+  line-height: 1.6;
+  color: var(--ss-body);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume-saas-mono .ss-head {
+  margin-bottom: 7mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px solid var(--ss-line);
+}
+.resume-saas-mono .ss-head-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4pt;
+}
+.resume-saas-mono .ss-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 7.75pt;
+  letter-spacing: 0.02em;
+  color: var(--ss-accent-ink);
+  background: var(--ss-accent-soft);
+  padding: 2pt 7pt;
+  border-radius: 999px;
+}
+/* name + section heads stay in Inter for hierarchy; body is mono. */
+.resume-saas-mono .ss-name {
+  font-family: 'Inter', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  margin: 0 0 2pt;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--ss-fg);
+}
+.resume-saas-mono .ss-title {
+  font-family: 'Inter', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 11pt;
+  color: var(--ss-muted);
+  margin-bottom: 4mm;
+  font-weight: 500;
+}
+.resume-saas-mono .ss-contact {
+  font-size: 8.25pt;
+  color: var(--ss-body);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-saas-mono .ss-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ss-line);
+  padding-bottom: 0.5px;
+  transition: border-color 0.15s;
+}
+.resume-saas-mono .ss-contact a:hover {
+  border-bottom-color: var(--ss-accent);
+}
+.resume-saas-mono .ss-sep {
+  color: var(--ss-faint);
+  margin: 0 8px;
+}
+
+.resume-saas-mono .ss-section {
+  margin-bottom: 5.5mm;
+}
+.resume-saas-mono .ss-section:last-child {
+  margin-bottom: 0;
+}
+.resume-saas-mono .ss-h2 {
+  font-family: 'Inter', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 8.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ss-accent-ink);
+  margin: 0 0 3mm;
+  padding-bottom: 2pt;
+  position: relative;
+}
+.resume-saas-mono .ss-h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 18pt;
+  height: 1.5pt;
+  background: var(--ss-accent);
+  border-radius: 1pt;
+}
+
+.resume-saas-mono .ss-summary .ss-lede {
+  margin: 0;
+  font-size: 9.25pt;
+  line-height: 1.65;
+  color: var(--ss-body);
+  text-wrap: pretty;
+}
+.resume-saas-mono .ss-mark {
+  background: var(--ss-accent-soft);
+  color: var(--ss-accent-ink);
+  padding: 0 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.resume-saas-mono .ss-entry {
+  margin-bottom: 4mm;
+}
+.resume-saas-mono .ss-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-saas-mono .ss-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2pt;
+}
+.resume-saas-mono .ss-entry-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  min-width: 0;
+}
+.resume-saas-mono .ss-role {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ss-fg);
+  letter-spacing: -0.005em;
+}
+.resume-saas-mono .ss-at {
+  font-size: 8.25pt;
+  color: var(--ss-faint);
+  font-weight: 400;
+}
+.resume-saas-mono .ss-org {
+  font-size: 9pt;
+  color: var(--ss-muted);
+  font-weight: 500;
+}
+.resume-saas-mono .ss-stamp {
+  font-size: 8pt;
+  color: var(--ss-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-saas-mono .ss-bullets {
+  list-style: none;
+  margin: 2pt 0 0;
+  padding: 0;
+}
+.resume-saas-mono .ss-bullets li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 8.75pt;
+  line-height: 1.6;
+  margin: 1.5pt 0;
+  text-wrap: pretty;
+}
+.resume-saas-mono .ss-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ss-accent);
+}
+
+.resume-saas-mono .ss-prose {
+  margin: 2pt 0 0;
+  font-size: 8.75pt;
+  line-height: 1.6;
+  color: var(--ss-body);
+}
+
+.resume-saas-mono .ss-skill-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25mm;
+}
+.resume-saas-mono .ss-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  gap: 4mm;
+  align-items: baseline;
+}
+.resume-saas-mono .ss-skill-label {
+  font-size: 8pt;
+  color: var(--ss-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+.resume-saas-mono .ss-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.resume-saas-mono .ss-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 8px;
+  border: 1px solid var(--ss-line);
+  background: white;
+  border-radius: 999px;
+  font-size: 8.25pt;
+  line-height: 1;
+  color: var(--ss-body);
+}
+
+@media print {
+  .resume-saas-mono .ss-section,
+  .resume-saas-mono .ss-entry {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 9pt / 1.6 body (mono), ss-entry margin 4mm, section margin 5.5mm. */
+
+.density-tight .resume-saas-mono {
+  font-size: 8.5pt;
+  line-height: 1.5;
+}
+.density-tight .resume-saas-mono .ss-head {
+  margin-bottom: 5mm;
+  padding-bottom: 3.5mm;
+}
+.density-tight .resume-saas-mono .ss-section {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-saas-mono .ss-h2 {
+  margin: 0 0 2.2mm;
+}
+.density-tight .resume-saas-mono .ss-entry {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-saas-mono .ss-bullets li {
+  margin: 1pt 0;
+}
+.density-tight .resume-saas-mono .ss-skill-grid {
+  gap: 1.5mm;
+}
+
+.density-roomy .resume-saas-mono {
+  font-size: 9.5pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-saas-mono .ss-head {
+  margin-bottom: 9.5mm;
+  padding-bottom: 7mm;
+}
+.density-roomy .resume-saas-mono .ss-section {
+  margin-bottom: 7.5mm;
+}
+.density-roomy .resume-saas-mono .ss-h2 {
+  margin: 0 0 4.2mm;
+}
+.density-roomy .resume-saas-mono .ss-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-saas-mono .ss-bullets li {
+  margin: 2.5pt 0;
+}
+.density-roomy .resume-saas-mono .ss-skill-grid {
+  gap: 3.2mm;
+}

@@ -1,0 +1,337 @@
+/* swiss-mirror — Swiss / International Style with eye-flow flipped.
+   Section labels are right-aligned in a right-side gutter. Accent rail
+   on the right (a vertical cobalt block running down the masthead).
+   Body content is still left-aligned for legibility. Contact rows and
+   contact keys mirror to the right too.
+
+   Class prefix: .swm- for stable scoping. Root: .resume-swiss-mirror. */
+
+.resume-swiss-mirror {
+  --swm-ink: #0f1115;
+  --swm-fg: #14171d;
+  --swm-muted: #5b6473;
+  --swm-faint: #9aa3b1;
+  --swm-rule: #1a1d24;
+  --swm-hair: #d6dae0;
+  --swm-accent: #1f3df0;
+  --swm-accent-soft: #e6ebff;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 18mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--swm-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-swiss-mirror .swm-head {
+  display: grid;
+  grid-template-columns: 1fr 14mm;
+  column-gap: 8mm;
+  align-items: stretch;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px solid var(--swm-rule);
+  margin-bottom: 8mm;
+}
+.resume-swiss-mirror .swm-head-body {
+  min-width: 0;
+  text-align: left;
+}
+.resume-swiss-mirror .swm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--swm-muted);
+  margin-bottom: 4mm;
+}
+.resume-swiss-mirror .swm-eyebrow-block {
+  width: 14px;
+  height: 4px;
+  background: var(--swm-accent);
+  display: inline-block;
+}
+.resume-swiss-mirror .swm-name {
+  font-size: 30pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin: 0 0 3mm;
+  color: var(--swm-ink);
+}
+.resume-swiss-mirror .swm-title {
+  font-size: 10.5pt;
+  font-weight: 500;
+  color: var(--swm-fg);
+  margin: 0 0 4mm;
+}
+
+.resume-swiss-mirror .swm-contact {
+  display: grid;
+  row-gap: 1.5pt;
+  font-size: 8.5pt;
+  color: var(--swm-muted);
+  font-variant-numeric: tabular-nums;
+  max-width: 80mm;
+}
+.resume-swiss-mirror .swm-contact-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.resume-swiss-mirror .swm-key {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--swm-accent);
+  margin-left: auto;
+}
+.resume-swiss-mirror .swm-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--swm-hair);
+}
+.resume-swiss-mirror .swm-contact a:hover {
+  color: var(--swm-accent);
+}
+
+.resume-swiss-mirror .swm-rail {
+  background: var(--swm-accent);
+  width: 14mm;
+  position: relative;
+  min-height: 38mm;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.resume-swiss-mirror .swm-rail-tag {
+  display: inline-block;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: white;
+  text-transform: uppercase;
+  padding: 0 0 5mm;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* SECTIONS — body left, label right ----------------------------------- */
+
+.resume-swiss-mirror .swm-section {
+  display: grid;
+  grid-template-columns: 1fr 38mm;
+  column-gap: 10mm;
+  padding: 6mm 0;
+  border-top: 1px solid var(--swm-hair);
+}
+.resume-swiss-mirror .swm-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.resume-swiss-mirror .swm-section-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--swm-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  text-align: right;
+  align-items: flex-end;
+  padding-top: 1pt;
+  border-right: 2px solid var(--swm-accent);
+  padding-right: 5mm;
+}
+.resume-swiss-mirror .swm-num {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--swm-accent);
+}
+
+.resume-swiss-mirror .swm-section-body {
+  min-width: 0;
+}
+
+.resume-swiss-mirror .swm-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--swm-fg);
+  text-wrap: pretty;
+  max-width: 145mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-swiss-mirror .swm-entry + .swm-entry {
+  margin-top: 5mm;
+  padding-top: 5mm;
+  border-top: 1px solid var(--swm-hair);
+}
+.resume-swiss-mirror .swm-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-swiss-mirror .swm-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--swm-ink);
+}
+.resume-swiss-mirror .swm-entry-meta {
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--swm-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss-mirror .swm-entry-sub {
+  margin: 1.5pt 0 2.5mm;
+  font-size: 9pt;
+  color: var(--swm-fg);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.resume-swiss-mirror .swm-entry-sub .swm-dot {
+  color: var(--swm-faint);
+}
+
+.resume-swiss-mirror .swm-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-swiss-mirror .swm-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--swm-fg);
+}
+.resume-swiss-mirror .swm-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--swm-accent);
+}
+
+.resume-swiss-mirror .swm-prose {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--swm-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-swiss-mirror .swm-skills {
+  margin: 0;
+}
+.resume-swiss-mirror .swm-skill-row {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px dotted var(--swm-hair);
+  align-items: baseline;
+}
+.resume-swiss-mirror .swm-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-swiss-mirror .swm-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--swm-muted);
+}
+.resume-swiss-mirror .swm-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--swm-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-swiss-mirror .swm-section,
+  .resume-swiss-mirror .swm-entry,
+  .resume-swiss-mirror [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-swiss-mirror {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-swiss-mirror .swm-section {
+  padding: 4.5mm 0;
+}
+.density-tight .resume-swiss-mirror .swm-entry + .swm-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .resume-swiss-mirror .swm-bullets {
+  gap: 1mm;
+}
+.density-tight .resume-swiss-mirror .swm-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-swiss-mirror .swm-head {
+  padding-bottom: 4.5mm;
+  margin-bottom: 6mm;
+}
+
+.density-roomy .resume-swiss-mirror {
+  font-size: 10.5pt;
+  line-height: 1.62;
+}
+.density-roomy .resume-swiss-mirror .swm-section {
+  padding: 8mm 0;
+}
+.density-roomy .resume-swiss-mirror .swm-entry + .swm-entry {
+  margin-top: 7mm;
+  padding-top: 7mm;
+}
+.density-roomy .resume-swiss-mirror .swm-bullets {
+  gap: 2.2mm;
+}
+.density-roomy .resume-swiss-mirror .swm-bullets li {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-swiss-mirror .swm-head {
+  padding-bottom: 8mm;
+  margin-bottom: 11mm;
+}

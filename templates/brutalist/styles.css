@@ -1,0 +1,334 @@
+/* brutalist - base. Mono + geometric sans. Harsh 2-3px black borders.
+   Asymmetric header. All-caps mono section labels. No chromatic accent.
+   Class prefix: .br- for stable scoping. Root: .resume-brutalist. */
+
+.resume-brutalist {
+  --br-ink: #050505;
+  --br-fg: #111111;
+  --br-mute: #555555;
+  --br-rule: #050505;
+  --br-paper: #ffffff;
+
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--br-fg);
+  background: var(--br-paper);
+  letter-spacing: -0.005em;
+}
+
+.resume-brutalist a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--br-ink);
+}
+
+/* HEAD --------------------------------------------------------------- */
+
+.resume-brutalist .br-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 8mm;
+  align-items: stretch;
+  border: 3px solid var(--br-rule);
+  padding: 5mm 6mm 6mm;
+  margin-bottom: 7mm;
+  position: relative;
+}
+.resume-brutalist .br-head::before {
+  content: '';
+  position: absolute;
+  inset: -3px -3px 70% auto;
+  border-bottom: 3px solid var(--br-rule);
+  pointer-events: none;
+}
+
+.resume-brutalist .br-head-name {
+  margin-left: -2mm;
+}
+
+.resume-brutalist .br-eyebrow {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--br-fg);
+  margin-bottom: 4mm;
+  display: flex;
+  gap: 6px;
+  text-transform: uppercase;
+}
+.resume-brutalist .br-eyebrow .br-sep {
+  color: var(--br-mute);
+}
+
+.resume-brutalist .br-name {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 38pt;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+  margin: 0 0 4mm;
+  color: var(--br-ink);
+  text-transform: none;
+}
+
+.resume-brutalist .br-title {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--br-fg);
+  border-top: 2px solid var(--br-rule);
+  padding-top: 2.5mm;
+  display: inline-block;
+}
+
+.resume-brutalist .br-contact {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  line-height: 1.55;
+  border: 2px solid var(--br-rule);
+  padding: 3mm 4mm;
+  align-self: end;
+  background: var(--br-paper);
+  min-width: 60mm;
+}
+.resume-brutalist .br-contact-row {
+  display: grid;
+  grid-template-columns: 16pt 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+  padding: 1pt 0;
+  border-bottom: 1px dashed var(--br-mute);
+}
+.resume-brutalist .br-contact-row:last-child {
+  border-bottom: none;
+}
+.resume-brutalist .br-key {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--br-ink);
+}
+.resume-brutalist .br-contact a {
+  border-bottom: none;
+}
+
+/* SECTIONS ----------------------------------------------------------- */
+
+.resume-brutalist .br-section {
+  border: 2px solid var(--br-rule);
+  border-top-width: 0;
+  padding: 4mm 5mm 5mm;
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+}
+.resume-brutalist .br-section:first-of-type {
+  border-top-width: 2px;
+}
+
+.resume-brutalist .br-h2 {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--br-ink);
+  padding-top: 2pt;
+  align-self: start;
+}
+.resume-brutalist .br-h2-num {
+  display: block;
+  font-size: 7.5pt;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  color: var(--br-mute);
+  margin-bottom: 1.5mm;
+}
+
+.resume-brutalist .br-section-body {
+  min-width: 0;
+}
+
+.resume-brutalist .br-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: var(--br-fg);
+  text-wrap: pretty;
+  font-weight: 500;
+}
+
+/* ENTRIES ------------------------------------------------------------ */
+
+.resume-brutalist .br-entry + .br-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 2px solid var(--br-rule);
+}
+
+.resume-brutalist .br-entry-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  align-items: flex-start;
+  margin-bottom: 2mm;
+}
+
+.resume-brutalist .br-role {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--br-ink);
+  line-height: 1.15;
+}
+.resume-brutalist .br-org {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--br-fg);
+  margin-top: 1mm;
+}
+.resume-brutalist .br-date {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--br-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  border: 2px solid var(--br-rule);
+  padding: 1mm 2mm;
+  align-self: flex-start;
+}
+
+.resume-brutalist .br-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-brutalist .br-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--br-fg);
+  text-wrap: pretty;
+}
+.resume-brutalist .br-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--br-ink);
+}
+
+.resume-brutalist .br-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--br-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS ------------------------------------------------------------- */
+
+.resume-brutalist .br-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-brutalist .br-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 4mm;
+  padding: 1.5mm 0;
+  border-bottom: 1px solid var(--br-rule);
+  align-items: baseline;
+}
+.resume-brutalist .br-skill-row:first-child {
+  border-top: 1px solid var(--br-rule);
+}
+.resume-brutalist .br-skills dt {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--br-ink);
+}
+.resume-brutalist .br-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--br-fg);
+}
+
+/* PRINT -------------------------------------------------------------- */
+
+@media print {
+  .resume-brutalist .br-section,
+  .resume-brutalist .br-entry,
+  .resume-brutalist [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-brutalist {
+  font-size: 9pt;
+  line-height: 1.4;
+}
+.density-tight .resume-brutalist .br-section {
+  padding: 3mm 4mm 4mm;
+}
+.density-tight .resume-brutalist .br-entry + .br-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-brutalist .br-bullets {
+  gap: 0.6mm;
+}
+.density-tight .resume-brutalist .br-bullets li {
+  font-size: 9pt;
+  line-height: 1.4;
+}
+.density-tight .resume-brutalist .br-head {
+  padding: 4mm 5mm 5mm;
+  margin-bottom: 5.5mm;
+}
+
+.density-roomy .resume-brutalist {
+  font-size: 10.25pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-brutalist .br-section {
+  padding: 5.5mm 6mm 6.5mm;
+}
+.density-roomy .resume-brutalist .br-entry + .br-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-brutalist .br-bullets {
+  gap: 1.6mm;
+}
+.density-roomy .resume-brutalist .br-bullets li {
+  font-size: 10pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-brutalist .br-head {
+  padding: 6.5mm 7mm 7.5mm;
+  margin-bottom: 9mm;
+}

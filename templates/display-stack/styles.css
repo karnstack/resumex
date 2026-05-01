@@ -1,0 +1,319 @@
+/* display-stack — stacked-name treatment.
+   Each name word on its own line, each at heavy 900 weight.
+   Two-column layout: stacked name + contact in left rail, content in main.
+   The vertical stack of "AVERY / PARK" is the signature.
+   Class prefix .dps- for stable scoping. Root: .resume-display-stack. */
+
+.resume-display-stack {
+  --dps-ink: #0a0a0a;
+  --dps-fg: #1a1a1a;
+  --dps-muted: #5e5e5e;
+  --dps-faint: #b2b2b2;
+  --dps-rule: #0a0a0a;
+  --dps-hair: #d8d8d8;
+  --dps-paper: #f8f5ee;
+  --dps-paper-deep: #efe9d8;
+
+  font-family: 'Untitled Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 0;
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dps-fg);
+  background: var(--dps-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* GRID ---------------------------------------------------------------- */
+
+.resume-display-stack .dps-grid {
+  display: grid;
+  grid-template-columns: 64mm 1fr;
+  width: 100%;
+  min-height: 297mm;
+}
+
+/* HEAD (left rail) ---------------------------------------------------- */
+
+.resume-display-stack .dps-head {
+  background: var(--dps-paper-deep);
+  padding: var(--page-pad-top, 16mm) 10mm var(--page-pad-bot, 16mm) 14mm;
+  border-right: 2px solid var(--dps-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 7mm;
+}
+.resume-display-stack .dps-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--dps-ink);
+}
+.resume-display-stack .dps-eb-line {
+  width: 16px;
+  height: 2px;
+  background: var(--dps-ink);
+}
+.resume-display-stack .dps-name {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-display-stack .dps-name-line {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 38pt;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  color: var(--dps-ink);
+  display: block;
+}
+.resume-display-stack .dps-name-line + .dps-name-line {
+  margin-top: 1mm;
+}
+.resume-display-stack .dps-role {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--dps-ink);
+  padding-top: 3mm;
+  margin-top: 1mm;
+  border-top: 1px solid var(--dps-rule);
+}
+.resume-display-stack .dps-tag {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--dps-fg);
+  margin: 0;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.resume-display-stack .dps-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--dps-faint);
+}
+.resume-display-stack .dps-c-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5pt;
+}
+.resume-display-stack .dps-c-label {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dps-muted);
+}
+.resume-display-stack .dps-c-block a,
+.resume-display-stack .dps-c-block span {
+  font-size: 8.75pt;
+  color: var(--dps-fg);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.resume-display-stack .dps-skills {
+  padding-top: 4mm;
+  border-top: 1px solid var(--dps-faint);
+}
+.resume-display-stack .dps-side-h {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 9pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dps-ink);
+  margin: 0 0 3mm;
+}
+.resume-display-stack .dps-skill-row {
+  padding: 1.5mm 0;
+  border-bottom: 1px dotted var(--dps-faint);
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.resume-display-stack .dps-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-display-stack .dps-skill-key {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dps-muted);
+  margin-bottom: 0.5pt;
+}
+
+/* MAIN (right) -------------------------------------------------------- */
+
+.resume-display-stack .dps-main {
+  padding: var(--page-pad-top, 16mm) 14mm var(--page-pad-bot, 16mm) 12mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+.resume-display-stack .dps-section + .dps-section {
+  padding-top: 5mm;
+  border-top: 1px solid var(--dps-hair);
+}
+.resume-display-stack .dps-h2 {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 9pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dps-ink);
+  margin: 0 0 4mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1.5px solid var(--dps-rule);
+}
+
+.resume-display-stack .dps-lede {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dps-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES — left-rail dates, big role line below */
+
+.resume-display-stack .dps-entry + .dps-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--dps-hair);
+}
+.resume-display-stack .dps-dates {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dps-muted);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 1.5mm;
+}
+.resume-display-stack .dps-role-line {
+  font-size: 13pt;
+  font-weight: 900;
+  letter-spacing: -0.012em;
+  color: var(--dps-ink);
+  line-height: 1.15;
+}
+.resume-display-stack .dps-org {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--dps-fg);
+  margin: 1pt 0 2.5mm;
+}
+.resume-display-stack .dps-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-display-stack .dps-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dps-fg);
+  text-wrap: pretty;
+}
+.resume-display-stack .dps-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--dps-ink);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-display-stack .dps-section,
+  .resume-display-stack .dps-entry,
+  .resume-display-stack [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 9.75pt / 1.55 body, dps-entry margin 4mm, main gap 6mm.
+   Two-column with discrete head + main regions. */
+
+.density-tight .resume-display-stack {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .resume-display-stack .dps-head {
+  padding: var(--page-pad-top, 12mm) 10mm var(--page-pad-bot, 12mm) 14mm;
+  gap: 5mm;
+}
+.density-tight .resume-display-stack .dps-main {
+  padding: var(--page-pad-top, 12mm) 14mm var(--page-pad-bot, 12mm) 12mm;
+  gap: 4mm;
+}
+.density-tight .resume-display-stack .dps-section + .dps-section {
+  padding-top: 3.5mm;
+}
+.density-tight .resume-display-stack .dps-h2 {
+  margin: 0 0 2.8mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-display-stack .dps-entry + .dps-entry {
+  margin-top: 2.8mm;
+  padding-top: 2.8mm;
+}
+.density-tight .resume-display-stack .dps-bullets {
+  gap: 1.1mm;
+}
+
+.density-roomy .resume-display-stack {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-display-stack .dps-head {
+  padding: var(--page-pad-top, 20mm) 10mm var(--page-pad-bot, 20mm) 14mm;
+  gap: 9.5mm;
+}
+.density-roomy .resume-display-stack .dps-main {
+  padding: var(--page-pad-top, 20mm) 14mm var(--page-pad-bot, 20mm) 12mm;
+  gap: 8.5mm;
+}
+.density-roomy .resume-display-stack .dps-section + .dps-section {
+  padding-top: 7mm;
+}
+.density-roomy .resume-display-stack .dps-h2 {
+  margin: 0 0 5.5mm;
+  padding-bottom: 2.2mm;
+}
+.density-roomy .resume-display-stack .dps-entry + .dps-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-display-stack .dps-bullets {
+  gap: 2.1mm;
+}

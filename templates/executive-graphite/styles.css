@@ -1,0 +1,247 @@
+/* executive-graphite — Boardroom executive in pure graphite.
+   No chromatic accent. Hierarchy carried by size, weight, and rules only.
+   The quietest of the executive set. Restrained, archival.
+
+   Class prefix: .exg- for stable scoping. Root: .resume-executive-graphite. */
+
+.resume-executive-graphite {
+  --exg-ink: #111315;
+  --exg-fg: #1d2024;
+  --exg-muted: #5e6168;
+  --exg-faint: #9498a0;
+  --exg-rule: #1f2329;
+  --exg-hair: #d6d8db;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding: var(--page-pad-top, 22mm) 22mm var(--page-pad-bot, 20mm);
+  font-size: 10pt;
+  line-height: 1.6;
+  color: var(--exg-fg);
+  background: white;
+  font-feature-settings: 'kern', 'ss01', 'liga';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-executive-graphite .exg-head {
+  margin-bottom: 11mm;
+  padding-bottom: 6mm;
+  border-bottom: 1px solid var(--exg-rule);
+}
+.resume-executive-graphite .exg-wordmark {
+  font-size: 22pt;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  line-height: 1.1;
+  margin: 0 0 3mm;
+  color: var(--exg-ink);
+  text-indent: 0.4em;
+}
+.resume-executive-graphite .exg-title {
+  font-size: 9.75pt;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--exg-fg);
+  margin: 0 0 4mm;
+}
+.resume-executive-graphite .exg-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 7px;
+  font-size: 8.75pt;
+  color: var(--exg-muted);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.resume-executive-graphite .exg-contact .exg-sep {
+  color: var(--exg-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-executive-graphite .exg-section {
+  margin-top: 8mm;
+}
+.resume-executive-graphite .exg-section:first-of-type {
+  margin-top: 0;
+}
+.resume-executive-graphite .exg-section h2 {
+  font-size: 8.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--exg-ink);
+  margin: 0 0 5mm;
+  padding: 0 0 1.5mm;
+  border-bottom: 1px solid var(--exg-hair);
+}
+
+.resume-executive-graphite .exg-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.7;
+  color: var(--exg-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-executive-graphite .exg-entry {
+  margin-bottom: 5.5mm;
+}
+.resume-executive-graphite .exg-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-executive-graphite .exg-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.5mm;
+}
+.resume-executive-graphite .exg-entry-title {
+  font-size: 10.75pt;
+  font-weight: 600;
+  color: var(--exg-ink);
+}
+.resume-executive-graphite .exg-entry-org {
+  font-size: 9.5pt;
+  font-weight: 500;
+  color: var(--exg-muted);
+  margin-top: 0.5mm;
+}
+.resume-executive-graphite .exg-entry-meta {
+  font-size: 8.75pt;
+  color: var(--exg-muted);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+.resume-executive-graphite .exg-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding: 0;
+}
+.resume-executive-graphite .exg-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.6;
+  margin: 0.6mm 0;
+  text-wrap: pretty;
+  color: var(--exg-fg);
+}
+.resume-executive-graphite .exg-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--exg-faint);
+  font-weight: 400;
+}
+
+.resume-executive-graphite .exg-prose {
+  margin: 1mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.6;
+  color: var(--exg-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-executive-graphite .exg-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.resume-executive-graphite .exg-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 6mm;
+  padding: 1.75mm 0;
+  align-items: baseline;
+}
+.resume-executive-graphite .exg-skill-row + .exg-skill-row {
+  border-top: 1px solid var(--exg-hair);
+}
+.resume-executive-graphite .exg-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--exg-muted);
+}
+.resume-executive-graphite .exg-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--exg-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-executive-graphite .exg-section,
+  .resume-executive-graphite .exg-entry,
+  .resume-executive-graphite [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-executive-graphite {
+  font-size: 9.25pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 16mm);
+}
+.density-tight .resume-executive-graphite .exg-head {
+  margin-bottom: 7.5mm;
+  padding-bottom: 4mm;
+}
+.density-tight .resume-executive-graphite .exg-section {
+  margin-top: 5.5mm;
+}
+.density-tight .resume-executive-graphite .exg-section h2 {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-executive-graphite .exg-entry {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-executive-graphite .exg-skill-row {
+  padding: 1.2mm 0;
+}
+
+.density-roomy .resume-executive-graphite {
+  font-size: 10.5pt;
+  line-height: 1.7;
+  padding: var(--page-pad-top, 26mm) 26mm var(--page-pad-bot, 24mm);
+}
+.density-roomy .resume-executive-graphite .exg-head {
+  margin-bottom: 14mm;
+  padding-bottom: 8mm;
+}
+.density-roomy .resume-executive-graphite .exg-section {
+  margin-top: 11mm;
+}
+.density-roomy .resume-executive-graphite .exg-section h2 {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-executive-graphite .exg-entry {
+  margin-bottom: 7.5mm;
+}
+.density-roomy .resume-executive-graphite .exg-skill-row {
+  padding: 2.4mm 0;
+}

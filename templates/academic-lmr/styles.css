@@ -1,0 +1,327 @@
+/* academic-lmr — Latin Modern feel CV.
+   Italic for emphasis throughout. Slightly different rhythm from `academic`:
+   wider line-height, italic affiliation/role, small Roman-numeral section
+   index at the top, and Roman numerals on each section heading.
+
+   Class prefix: .lmr- for stable scoping. Root: .resume-academic-lmr. */
+
+.resume-academic-lmr {
+  --lmr-ink: #11131a;
+  --lmr-fg: #1a1d24;
+  --lmr-muted: #4d5159;
+  --lmr-faint: #8a8e96;
+  --lmr-rule: #11131a;
+  --lmr-hair: #c8ccd2;
+
+  font-family:
+    'Latin Modern Roman', 'CMU Serif', 'Computer Modern', 'EB Garamond', Georgia, 'Times New Roman',
+    serif;
+  padding: var(--page-pad-top, 16mm) 18mm var(--page-pad-bot, 16mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--lmr-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  text-rendering: optimizeLegibility;
+}
+
+.resume-academic-lmr a {
+  color: inherit;
+  text-decoration: none;
+}
+.resume-academic-lmr a:hover {
+  text-decoration: underline;
+}
+.resume-academic-lmr em,
+.resume-academic-lmr i {
+  font-style: italic;
+}
+.resume-academic-lmr strong {
+  font-weight: 700;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-academic-lmr .lmr-head {
+  text-align: center;
+  margin-bottom: 5mm;
+}
+.resume-academic-lmr .lmr-name {
+  margin: 0 0 1.5mm;
+  font-size: 24pt;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+  color: var(--lmr-ink);
+}
+.resume-academic-lmr .lmr-affil {
+  font-size: 10.5pt;
+  color: var(--lmr-fg);
+  margin-bottom: 1.5mm;
+}
+.resume-academic-lmr .lmr-contact {
+  font-size: 9pt;
+  color: var(--lmr-muted);
+  margin-bottom: 3mm;
+}
+.resume-academic-lmr .lmr-sep {
+  margin: 0 5px;
+  color: var(--lmr-faint);
+}
+
+.resume-academic-lmr .lmr-toc {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 8.5pt;
+  color: var(--lmr-muted);
+  font-style: italic;
+  padding: 1mm 4mm;
+  border: 0.5px solid var(--lmr-hair);
+  border-left: none;
+  border-right: none;
+  margin-bottom: 2mm;
+}
+.resume-academic-lmr .lmr-toc-item {
+  font-style: italic;
+}
+.resume-academic-lmr .lmr-toc .lmr-num {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--lmr-ink);
+  margin-right: 2px;
+}
+.resume-academic-lmr .lmr-toc-sep {
+  color: var(--lmr-faint);
+  margin: 0 4px;
+  font-style: normal;
+}
+.resume-academic-lmr .lmr-headrule {
+  margin-top: 1mm;
+  border-top: 0.5px solid var(--lmr-rule);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-academic-lmr .lmr-section {
+  margin-top: 5mm;
+}
+.resume-academic-lmr .lmr-h2 {
+  margin: 0 0 2mm;
+  font-size: 11pt;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.005em;
+  color: var(--lmr-ink);
+  border-bottom: 0.5px solid var(--lmr-ink);
+  padding-bottom: 1pt;
+}
+.resume-academic-lmr .lmr-rom {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--lmr-muted);
+  margin-right: 6px;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.resume-academic-lmr .lmr-prose {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-academic-lmr .lmr-entry {
+  margin-top: 2.5mm;
+}
+.resume-academic-lmr .lmr-entry:first-of-type {
+  margin-top: 0;
+}
+.resume-academic-lmr .lmr-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-academic-lmr .lmr-entry-title {
+  font-size: 10.25pt;
+  color: var(--lmr-ink);
+}
+.resume-academic-lmr .lmr-date {
+  font-size: 9.5pt;
+  color: var(--lmr-muted);
+  white-space: nowrap;
+  font-style: italic;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-academic-lmr .lmr-sub {
+  font-size: 9.75pt;
+  color: var(--lmr-fg);
+  margin-top: 0.5pt;
+  margin-bottom: 1.5mm;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+  font-style: italic;
+}
+
+/* BULLETS ------------------------------------------------------------- */
+
+.resume-academic-lmr .lmr-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+}
+.resume-academic-lmr .lmr-bullets li {
+  position: relative;
+  padding-left: 1.5em;
+  margin: 0.5pt 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+.resume-academic-lmr .lmr-bullets li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--lmr-fg);
+}
+
+/* PUBLICATIONS / REFERENCES ------------------------------------------- */
+
+.resume-academic-lmr .lmr-refs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: ref;
+  font-size: 9.75pt;
+  line-height: 1.5;
+}
+.resume-academic-lmr .lmr-refs li {
+  position: relative;
+  padding-left: 1.6em;
+  margin: 1mm 0;
+  text-wrap: pretty;
+  hyphens: auto;
+  counter-increment: ref;
+}
+.resume-academic-lmr .lmr-refs li::before {
+  content: counter(ref) '.';
+  position: absolute;
+  left: 0;
+  width: 1.6em;
+  font-style: italic;
+  color: var(--lmr-fg);
+}
+
+/* TALKS --------------------------------------------------------------- */
+
+.resume-academic-lmr .lmr-talks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+}
+.resume-academic-lmr .lmr-talks li {
+  position: relative;
+  padding-left: 1.5em;
+  margin: 0.5mm 0;
+}
+.resume-academic-lmr .lmr-talks li::before {
+  content: '\00B6';
+  position: absolute;
+  left: 0;
+  color: var(--lmr-muted);
+}
+.resume-academic-lmr .lmr-mute {
+  color: var(--lmr-muted);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-academic-lmr .lmr-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+.resume-academic-lmr .lmr-skills > div {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  column-gap: 4mm;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  align-items: baseline;
+}
+.resume-academic-lmr .lmr-skills dt {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--lmr-ink);
+}
+.resume-academic-lmr .lmr-skills dd {
+  margin: 0;
+  color: var(--lmr-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-academic-lmr .lmr-section,
+  .resume-academic-lmr .lmr-entry,
+  .resume-academic-lmr [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-academic-lmr {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-academic-lmr .lmr-head {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-academic-lmr .lmr-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-academic-lmr .lmr-entry {
+  margin-top: 1.75mm;
+}
+.density-tight .resume-academic-lmr .lmr-refs li {
+  margin: 0.6mm 0;
+}
+.density-tight .resume-academic-lmr .lmr-talks li {
+  margin: 0.3mm 0;
+}
+
+.density-roomy .resume-academic-lmr {
+  font-size: 10.5pt;
+  line-height: 1.62;
+}
+.density-roomy .resume-academic-lmr .lmr-head {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-academic-lmr .lmr-section {
+  margin-top: 7.5mm;
+}
+.density-roomy .resume-academic-lmr .lmr-entry {
+  margin-top: 3.5mm;
+}
+.density-roomy .resume-academic-lmr .lmr-refs li {
+  margin: 1.6mm 0;
+}
+.density-roomy .resume-academic-lmr .lmr-talks li {
+  margin: 1mm 0;
+}

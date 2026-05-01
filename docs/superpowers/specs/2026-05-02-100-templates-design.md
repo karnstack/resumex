@@ -36,13 +36,14 @@ Every template MUST:
 1. Render through `<PageFrame fitDeps={[]} innerClassName="resume-<id>">`. No exceptions.
 2. Be a no-prop default-exported React component.
 3. Use scoped CSS in `styles.css` (root class `.resume-<id>` or a stable prefix). No Tailwind utility classes inside the component.
-4. Use `--page-pad-top` / `--page-pad-bot` CSS variables in the root padding declaration.
-5. NOT set `max-width: 210mm` or `margin: 0 auto` on the root.
-6. NOT redeclare `@page` (lives in `src/styles/print-base.css`).
-7. Add `print-color-adjust: exact` to the root if it uses any non-grayscale element.
-8. Wrap entry containers with `data-print-entry="true"` (or use `page-break-inside: avoid` in `@media print`).
-9. Pass `pnpm typecheck`.
-10. Render at `/preview/<id>` without errors.
+4. Use `--page-pad-top` / `--page-pad-bot` CSS variables in the root padding declaration so the toolbar's padding sliders work.
+5. **Support density.** Each template's `styles.css` MUST include `.density-tight .resume-<id> { ... }` and `.density-roomy .resume-<id> { ... }` override blocks that scope to the template's own root class. Tight reduces type/gaps to fit more content; roomy opens it up. This is owned by the template (not centralized in `stage.css`) so each template scales independently. Override the body type size/line-height, structural gaps, and section paddings — see `src/components/stage/stage.css` for the existing emerald-twocol / minimal-mono examples to model after.
+6. NOT set `max-width: 210mm` or `margin: 0 auto` on the root.
+7. NOT redeclare `@page` (lives in `src/styles/print-base.css`).
+8. Add `print-color-adjust: exact` to the root if it uses any non-grayscale element.
+9. Wrap entry containers with `data-print-entry="true"` (or use `page-break-inside: avoid` in `@media print`).
+10. Pass `pnpm typecheck`.
+11. Render at `/preview/<id>` without errors.
 
 ## Placeholder content (consistent across all 100)
 

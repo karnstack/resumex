@@ -1,0 +1,320 @@
+/* editorial — Magazine editorial.
+   Playfair-feel serif headlines + Inter body. Italic meta lines. Drop-cap on
+   summary. Section labels in small-caps, tracked-out. Restrained black + dark
+   gray on white — no chromatic accent.
+
+   Class prefix: .ed- for stable scoping. Root: .resume-editorial. */
+
+.resume-editorial {
+  --ed-ink: #111114;
+  --ed-fg: #1a1c20;
+  --ed-muted: #5c5f66;
+  --ed-faint: #8a8e95;
+  --ed-rule: #1a1c20;
+  --ed-hair: #d8d4cc;
+
+  --ed-serif: 'Playfair Display', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --ed-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  font-family: var(--ed-sans);
+  padding: var(--page-pad-top, 16mm) 18mm var(--page-pad-bot, 16mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ed-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-editorial .ed-head {
+  text-align: center;
+  padding-bottom: 6mm;
+  border-bottom: 1px solid var(--ed-rule);
+  margin-bottom: 8mm;
+}
+.resume-editorial .ed-eyebrow {
+  font-family: var(--ed-sans);
+  font-size: 7.75pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--ed-muted);
+  margin-bottom: 5mm;
+}
+.resume-editorial .ed-name {
+  font-family: var(--ed-serif);
+  font-size: 34pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin: 0 0 3mm;
+  color: var(--ed-ink);
+}
+.resume-editorial .ed-title {
+  font-family: var(--ed-serif);
+  font-size: 12.5pt;
+  font-weight: 400;
+  color: var(--ed-fg);
+  margin: 0 0 4mm;
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  align-items: baseline;
+}
+.resume-editorial .ed-title em {
+  font-style: italic;
+}
+.resume-editorial .ed-title .ed-sep {
+  color: var(--ed-faint);
+  font-style: normal;
+}
+.resume-editorial .ed-contact {
+  font-family: var(--ed-sans);
+  font-size: 8.5pt;
+  color: var(--ed-muted);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 0.55em;
+  letter-spacing: 0.02em;
+}
+.resume-editorial .ed-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ed-hair);
+}
+.resume-editorial .ed-contact a:hover {
+  color: var(--ed-ink);
+}
+.resume-editorial .ed-bullet {
+  color: var(--ed-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-editorial .ed-section {
+  margin-top: 7mm;
+}
+.resume-editorial .ed-section:first-of-type {
+  margin-top: 0;
+}
+
+.resume-editorial .ed-section-label {
+  font-family: var(--ed-sans);
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--ed-ink);
+  padding-bottom: 2.5mm;
+  margin-bottom: 4mm;
+  border-bottom: 0.75px solid var(--ed-rule);
+}
+.resume-editorial .ed-section-label-inline {
+  margin-top: 5mm;
+}
+
+/* SUMMARY / DROP-CAP -------------------------------------------------- */
+
+.resume-editorial .ed-lede {
+  font-family: var(--ed-serif);
+  font-size: 11.5pt;
+  line-height: 1.55;
+  color: var(--ed-fg);
+  margin: 0;
+  text-wrap: pretty;
+  font-weight: 400;
+}
+.resume-editorial .ed-lede em {
+  font-style: italic;
+  color: var(--ed-ink);
+}
+.resume-editorial .ed-dropcap {
+  font-family: var(--ed-serif);
+  font-weight: 700;
+  font-size: 36pt;
+  line-height: 0.85;
+  float: left;
+  padding: 2pt 6pt 0 0;
+  margin-top: 1pt;
+  color: var(--ed-ink);
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-editorial .ed-entry {
+  margin-bottom: 5mm;
+}
+.resume-editorial .ed-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-editorial .ed-entry-tight {
+  margin-bottom: 3.5mm;
+}
+.resume-editorial .ed-role {
+  font-family: var(--ed-serif);
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ed-ink);
+  margin: 0 0 1pt;
+  line-height: 1.2;
+}
+.resume-editorial .ed-meta {
+  font-family: var(--ed-sans);
+  font-size: 8.75pt;
+  color: var(--ed-muted);
+  margin: 0 0 2mm;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5em;
+  align-items: baseline;
+}
+.resume-editorial .ed-meta em {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  color: var(--ed-fg);
+  font-size: 9.75pt;
+}
+
+.resume-editorial .ed-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-editorial .ed-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--ed-fg);
+}
+.resume-editorial .ed-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 1px;
+  background: var(--ed-ink);
+}
+
+.resume-editorial .ed-prose {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ed-fg);
+  text-wrap: pretty;
+}
+
+/* TWO-COLUMN BLOCK ---------------------------------------------------- */
+
+.resume-editorial .ed-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+.resume-editorial .ed-twocol .ed-section-label:first-child {
+  margin-top: 0;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-editorial .ed-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+.resume-editorial .ed-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 3mm;
+  padding: 1mm 0;
+  border-bottom: 0.5px dotted var(--ed-hair);
+  align-items: baseline;
+}
+.resume-editorial .ed-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-editorial .ed-skills dt {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  font-size: 9pt;
+  color: var(--ed-muted);
+  font-weight: 400;
+}
+.resume-editorial .ed-skills dd {
+  margin: 0;
+  font-size: 9.25pt;
+  color: var(--ed-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-editorial .ed-section,
+  .resume-editorial .ed-entry,
+  .resume-editorial [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-editorial {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-editorial .ed-section {
+  margin-top: 5mm;
+}
+.density-tight .resume-editorial .ed-section-label {
+  margin-bottom: 3mm;
+}
+.density-tight .resume-editorial .ed-entry {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-editorial .ed-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-editorial .ed-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-editorial .ed-head {
+  padding-bottom: 4.5mm;
+  margin-bottom: 6mm;
+}
+
+.density-roomy .resume-editorial {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-editorial .ed-section {
+  margin-top: 10mm;
+}
+.density-roomy .resume-editorial .ed-section-label {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-editorial .ed-entry {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-editorial .ed-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-editorial .ed-bullets li {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-editorial .ed-head {
+  padding-bottom: 8mm;
+  margin-bottom: 11mm;
+}

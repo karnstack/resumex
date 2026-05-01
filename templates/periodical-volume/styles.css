@@ -1,0 +1,395 @@
+/* periodical-volume — Vol/Issue takes top billing.
+   Signature: oversized "Volume XII / Issue 03" masthead row, plus a running
+   marginal date column on the left of each section (§ I, § II, ...).
+
+   Class prefix .pdv- for stable scoping. Root: .resume-periodical-volume. */
+
+.resume-periodical-volume {
+  --pdv-ink: #111418;
+  --pdv-fg: #1a1d24;
+  --pdv-muted: #5d6472;
+  --pdv-faint: #9aa1ad;
+  --pdv-hair: #d6dae0;
+  --pdv-rule: #14171c;
+  --pdv-accent: #8a1c2b;
+
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--pdv-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* MASTHEAD ------------------------------------------------------------- */
+
+.resume-periodical-volume .pdv-masthead {
+  padding: 12mm 16mm 6mm;
+  border-bottom: 2.5px solid var(--pdv-rule);
+  position: relative;
+}
+
+.resume-periodical-volume .pdv-volbar {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  column-gap: 8mm;
+  align-items: end;
+  padding-bottom: 4mm;
+  margin-bottom: 5mm;
+  border-bottom: 1px solid var(--pdv-hair);
+}
+.resume-periodical-volume .pdv-vol,
+.resume-periodical-volume .pdv-iss,
+.resume-periodical-volume .pdv-edition {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  line-height: 1;
+}
+.resume-periodical-volume .pdv-vol-label,
+.resume-periodical-volume .pdv-iss-label,
+.resume-periodical-volume .pdv-edition-label {
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pdv-muted);
+}
+.resume-periodical-volume .pdv-vol-num,
+.resume-periodical-volume .pdv-iss-num,
+.resume-periodical-volume .pdv-edition-num {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--pdv-ink);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.resume-periodical-volume .pdv-iss-num {
+  color: var(--pdv-accent);
+}
+.resume-periodical-volume .pdv-pub {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+  text-align: center;
+  align-self: end;
+  padding-bottom: 1mm;
+}
+.resume-periodical-volume .pdv-pub-name {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 13pt;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--pdv-ink);
+}
+.resume-periodical-volume .pdv-pub-tag {
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pdv-muted);
+}
+
+.resume-periodical-volume .pdv-name-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+.resume-periodical-volume .pdv-name {
+  margin: 0;
+  font-size: 28pt;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--pdv-ink);
+}
+.resume-periodical-volume .pdv-strap {
+  font-size: 10pt;
+  font-weight: 500;
+  color: var(--pdv-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resume-periodical-volume .pdv-contact {
+  margin-top: 4mm;
+  font-size: 8.75pt;
+  color: var(--pdv-fg);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-volume .pdv-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--pdv-hair);
+}
+.resume-periodical-volume .pdv-contact a:hover {
+  border-bottom-color: var(--pdv-accent);
+}
+.resume-periodical-volume .pdv-sep {
+  color: var(--pdv-faint);
+}
+
+/* BODY / SECTIONS ------------------------------------------------------ */
+
+.resume-periodical-volume .pdv-body {
+  padding-top: 4mm;
+}
+
+.resume-periodical-volume .pdv-section {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 6mm;
+  padding: 5mm 16mm 5mm 12mm;
+  border-top: 1px solid var(--pdv-hair);
+}
+.resume-periodical-volume .pdv-section:first-of-type {
+  border-top: none;
+}
+
+.resume-periodical-volume .pdv-marginal {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  padding-top: 1.5mm;
+  text-align: right;
+  border-right: 1px solid var(--pdv-hair);
+  padding-right: 5mm;
+}
+.resume-periodical-volume .pdv-marginal-date {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 10pt;
+  font-style: italic;
+  color: var(--pdv-muted);
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1.25;
+}
+.resume-periodical-volume .pdv-marginal-rule {
+  align-self: flex-end;
+  width: 10mm;
+  height: 1.5px;
+  background: var(--pdv-accent);
+}
+.resume-periodical-volume .pdv-marginal-tag {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pdv-muted);
+}
+
+.resume-periodical-volume .pdv-section-body {
+  min-width: 0;
+}
+.resume-periodical-volume .pdv-h2 {
+  margin: 0 0 3mm;
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pdv-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--pdv-rule);
+}
+.resume-periodical-volume .pdv-summary {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  max-width: 145mm;
+}
+
+/* ENTRIES -------------------------------------------------------------- */
+
+.resume-periodical-volume .pdv-entry + .pdv-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px dotted var(--pdv-hair);
+}
+.resume-periodical-volume .pdv-entry-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1em;
+  align-items: baseline;
+  margin-bottom: 1.5mm;
+}
+.resume-periodical-volume .pdv-role {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--pdv-ink);
+  grid-column: 1;
+}
+.resume-periodical-volume .pdv-org-line {
+  grid-column: 1;
+  margin-top: 0.5mm;
+  font-size: 9pt;
+  color: var(--pdv-muted);
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.resume-periodical-volume .pdv-org {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--pdv-fg);
+}
+.resume-periodical-volume .pdv-dates {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  color: var(--pdv-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-periodical-volume .pdv-bullets {
+  list-style: none;
+  margin: 2mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-periodical-volume .pdv-bullets li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.resume-periodical-volume .pdv-bullets li::before {
+  content: '§';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 8.5pt;
+  color: var(--pdv-accent);
+  line-height: 1.65;
+}
+.resume-periodical-volume .pdv-prose {
+  margin: 1mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* SKILLS --------------------------------------------------------------- */
+
+.resume-periodical-volume .pdv-skills {
+  margin: 0;
+}
+.resume-periodical-volume .pdv-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.25mm 0;
+  border-bottom: 1px dotted var(--pdv-hair);
+  align-items: baseline;
+}
+.resume-periodical-volume .pdv-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-periodical-volume .pdv-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pdv-muted);
+}
+.resume-periodical-volume .pdv-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--pdv-fg);
+}
+
+/* PRINT ---------------------------------------------------------------- */
+
+@media print {
+  .resume-periodical-volume .pdv-section,
+  .resume-periodical-volume .pdv-entry,
+  .resume-periodical-volume [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-periodical-volume {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-periodical-volume .pdv-masthead {
+  padding: 9mm 13mm 4.5mm;
+}
+.density-tight .resume-periodical-volume .pdv-volbar {
+  padding-bottom: 3mm;
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-periodical-volume .pdv-body {
+  padding-top: 3mm;
+}
+.density-tight .resume-periodical-volume .pdv-section {
+  padding: 3.5mm 13mm 3.5mm 9mm;
+}
+.density-tight .resume-periodical-volume .pdv-h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-periodical-volume .pdv-entry + .pdv-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-periodical-volume .pdv-bullets {
+  gap: 0.9mm;
+  margin-top: 1.5mm;
+}
+.density-tight .resume-periodical-volume .pdv-skill-row {
+  padding: 0.9mm 0;
+}
+
+.density-roomy .resume-periodical-volume {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 0mm) 0 var(--page-pad-bot, 17mm);
+}
+.density-roomy .resume-periodical-volume .pdv-masthead {
+  padding: 15mm 19mm 8mm;
+}
+.density-roomy .resume-periodical-volume .pdv-volbar {
+  padding-bottom: 5.5mm;
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-periodical-volume .pdv-body {
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-periodical-volume .pdv-section {
+  padding: 7mm 19mm 7mm 15mm;
+}
+.density-roomy .resume-periodical-volume .pdv-h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-periodical-volume .pdv-entry + .pdv-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-periodical-volume .pdv-bullets {
+  gap: 1.8mm;
+  margin-top: 3mm;
+}
+.density-roomy .resume-periodical-volume .pdv-skill-row {
+  padding: 1.8mm 0;
+}

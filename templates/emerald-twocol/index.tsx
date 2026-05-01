@@ -90,7 +90,9 @@ export default function EmeraldTwocol() {
               <h4 className="title">Loomroute</h4>
               <div className="sub">loomroute.dev</div>
               <div className="kt-side-entry-body">
-                <p>Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.</p>
+                <p>
+                  Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
+                </p>
               </div>
               <div className="meta-line">Live · Go · Postgres · Cloudflare Workers</div>
             </div>
@@ -156,8 +158,8 @@ export default function EmeraldTwocol() {
                   </li>
                   <li>
                     Owned the on-call rotation for the platform team -{' '}
-                    <strong>reduced pages 60%</strong> over two quarters through better alerting
-                    and runbooks.
+                    <strong>reduced pages 60%</strong> over two quarters through better alerting and
+                    runbooks.
                   </li>
                   <li>Mentored four engineers through L4 → L5 promotions.</li>
                 </ul>

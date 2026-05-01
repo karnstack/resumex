@@ -1,0 +1,326 @@
+/* newspaper-tribune — tabloid-style oversize headline.
+   Massive condensed serif name, eyebrow subtitle above. Single-column body.
+   Class prefix: .trib- . Root: .resume-newspaper-tribune . */
+
+.resume-newspaper-tribune {
+  --trib-ink: #0e0e0e;
+  --trib-fg: #1a1a1a;
+  --trib-muted: #555;
+  --trib-faint: #8a8a87;
+  --trib-rule: #0e0e0e;
+  --trib-hair: #cdc9bf;
+  --trib-paper: #fbfaf6;
+
+  font-family: 'Times New Roman', 'Liberation Serif', 'Times', Georgia, serif;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--trib-fg);
+  background: var(--trib-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'liga', 'onum', 'kern';
+}
+
+/* MASTHEAD ----------------------------------------------------------- */
+
+.resume-newspaper-tribune .trib-mast {
+  text-align: center;
+  margin-bottom: 5mm;
+}
+.resume-newspaper-tribune .trib-banner {
+  font-size: 7.5pt;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--trib-muted);
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+}
+.resume-newspaper-tribune .trib-banner-dot {
+  margin: 0 6px;
+  color: var(--trib-faint);
+}
+.resume-newspaper-tribune .trib-rule {
+  height: 1px;
+  background: var(--trib-rule);
+  margin: 1.5mm 0 2mm;
+}
+.resume-newspaper-tribune .trib-rule-thick {
+  height: 3px;
+  background: var(--trib-rule);
+  margin: 1.5mm 0 3mm;
+}
+.resume-newspaper-tribune .trib-eyebrow {
+  font-size: 9pt;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--trib-muted);
+  margin: 0 0 2mm;
+}
+.resume-newspaper-tribune .trib-name {
+  font-family: 'Times New Roman', 'Liberation Serif', Georgia, serif;
+  font-size: 64pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.94;
+  margin: 0;
+  color: var(--trib-ink);
+  font-stretch: condensed;
+}
+.resume-newspaper-tribune .trib-deck {
+  margin: 4mm auto 3mm;
+  font-size: 11.5pt;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--trib-fg);
+  max-width: 155mm;
+  text-wrap: balance;
+}
+.resume-newspaper-tribune .trib-byline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 7.75pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--trib-muted);
+  padding: 0 1mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-newspaper-tribune .trib-byline a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--trib-faint);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+/* SECTIONS ----------------------------------------------------------- */
+
+.resume-newspaper-tribune .trib-section {
+  margin-bottom: 5mm;
+}
+
+.resume-newspaper-tribune .trib-h2 {
+  position: relative;
+  font-size: 9.5pt;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--trib-ink);
+  text-align: center;
+  margin: 0 0 3mm;
+  padding: 1.5pt 0;
+}
+.resume-newspaper-tribune .trib-h2::before,
+.resume-newspaper-tribune .trib-h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 38%;
+  border-top: 1px solid var(--trib-rule);
+}
+.resume-newspaper-tribune .trib-h2::before {
+  left: 0;
+}
+.resume-newspaper-tribune .trib-h2::after {
+  right: 0;
+}
+.resume-newspaper-tribune .trib-h2 span {
+  background: var(--trib-paper);
+  position: relative;
+  padding: 0 8px;
+}
+.resume-newspaper-tribune .trib-h2-spaced {
+  margin-top: 5mm;
+}
+
+/* LEDE -------------------------------------------------------------- */
+
+.resume-newspaper-tribune .trib-lede {
+  text-align: justify;
+  hyphens: auto;
+}
+.resume-newspaper-tribune .trib-lede p {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--trib-fg);
+  text-wrap: pretty;
+}
+.resume-newspaper-tribune .trib-dropcap {
+  float: left;
+  font-size: 30pt;
+  line-height: 0.9;
+  font-weight: 700;
+  padding: 1pt 6px 0 0;
+  color: var(--trib-ink);
+  font-family: 'Times New Roman', Georgia, serif;
+}
+
+/* ENTRIES ----------------------------------------------------------- */
+
+.resume-newspaper-tribune .trib-entry {
+  margin: 0 0 3mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.resume-newspaper-tribune .trib-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-newspaper-tribune .trib-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-newspaper-tribune .trib-entry-title {
+  font-size: 12pt;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+  color: var(--trib-ink);
+}
+.resume-newspaper-tribune .trib-entry-meta {
+  font-size: 8pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--trib-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.resume-newspaper-tribune .trib-meta-inline {
+  margin-top: 1pt;
+}
+.resume-newspaper-tribune .trib-entry-sub {
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--trib-fg);
+  margin: 0.5pt 0 1.5mm;
+}
+
+.resume-newspaper-tribune .trib-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.resume-newspaper-tribune .trib-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  margin: 0 0 1mm;
+  text-wrap: pretty;
+}
+.resume-newspaper-tribune .trib-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  background: var(--trib-ink);
+  transform: rotate(45deg);
+}
+
+.resume-newspaper-tribune .trib-entry p {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* GRID -------------------------------------------------------------- */
+
+.resume-newspaper-tribune .trib-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+  border-top: 2.5px double var(--trib-rule);
+  padding-top: 4mm;
+}
+
+.resume-newspaper-tribune .trib-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-newspaper-tribune .trib-skills > div {
+  display: grid;
+  grid-template-columns: 24mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+  border-bottom: 1px dotted var(--trib-hair);
+  padding: 1pt 0;
+}
+.resume-newspaper-tribune .trib-skills > div:last-child {
+  border-bottom: none;
+}
+.resume-newspaper-tribune .trib-skills dt {
+  font-size: 7.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--trib-muted);
+}
+.resume-newspaper-tribune .trib-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--trib-fg);
+}
+
+/* PRINT ------------------------------------------------------------- */
+
+@media print {
+  .resume-newspaper-tribune .trib-section,
+  .resume-newspaper-tribune .trib-entry,
+  .resume-newspaper-tribune [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-newspaper-tribune {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-newspaper-tribune .trib-section {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-newspaper-tribune .trib-entry {
+  margin-bottom: 2mm;
+}
+.density-tight .resume-newspaper-tribune .trib-bullets li {
+  margin-bottom: 0.7mm;
+}
+.density-tight .resume-newspaper-tribune .trib-mast {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-newspaper-tribune .trib-grid {
+  gap: 6mm;
+  padding-top: 3mm;
+}
+
+.density-roomy .resume-newspaper-tribune {
+  font-size: 10.5pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-newspaper-tribune .trib-section {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-newspaper-tribune .trib-entry {
+  margin-bottom: 4.5mm;
+}
+.density-roomy .resume-newspaper-tribune .trib-bullets li {
+  margin-bottom: 1.5mm;
+}
+.density-roomy .resume-newspaper-tribune .trib-mast {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-newspaper-tribune .trib-grid {
+  gap: 11mm;
+  padding-top: 5.5mm;
+}

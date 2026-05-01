@@ -1,0 +1,332 @@
+/* academic-twocol — two-column LaTeX CV.
+   ~30% sidebar (affiliations, contact, skills, education, awards) and
+   ~70% main (research statement, appointments, publications, projects).
+   Still LaTeX-feel: serif body, small-caps section heads, italic refs.
+
+   Class prefix: .atc- for stable scoping. Root: .resume-academic-twocol. */
+
+.resume-academic-twocol {
+  --atc-ink: #111213;
+  --atc-fg: #1a1b1d;
+  --atc-muted: #4a4d52;
+  --atc-faint: #8a8d92;
+  --atc-rule: #111213;
+  --atc-hair: #c9ccd1;
+
+  font-family:
+    'Computer Modern', 'CMU Serif', 'Latin Modern Roman', 'EB Garamond', Georgia, 'Times New Roman',
+    serif;
+  padding: var(--page-pad-top, 15mm) 16mm var(--page-pad-bot, 15mm);
+  font-size: 9.75pt;
+  line-height: 1.42;
+  color: var(--atc-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  text-rendering: optimizeLegibility;
+}
+
+.resume-academic-twocol a {
+  color: inherit;
+  text-decoration: none;
+}
+.resume-academic-twocol a:hover {
+  text-decoration: underline;
+}
+.resume-academic-twocol em {
+  font-style: italic;
+}
+.resume-academic-twocol strong {
+  font-weight: 700;
+}
+
+/* GRID ---------------------------------------------------------------- */
+
+.resume-academic-twocol .atc-grid {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'head head'
+    'side main';
+  column-gap: 8mm;
+  width: 100%;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-academic-twocol .atc-head {
+  grid-area: head;
+  margin-bottom: 4mm;
+}
+.resume-academic-twocol .atc-name {
+  margin: 0 0 1mm;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.05;
+  color: var(--atc-ink);
+}
+.resume-academic-twocol .atc-affil {
+  font-size: 10pt;
+  color: var(--atc-fg);
+}
+.resume-academic-twocol .atc-headrule {
+  margin-top: 2.5mm;
+  border-top: 0.75px solid var(--atc-rule);
+  border-bottom: 0.5px solid var(--atc-rule);
+  height: 1.5pt;
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-academic-twocol .atc-side {
+  grid-area: side;
+  border-right: 0.5px solid var(--atc-hair);
+  padding-right: 6mm;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5mm;
+}
+.resume-academic-twocol .atc-side-section {
+  font-size: 9pt;
+  line-height: 1.42;
+}
+.resume-academic-twocol .atc-h3 {
+  margin: 0 0 1mm;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--atc-ink);
+  border-bottom: 0.5px solid var(--atc-hair);
+  padding-bottom: 0.5pt;
+}
+
+.resume-academic-twocol .atc-kv {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8.75pt;
+  line-height: 1.5;
+}
+.resume-academic-twocol .atc-kv li {
+  display: grid;
+  grid-template-columns: 8pt 1fr;
+  column-gap: 4pt;
+  align-items: baseline;
+}
+.resume-academic-twocol .atc-k {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--atc-muted);
+  text-transform: lowercase;
+}
+
+.resume-academic-twocol .atc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.resume-academic-twocol .atc-list li {
+  margin: 0.5mm 0;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.resume-academic-twocol .atc-mute {
+  color: var(--atc-muted);
+}
+
+.resume-academic-twocol .atc-edu {
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+
+.resume-academic-twocol .atc-skills {
+  margin: 0;
+  font-size: 8.75pt;
+  line-height: 1.45;
+}
+.resume-academic-twocol .atc-skills dt {
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--atc-ink);
+  margin-top: 0.5mm;
+}
+.resume-academic-twocol .atc-skills dd {
+  margin: 0;
+  color: var(--atc-fg);
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-academic-twocol .atc-main {
+  grid-area: main;
+  min-width: 0;
+}
+.resume-academic-twocol .atc-section {
+  margin-top: 4mm;
+}
+.resume-academic-twocol .atc-section:first-child {
+  margin-top: 0;
+}
+.resume-academic-twocol .atc-h2 {
+  margin: 0 0 1.5mm;
+  font-size: 9.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--atc-ink);
+  border-bottom: 0.5px solid var(--atc-ink);
+  padding-bottom: 0.5pt;
+}
+.resume-academic-twocol .atc-prose {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.resume-academic-twocol .atc-entry {
+  margin-top: 2mm;
+}
+.resume-academic-twocol .atc-entry:first-of-type {
+  margin-top: 0;
+}
+.resume-academic-twocol .atc-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  font-size: 9.75pt;
+}
+.resume-academic-twocol .atc-date {
+  font-size: 9pt;
+  color: var(--atc-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums oldstyle-nums;
+}
+.resume-academic-twocol .atc-entry-sub {
+  font-size: 9.5pt;
+  color: var(--atc-fg);
+  margin-top: 0.25mm;
+  margin-bottom: 1mm;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+.resume-academic-twocol .atc-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.resume-academic-twocol .atc-bullets li {
+  position: relative;
+  padding-left: 1.4em;
+  margin: 0.25mm 0;
+  font-size: 9.5pt;
+  line-height: 1.42;
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+.resume-academic-twocol .atc-bullets li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0.4em;
+  top: 0;
+  color: var(--atc-fg);
+}
+
+.resume-academic-twocol .atc-refs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: ref;
+  font-size: 9.5pt;
+  line-height: 1.42;
+}
+.resume-academic-twocol .atc-refs li {
+  position: relative;
+  padding-left: 1.6em;
+  margin: 0.5mm 0;
+  text-wrap: pretty;
+  hyphens: auto;
+  counter-increment: ref;
+}
+.resume-academic-twocol .atc-refs li::before {
+  content: '[' counter(ref) ']';
+  position: absolute;
+  left: 0;
+  width: 1.6em;
+  font-variant-numeric: tabular-nums;
+  color: var(--atc-fg);
+}
+
+.resume-academic-twocol .atc-proj {
+  margin: 0.5mm 0;
+  font-size: 9.5pt;
+  line-height: 1.42;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-academic-twocol .atc-section,
+  .resume-academic-twocol .atc-side-section,
+  .resume-academic-twocol .atc-entry,
+  .resume-academic-twocol [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-academic-twocol {
+  font-size: 9pt;
+  line-height: 1.34;
+}
+.density-tight .resume-academic-twocol .atc-head {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-academic-twocol .atc-side {
+  gap: 2.5mm;
+}
+.density-tight .resume-academic-twocol .atc-section {
+  margin-top: 2.8mm;
+}
+.density-tight .resume-academic-twocol .atc-entry {
+  margin-top: 1.4mm;
+}
+.density-tight .resume-academic-twocol .atc-refs li {
+  margin: 0.3mm 0;
+}
+
+.density-roomy .resume-academic-twocol {
+  font-size: 10.25pt;
+  line-height: 1.55;
+}
+.density-roomy .resume-academic-twocol .atc-head {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-academic-twocol .atc-side {
+  gap: 5mm;
+}
+.density-roomy .resume-academic-twocol .atc-section {
+  margin-top: 5.5mm;
+}
+.density-roomy .resume-academic-twocol .atc-entry {
+  margin-top: 2.8mm;
+}
+.density-roomy .resume-academic-twocol .atc-refs li {
+  margin: 0.85mm 0;
+}

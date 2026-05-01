@@ -1,0 +1,329 @@
+/* banker-burgundy - banker DNA in burgundy.
+   Same skeleton as banker (centered name, hairline rules, tabular figures).
+   Single chromatic substitution: burgundy in place of navy. Section titles
+   carry small flanking stitch-rules to give the variant its own face. */
+
+.resume-banker-burgundy {
+  --bkb-ink: #14171c;
+  --bkb-fg: #1a1d22;
+  --bkb-muted: #4a5563;
+  --bkb-faint: #8a93a1;
+  --bkb-rule: #2a2024;
+  --bkb-hair: #d3cdc7;
+  --bkb-paper: #fbf8f4;
+  --bkb-accent: #841d2d;
+  --bkb-accent-deep: #5e1320;
+
+  font-family:
+    'Caslon', 'Big Caslon', 'Garamond', 'Iowan Old Style', 'EB Garamond', 'Hoefler Text', Georgia,
+    'Times New Roman', serif;
+  padding: var(--page-pad-top, 16mm) 20mm var(--page-pad-bot, 16mm);
+  font-size: 10.25pt;
+  line-height: 1.5;
+  color: var(--bkb-fg);
+  background: var(--bkb-paper);
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-ligatures: common-ligatures;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-banker-burgundy .bkb-head {
+  text-align: center;
+  margin: 0 0 8mm;
+}
+.resume-banker-burgundy .bkb-rule {
+  position: relative;
+  height: 1px;
+  background: var(--bkb-rule);
+  margin: 0 auto;
+  max-width: 70%;
+}
+.resume-banker-burgundy .bkb-rule-top {
+  margin-bottom: 6mm;
+}
+.resume-banker-burgundy .bkb-rule-bot {
+  margin-top: 5mm;
+}
+.resume-banker-burgundy .bkb-orn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bkb-paper);
+  padding: 0 8px;
+  font-size: 11pt;
+  color: var(--bkb-accent);
+  font-style: italic;
+  line-height: 1;
+}
+.resume-banker-burgundy .bkb-name {
+  font-size: 30pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 2.5mm;
+  color: var(--bkb-accent-deep);
+  font-variant-numeric: oldstyle-nums;
+  text-rendering: optimizeLegibility;
+}
+.resume-banker-burgundy .bkb-title {
+  font-size: 10.5pt;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--bkb-muted);
+  margin: 0 0 4mm;
+}
+.resume-banker-burgundy .bkb-contact {
+  font-size: 9pt;
+  color: var(--bkb-fg);
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums lining-nums;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px 8px;
+}
+.resume-banker-burgundy .bkb-sep {
+  color: var(--bkb-faint);
+  font-size: 9pt;
+}
+.resume-banker-burgundy .bkb-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--bkb-hair);
+  padding-bottom: 0.5px;
+}
+.resume-banker-burgundy .bkb-contact a:hover {
+  color: var(--bkb-accent);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-banker-burgundy .bkb-section {
+  margin-top: 7mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--bkb-hair);
+}
+.resume-banker-burgundy .bkb-section:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.resume-banker-burgundy .bkb-section-title {
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--bkb-accent);
+  text-align: center;
+  margin: 0 0 5mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8mm;
+  font-variant-caps: small-caps;
+}
+.resume-banker-burgundy .bkb-stitch {
+  flex: 0 0 18mm;
+  height: 0.5px;
+  background: var(--bkb-accent);
+  opacity: 0.5;
+}
+
+.resume-banker-burgundy .bkb-lede {
+  margin: 0 auto;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--bkb-fg);
+  text-align: center;
+  font-style: italic;
+  max-width: 150mm;
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-banker-burgundy .bkb-entry {
+  margin-top: 4.5mm;
+}
+.resume-banker-burgundy .bkb-entry:first-child {
+  margin-top: 0;
+}
+.resume-banker-burgundy .bkb-entry-tight {
+  margin-top: 3mm;
+}
+.resume-banker-burgundy .bkb-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.5mm;
+}
+.resume-banker-burgundy .bkb-entry-role {
+  font-size: 11pt;
+  color: var(--bkb-ink);
+  line-height: 1.3;
+}
+.resume-banker-burgundy .bkb-role {
+  font-weight: 600;
+  color: var(--bkb-accent-deep);
+}
+.resume-banker-burgundy .bkb-firm {
+  font-style: italic;
+  color: var(--bkb-fg);
+  font-weight: 400;
+}
+.resume-banker-burgundy .bkb-comma {
+  color: var(--bkb-muted);
+  font-weight: 400;
+  font-style: normal;
+}
+.resume-banker-burgundy .bkb-entry-meta {
+  font-size: 8.75pt;
+  color: var(--bkb-muted);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.resume-banker-burgundy .bkb-loc::after {
+  content: '\00a0\00b7';
+  margin-left: 4px;
+  color: var(--bkb-faint);
+}
+.resume-banker-burgundy .bkb-dates {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.resume-banker-burgundy .bkb-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-banker-burgundy .bkb-bullets li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 10.25pt;
+  line-height: 1.5;
+  color: var(--bkb-fg);
+  text-wrap: pretty;
+}
+.resume-banker-burgundy .bkb-bullets li::before {
+  content: '\25C7';
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: var(--bkb-accent);
+  font-size: 7.5pt;
+  line-height: 2;
+}
+
+.resume-banker-burgundy .bkb-prose {
+  margin: 1mm 0 0;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--bkb-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-banker-burgundy .bkb-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-banker-burgundy .bkb-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  border-bottom: 0.5px solid var(--bkb-hair);
+  align-items: baseline;
+}
+.resume-banker-burgundy .bkb-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-banker-burgundy .bkb-skills dt {
+  font-size: 9.25pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bkb-accent);
+  letter-spacing: 0.02em;
+}
+.resume-banker-burgundy .bkb-skills dd {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--bkb-fg);
+  font-variant-numeric: tabular-nums;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-banker-burgundy .bkb-section,
+  .resume-banker-burgundy .bkb-entry,
+  .resume-banker-burgundy [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-banker-burgundy {
+  font-size: 9.5pt;
+  line-height: 1.42;
+}
+.density-tight .resume-banker-burgundy .bkb-head {
+  margin-bottom: 5.5mm;
+}
+.density-tight .resume-banker-burgundy .bkb-section {
+  margin-top: 5mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-banker-burgundy .bkb-section-title {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-banker-burgundy .bkb-entry {
+  margin-top: 3.2mm;
+}
+.density-tight .resume-banker-burgundy .bkb-bullets {
+  gap: 0.9mm;
+}
+.density-tight .resume-banker-burgundy .bkb-skill-row {
+  padding: 1.1mm 0;
+}
+
+.density-roomy .resume-banker-burgundy {
+  font-size: 10.75pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-banker-burgundy .bkb-head {
+  margin-bottom: 11mm;
+}
+.density-roomy .resume-banker-burgundy .bkb-section {
+  margin-top: 10mm;
+  padding-top: 6mm;
+}
+.density-roomy .resume-banker-burgundy .bkb-section-title {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-banker-burgundy .bkb-entry {
+  margin-top: 6.5mm;
+}
+.density-roomy .resume-banker-burgundy .bkb-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-banker-burgundy .bkb-skill-row {
+  padding: 2.2mm 0;
+}

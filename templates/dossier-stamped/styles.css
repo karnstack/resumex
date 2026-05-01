@@ -1,0 +1,460 @@
+/* dossier-stamped — dossier with rotated APPROVED stamp.
+   Slate / charcoal palette + burgundy stamp accent.
+   Stamp is double-rule bordered, slightly rotated, semi-transparent.
+
+   Class prefix: .dst-. Root: .resume-dossier-stamped. */
+
+.resume-dossier-stamped {
+  --dst-paper: #f6f5f1;
+  --dst-ink: #15181d;
+  --dst-fg: #1d2129;
+  --dst-muted: #5b6470;
+  --dst-faint: #8a93a0;
+  --dst-rule: #2a2f38;
+  --dst-hair: #c8ccd2;
+  --dst-stamp: #8c211a;
+  --dst-stamp-soft: rgba(140, 33, 26, 0.85);
+  --dst-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --dst-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  font-family: var(--dst-sans);
+  background: var(--dst-paper);
+  color: var(--dst-fg);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 12mm) 14mm var(--page-pad-bot, 12mm);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* CLASSIFICATION BANNER ----------------------------------------------- */
+
+.resume-dossier-stamped .dst-classbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: var(--dst-ink);
+  color: #f3efe6;
+  font-family: var(--dst-mono);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 2.2mm 4mm;
+  margin: -2mm -4mm 6mm;
+  border-top: 2px solid var(--dst-ink);
+  border-bottom: 2px solid var(--dst-ink);
+}
+.resume-dossier-stamped .dst-classbar-mid {
+  text-align: center;
+  border-left: 1px solid #4b515a;
+  border-right: 1px solid #4b515a;
+  padding: 0 6mm;
+}
+.resume-dossier-stamped .dst-classbar-right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* HEADER -------------------------------------------------------------- */
+
+.resume-dossier-stamped .dst-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 8mm;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px solid var(--dst-rule);
+  margin-bottom: 6mm;
+}
+.resume-dossier-stamped .dst-eyebrow {
+  font-family: var(--dst-mono);
+  font-size: 7.25pt;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dst-muted);
+  margin-bottom: 3mm;
+}
+.resume-dossier-stamped .dst-name {
+  font-size: 28pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0 0 2mm;
+  color: var(--dst-ink);
+}
+.resume-dossier-stamped .dst-title {
+  font-family: var(--dst-mono);
+  font-size: 9pt;
+  letter-spacing: 0.05em;
+  color: var(--dst-fg);
+  margin-bottom: 4mm;
+}
+
+.resume-dossier-stamped .dst-id {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  font-family: var(--dst-mono);
+  font-size: 7.75pt;
+}
+.resume-dossier-stamped .dst-id-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr 16mm 1fr;
+  column-gap: 3mm;
+  align-items: baseline;
+  padding: 0.7mm 0;
+  border-bottom: 1px dotted var(--dst-hair);
+}
+.resume-dossier-stamped .dst-id-row:last-child {
+  border-bottom: none;
+}
+.resume-dossier-stamped .dst-id dt {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dst-muted);
+}
+.resume-dossier-stamped .dst-id dd {
+  margin: 0;
+  color: var(--dst-fg);
+  word-break: break-word;
+}
+.resume-dossier-stamped .dst-id a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--dst-faint);
+}
+
+/* STAMP --------------------------------------------------------------- */
+
+.resume-dossier-stamped .dst-stamp {
+  align-self: start;
+  margin-top: 2mm;
+  width: 44mm;
+  transform: rotate(-7deg);
+  color: var(--dst-stamp);
+  border: 2.5px double var(--dst-stamp-soft);
+  padding: 2mm 3mm;
+  text-align: center;
+  font-family: var(--dst-sans);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  box-shadow: 0 0 0 1px rgba(140, 33, 26, 0.05);
+}
+.resume-dossier-stamped .dst-stamp-inner {
+  border: 1px solid var(--dst-stamp-soft);
+  padding: 2mm 1mm;
+}
+.resume-dossier-stamped .dst-stamp-top {
+  font-size: 14pt;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+.resume-dossier-stamped .dst-stamp-mid {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  margin-top: 1.5mm;
+  text-transform: uppercase;
+}
+.resume-dossier-stamped .dst-stamp-bot {
+  font-family: var(--dst-mono);
+  font-size: 7.25pt;
+  letter-spacing: 0.18em;
+  margin-top: 1mm;
+  font-variant-numeric: tabular-nums;
+  border-top: 1px solid var(--dst-stamp-soft);
+  padding-top: 1mm;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-dossier-stamped .dst-section {
+  margin-top: 6mm;
+}
+.resume-dossier-stamped .dst-section-head {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 4mm;
+  align-items: center;
+  margin-bottom: 3mm;
+}
+.resume-dossier-stamped .dst-sec-num {
+  font-family: var(--dst-mono);
+  font-size: 7.75pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dst-muted);
+  font-weight: 700;
+}
+.resume-dossier-stamped .dst-section h2 {
+  margin: 0;
+  font-size: 10.5pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dst-ink);
+}
+.resume-dossier-stamped .dst-sec-rule {
+  display: block;
+  height: 1px;
+  background: var(--dst-rule);
+}
+
+.resume-dossier-stamped .dst-summary {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--dst-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-dossier-stamped .dst-entry {
+  margin-top: 3.5mm;
+  padding-top: 3mm;
+  border-top: 1px dotted var(--dst-hair);
+}
+.resume-dossier-stamped .dst-entry:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+.resume-dossier-stamped .dst-entry-head {
+  display: grid;
+  grid-template-columns: 14mm 1fr auto;
+  column-gap: 4mm;
+  align-items: baseline;
+}
+.resume-dossier-stamped .dst-entry-num {
+  font-family: var(--dst-mono);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--dst-stamp);
+  font-variant-numeric: tabular-nums;
+}
+.resume-dossier-stamped .dst-entry-titles {
+  min-width: 0;
+}
+.resume-dossier-stamped .dst-entry-title {
+  font-size: 10.75pt;
+  font-weight: 700;
+  color: var(--dst-ink);
+  letter-spacing: -0.005em;
+}
+.resume-dossier-stamped .dst-entry-org {
+  font-size: 9pt;
+  color: var(--dst-fg);
+  margin-top: 0.5mm;
+}
+.resume-dossier-stamped .dst-entry-period {
+  font-family: var(--dst-mono);
+  font-size: 7.75pt;
+  letter-spacing: 0.12em;
+  color: var(--dst-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-dossier-stamped .dst-obs {
+  list-style: none;
+  margin: 2mm 0 0;
+  padding: 0 0 0 18mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-dossier-stamped .dst-obs li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  color: var(--dst-fg);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.resume-dossier-stamped .dst-obs li::before {
+  content: '◇';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--dst-mono);
+  font-size: 7pt;
+  color: var(--dst-stamp);
+  line-height: 1.85;
+}
+
+.resume-dossier-stamped .dst-prose {
+  margin: 2mm 0 0 18mm;
+  font-size: 9.5pt;
+  color: var(--dst-fg);
+  text-wrap: pretty;
+}
+
+/* GRID --------------------------------------------------------------- */
+
+.resume-dossier-stamped .dst-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  column-gap: 10mm;
+  margin-top: 6mm;
+}
+.resume-dossier-stamped .dst-section--col {
+  margin-top: 0;
+}
+
+.resume-dossier-stamped .dst-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-dossier-stamped .dst-skill {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 4mm;
+  border-bottom: 1px dotted var(--dst-hair);
+  padding: 1mm 0;
+  align-items: baseline;
+}
+.resume-dossier-stamped .dst-skill:last-child {
+  border-bottom: none;
+}
+.resume-dossier-stamped .dst-skill dt {
+  font-family: var(--dst-mono);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--dst-muted);
+}
+.resume-dossier-stamped .dst-skill dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--dst-fg);
+}
+
+.resume-dossier-stamped .dst-edu {
+  margin-top: 3mm;
+  padding-top: 3mm;
+  border-top: 1px solid var(--dst-hair);
+}
+.resume-dossier-stamped .dst-edu-head {
+  display: grid;
+  grid-template-columns: 14mm 1fr auto;
+  column-gap: 4mm;
+  align-items: baseline;
+}
+.resume-dossier-stamped .dst-edu-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--dst-ink);
+}
+.resume-dossier-stamped .dst-edu-period {
+  font-family: var(--dst-mono);
+  font-size: 7.75pt;
+  letter-spacing: 0.12em;
+  color: var(--dst-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-dossier-stamped .dst-edu-org {
+  font-size: 9pt;
+  color: var(--dst-fg);
+  margin-left: 18mm;
+  margin-top: 0.5mm;
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-dossier-stamped .dst-foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 8mm;
+  margin-top: 8mm;
+  padding: 2.5mm 0 0;
+  border-top: 1.5px solid var(--dst-rule);
+  font-family: var(--dst-mono);
+  font-size: 7.25pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dst-muted);
+}
+.resume-dossier-stamped .dst-foot > :nth-child(2) {
+  text-align: center;
+}
+.resume-dossier-stamped .dst-foot > :last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-dossier-stamped .dst-section,
+  .resume-dossier-stamped .dst-entry,
+  .resume-dossier-stamped [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .resume-dossier-stamped .dst-stamp {
+    box-shadow: none;
+  }
+}
+
+/* density support */
+.density-tight .resume-dossier-stamped {
+  font-size: 9pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 10mm) 12mm var(--page-pad-bot, 10mm);
+}
+.density-tight .resume-dossier-stamped .dst-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-dossier-stamped .dst-section-head {
+  margin-bottom: 2mm;
+}
+.density-tight .resume-dossier-stamped .dst-entry {
+  margin-top: 2.5mm;
+  padding-top: 2mm;
+}
+.density-tight .resume-dossier-stamped .dst-obs {
+  gap: 0.8mm;
+  margin-top: 1.5mm;
+}
+.density-tight .resume-dossier-stamped .dst-head {
+  padding-bottom: 4.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-dossier-stamped .dst-grid {
+  margin-top: 4.5mm;
+}
+
+.density-roomy .resume-dossier-stamped {
+  font-size: 10.25pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+}
+.density-roomy .resume-dossier-stamped .dst-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-dossier-stamped .dst-section-head {
+  margin-bottom: 4mm;
+}
+.density-roomy .resume-dossier-stamped .dst-entry {
+  margin-top: 5mm;
+  padding-top: 4mm;
+}
+.density-roomy .resume-dossier-stamped .dst-obs {
+  gap: 1.8mm;
+  margin-top: 3mm;
+}
+.density-roomy .resume-dossier-stamped .dst-head {
+  padding-bottom: 8mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-dossier-stamped .dst-grid {
+  margin-top: 8mm;
+}

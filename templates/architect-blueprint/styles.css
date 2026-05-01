@@ -1,0 +1,371 @@
+/* architect-blueprint — pale blue blueprint variant of architect.
+   Single rule color (deep blue), pale blue tinted paper, mono labels in blue.
+   Class prefix: .bp- for stable scoping. Root: .resume-architect-blueprint. */
+
+.resume-architect-blueprint {
+  --bp-ink: #1e3a8a;
+  --bp-fg: #1e40af;
+  --bp-body: #1f2c5e;
+  --bp-muted: #4f6ab0;
+  --bp-faint: #93b0e0;
+  --bp-rule: #1e40af;
+  --bp-hair: #bfdbfe;
+  --bp-paper: #f0f6ff;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 14mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--bp-body);
+  background: var(--bp-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'tnum';
+}
+
+/* SHEET --------------------------------------------------------------- */
+
+.resume-architect-blueprint .bp-sheet {
+  position: relative;
+  border: 0.5pt solid var(--bp-rule);
+  padding: 8mm 9mm 9mm;
+  min-height: 100%;
+  background: var(--bp-paper);
+}
+.resume-architect-blueprint .bp-corner {
+  position: absolute;
+  width: 4mm;
+  height: 4mm;
+  border: 0 solid var(--bp-rule);
+}
+.resume-architect-blueprint .bp-corner-tl {
+  top: -0.5pt;
+  left: -0.5pt;
+  border-top-width: 1.2pt;
+  border-left-width: 1.2pt;
+}
+.resume-architect-blueprint .bp-corner-tr {
+  top: -0.5pt;
+  right: -0.5pt;
+  border-top-width: 1.2pt;
+  border-right-width: 1.2pt;
+}
+.resume-architect-blueprint .bp-corner-bl {
+  bottom: -0.5pt;
+  left: -0.5pt;
+  border-bottom-width: 1.2pt;
+  border-left-width: 1.2pt;
+}
+.resume-architect-blueprint .bp-corner-br {
+  bottom: -0.5pt;
+  right: -0.5pt;
+  border-bottom-width: 1.2pt;
+  border-right-width: 1.2pt;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-architect-blueprint .bp-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'meta contact'
+    'body contact';
+  column-gap: 6mm;
+  row-gap: 4mm;
+  padding-bottom: 5mm;
+  border-bottom: 0.7pt solid var(--bp-rule);
+}
+.resume-architect-blueprint .bp-head-meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2mm 4mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  color: var(--bp-fg);
+  padding-bottom: 3mm;
+  border-bottom: 0.4pt solid var(--bp-hair);
+}
+.resume-architect-blueprint .bp-stamp {
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--bp-muted);
+}
+.resume-architect-blueprint .bp-stamp-num {
+  font-weight: 600;
+  color: var(--bp-ink);
+  font-variant-numeric: tabular-nums;
+}
+.resume-architect-blueprint .bp-head-body {
+  grid-area: body;
+  min-width: 0;
+}
+.resume-architect-blueprint .bp-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--bp-fg);
+  margin-bottom: 2mm;
+}
+.resume-architect-blueprint .bp-name {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--bp-ink);
+}
+.resume-architect-blueprint .bp-title {
+  margin-top: 2mm;
+  font-size: 9.5pt;
+  color: var(--bp-fg);
+  letter-spacing: 0.01em;
+}
+.resume-architect-blueprint .bp-head-contact {
+  grid-area: contact;
+  display: grid;
+  row-gap: 1pt;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  color: var(--bp-body);
+  align-self: start;
+  padding-top: 0.5mm;
+}
+.resume-architect-blueprint .bp-kv {
+  display: grid;
+  grid-template-columns: 8mm 1fr;
+  column-gap: 4px;
+  align-items: baseline;
+}
+.resume-architect-blueprint .bp-k {
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--bp-fg);
+}
+.resume-architect-blueprint .bp-head-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.4pt solid var(--bp-hair);
+}
+
+/* DIM LINES ----------------------------------------------------------- */
+
+.resume-architect-blueprint .bp-dim {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin: 6mm 0 4mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  letter-spacing: 0.22em;
+  color: var(--bp-fg);
+}
+.resume-architect-blueprint .bp-tick {
+  width: 0.7pt;
+  height: 8px;
+  background: var(--bp-rule);
+  flex-shrink: 0;
+}
+.resume-architect-blueprint .bp-dim-line {
+  flex: 1;
+  height: 0.5pt;
+  background: var(--bp-rule);
+}
+.resume-architect-blueprint .bp-dim-label {
+  font-weight: 700;
+  color: var(--bp-ink);
+  white-space: nowrap;
+}
+
+/* SECTION ------------------------------------------------------------- */
+
+.resume-architect-blueprint .bp-section {
+  margin: 0;
+}
+.resume-architect-blueprint .bp-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--bp-body);
+  text-wrap: pretty;
+  max-width: 160mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-architect-blueprint .bp-entry {
+  display: grid;
+  grid-template-columns: 12mm 1fr;
+  column-gap: 5mm;
+  padding: 3.5mm 0;
+  border-top: 0.4pt solid var(--bp-hair);
+}
+.resume-architect-blueprint .bp-entry:first-child {
+  border-top: none;
+  padding-top: 1mm;
+}
+.resume-architect-blueprint .bp-entry-num {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--bp-fg);
+  font-variant-numeric: tabular-nums;
+  padding-top: 1pt;
+  border-right: 0.4pt solid var(--bp-hair);
+  padding-right: 5mm;
+}
+.resume-architect-blueprint .bp-entry-body {
+  min-width: 0;
+}
+.resume-architect-blueprint .bp-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-architect-blueprint .bp-entry-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--bp-ink);
+}
+.resume-architect-blueprint .bp-entry-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--bp-fg);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-architect-blueprint .bp-entry-sub {
+  margin: 1pt 0 2.5mm;
+  font-size: 9pt;
+  color: var(--bp-body);
+}
+
+.resume-architect-blueprint .bp-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-architect-blueprint .bp-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--bp-body);
+}
+.resume-architect-blueprint .bp-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 0.7pt;
+  background: var(--bp-rule);
+}
+.resume-architect-blueprint .bp-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--bp-body);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-architect-blueprint .bp-skills dl {
+  margin: 0;
+}
+.resume-architect-blueprint .bp-skill-row {
+  display: grid;
+  grid-template-columns: 14mm 1fr;
+  column-gap: 5mm;
+  padding: 1.6mm 0;
+  border-top: 0.4pt solid var(--bp-hair);
+  align-items: baseline;
+}
+.resume-architect-blueprint .bp-skill-row:first-child {
+  border-top: none;
+}
+.resume-architect-blueprint .bp-skills dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--bp-fg);
+}
+.resume-architect-blueprint .bp-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--bp-body);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-architect-blueprint .bp-section,
+  .resume-architect-blueprint .bp-entry,
+  .resume-architect-blueprint [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-architect-blueprint {
+  font-size: 9pt;
+  line-height: 1.42;
+}
+.density-tight .resume-architect-blueprint .bp-sheet {
+  padding: 6mm 7mm 7mm;
+}
+.density-tight .resume-architect-blueprint .bp-head {
+  padding-bottom: 3.5mm;
+  row-gap: 3mm;
+}
+.density-tight .resume-architect-blueprint .bp-dim {
+  margin: 4mm 0 2.5mm;
+}
+.density-tight .resume-architect-blueprint .bp-entry {
+  padding: 2.5mm 0;
+}
+.density-tight .resume-architect-blueprint .bp-bullets {
+  gap: 0.9mm;
+}
+.density-tight .resume-architect-blueprint .bp-skill-row {
+  padding: 1.1mm 0;
+}
+
+.density-roomy .resume-architect-blueprint {
+  font-size: 10.25pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-architect-blueprint .bp-sheet {
+  padding: 10mm 11mm 11mm;
+}
+.density-roomy .resume-architect-blueprint .bp-head {
+  padding-bottom: 6.5mm;
+  row-gap: 5.5mm;
+}
+.density-roomy .resume-architect-blueprint .bp-dim {
+  margin: 8mm 0 5.5mm;
+}
+.density-roomy .resume-architect-blueprint .bp-entry {
+  padding: 5mm 0;
+}
+.density-roomy .resume-architect-blueprint .bp-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-architect-blueprint .bp-skill-row {
+  padding: 2.2mm 0;
+}

@@ -1,0 +1,265 @@
+/* newspaper-times — Times-of-London feel.
+   Three narrow columns of body text. Conservative center-aligned masthead.
+   Roman numeral section anchors. Class prefix: .tms- . Root: .resume-newspaper-times . */
+
+.resume-newspaper-times {
+  --tms-ink: #14110d;
+  --tms-fg: #1c1a16;
+  --tms-muted: #4f4a42;
+  --tms-faint: #8a857c;
+  --tms-rule: #14110d;
+  --tms-hair: #c2bdb1;
+  --tms-paper: #fdfcf8;
+
+  font-family: 'Times New Roman', 'Liberation Serif', 'Times', Georgia, serif;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--tms-fg);
+  background: var(--tms-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'liga', 'onum', 'kern';
+}
+
+/* MASTHEAD ----------------------------------------------------------- */
+
+.resume-newspaper-times .tms-mast {
+  text-align: center;
+  margin-bottom: 5mm;
+}
+.resume-newspaper-times .tms-rule {
+  background: var(--tms-rule);
+}
+.resume-newspaper-times .tms-rule-thin {
+  height: 0.75px;
+  margin: 0.75mm 0;
+}
+.resume-newspaper-times .tms-rule-thick {
+  height: 2px;
+  margin: 0.75mm 0;
+}
+.resume-newspaper-times .tms-mast-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 4mm;
+  padding: 2.5mm 0 1.5mm;
+}
+.resume-newspaper-times .tms-crest {
+  font-size: 16pt;
+  color: var(--tms-ink);
+  line-height: 1;
+  font-style: italic;
+}
+.resume-newspaper-times .tms-name {
+  font-family: 'Times New Roman', 'Liberation Serif', Georgia, serif;
+  font-size: 38pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin: 0;
+  color: var(--tms-ink);
+  font-variant: small-caps;
+  text-rendering: optimizeLegibility;
+}
+.resume-newspaper-times .tms-mast-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 7.75pt;
+  letter-spacing: 0.04em;
+  color: var(--tms-muted);
+  padding: 1.5mm 1mm;
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+}
+.resume-newspaper-times .tms-mast-tag {
+  font-style: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--tms-ink);
+  font-size: 8.25pt;
+}
+
+/* ANCHORS ----------------------------------------------------------- */
+
+.resume-newspaper-times .tms-anchor {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 0.75px solid var(--tms-rule);
+  padding-bottom: 1pt;
+  margin: 0 0 3mm;
+}
+.resume-newspaper-times .tms-anchor-sm {
+  margin-bottom: 1.5mm;
+}
+.resume-newspaper-times .tms-roman {
+  font-size: 13pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--tms-ink);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.resume-newspaper-times .tms-anchor-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--tms-ink);
+}
+
+/* SECTIONS ----------------------------------------------------------- */
+
+.resume-newspaper-times .tms-section {
+  margin-bottom: 5mm;
+}
+
+.resume-newspaper-times .tms-lede {
+  text-align: justify;
+  hyphens: auto;
+}
+.resume-newspaper-times .tms-lede-body {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--tms-fg);
+  font-style: normal;
+  text-wrap: pretty;
+}
+.resume-newspaper-times .tms-place {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+  font-size: 10pt;
+  color: var(--tms-ink);
+}
+
+/* COLUMNS ----------------------------------------------------------- */
+
+.resume-newspaper-times .tms-cols-3 {
+  column-count: 3;
+  column-gap: 5mm;
+  column-rule: 0.5px solid var(--tms-hair);
+}
+
+.resume-newspaper-times .tms-entry {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0 0 3mm;
+}
+.resume-newspaper-times .tms-entry:first-child {
+  padding-top: 0;
+}
+.resume-newspaper-times .tms-entry-title {
+  font-size: 10pt;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.18;
+  color: var(--tms-ink);
+  letter-spacing: -0.005em;
+}
+.resume-newspaper-times .tms-entry-sub {
+  font-size: 8.5pt;
+  font-style: italic;
+  color: var(--tms-fg);
+  margin-top: 0.5pt;
+}
+.resume-newspaper-times .tms-entry-meta {
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tms-muted);
+  margin: 0.5pt 0 1.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-newspaper-times .tms-entry p {
+  margin: 0;
+  font-size: 9pt;
+  line-height: 1.45;
+  text-align: justify;
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+/* FOOTER ------------------------------------------------------------ */
+
+.resume-newspaper-times .tms-foot {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 6mm;
+  border-top: 2px double var(--tms-rule);
+  padding-top: 3mm;
+}
+.resume-newspaper-times .tms-foot-body {
+  font-size: 8.75pt;
+  line-height: 1.5;
+  color: var(--tms-fg);
+}
+.resume-newspaper-times .tms-foot-body a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--tms-faint);
+}
+.resume-newspaper-times .tms-skill-key {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--tms-ink);
+}
+
+/* PRINT ------------------------------------------------------------- */
+
+@media print {
+  .resume-newspaper-times .tms-section,
+  .resume-newspaper-times .tms-entry,
+  .resume-newspaper-times [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-newspaper-times {
+  font-size: 8.75pt;
+  line-height: 1.38;
+}
+.density-tight .resume-newspaper-times .tms-section {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-newspaper-times .tms-entry {
+  margin-bottom: 2mm;
+}
+.density-tight .resume-newspaper-times .tms-cols-3 {
+  column-gap: 3.5mm;
+}
+.density-tight .resume-newspaper-times .tms-mast {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-newspaper-times .tms-foot {
+  gap: 4mm;
+  padding-top: 2mm;
+}
+
+.density-roomy .resume-newspaper-times {
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.density-roomy .resume-newspaper-times .tms-section {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-newspaper-times .tms-entry {
+  margin-bottom: 4.5mm;
+}
+.density-roomy .resume-newspaper-times .tms-cols-3 {
+  column-gap: 7mm;
+}
+.density-roomy .resume-newspaper-times .tms-mast {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-newspaper-times .tms-foot {
+  gap: 9mm;
+  padding-top: 4.5mm;
+}

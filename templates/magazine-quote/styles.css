@@ -1,0 +1,364 @@
+/* magazine-quote — Magazine variant with a large pull-quote in the
+   left sidebar (~30% width). Quote is the summary; hanging quote mark;
+   italic quote text. Main column is wide (~70%) for experience.
+
+   Class prefix: .mgq-. Root: .resume-magazine-quote. */
+
+.resume-magazine-quote {
+  --mgq-ink: #101115;
+  --mgq-fg: #1c1d22;
+  --mgq-muted: #5e6470;
+  --mgq-faint: #a0a4ad;
+  --mgq-rule: #14161a;
+  --mgq-hair: #d6d8dc;
+  --mgq-paper: #ffffff;
+
+  font-family: 'Source Serif 4', 'Source Serif Pro', 'Iowan Old Style', Georgia, serif;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--mgq-fg);
+  background: var(--mgq-paper);
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-magazine-quote .mgq-head {
+  border-bottom: 1.5px solid var(--mgq-rule);
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+}
+.resume-magazine-quote .mgq-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--mgq-muted);
+  margin-bottom: 3mm;
+}
+.resume-magazine-quote .mgq-name {
+  font-family: 'Playfair Display', 'Didot', 'Bodoni 72', Georgia, serif;
+  font-size: 38pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin: 0 0 2mm;
+  color: var(--mgq-ink);
+}
+.resume-magazine-quote .mgq-byline {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  color: var(--mgq-fg);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-magazine-quote .mgq-dot {
+  color: var(--mgq-faint);
+}
+
+/* GRID ---------------------------------------------------------------- */
+
+.resume-magazine-quote .mgq-grid {
+  display: grid;
+  grid-template-columns: 56mm 1fr;
+  column-gap: 9mm;
+}
+
+/* SIDE ---------------------------------------------------------------- */
+
+.resume-magazine-quote .mgq-side {
+  min-width: 0;
+}
+.resume-magazine-quote .mgq-pullquote {
+  position: relative;
+  padding: 4mm 0 5mm 12mm;
+  margin-bottom: 7mm;
+  border-top: 1.5px solid var(--mgq-rule);
+  border-bottom: 1px solid var(--mgq-hair);
+}
+.resume-magazine-quote .mgq-quote-mark {
+  position: absolute;
+  top: -8mm;
+  left: -2mm;
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 80pt;
+  line-height: 0.7;
+  font-weight: 700;
+  color: var(--mgq-ink);
+}
+.resume-magazine-quote .mgq-quote-text {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-style: italic;
+  font-size: 13pt;
+  line-height: 1.4;
+  color: var(--mgq-ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+.resume-magazine-quote .mgq-quote-rule {
+  width: 12mm;
+  height: 1.5px;
+  background: var(--mgq-ink);
+  margin: 4mm 0 2mm;
+}
+.resume-magazine-quote .mgq-quote-attrib {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mgq-muted);
+}
+
+.resume-magazine-quote .mgq-side-section {
+  margin-bottom: 6mm;
+}
+.resume-magazine-quote .mgq-side-section h2 {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--mgq-rule);
+  color: var(--mgq-ink);
+}
+.resume-magazine-quote .mgq-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8.75pt;
+  line-height: 1.5;
+  color: var(--mgq-fg);
+}
+.resume-magazine-quote .mgq-contact li {
+  padding: 0.75mm 0;
+  word-break: break-word;
+}
+.resume-magazine-quote .mgq-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--mgq-hair);
+}
+.resume-magazine-quote .mgq-side-entry {
+  font-size: 9pt;
+}
+.resume-magazine-quote .mgq-side-title {
+  font-weight: 700;
+  color: var(--mgq-ink);
+  font-size: 9.5pt;
+}
+.resume-magazine-quote .mgq-side-sub {
+  font-style: italic;
+  color: var(--mgq-fg);
+  margin-top: 0.5mm;
+}
+.resume-magazine-quote .mgq-side-meta {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  color: var(--mgq-muted);
+  margin-top: 1mm;
+  letter-spacing: 0.05em;
+}
+.resume-magazine-quote .mgq-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--mgq-fg);
+}
+.resume-magazine-quote .mgq-stack-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mgq-muted);
+  margin-bottom: 0.75mm;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-magazine-quote .mgq-main {
+  min-width: 0;
+}
+.resume-magazine-quote .mgq-section {
+  margin-bottom: 6mm;
+}
+.resume-magazine-quote .mgq-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 16pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+  border-bottom: 1.5px solid var(--mgq-rule);
+  color: var(--mgq-ink);
+}
+.resume-magazine-quote .mgq-section-num {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--mgq-muted);
+  padding-right: 4px;
+}
+
+.resume-magazine-quote .mgq-entry {
+  margin-bottom: 4mm;
+}
+.resume-magazine-quote .mgq-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-magazine-quote .mgq-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-magazine-quote .mgq-entry-head h3 {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-size: 11.5pt;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--mgq-ink);
+}
+.resume-magazine-quote .mgq-entry-date {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--mgq-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-magazine-quote .mgq-entry-sub {
+  font-size: 9.5pt;
+  color: var(--mgq-fg);
+  margin: 1pt 0 1.5mm;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-magazine-quote .mgq-entry-sub em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mgq-ink);
+}
+
+.resume-magazine-quote .mgq-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-magazine-quote .mgq-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--mgq-fg);
+  text-wrap: pretty;
+}
+.resume-magazine-quote .mgq-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--mgq-ink);
+}
+
+.resume-magazine-quote .mgq-prose {
+  margin: 1mm 0 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--mgq-fg);
+  text-wrap: pretty;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-magazine-quote .mgq-pullquote,
+  .resume-magazine-quote .mgq-side-section,
+  .resume-magazine-quote .mgq-section,
+  .resume-magazine-quote .mgq-entry,
+  .resume-magazine-quote [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10pt / 1.55 body, mgq-entry margin 4mm, section/side-section 6mm. */
+
+.density-tight .resume-magazine-quote {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-magazine-quote .mgq-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-quote .mgq-pullquote {
+  padding: 3mm 0 3.5mm 12mm;
+  margin-bottom: 5mm;
+}
+.density-tight .resume-magazine-quote .mgq-side-section {
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-quote .mgq-section {
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-quote .mgq-section-head {
+  margin: 0 0 3mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-magazine-quote .mgq-entry {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-magazine-quote .mgq-bullets {
+  gap: 0.9mm;
+}
+
+.density-roomy .resume-magazine-quote {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-magazine-quote .mgq-head {
+  padding-bottom: 6.5mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-magazine-quote .mgq-pullquote {
+  padding: 5.5mm 0 6.5mm 12mm;
+  margin-bottom: 9mm;
+}
+.density-roomy .resume-magazine-quote .mgq-side-section {
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-magazine-quote .mgq-section {
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-magazine-quote .mgq-section-head {
+  margin: 0 0 5.5mm;
+  padding-bottom: 2.5mm;
+}
+.density-roomy .resume-magazine-quote .mgq-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-magazine-quote .mgq-bullets {
+  gap: 1.75mm;
+}

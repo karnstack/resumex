@@ -1,0 +1,267 @@
+/* executive — Boardroom executive.
+   Wordmark name in tracked-out caps. Single dark-gray accent. Single column.
+   Lots of air. Calm, expensive corporate restraint.
+
+   Class prefix: .ex- for stable scoping. Root: .resume-executive. */
+
+.resume-executive {
+  --ex-ink: #0f1216;
+  --ex-fg: #1a1d22;
+  --ex-muted: #5a6068;
+  --ex-faint: #8a9099;
+  --ex-rule: #1f2329;
+  --ex-hair: #d8dadd;
+  --ex-accent: #2a313a; /* sober dark-gray accent */
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding: var(--page-pad-top, 22mm) 22mm var(--page-pad-bot, 20mm);
+  font-size: 10pt;
+  line-height: 1.6;
+  color: var(--ex-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01', 'liga';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-executive .ex-head {
+  text-align: center;
+  margin-bottom: 12mm;
+}
+.resume-executive .ex-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--ex-muted);
+  margin-bottom: 6mm;
+}
+.resume-executive .ex-wordmark {
+  font-size: 26pt;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  line-height: 1.05;
+  margin: 0 0 4mm;
+  color: var(--ex-ink);
+  text-indent: 0.42em; /* compensate trailing letter-spacing for visual centering */
+}
+.resume-executive .ex-title {
+  font-size: 9.5pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ex-fg);
+  margin: 0 0 6mm;
+}
+.resume-executive .ex-rule {
+  width: 28mm;
+  height: 1px;
+  background: var(--ex-accent);
+  margin: 0 auto 6mm;
+}
+.resume-executive .ex-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 8px;
+  font-size: 8.75pt;
+  color: var(--ex-muted);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.resume-executive .ex-contact .ex-sep {
+  color: var(--ex-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-executive .ex-section {
+  margin-top: 9mm;
+}
+.resume-executive .ex-section:first-of-type {
+  margin-top: 0;
+}
+.resume-executive .ex-section h2 {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--ex-accent);
+  margin: 0 0 5mm;
+  padding: 0 0 1.5mm;
+  border-bottom: 1px solid var(--ex-hair);
+}
+
+.resume-executive .ex-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.7;
+  color: var(--ex-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-executive .ex-entry {
+  margin-bottom: 5mm;
+}
+.resume-executive .ex-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-executive .ex-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.5mm;
+}
+.resume-executive .ex-entry-title {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--ex-ink);
+  letter-spacing: 0.005em;
+}
+.resume-executive .ex-entry-title .ex-at {
+  color: var(--ex-faint);
+  font-weight: 400;
+  margin: 0 2px;
+}
+.resume-executive .ex-entry-title .ex-org {
+  font-weight: 500;
+  color: var(--ex-fg);
+}
+.resume-executive .ex-entry-meta {
+  font-size: 8.75pt;
+  color: var(--ex-muted);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-executive .ex-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+}
+.resume-executive .ex-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.6;
+  margin: 0.6mm 0;
+  text-wrap: pretty;
+  color: var(--ex-fg);
+}
+.resume-executive .ex-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 4px;
+  height: 4px;
+  background: var(--ex-accent);
+  border-radius: 50%;
+}
+
+.resume-executive .ex-prose {
+  margin: 1mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.6;
+  color: var(--ex-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-executive .ex-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.resume-executive .ex-skill-row {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 6mm;
+  padding: 1.5mm 0;
+  align-items: baseline;
+}
+.resume-executive .ex-skill-row + .ex-skill-row {
+  border-top: 1px solid var(--ex-hair);
+}
+.resume-executive .ex-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ex-muted);
+}
+.resume-executive .ex-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--ex-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-executive .ex-section,
+  .resume-executive .ex-entry,
+  .resume-executive [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-executive {
+  font-size: 9.25pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 16mm);
+}
+.density-tight .resume-executive .ex-head {
+  margin-bottom: 8mm;
+}
+.density-tight .resume-executive .ex-section {
+  margin-top: 6.5mm;
+}
+.density-tight .resume-executive .ex-section h2 {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-executive .ex-entry {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-executive .ex-skill-row {
+  padding: 1mm 0;
+}
+
+.density-roomy .resume-executive {
+  font-size: 10.5pt;
+  line-height: 1.7;
+  padding: var(--page-pad-top, 26mm) 26mm var(--page-pad-bot, 24mm);
+}
+.density-roomy .resume-executive .ex-head {
+  margin-bottom: 16mm;
+}
+.density-roomy .resume-executive .ex-section {
+  margin-top: 12mm;
+}
+.density-roomy .resume-executive .ex-section h2 {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-executive .ex-entry {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-executive .ex-skill-row {
+  padding: 2.2mm 0;
+}

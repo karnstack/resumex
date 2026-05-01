@@ -1,0 +1,401 @@
+/* editorial-noir — Black ink on warm cream paper.
+   Heavier serif headlines. Double horizontal rule under the name.
+   Roman numerals on sections. Monogrammed footer.
+
+   Class prefix: .ed- (scoped under .resume-editorial-noir to avoid leak).
+   Root: .resume-editorial-noir. */
+
+.resume-editorial-noir {
+  --ed-paper: #faf6ee;
+  --ed-ink: #0d0d10;
+  --ed-fg: #181a1f;
+  --ed-muted: #514a3e;
+  --ed-faint: #8a8170;
+  --ed-rule: #181a1f;
+  --ed-hair: #d6cebc;
+
+  --ed-serif: 'Playfair Display', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --ed-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  font-family: var(--ed-sans);
+  padding: var(--page-pad-top, 16mm) 18mm var(--page-pad-bot, 16mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ed-fg);
+  background: var(--ed-paper);
+  font-feature-settings: 'kern', 'liga', 'onum';
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-editorial-noir .ed-head {
+  text-align: center;
+  margin-bottom: 8mm;
+}
+.resume-editorial-noir .ed-eyebrow {
+  font-family: var(--ed-sans);
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.36em;
+  color: var(--ed-muted);
+  margin-bottom: 5mm;
+}
+.resume-editorial-noir .ed-name {
+  font-family: var(--ed-serif);
+  font-size: 38pt;
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  margin: 0 0 4mm;
+  color: var(--ed-ink);
+}
+.resume-editorial-noir .ed-rule-double {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5pt;
+  margin: 0 auto 4mm;
+  width: 70%;
+}
+.resume-editorial-noir .ed-rule-double span {
+  display: block;
+  height: 1.25px;
+  background: var(--ed-ink);
+}
+.resume-editorial-noir .ed-rule-double span:last-child {
+  height: 0.5px;
+}
+.resume-editorial-noir .ed-title {
+  font-family: var(--ed-serif);
+  font-size: 12pt;
+  font-weight: 400;
+  color: var(--ed-fg);
+}
+.resume-editorial-noir .ed-title em {
+  font-style: italic;
+}
+
+/* CONTACT ------------------------------------------------------------- */
+
+.resume-editorial-noir .ed-contact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5mm;
+  font-family: var(--ed-sans);
+  padding: 4mm 0 5mm;
+  border-top: 0.5px solid var(--ed-hair);
+  border-bottom: 0.5px solid var(--ed-hair);
+  margin-bottom: 7mm;
+}
+.resume-editorial-noir .ed-contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1pt;
+  font-size: 9pt;
+  color: var(--ed-fg);
+  text-align: center;
+}
+.resume-editorial-noir .ed-contact-key {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--ed-muted);
+  margin-bottom: 1pt;
+}
+.resume-editorial-noir .ed-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ed-hair);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-editorial-noir .ed-section {
+  margin-top: 7mm;
+}
+.resume-editorial-noir .ed-section:first-of-type {
+  margin-top: 0;
+}
+
+.resume-editorial-noir .ed-section-label {
+  font-family: var(--ed-serif);
+  font-size: 12.5pt;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ed-ink);
+  margin-bottom: 4mm;
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--ed-rule);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+.resume-editorial-noir .ed-section-num {
+  font-family: var(--ed-serif);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: var(--ed-muted);
+  letter-spacing: 0.04em;
+}
+
+/* SUMMARY / DROP-CAP -------------------------------------------------- */
+
+.resume-editorial-noir .ed-lede {
+  font-family: var(--ed-serif);
+  font-size: 12pt;
+  line-height: 1.55;
+  color: var(--ed-fg);
+  margin: 0;
+  text-wrap: pretty;
+}
+.resume-editorial-noir .ed-lede em {
+  font-style: italic;
+  color: var(--ed-ink);
+}
+.resume-editorial-noir .ed-dropcap {
+  font-family: var(--ed-serif);
+  font-weight: 900;
+  font-size: 42pt;
+  line-height: 0.85;
+  float: left;
+  padding: 2pt 7pt 0 0;
+  margin-top: 1pt;
+  color: var(--ed-ink);
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-editorial-noir .ed-entry {
+  margin-bottom: 5mm;
+}
+.resume-editorial-noir .ed-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-editorial-noir .ed-entry-tight {
+  margin-bottom: 4mm;
+}
+.resume-editorial-noir .ed-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-editorial-noir .ed-role {
+  font-family: var(--ed-serif);
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ed-ink);
+  margin: 0;
+  line-height: 1.2;
+}
+.resume-editorial-noir .ed-role-sm {
+  font-family: var(--ed-serif);
+  font-size: 11.5pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--ed-ink);
+  margin: 0;
+  line-height: 1.2;
+}
+.resume-editorial-noir .ed-dates {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  font-size: 9.5pt;
+  color: var(--ed-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-editorial-noir .ed-meta {
+  font-family: var(--ed-sans);
+  font-size: 8.75pt;
+  color: var(--ed-muted);
+  margin: 1pt 0 2.5mm;
+  letter-spacing: 0.02em;
+}
+.resume-editorial-noir .ed-meta em {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  color: var(--ed-fg);
+  font-size: 10pt;
+  font-weight: 500;
+}
+
+.resume-editorial-noir .ed-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-editorial-noir .ed-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--ed-fg);
+}
+.resume-editorial-noir .ed-bullets li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--ed-ink);
+  font-weight: 700;
+}
+
+.resume-editorial-noir .ed-prose {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--ed-fg);
+  text-wrap: pretty;
+}
+
+/* TWO-COLUMN BLOCK ---------------------------------------------------- */
+
+.resume-editorial-noir .ed-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-editorial-noir .ed-skills {
+  margin: 3mm 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-editorial-noir .ed-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 3mm;
+  padding: 1.25mm 0;
+  border-bottom: 0.5px dotted var(--ed-hair);
+  align-items: baseline;
+}
+.resume-editorial-noir .ed-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-editorial-noir .ed-skills dt {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  font-size: 9.25pt;
+  color: var(--ed-muted);
+  font-weight: 400;
+}
+.resume-editorial-noir .ed-skills dd {
+  margin: 0;
+  font-size: 9.25pt;
+  color: var(--ed-fg);
+}
+
+/* FOOTER -------------------------------------------------------------- */
+
+.resume-editorial-noir .ed-foot {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 6mm;
+  align-items: center;
+  margin-top: 8mm;
+  padding-top: 4mm;
+  border-top: 0.5px solid var(--ed-hair);
+}
+.resume-editorial-noir .ed-foot-monogram {
+  font-family: var(--ed-serif);
+  font-size: 16pt;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--ed-ink);
+  line-height: 1;
+}
+.resume-editorial-noir .ed-foot-rule {
+  height: 0.5px;
+  background: var(--ed-rule);
+}
+.resume-editorial-noir .ed-foot-meta {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--ed-muted);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-editorial-noir .ed-section,
+  .resume-editorial-noir .ed-entry,
+  .resume-editorial-noir [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-editorial-noir {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-editorial-noir .ed-section {
+  margin-top: 5mm;
+}
+.density-tight .resume-editorial-noir .ed-section-label {
+  margin-bottom: 3mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-editorial-noir .ed-entry {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-editorial-noir .ed-bullets {
+  gap: 0.8mm;
+}
+.density-tight .resume-editorial-noir .ed-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-editorial-noir .ed-head {
+  margin-bottom: 6mm;
+}
+.density-tight .resume-editorial-noir .ed-contact {
+  padding: 3mm 0 3.5mm;
+  margin-bottom: 5mm;
+}
+
+.density-roomy .resume-editorial-noir {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-editorial-noir .ed-section {
+  margin-top: 10mm;
+}
+.density-roomy .resume-editorial-noir .ed-section-label {
+  margin-bottom: 5.5mm;
+  padding-bottom: 2.75mm;
+}
+.density-roomy .resume-editorial-noir .ed-entry {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-editorial-noir .ed-bullets {
+  gap: 1.8mm;
+}
+.density-roomy .resume-editorial-noir .ed-bullets li {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-editorial-noir .ed-head {
+  margin-bottom: 11mm;
+}
+.density-roomy .resume-editorial-noir .ed-contact {
+  padding: 5.5mm 0 7mm;
+  margin-bottom: 10mm;
+}

@@ -1,0 +1,300 @@
+/* mirror — base. Two-column with the sidebar on the RIGHT.
+   Main column (~67%) leads with experience; sidebar (~33%) carries
+   contact, skills, education, projects. Quiet sans, single hairline
+   between columns. */
+
+.resume-mirror {
+  --mr-ink: #111418;
+  --mr-fg: #1a1f26;
+  --mr-muted: #5a6470;
+  --mr-faint: #8a939f;
+  --mr-rule: #1a1d24;
+  --mr-hair: #d8dde2;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  padding: var(--page-pad-top, 16mm) 16mm var(--page-pad-bot, 16mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--mr-fg);
+  background: white;
+  font-feature-settings: 'kern', 'ss01', 'cv11';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-mirror .mr-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+  border-bottom: 1.25px solid var(--mr-rule);
+}
+.resume-mirror .mr-name {
+  margin: 0 0 1.5mm;
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--mr-ink);
+}
+.resume-mirror .mr-title {
+  font-size: 10.5pt;
+  font-weight: 500;
+  color: var(--mr-fg);
+}
+
+/* GRID ---------------------------------------------------------------- */
+
+.resume-mirror .mr-grid {
+  display: grid;
+  grid-template-columns: 1fr 56mm;
+  column-gap: 8mm;
+  align-items: start;
+}
+.resume-mirror .mr-main {
+  min-width: 0;
+}
+.resume-mirror .mr-side {
+  min-width: 0;
+  padding-left: 8mm;
+  border-left: 1px solid var(--mr-hair);
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+/* SECTIONS (main) ----------------------------------------------------- */
+
+.resume-mirror .mr-section + .mr-section {
+  margin-top: 6mm;
+}
+.resume-mirror .mr-section h2 {
+  margin: 0 0 3mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mr-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--mr-rule);
+}
+.resume-mirror .mr-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--mr-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-mirror .mr-entry + .mr-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--mr-hair);
+}
+.resume-mirror .mr-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-mirror .mr-entry-title {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--mr-ink);
+}
+.resume-mirror .mr-entry-meta {
+  font-size: 8.5pt;
+  color: var(--mr-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-mirror .mr-entry-sub {
+  margin: 1pt 0 2.5mm;
+  font-size: 9.25pt;
+  color: var(--mr-muted);
+}
+.resume-mirror .mr-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4mm;
+}
+.resume-mirror .mr-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--mr-fg);
+  text-wrap: pretty;
+}
+.resume-mirror .mr-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 1.5px;
+  background: var(--mr-ink);
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-mirror .mr-side-section h3 {
+  margin: 0 0 2mm;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mr-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--mr-rule);
+}
+.resume-mirror .mr-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8.75pt;
+  line-height: 1.55;
+  color: var(--mr-fg);
+}
+.resume-mirror .mr-contact li {
+  padding: 0.4mm 0;
+  word-break: break-word;
+}
+.resume-mirror .mr-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--mr-hair);
+}
+
+.resume-mirror .mr-skills {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5mm;
+}
+.resume-mirror .mr-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mr-muted);
+  margin-top: 1mm;
+}
+.resume-mirror .mr-skills dt:first-child {
+  margin-top: 0;
+}
+.resume-mirror .mr-skills dd {
+  margin: 0.5mm 0 0;
+  font-size: 9pt;
+  color: var(--mr-fg);
+}
+
+.resume-mirror .mr-side-entry + .mr-side-entry {
+  margin-top: 2.5mm;
+  padding-top: 2.5mm;
+  border-top: 1px solid var(--mr-hair);
+}
+.resume-mirror .mr-side-title {
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--mr-ink);
+  line-height: 1.3;
+}
+.resume-mirror .mr-side-sub {
+  font-size: 8.75pt;
+  color: var(--mr-fg);
+  line-height: 1.4;
+  margin-top: 0.4mm;
+}
+.resume-mirror .mr-side-meta {
+  font-size: 8.25pt;
+  color: var(--mr-muted);
+  margin-top: 0.5mm;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-mirror .mr-section,
+  .resume-mirror .mr-side-section,
+  .resume-mirror .mr-entry,
+  .resume-mirror [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-mirror {
+  font-size: 9.25pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 13mm) 13mm var(--page-pad-bot, 13mm);
+}
+.density-tight .resume-mirror .mr-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-mirror .mr-section + .mr-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-mirror .mr-section h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-mirror .mr-entry + .mr-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-mirror .mr-bullets {
+  gap: 1mm;
+}
+.density-tight .resume-mirror .mr-side {
+  gap: 4.5mm;
+  padding-left: 6mm;
+}
+.density-tight .resume-mirror .mr-side-entry + .mr-side-entry {
+  margin-top: 1.8mm;
+  padding-top: 1.8mm;
+}
+
+.density-roomy .resume-mirror {
+  font-size: 10.5pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 19mm) 19mm var(--page-pad-bot, 19mm);
+}
+.density-roomy .resume-mirror .mr-head {
+  padding-bottom: 6.5mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-mirror .mr-section + .mr-section {
+  margin-top: 8.5mm;
+}
+.density-roomy .resume-mirror .mr-section h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-mirror .mr-entry + .mr-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-mirror .mr-bullets {
+  gap: 2mm;
+}
+.density-roomy .resume-mirror .mr-side {
+  gap: 8.5mm;
+  padding-left: 10mm;
+}
+.density-roomy .resume-mirror .mr-side-entry + .mr-side-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}

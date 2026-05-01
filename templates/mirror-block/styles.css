@@ -1,0 +1,339 @@
+/* mirror-block — full-width color-block banner at the top houses the
+   name + contact rail. Below the banner the layout is traditional
+   sidebar-right: experience left, skills/edu/projects right. No photo
+   anywhere — the block carries identity by colorfield alone. */
+
+.resume-mirror-block {
+  --mk-ink: #0f1115;
+  --mk-fg: #181c23;
+  --mk-muted: #5a6470;
+  --mk-faint: #8a939f;
+  --mk-rule: #1a1d24;
+  --mk-hair: #d8dde2;
+  --mk-block: #1f2937;
+  --mk-block-fg: #f4f5f7;
+  --mk-block-muted: #aab1bd;
+  --mk-block-key: #e8eaed;
+  --mk-accent: #cfa45a;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--mk-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+
+  /* the color block runs flush to the page edges, so root padding is
+     unset; the banner and body apply their own padding */
+  padding: 0;
+  min-height: 297mm;
+}
+
+/* BANNER -------------------------------------------------------------- */
+
+.resume-mirror-block .mk-banner {
+  background: var(--mk-block);
+  color: var(--mk-block-fg);
+  padding: var(--page-pad-top, 18mm) 16mm 12mm;
+  border-bottom: 4px solid var(--mk-accent);
+}
+.resume-mirror-block .mk-banner-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  column-gap: 10mm;
+  row-gap: 4mm;
+}
+.resume-mirror-block .mk-banner-id {
+  min-width: 0;
+}
+.resume-mirror-block .mk-name {
+  margin: 0 0 2mm;
+  font-size: 28pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--mk-block-fg);
+  text-wrap: balance;
+}
+.resume-mirror-block .mk-title {
+  font-size: 10.5pt;
+  font-weight: 500;
+  color: var(--mk-block-fg);
+  letter-spacing: 0;
+}
+.resume-mirror-block .mk-banner-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1mm;
+  font-size: 8.5pt;
+  color: var(--mk-block-fg);
+  text-align: right;
+}
+.resume-mirror-block .mk-banner-rail li {
+  display: grid;
+  grid-template-columns: 14mm 1fr;
+  gap: 4mm;
+  align-items: baseline;
+  text-align: left;
+}
+.resume-mirror-block .mk-key {
+  font-size: 7.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--mk-accent);
+}
+.resume-mirror-block .mk-banner-rail a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--mk-block-key) 30%, transparent);
+}
+
+/* BODY (below the banner) --------------------------------------------- */
+
+.resume-mirror-block .mk-body {
+  padding: 8mm 16mm var(--page-pad-bot, 16mm);
+}
+.resume-mirror-block .mk-grid {
+  display: grid;
+  grid-template-columns: 1fr 56mm;
+  column-gap: 8mm;
+  align-items: start;
+}
+.resume-mirror-block .mk-main {
+  min-width: 0;
+}
+.resume-mirror-block .mk-side {
+  min-width: 0;
+  padding-left: 8mm;
+  border-left: 1px solid var(--mk-hair);
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+/* MAIN SECTIONS ------------------------------------------------------- */
+
+.resume-mirror-block .mk-section + .mk-section {
+  margin-top: 6mm;
+}
+.resume-mirror-block .mk-section h2 {
+  margin: 0 0 3mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mk-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--mk-rule);
+}
+.resume-mirror-block .mk-lede {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--mk-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-mirror-block .mk-entry + .mk-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--mk-hair);
+}
+.resume-mirror-block .mk-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-mirror-block .mk-entry-title {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--mk-ink);
+}
+.resume-mirror-block .mk-entry-meta {
+  font-size: 8.5pt;
+  color: var(--mk-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-mirror-block .mk-entry-sub {
+  margin: 1pt 0 2.5mm;
+  font-size: 9.25pt;
+  color: var(--mk-muted);
+}
+.resume-mirror-block .mk-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4mm;
+}
+.resume-mirror-block .mk-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--mk-fg);
+  text-wrap: pretty;
+}
+.resume-mirror-block .mk-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  background: var(--mk-accent);
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-mirror-block .mk-side-section h3 {
+  margin: 0 0 2mm;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mk-ink);
+  padding-bottom: 1.5mm;
+  border-bottom: 1.5px solid var(--mk-rule);
+}
+
+.resume-mirror-block .mk-skills {
+  margin: 0;
+}
+.resume-mirror-block .mk-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mk-muted);
+  margin-top: 1mm;
+}
+.resume-mirror-block .mk-skills dt:first-child {
+  margin-top: 0;
+}
+.resume-mirror-block .mk-skills dd {
+  margin: 0.5mm 0 0;
+  font-size: 9pt;
+  color: var(--mk-fg);
+}
+
+.resume-mirror-block .mk-side-entry + .mk-side-entry {
+  margin-top: 2.5mm;
+  padding-top: 2.5mm;
+  border-top: 1px solid var(--mk-hair);
+}
+.resume-mirror-block .mk-side-title {
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--mk-ink);
+  line-height: 1.3;
+}
+.resume-mirror-block .mk-side-sub {
+  font-size: 8.75pt;
+  color: var(--mk-fg);
+  line-height: 1.4;
+  margin-top: 0.4mm;
+}
+.resume-mirror-block .mk-side-meta {
+  font-size: 8.25pt;
+  color: var(--mk-muted);
+  margin-top: 0.5mm;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-mirror-block .mk-section,
+  .resume-mirror-block .mk-side-section,
+  .resume-mirror-block .mk-entry,
+  .resume-mirror-block [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-mirror-block {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-mirror-block .mk-banner {
+  padding: var(--page-pad-top, 14mm) 13mm 9mm;
+}
+.density-tight .resume-mirror-block .mk-body {
+  padding: 6mm 13mm var(--page-pad-bot, 13mm);
+}
+.density-tight .resume-mirror-block .mk-section + .mk-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-mirror-block .mk-section h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-mirror-block .mk-entry + .mk-entry {
+  margin-top: 3mm;
+  padding-top: 3mm;
+}
+.density-tight .resume-mirror-block .mk-bullets {
+  gap: 1mm;
+}
+.density-tight .resume-mirror-block .mk-side {
+  gap: 4.5mm;
+  padding-left: 6mm;
+}
+.density-tight .resume-mirror-block .mk-side-entry + .mk-side-entry {
+  margin-top: 1.8mm;
+  padding-top: 1.8mm;
+}
+
+.density-roomy .resume-mirror-block {
+  font-size: 10.5pt;
+  line-height: 1.6;
+}
+.density-roomy .resume-mirror-block .mk-banner {
+  padding: var(--page-pad-top, 22mm) 19mm 15mm;
+}
+.density-roomy .resume-mirror-block .mk-body {
+  padding: 10mm 19mm var(--page-pad-bot, 19mm);
+}
+.density-roomy .resume-mirror-block .mk-section + .mk-section {
+  margin-top: 8.5mm;
+}
+.density-roomy .resume-mirror-block .mk-section h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-mirror-block .mk-entry + .mk-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-mirror-block .mk-bullets {
+  gap: 2mm;
+}
+.density-roomy .resume-mirror-block .mk-side {
+  gap: 8.5mm;
+  padding-left: 10mm;
+}
+.density-roomy .resume-mirror-block .mk-side-entry + .mk-side-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}

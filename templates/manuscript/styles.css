@@ -1,0 +1,316 @@
+/* manuscript — refined classical / commonplace-book aesthetic.
+   Roman-numeraled sections, italic dates, classical sans (Optima-feel)
+   on cream paper with subtle ornamentation. */
+
+.resume-manuscript {
+  --ms-ink: #1a1714;
+  --ms-fg: #2a241f;
+  --ms-muted: #6e6358;
+  --ms-faint: #a59989;
+  --ms-rule: #2a241f;
+  --ms-hair: #d6cdbf;
+  --ms-paper: #fbf7ee;
+  --ms-accent: #6e2a1b;
+
+  font-family:
+    'Optima', 'Avenir Next', 'Avenir', 'Albertus', 'Trajan Pro', Georgia, 'Times New Roman', serif;
+  padding: var(--page-pad-top, 18mm) 22mm var(--page-pad-bot, 18mm);
+  font-size: 10.25pt;
+  line-height: 1.6;
+  color: var(--ms-fg);
+  background: var(--ms-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-manuscript .ms-head {
+  text-align: center;
+  margin-bottom: 9mm;
+}
+.resume-manuscript .ms-eyebrow {
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--ms-muted);
+  margin-bottom: 5mm;
+}
+.resume-manuscript .ms-eyebrow-dot {
+  margin: 0 6px;
+  color: var(--ms-faint);
+}
+.resume-manuscript .ms-eyebrow-em {
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--ms-muted);
+}
+.resume-manuscript .ms-name {
+  font-size: 28pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 4mm;
+  color: var(--ms-ink);
+}
+.resume-manuscript .ms-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 4mm;
+  width: 60%;
+}
+.resume-manuscript .ms-rule-line {
+  flex: 1;
+  height: 0;
+  border-top: 0.5px solid var(--ms-rule);
+}
+.resume-manuscript .ms-rule-mark {
+  color: var(--ms-accent);
+  font-size: 11pt;
+  line-height: 1;
+}
+.resume-manuscript .ms-title {
+  font-size: 11pt;
+  color: var(--ms-fg);
+  letter-spacing: 0.04em;
+  margin-bottom: 5mm;
+}
+.resume-manuscript .ms-title em {
+  font-style: italic;
+  color: var(--ms-ink);
+}
+.resume-manuscript .ms-contact {
+  font-size: 8.75pt;
+  color: var(--ms-muted);
+  letter-spacing: 0.04em;
+}
+.resume-manuscript .ms-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ms-hair);
+}
+.resume-manuscript .ms-sep {
+  margin: 0 6px;
+  color: var(--ms-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-manuscript .ms-section {
+  margin-top: 7mm;
+}
+.resume-manuscript .ms-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  margin: 0 0 4mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 0.5px solid var(--ms-hair);
+  font-weight: 400;
+}
+.resume-manuscript .ms-numeral {
+  font-size: 10pt;
+  font-style: italic;
+  color: var(--ms-accent);
+  letter-spacing: 0.05em;
+  font-variant-numeric: oldstyle-nums;
+  min-width: 7mm;
+}
+.resume-manuscript .ms-section-name {
+  font-size: 10.5pt;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ms-ink);
+}
+
+/* LEDE ---------------------------------------------------------------- */
+
+.resume-manuscript .ms-lede {
+  margin: 0;
+  font-size: 10.75pt;
+  line-height: 1.65;
+  color: var(--ms-fg);
+  text-wrap: pretty;
+  font-style: normal;
+}
+.resume-manuscript .ms-lede em {
+  font-style: italic;
+  color: var(--ms-ink);
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-manuscript .ms-entry {
+  margin-bottom: 4mm;
+}
+.resume-manuscript .ms-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-manuscript .ms-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1mm;
+}
+.resume-manuscript .ms-entry-title {
+  font-size: 10.75pt;
+  font-weight: 600;
+  color: var(--ms-ink);
+  letter-spacing: 0.01em;
+  margin: 0;
+  line-height: 1.35;
+}
+.resume-manuscript .ms-comma {
+  font-weight: 400;
+  color: var(--ms-muted);
+}
+.resume-manuscript .ms-entry-firm {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ms-fg);
+}
+.resume-manuscript .ms-entry-meta {
+  font-size: 9pt;
+  color: var(--ms-muted);
+  white-space: nowrap;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-manuscript .ms-entry-meta em {
+  font-style: italic;
+  color: var(--ms-fg);
+}
+
+.resume-manuscript .ms-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding-left: 7mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-manuscript .ms-bullets li {
+  position: relative;
+  font-size: 10pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--ms-fg);
+}
+.resume-manuscript .ms-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: -4mm;
+  top: -0.05em;
+  color: var(--ms-accent);
+  font-size: 13pt;
+  line-height: 1;
+}
+
+.resume-manuscript .ms-prose {
+  margin: 1mm 0 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ms-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-manuscript .ms-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.resume-manuscript .ms-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.25mm 0;
+  border-bottom: 0.5px dotted var(--ms-hair);
+  align-items: baseline;
+}
+.resume-manuscript .ms-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-manuscript .ms-skills dt {
+  font-size: 9pt;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--ms-accent);
+  font-weight: 400;
+}
+.resume-manuscript .ms-skills dd {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--ms-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-manuscript .ms-section,
+  .resume-manuscript .ms-entry,
+  .resume-manuscript [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-manuscript {
+  font-size: 9.5pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 14mm) 18mm var(--page-pad-bot, 14mm);
+}
+.density-tight .resume-manuscript .ms-head {
+  margin-bottom: 6.5mm;
+}
+.density-tight .resume-manuscript .ms-section {
+  margin-top: 5mm;
+}
+.density-tight .resume-manuscript .ms-section-head {
+  margin: 0 0 2.8mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-manuscript .ms-entry {
+  margin-bottom: 3mm;
+}
+.density-tight .resume-manuscript .ms-bullets {
+  gap: 0.9mm;
+  margin-top: 1mm;
+}
+.density-tight .resume-manuscript .ms-skill-row {
+  padding: 0.9mm 0;
+}
+
+.density-roomy .resume-manuscript {
+  font-size: 10.75pt;
+  line-height: 1.7;
+  padding: var(--page-pad-top, 22mm) 26mm var(--page-pad-bot, 22mm);
+}
+.density-roomy .resume-manuscript .ms-head {
+  margin-bottom: 11mm;
+}
+.density-roomy .resume-manuscript .ms-section {
+  margin-top: 9mm;
+}
+.density-roomy .resume-manuscript .ms-section-head {
+  margin: 0 0 5mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-manuscript .ms-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-manuscript .ms-bullets {
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.density-roomy .resume-manuscript .ms-skill-row {
+  padding: 1.8mm 0;
+}

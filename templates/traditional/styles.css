@@ -1,0 +1,317 @@
+/* traditional — practical two-column, sidebar LEFT.
+   Quiet sans (Inter / system). No chromatic accent. Balanced 32/68 split.
+   The "industry standard" two-column. Sober and effective.
+
+   Class prefix: .tr- for stable scoping. Root: .resume-traditional.
+
+   Page sizing owned by <PageFrame>. Padding lives on the OUTER root via
+   --page-pad-top / --page-pad-bot; columns are a grid INSIDE. Don't set
+   max-width: 210mm or margin: 0 auto on the root. */
+
+.resume-traditional {
+  --tr-ink: #111418;
+  --tr-fg: #1c2128;
+  --tr-muted: #5a6270;
+  --tr-faint: #8a91a0;
+  --tr-rule: #1c2128;
+  --tr-hair: #d8dbe1;
+  --tr-side-bg: #f5f6f8;
+
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: var(--page-pad-top, 15mm) 14mm var(--page-pad-bot, 15mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--tr-fg);
+  background: white;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-traditional .tr-head {
+  padding-bottom: 5mm;
+  margin-bottom: 6mm;
+  border-bottom: 1.5px solid var(--tr-rule);
+}
+.resume-traditional .tr-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--tr-ink);
+}
+.resume-traditional .tr-title {
+  margin-top: 2.5mm;
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--tr-muted);
+  letter-spacing: 0.005em;
+}
+
+/* BODY GRID ----------------------------------------------------------- */
+
+.resume-traditional .tr-body {
+  display: grid;
+  grid-template-columns: 33% 1fr;
+  column-gap: 8mm;
+  align-items: start;
+}
+
+/* SIDEBAR ------------------------------------------------------------- */
+
+.resume-traditional .tr-side {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  min-width: 0;
+}
+.resume-traditional .tr-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.resume-traditional .tr-side-h {
+  margin: 0 0 2mm;
+  padding-bottom: 1.5mm;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--tr-ink);
+  border-bottom: 1px solid var(--tr-rule);
+}
+.resume-traditional .tr-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  font-size: 9pt;
+  color: var(--tr-fg);
+}
+.resume-traditional .tr-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--tr-hair);
+}
+.resume-traditional .tr-contact a:hover {
+  border-bottom-color: var(--tr-ink);
+}
+
+.resume-traditional .tr-skill-group {
+  margin-bottom: 1.75mm;
+}
+.resume-traditional .tr-skill-group:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional .tr-skill-label {
+  font-size: 8.25pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tr-muted);
+  margin-bottom: 0.5mm;
+}
+.resume-traditional .tr-skill-body {
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--tr-fg);
+}
+
+.resume-traditional .tr-side-entry {
+  margin-bottom: 2mm;
+}
+.resume-traditional .tr-side-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-traditional .tr-side-title {
+  font-size: 9.75pt;
+  font-weight: 600;
+  color: var(--tr-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional .tr-side-sub {
+  font-size: 8.75pt;
+  color: var(--tr-muted);
+  margin-top: 0.5mm;
+}
+.resume-traditional .tr-side-meta {
+  font-size: 8.5pt;
+  color: var(--tr-muted);
+  margin-top: 0.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional .tr-side-prose {
+  margin: 1mm 0 0;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--tr-fg);
+  text-wrap: pretty;
+}
+
+/* MAIN ---------------------------------------------------------------- */
+
+.resume-traditional .tr-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+}
+.resume-traditional .tr-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
+.resume-traditional .tr-main-h {
+  margin: 0 0 1mm;
+  padding-bottom: 1.5mm;
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--tr-ink);
+  border-bottom: 1.5px solid var(--tr-rule);
+}
+.resume-traditional .tr-summary {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--tr-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-traditional .tr-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-traditional .tr-entry + .tr-entry {
+  margin-top: 4mm;
+}
+.resume-traditional .tr-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-traditional .tr-role {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--tr-ink);
+  letter-spacing: -0.005em;
+}
+.resume-traditional .tr-company {
+  font-size: 9.25pt;
+  color: var(--tr-muted);
+  margin-top: 0.5mm;
+}
+.resume-traditional .tr-dates {
+  font-size: 9pt;
+  color: var(--tr-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-traditional .tr-bullets {
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-traditional .tr-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--tr-fg);
+}
+.resume-traditional .tr-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--tr-ink);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-traditional .tr-section,
+  .resume-traditional .tr-side-section,
+  .resume-traditional .tr-entry,
+  .resume-traditional [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-traditional {
+  font-size: 9.25pt;
+  line-height: 1.42;
+  padding: var(--page-pad-top, 12mm) 12mm var(--page-pad-bot, 12mm);
+}
+.density-tight .resume-traditional .tr-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-traditional .tr-side {
+  gap: 4.5mm;
+}
+.density-tight .resume-traditional .tr-main {
+  gap: 3.5mm;
+}
+.density-tight .resume-traditional .tr-section {
+  gap: 1.8mm;
+}
+.density-tight .resume-traditional .tr-entry + .tr-entry {
+  margin-top: 2.8mm;
+}
+.density-tight .resume-traditional .tr-bullets {
+  gap: 0.85mm;
+}
+.density-tight .resume-traditional .tr-side-entry {
+  margin-bottom: 1.4mm;
+}
+
+.density-roomy .resume-traditional {
+  font-size: 10.5pt;
+  line-height: 1.6;
+  padding: var(--page-pad-top, 18mm) 16mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-traditional .tr-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-traditional .tr-side {
+  gap: 8.5mm;
+}
+.density-roomy .resume-traditional .tr-main {
+  gap: 7mm;
+}
+.density-roomy .resume-traditional .tr-section {
+  gap: 3.5mm;
+}
+.density-roomy .resume-traditional .tr-entry + .tr-entry {
+  margin-top: 5.5mm;
+}
+.density-roomy .resume-traditional .tr-bullets {
+  gap: 1.7mm;
+}
+.density-roomy .resume-traditional .tr-side-entry {
+  margin-bottom: 2.8mm;
+}

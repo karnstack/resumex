@@ -1,0 +1,314 @@
+/* swiss-airy — Swiss / International Style, deluxe edition.
+   Looser baseline grid: bigger margins (24mm), longer line-heights
+   (1.65–1.70), more whitespace between sections. Single accent in a
+   desaturated clay tone. Centered minor elements (eyebrow / contact /
+   footer) — body still left-aligned.
+
+   Class prefix: .swa- for stable scoping. Root: .resume-swiss-airy. */
+
+.resume-swiss-airy {
+  --swa-ink: #14171d;
+  --swa-fg: #1d2128;
+  --swa-muted: #6a6f7a;
+  --swa-faint: #b3b8c1;
+  --swa-rule: #14171d;
+  --swa-hair: #dcdfe4;
+  --swa-accent: #b8755a;
+  --swa-accent-soft: #f1e6df;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 24mm) 24mm var(--page-pad-bot, 22mm);
+  font-size: 10pt;
+  line-height: 1.68;
+  color: var(--swa-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-swiss-airy .swa-head {
+  text-align: center;
+  padding-bottom: 12mm;
+  border-bottom: 1px solid var(--swa-hair);
+  margin-bottom: 12mm;
+}
+
+.resume-swiss-airy .swa-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--swa-muted);
+  margin-bottom: 8mm;
+}
+.resume-swiss-airy .swa-mark {
+  width: 16px;
+  height: 4px;
+  background: var(--swa-accent);
+  display: inline-block;
+}
+.resume-swiss-airy .swa-eyebrow-spacer {
+  width: 14px;
+  height: 1px;
+  background: var(--swa-hair);
+  display: inline-block;
+}
+
+.resume-swiss-airy .swa-name {
+  font-size: 36pt;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin: 0 0 4mm;
+  color: var(--swa-ink);
+}
+.resume-swiss-airy .swa-title {
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--swa-fg);
+  margin: 0 0 8mm;
+}
+
+.resume-swiss-airy .swa-contact {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 9pt;
+  color: var(--swa-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss-airy .swa-contact a {
+  color: inherit;
+  text-decoration: none;
+}
+.resume-swiss-airy .swa-contact a:hover {
+  color: var(--swa-accent);
+}
+.resume-swiss-airy .swa-pipe {
+  color: var(--swa-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-swiss-airy .swa-section {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 12mm;
+  padding: 8mm 0 10mm;
+}
+.resume-swiss-airy .swa-section + .swa-section {
+  border-top: 1px solid var(--swa-hair);
+}
+
+.resume-swiss-airy .swa-section-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--swa-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+  padding-top: 1pt;
+}
+.resume-swiss-airy .swa-num {
+  font-size: 9pt;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--swa-accent);
+  text-transform: lowercase;
+}
+
+.resume-swiss-airy .swa-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--swa-fg);
+  text-wrap: pretty;
+  max-width: 145mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-swiss-airy .swa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7mm;
+}
+.resume-swiss-airy .swa-entry-meta {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--swa-accent);
+  margin-bottom: 1.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss-airy .swa-entry-title {
+  font-size: 11.5pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--swa-ink);
+  line-height: 1.25;
+}
+.resume-swiss-airy .swa-entry-loc {
+  margin: 1pt 0 3mm;
+  font-size: 9.25pt;
+  color: var(--swa-muted);
+  font-style: italic;
+}
+
+.resume-swiss-airy .swa-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.resume-swiss-airy .swa-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 10pt;
+  line-height: 1.7;
+  text-wrap: pretty;
+  color: var(--swa-fg);
+}
+.resume-swiss-airy .swa-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 8px;
+  height: 1px;
+  background: var(--swa-accent);
+}
+
+.resume-swiss-airy .swa-prose {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: var(--swa-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-swiss-airy .swa-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-swiss-airy .swa-skill-row {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 8mm;
+  padding: 2.5mm 0;
+  border-bottom: 1px solid var(--swa-hair);
+  align-items: baseline;
+}
+.resume-swiss-airy .swa-skill-row:first-child {
+  border-top: 1px solid var(--swa-hair);
+}
+.resume-swiss-airy .swa-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--swa-muted);
+}
+.resume-swiss-airy .swa-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--swa-fg);
+}
+
+/* FOOT ---------------------------------------------------------------- */
+
+.resume-swiss-airy .swa-foot {
+  margin-top: 10mm;
+  padding-top: 6mm;
+  border-top: 1px solid var(--swa-hair);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--swa-muted);
+}
+.resume-swiss-airy .swa-foot-rule {
+  width: 14px;
+  height: 1px;
+  background: var(--swa-faint);
+  display: inline-block;
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-swiss-airy .swa-section,
+  .resume-swiss-airy .swa-entry,
+  .resume-swiss-airy [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-swiss-airy {
+  font-size: 9.25pt;
+  line-height: 1.55;
+}
+.density-tight .resume-swiss-airy .swa-section {
+  padding: 6mm 0 7mm;
+}
+.density-tight .resume-swiss-airy .swa-list {
+  gap: 5mm;
+}
+.density-tight .resume-swiss-airy .swa-bullets {
+  gap: 1.4mm;
+}
+.density-tight .resume-swiss-airy .swa-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.55;
+}
+.density-tight .resume-swiss-airy .swa-head {
+  padding-bottom: 9mm;
+  margin-bottom: 9mm;
+}
+
+.density-roomy .resume-swiss-airy {
+  font-size: 10.5pt;
+  line-height: 1.78;
+}
+.density-roomy .resume-swiss-airy .swa-section {
+  padding: 10mm 0 13mm;
+}
+.density-roomy .resume-swiss-airy .swa-list {
+  gap: 9mm;
+}
+.density-roomy .resume-swiss-airy .swa-bullets {
+  gap: 2.8mm;
+}
+.density-roomy .resume-swiss-airy .swa-bullets li {
+  font-size: 10.5pt;
+  line-height: 1.8;
+}
+.density-roomy .resume-swiss-airy .swa-head {
+  padding-bottom: 16mm;
+  margin-bottom: 16mm;
+}

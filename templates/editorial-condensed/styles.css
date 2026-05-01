@@ -1,0 +1,324 @@
+/* editorial-condensed — Condensed display serif headlines.
+   Tight line spacing. Body in a slightly smaller transitional serif.
+   Tall, narrow type rhythm; high-contrast Bodoni / Didot feel via fallbacks.
+
+   Class prefix: .ec-. Root: .resume-editorial-condensed. */
+
+.resume-editorial-condensed {
+  --ec-ink: #0e0e10;
+  --ec-fg: #181a1d;
+  --ec-muted: #5b5e64;
+  --ec-faint: #8c8f95;
+  --ec-rule: #14161a;
+  --ec-hair: #d4d2cc;
+
+  --ec-display: 'Bodoni 72', 'Didot', 'Playfair Display', 'Iowan Old Style', Georgia, serif;
+  --ec-body: 'Iowan Old Style', 'Palatino', 'Charter', Georgia, serif;
+
+  font-family: var(--ec-body);
+  padding: var(--page-pad-top, 16mm) 17mm var(--page-pad-bot, 16mm);
+  font-size: 9.75pt;
+  line-height: 1.45;
+  color: var(--ec-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-editorial-condensed .ec-head {
+  margin-bottom: 7mm;
+}
+.resume-editorial-condensed .ec-head-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ec-display);
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--ec-muted);
+  letter-spacing: 0.02em;
+  padding-bottom: 2mm;
+  border-bottom: 0.5px solid var(--ec-rule);
+  margin-bottom: 4mm;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-editorial-condensed .ec-name {
+  font-family: var(--ec-display);
+  font-size: 46pt;
+  font-weight: 700;
+  font-stretch: condensed;
+  letter-spacing: -0.005em;
+  line-height: 0.9;
+  margin: 0 0 3mm;
+  color: var(--ec-ink);
+  text-align: center;
+}
+.resume-editorial-condensed .ec-head-meta {
+  font-family: var(--ec-body);
+  font-size: 9pt;
+  color: var(--ec-muted);
+  text-align: center;
+  letter-spacing: 0.01em;
+  padding-top: 2mm;
+  border-top: 0.5px solid var(--ec-rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 6pt;
+  align-items: baseline;
+  line-height: 1.55;
+}
+.resume-editorial-condensed .ec-head-meta em {
+  font-family: var(--ec-display);
+  font-style: italic;
+  color: var(--ec-ink);
+  font-size: 9.75pt;
+  font-weight: 500;
+}
+.resume-editorial-condensed .ec-head-meta a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ec-hair);
+}
+.resume-editorial-condensed .ec-bullet {
+  color: var(--ec-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-editorial-condensed .ec-section {
+  margin-top: 6mm;
+}
+.resume-editorial-condensed .ec-section:first-of-type {
+  margin-top: 0;
+}
+
+.resume-editorial-condensed .ec-section-label {
+  font-family: var(--ec-display);
+  font-size: 13pt;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--ec-ink);
+  letter-spacing: -0.005em;
+  margin: 0 0 3mm;
+  padding-bottom: 1mm;
+  border-bottom: 1px solid var(--ec-rule);
+  line-height: 1.1;
+}
+.resume-editorial-condensed .ec-section-label-inline {
+  margin-top: 4mm;
+}
+
+/* SUMMARY / DROP-CAP -------------------------------------------------- */
+
+.resume-editorial-condensed .ec-lede {
+  font-family: var(--ec-body);
+  font-size: 11pt;
+  line-height: 1.45;
+  color: var(--ec-fg);
+  margin: 0;
+  text-wrap: pretty;
+}
+.resume-editorial-condensed .ec-lede em {
+  font-style: italic;
+  color: var(--ec-ink);
+}
+.resume-editorial-condensed .ec-dropcap {
+  font-family: var(--ec-display);
+  font-weight: 700;
+  font-size: 40pt;
+  line-height: 0.85;
+  float: left;
+  padding: 2pt 7pt 0 0;
+  margin-top: 1pt;
+  color: var(--ec-ink);
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-editorial-condensed .ec-entry {
+  margin-bottom: 4mm;
+}
+.resume-editorial-condensed .ec-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-editorial-condensed .ec-entry-tight {
+  margin-bottom: 3mm;
+}
+.resume-editorial-condensed .ec-role {
+  font-family: var(--ec-display);
+  font-size: 14pt;
+  font-weight: 700;
+  font-stretch: condensed;
+  letter-spacing: -0.005em;
+  color: var(--ec-ink);
+  margin: 0;
+  line-height: 1.1;
+}
+.resume-editorial-condensed .ec-role-sm {
+  font-family: var(--ec-display);
+  font-size: 12pt;
+  font-weight: 700;
+  font-stretch: condensed;
+  letter-spacing: -0.005em;
+  color: var(--ec-ink);
+  margin: 0;
+  line-height: 1.15;
+}
+.resume-editorial-condensed .ec-meta {
+  font-family: var(--ec-body);
+  font-size: 9pt;
+  color: var(--ec-muted);
+  margin: 1pt 0 2mm;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.4em;
+  align-items: baseline;
+  line-height: 1.4;
+}
+.resume-editorial-condensed .ec-meta em {
+  font-family: var(--ec-display);
+  font-style: italic;
+  color: var(--ec-fg);
+  font-size: 9.75pt;
+  font-weight: 500;
+}
+.resume-editorial-condensed .ec-meta-sep {
+  color: var(--ec-faint);
+}
+
+.resume-editorial-condensed .ec-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75mm;
+}
+.resume-editorial-condensed .ec-bullets li {
+  position: relative;
+  padding-left: 11px;
+  font-size: 9.5pt;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: var(--ec-fg);
+}
+.resume-editorial-condensed .ec-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 4px;
+  height: 1px;
+  background: var(--ec-ink);
+}
+
+.resume-editorial-condensed .ec-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--ec-fg);
+  text-wrap: pretty;
+}
+
+/* TWO-COLUMN BLOCK ---------------------------------------------------- */
+
+.resume-editorial-condensed .ec-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 9mm;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-editorial-condensed .ec-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-editorial-condensed .ec-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 3mm;
+  padding: 0.75mm 0;
+  border-bottom: 0.5px dotted var(--ec-hair);
+  align-items: baseline;
+}
+.resume-editorial-condensed .ec-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-editorial-condensed .ec-skills dt {
+  font-family: var(--ec-display);
+  font-style: italic;
+  font-size: 9pt;
+  color: var(--ec-muted);
+  font-weight: 400;
+}
+.resume-editorial-condensed .ec-skills dd {
+  margin: 0;
+  font-size: 9.25pt;
+  color: var(--ec-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-editorial-condensed .ec-section,
+  .resume-editorial-condensed .ec-entry,
+  .resume-editorial-condensed [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-editorial-condensed {
+  font-size: 9pt;
+  line-height: 1.38;
+}
+.density-tight .resume-editorial-condensed .ec-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-editorial-condensed .ec-section-label {
+  margin-bottom: 2mm;
+}
+.density-tight .resume-editorial-condensed .ec-entry {
+  margin-bottom: 3mm;
+}
+.density-tight .resume-editorial-condensed .ec-bullets {
+  gap: 0.5mm;
+}
+.density-tight .resume-editorial-condensed .ec-bullets li {
+  font-size: 9pt;
+  line-height: 1.38;
+}
+.density-tight .resume-editorial-condensed .ec-head {
+  margin-bottom: 5.5mm;
+}
+
+.density-roomy .resume-editorial-condensed {
+  font-size: 10.25pt;
+  line-height: 1.55;
+}
+.density-roomy .resume-editorial-condensed .ec-section {
+  margin-top: 9mm;
+}
+.density-roomy .resume-editorial-condensed .ec-section-label {
+  margin-bottom: 5mm;
+}
+.density-roomy .resume-editorial-condensed .ec-entry {
+  margin-bottom: 6mm;
+}
+.density-roomy .resume-editorial-condensed .ec-bullets {
+  gap: 1.6mm;
+}
+.density-roomy .resume-editorial-condensed .ec-bullets li {
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.density-roomy .resume-editorial-condensed .ec-head {
+  margin-bottom: 10mm;
+}

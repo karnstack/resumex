@@ -1,0 +1,359 @@
+/* indexcard-classified — Dewey-style classifier numbers per section.
+   Catalog-card energy. Each section has a left "call number" column with
+   a Dewey class number and a short subject label.
+   Class prefix: .icc- for stable scoping. */
+
+.resume-indexcard-classified {
+  --icc-ink: #16140f;
+  --icc-fg: #2a2620;
+  --icc-muted: #6b6557;
+  --icc-faint: #aea797;
+  --icc-rule: #1f1d18;
+  --icc-hair: #d8d2c2;
+  --icc-paper: #fcf9ef;
+  --icc-class: #2a4a8a;
+  --icc-class-soft: #e3eaf6;
+  --icc-line: rgba(60, 50, 30, 0.05);
+
+  font-family: var(
+    --font-sans,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif
+  );
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--icc-fg);
+  background-color: var(--icc-paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 5.4mm,
+    var(--icc-line) 5.4mm,
+    var(--icc-line) calc(5.4mm + 0.5px)
+  );
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'liga';
+}
+
+.resume-indexcard-classified a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--icc-faint);
+}
+
+/* HEADER -------------------------------------------------------------- */
+
+.resume-indexcard-classified .icc-head {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  gap: 8mm;
+  align-items: end;
+  padding-bottom: 5mm;
+  border-bottom: 1.5px solid var(--icc-rule);
+  margin-bottom: 6mm;
+}
+.resume-indexcard-classified .icc-call-number {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  border: 1.5px solid var(--icc-class);
+  background: var(--icc-class-soft);
+  padding: 3mm 4mm;
+  text-align: center;
+  border-radius: 0.8mm;
+  color: var(--icc-class);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-indexcard-classified .icc-call-class {
+  font-size: 14pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+.resume-indexcard-classified .icc-call-cutter {
+  font-size: 10pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+}
+.resume-indexcard-classified .icc-call-year {
+  font-size: 9pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  border-top: 1px solid var(--icc-class);
+  padding-top: 1mm;
+  margin-top: 0.5mm;
+}
+
+.resume-indexcard-classified .icc-eyebrow {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7.5pt;
+  letter-spacing: 0.22em;
+  color: var(--icc-muted);
+  text-transform: uppercase;
+  margin-bottom: 3mm;
+}
+.resume-indexcard-classified .icc-name {
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  color: var(--icc-ink);
+  margin: 0 0 2mm;
+}
+.resume-indexcard-classified .icc-title {
+  font-size: 10pt;
+  color: var(--icc-fg);
+  font-weight: 500;
+  margin: 0 0 3mm;
+}
+.resume-indexcard-classified .icc-contact {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8pt;
+  color: var(--icc-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.resume-indexcard-classified .icc-contact .icc-sep {
+  color: var(--icc-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-indexcard-classified .icc-section {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 8mm;
+  padding: 4mm 0 1mm;
+  border-top: 1px solid var(--icc-hair);
+}
+.resume-indexcard-classified .icc-section:first-of-type {
+  border-top: none;
+  padding-top: 1mm;
+}
+
+.resume-indexcard-classified .icc-class-col {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  padding-top: 1pt;
+  font-variant-numeric: tabular-nums;
+}
+.resume-indexcard-classified .icc-class-num {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--icc-class);
+  line-height: 1;
+}
+.resume-indexcard-classified .icc-class-label {
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--icc-muted);
+}
+
+.resume-indexcard-classified .icc-body {
+  min-width: 0;
+}
+.resume-indexcard-classified .icc-section h2 {
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--icc-ink);
+  margin: 0 0 3mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid var(--icc-hair);
+}
+.resume-indexcard-classified .icc-lede {
+  margin: 0;
+  font-size: 10.25pt;
+  line-height: 1.6;
+  color: var(--icc-fg);
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-indexcard-classified .icc-entry + .icc-entry {
+  margin-top: 4mm;
+  padding-top: 3mm;
+  border-top: 1px dashed var(--icc-hair);
+}
+.resume-indexcard-classified .icc-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-indexcard-classified .icc-role {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--icc-ink);
+}
+.resume-indexcard-classified .icc-org {
+  color: var(--icc-fg);
+  font-weight: 500;
+}
+.resume-indexcard-classified .icc-date {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: var(--icc-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.resume-indexcard-classified .icc-meta {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 8pt;
+  color: var(--icc-muted);
+  letter-spacing: 0.06em;
+  margin: 0.5mm 0 1.5mm;
+}
+
+.resume-indexcard-classified .icc-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+}
+.resume-indexcard-classified .icc-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--icc-fg);
+}
+.resume-indexcard-classified .icc-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--icc-class);
+}
+
+.resume-indexcard-classified .icc-prose {
+  margin: 1.5mm 0 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--icc-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-indexcard-classified .icc-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+.resume-indexcard-classified .icc-skill-row {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  border-bottom: 1px dotted var(--icc-hair);
+  align-items: baseline;
+}
+.resume-indexcard-classified .icc-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-indexcard-classified .icc-skills dt {
+  font-family: var(--font-mono, ui-monospace, 'JetBrains Mono', Menlo, monospace);
+  font-size: 7.75pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--icc-muted);
+}
+.resume-indexcard-classified .icc-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--icc-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-indexcard-classified .icc-section,
+  .resume-indexcard-classified .icc-entry,
+  .resume-indexcard-classified [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-indexcard-classified {
+  font-size: 9.25pt;
+  line-height: 1.45;
+  padding: var(--page-pad-top, 11mm) 13mm var(--page-pad-bot, 11mm);
+}
+.density-tight .resume-indexcard-classified .icc-head {
+  padding-bottom: 3.5mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-indexcard-classified .icc-section {
+  padding: 3mm 0 0.7mm;
+}
+.density-tight .resume-indexcard-classified .icc-section h2 {
+  margin: 0 0 2.2mm;
+  padding-bottom: 1mm;
+}
+.density-tight .resume-indexcard-classified .icc-entry + .icc-entry {
+  margin-top: 3mm;
+  padding-top: 2.2mm;
+}
+.density-tight .resume-indexcard-classified .icc-bullets {
+  gap: 0.9mm;
+  margin-top: 1mm;
+}
+.density-tight .resume-indexcard-classified .icc-skill-row {
+  padding: 1mm 0;
+}
+
+.density-roomy .resume-indexcard-classified {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  padding: var(--page-pad-top, 18mm) 19mm var(--page-pad-bot, 18mm);
+}
+.density-roomy .resume-indexcard-classified .icc-head {
+  padding-bottom: 7mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-indexcard-classified .icc-section {
+  padding: 5.5mm 0 1.5mm;
+}
+.density-roomy .resume-indexcard-classified .icc-section h2 {
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+}
+.density-roomy .resume-indexcard-classified .icc-entry + .icc-entry {
+  margin-top: 5.5mm;
+  padding-top: 4mm;
+}
+.density-roomy .resume-indexcard-classified .icc-bullets {
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.density-roomy .resume-indexcard-classified .icc-skill-row {
+  padding: 2mm 0;
+}

@@ -1,0 +1,268 @@
+/* display-cobalt — cobalt name on cream paper.
+   The "color" variant of the display DNA. Bold cobalt 900-weight headline,
+   thin (300) body in dark cool gray on a warm cream paper. The chromatic
+   contrast is the signature.
+   Class prefix .dpc- for stable scoping. Root: .resume-display-cobalt. */
+
+.resume-display-cobalt {
+  --dpc-cobalt: #1d4ed8;
+  --dpc-cobalt-deep: #1e40af;
+  --dpc-ink: #161a26;
+  --dpc-fg: #2a3041;
+  --dpc-muted: #5d6478;
+  --dpc-faint: #a4adbe;
+  --dpc-rule: #1e40af;
+  --dpc-hair: #d8dde7;
+  --dpc-paper: #f5f1e8;
+
+  font-family: 'Untitled Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 18mm);
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--dpc-fg);
+  background: var(--dpc-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-display-cobalt .dpc-head {
+  padding-bottom: 8mm;
+  border-bottom: 2.5px solid var(--dpc-rule);
+  margin-bottom: 9mm;
+}
+.resume-display-cobalt .dpc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dpc-cobalt);
+  margin-bottom: 5mm;
+}
+.resume-display-cobalt .dpc-eyebrow-block {
+  width: 14px;
+  height: 4px;
+  background: var(--dpc-cobalt);
+  display: inline-block;
+}
+.resume-display-cobalt .dpc-name {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 58pt;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  margin: 0 0 4mm;
+  color: var(--dpc-cobalt);
+  text-wrap: balance;
+}
+.resume-display-cobalt .dpc-tag {
+  font-size: 12pt;
+  font-weight: 300;
+  color: var(--dpc-fg);
+  margin: 0 0 6mm;
+  max-width: 145mm;
+  line-height: 1.4;
+}
+.resume-display-cobalt .dpc-contact {
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: var(--dpc-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  letter-spacing: 0.02em;
+}
+.resume-display-cobalt .dpc-contact a {
+  color: var(--dpc-cobalt-deep);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklch, var(--dpc-cobalt) 35%, transparent);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-display-cobalt .dpc-section + .dpc-section {
+  margin-top: 8mm;
+}
+.resume-display-cobalt .dpc-h2 {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 9pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--dpc-cobalt);
+  margin: 0 0 5mm;
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--dpc-cobalt);
+}
+
+/* LEDE ---------------------------------------------------------------- */
+
+.resume-display-cobalt .dpc-lede {
+  margin: 0;
+  font-size: 11.5pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpc-fg);
+  max-width: 150mm;
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-display-cobalt .dpc-entry + .dpc-entry {
+  margin-top: 5mm;
+  padding-top: 5mm;
+  border-top: 1px solid var(--dpc-hair);
+}
+.resume-display-cobalt .dpc-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-display-cobalt .dpc-role {
+  font-size: 12pt;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--dpc-ink);
+  line-height: 1.2;
+}
+.resume-display-cobalt .dpc-dates {
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--dpc-cobalt);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-display-cobalt .dpc-org {
+  font-size: 9.5pt;
+  font-weight: 300;
+  color: var(--dpc-fg);
+  margin: 1.5pt 0 2.5mm;
+}
+
+.resume-display-cobalt .dpc-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-display-cobalt .dpc-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpc-fg);
+  text-wrap: pretty;
+}
+.resume-display-cobalt .dpc-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--dpc-cobalt);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-display-cobalt .dpc-skills {
+  margin: 0;
+}
+.resume-display-cobalt .dpc-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 6mm;
+  padding: 2mm 0;
+  border-bottom: 1px solid var(--dpc-hair);
+  align-items: baseline;
+}
+.resume-display-cobalt .dpc-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-display-cobalt .dpc-skills dt {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dpc-cobalt);
+}
+.resume-display-cobalt .dpc-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  font-weight: 300;
+  color: var(--dpc-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-display-cobalt .dpc-section,
+  .resume-display-cobalt .dpc-entry,
+  .resume-display-cobalt [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 9.75pt / 1.6 body, dpc-entry top margin 5mm, section margin 8mm. */
+
+.density-tight .resume-display-cobalt {
+  font-size: 9pt;
+  line-height: 1.5;
+}
+.density-tight .resume-display-cobalt .dpc-head {
+  padding-bottom: 6mm;
+  margin-bottom: 6.5mm;
+}
+.density-tight .resume-display-cobalt .dpc-section + .dpc-section {
+  margin-top: 6mm;
+}
+.density-tight .resume-display-cobalt .dpc-h2 {
+  margin: 0 0 3.5mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-display-cobalt .dpc-entry + .dpc-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .resume-display-cobalt .dpc-bullets {
+  gap: 1.1mm;
+}
+
+.density-roomy .resume-display-cobalt {
+  font-size: 10.25pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-display-cobalt .dpc-head {
+  padding-bottom: 10mm;
+  margin-bottom: 12mm;
+}
+.density-roomy .resume-display-cobalt .dpc-section + .dpc-section {
+  margin-top: 11mm;
+}
+.density-roomy .resume-display-cobalt .dpc-h2 {
+  margin: 0 0 7mm;
+  padding-bottom: 3mm;
+}
+.density-roomy .resume-display-cobalt .dpc-entry + .dpc-entry {
+  margin-top: 7mm;
+  padding-top: 7mm;
+}
+.density-roomy .resume-display-cobalt .dpc-bullets {
+  gap: 2.1mm;
+}

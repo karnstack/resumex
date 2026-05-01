@@ -1,0 +1,337 @@
+/* magazine-kicker — Magazine variant with a large mono-caps tracked-out
+   kicker line crowning the name. Name slightly smaller than `magazine`
+   but still dominant. Strong section labels with section symbol.
+
+   Class prefix: .mgk-. Root: .resume-magazine-kicker. */
+
+.resume-magazine-kicker {
+  --mgk-ink: #0e0f12;
+  --mgk-fg: #1a1c21;
+  --mgk-muted: #5e6470;
+  --mgk-faint: #a1a5ad;
+  --mgk-rule: #14161a;
+  --mgk-hair: #d4d5d9;
+  --mgk-paper: #ffffff;
+
+  font-family: 'Source Serif 4', 'Source Serif Pro', 'Iowan Old Style', Georgia, serif;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--mgk-fg);
+  background: var(--mgk-paper);
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-magazine-kicker .mgk-head {
+  text-align: center;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px solid var(--mgk-rule);
+  margin-bottom: 7mm;
+}
+.resume-magazine-kicker .mgk-kicker-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5mm;
+}
+.resume-magazine-kicker .mgk-kicker-line {
+  height: 1.5px;
+  background: var(--mgk-ink);
+}
+.resume-magazine-kicker .mgk-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--mgk-ink);
+  white-space: nowrap;
+}
+.resume-magazine-kicker .mgk-name {
+  font-family: 'Playfair Display', 'Didot', 'Bodoni 72', Georgia, serif;
+  font-size: 36pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin: 0 0 3mm;
+  color: var(--mgk-ink);
+}
+.resume-magazine-kicker .mgk-deck {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 12pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--mgk-fg);
+  margin: 0 auto 5mm;
+  max-width: 145mm;
+  line-height: 1.4;
+}
+.resume-magazine-kicker .mgk-meta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2mm;
+}
+.resume-magazine-kicker .mgk-role {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.25pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--mgk-ink);
+}
+.resume-magazine-kicker .mgk-contact {
+  font-size: 9pt;
+  color: var(--mgk-fg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.resume-magazine-kicker .mgk-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--mgk-hair);
+}
+.resume-magazine-kicker .mgk-dot {
+  color: var(--mgk-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-magazine-kicker .mgk-summary {
+  text-align: center;
+  margin-bottom: 6mm;
+  padding-bottom: 6mm;
+  border-bottom: 1px solid var(--mgk-hair);
+}
+.resume-magazine-kicker .mgk-summary .mgk-section-label {
+  justify-content: center;
+}
+.resume-magazine-kicker .mgk-lede {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 13pt;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--mgk-ink);
+  margin: 0 auto;
+  max-width: 150mm;
+  text-wrap: pretty;
+}
+
+.resume-magazine-kicker .mgk-section {
+  margin-top: 6mm;
+}
+.resume-magazine-kicker .mgk-section-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--mgk-ink);
+  padding-bottom: 2mm;
+  margin-bottom: 4mm;
+  border-bottom: 1.5px solid var(--mgk-rule);
+}
+.resume-magazine-kicker .mgk-section-num {
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--mgk-muted);
+}
+.resume-magazine-kicker .mgk-section-label-inline {
+  margin-top: 5mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-magazine-kicker .mgk-entry {
+  margin-bottom: 4.5mm;
+}
+.resume-magazine-kicker .mgk-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-magazine-kicker .mgk-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.5mm;
+}
+.resume-magazine-kicker .mgk-entry-head h3,
+.resume-magazine-kicker .mgk-entry h3 {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 12pt;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--mgk-ink);
+}
+.resume-magazine-kicker .mgk-entry-date {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--mgk-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-magazine-kicker .mgk-entry-sub {
+  font-size: 9.5pt;
+  color: var(--mgk-fg);
+  margin: 1pt 0 1.25mm;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-magazine-kicker .mgk-entry-sub em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mgk-ink);
+}
+
+.resume-magazine-kicker .mgk-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-magazine-kicker .mgk-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--mgk-fg);
+  text-wrap: pretty;
+}
+.resume-magazine-kicker .mgk-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--mgk-muted);
+  font-weight: 700;
+}
+
+.resume-magazine-kicker .mgk-prose {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--mgk-fg);
+  text-wrap: pretty;
+}
+
+/* TWO-COL ------------------------------------------------------------- */
+
+.resume-magazine-kicker .mgk-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-magazine-kicker .mgk-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-magazine-kicker .mgk-skills > div {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 4mm;
+  padding: 1.25mm 0;
+  border-bottom: 1px dotted var(--mgk-hair);
+  align-items: baseline;
+}
+.resume-magazine-kicker .mgk-skills > div:last-child {
+  border-bottom: none;
+}
+.resume-magazine-kicker .mgk-skills dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mgk-muted);
+  margin: 0;
+}
+.resume-magazine-kicker .mgk-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--mgk-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-magazine-kicker .mgk-section,
+  .resume-magazine-kicker .mgk-summary,
+  .resume-magazine-kicker .mgk-entry,
+  .resume-magazine-kicker [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10pt / 1.55 body, mgk-entry margin 4.5mm, section margin-top 6mm,
+   summary padding-bottom 6mm + margin-bottom 6mm. */
+
+.density-tight .resume-magazine-kicker {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-magazine-kicker .mgk-head {
+  padding-bottom: 4.5mm;
+  margin-bottom: 5mm;
+}
+.density-tight .resume-magazine-kicker .mgk-summary {
+  margin-bottom: 4.5mm;
+  padding-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-kicker .mgk-section {
+  margin-top: 4.5mm;
+}
+.density-tight .resume-magazine-kicker .mgk-section-label {
+  margin-bottom: 3mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-magazine-kicker .mgk-entry {
+  margin-bottom: 3.2mm;
+}
+.density-tight .resume-magazine-kicker .mgk-bullets {
+  gap: 0.9mm;
+}
+
+.density-roomy .resume-magazine-kicker {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-magazine-kicker .mgk-head {
+  padding-bottom: 7.5mm;
+  margin-bottom: 9mm;
+}
+.density-roomy .resume-magazine-kicker .mgk-summary {
+  margin-bottom: 8mm;
+  padding-bottom: 8mm;
+}
+.density-roomy .resume-magazine-kicker .mgk-section {
+  margin-top: 8mm;
+}
+.density-roomy .resume-magazine-kicker .mgk-section-label {
+  margin-bottom: 5.5mm;
+  padding-bottom: 2.5mm;
+}
+.density-roomy .resume-magazine-kicker .mgk-entry {
+  margin-bottom: 6mm;
+}
+.density-roomy .resume-magazine-kicker .mgk-bullets {
+  gap: 1.75mm;
+}

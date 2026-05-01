@@ -1,0 +1,331 @@
+/* display-noir — noir variant of the display DNA.
+   Cream paper. Black ink. Heavier than the base — more ink, more rules,
+   and a black header bar. Roman-numeral section indices. The 900-vs-300
+   contrast is preserved but pushed toward editorial / dossier weight.
+   Class prefix .dpn- for stable scoping. Root: .resume-display-noir. */
+
+.resume-display-noir {
+  --dpn-ink: #0a0a0a;
+  --dpn-fg: #1a1a1a;
+  --dpn-muted: #5e5e5e;
+  --dpn-faint: #a8a8a8;
+  --dpn-rule: #0a0a0a;
+  --dpn-hair: #c8c4b8;
+  --dpn-paper: #f3eedc;
+  --dpn-paper-deep: #ece6d0;
+
+  font-family: 'Untitled Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: var(--page-pad-top, 0mm) 0mm var(--page-pad-bot, 14mm);
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpn-fg);
+  background: var(--dpn-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* BLACK BAR ----------------------------------------------------------- */
+
+.resume-display-noir .dpn-blackbar {
+  background: var(--dpn-ink);
+  color: var(--dpn-paper);
+  padding: 4mm 18mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+.resume-display-noir .dpn-bar-id {
+  color: var(--dpn-paper-deep);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+.resume-display-noir .dpn-bar-date {
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--dpn-paper-deep);
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-display-noir .dpn-head {
+  padding: 12mm 18mm 8mm;
+  border-bottom: 3px solid var(--dpn-rule);
+  margin-bottom: 8mm;
+}
+.resume-display-noir .dpn-name {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 60pt;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin: 0 0 5mm;
+  color: var(--dpn-ink);
+}
+.resume-display-noir .dpn-role-strip {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 2mm 0;
+  border-top: 1px solid var(--dpn-rule);
+  border-bottom: 1px solid var(--dpn-rule);
+  margin-bottom: 5mm;
+}
+.resume-display-noir .dpn-role-label {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--dpn-ink);
+  min-width: 12mm;
+}
+.resume-display-noir .dpn-role-val {
+  font-size: 10pt;
+  font-weight: 400;
+  color: var(--dpn-fg);
+}
+.resume-display-noir .dpn-tag {
+  font-size: 11.5pt;
+  font-weight: 300;
+  color: var(--dpn-fg);
+  margin: 0 0 5mm;
+  max-width: 145mm;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.resume-display-noir .dpn-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8mm;
+  row-gap: 1.2pt;
+  font-size: 8.75pt;
+  color: var(--dpn-muted);
+  font-variant-numeric: tabular-nums;
+}
+.resume-display-noir .dpn-c-row {
+  display: grid;
+  grid-template-columns: 8pt 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+}
+.resume-display-noir .dpn-c-key {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: var(--dpn-ink);
+}
+.resume-display-noir .dpn-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--dpn-hair);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-display-noir .dpn-section {
+  padding: 0 18mm;
+}
+.resume-display-noir .dpn-section + .dpn-section {
+  margin-top: 7mm;
+}
+.resume-display-noir .dpn-h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 10pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dpn-ink);
+  margin: 0 0 5mm;
+  padding-bottom: 2mm;
+  border-bottom: 2px solid var(--dpn-rule);
+}
+.resume-display-noir .dpn-h2-num {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--dpn-muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 9mm;
+}
+
+/* LEDE ---------------------------------------------------------------- */
+
+.resume-display-noir .dpn-lede {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpn-fg);
+  max-width: 150mm;
+  text-wrap: pretty;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-display-noir .dpn-entry + .dpn-entry {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--dpn-hair);
+}
+.resume-display-noir .dpn-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-display-noir .dpn-role {
+  font-size: 12.5pt;
+  font-weight: 900;
+  letter-spacing: -0.012em;
+  color: var(--dpn-ink);
+  line-height: 1.18;
+}
+.resume-display-noir .dpn-dates {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--dpn-ink);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-display-noir .dpn-org {
+  font-size: 9.5pt;
+  font-weight: 400;
+  color: var(--dpn-fg);
+  margin: 1.5pt 0 2.5mm;
+}
+
+.resume-display-noir .dpn-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-display-noir .dpn-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dpn-fg);
+  text-wrap: pretty;
+}
+.resume-display-noir .dpn-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 2.5px;
+  background: var(--dpn-ink);
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-display-noir .dpn-skills {
+  margin: 5mm 0 0;
+  padding-top: 4mm;
+  border-top: 1px solid var(--dpn-hair);
+}
+.resume-display-noir .dpn-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 6mm;
+  padding: 1.6mm 0;
+  border-bottom: 1px dotted var(--dpn-hair);
+  align-items: baseline;
+}
+.resume-display-noir .dpn-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-display-noir .dpn-skills dt {
+  font-family: 'Druk', 'Untitled Sans', 'Inter', sans-serif;
+  font-size: 8pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--dpn-ink);
+}
+.resume-display-noir .dpn-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  font-weight: 300;
+  color: var(--dpn-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-display-noir .dpn-section,
+  .resume-display-noir .dpn-entry,
+  .resume-display-noir [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 9.75pt / 1.55 body, dpn-entry margin 4mm, section margin 7mm.
+   Note: head and sections own their own padding (regions edge-to-edge). */
+
+.density-tight .resume-display-noir {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+.density-tight .resume-display-noir .dpn-head {
+  padding: 9mm 18mm 6mm;
+  margin-bottom: 6mm;
+}
+.density-tight .resume-display-noir .dpn-section + .dpn-section {
+  margin-top: 5mm;
+}
+.density-tight .resume-display-noir .dpn-h2 {
+  margin: 0 0 3.5mm;
+  padding-bottom: 1.5mm;
+}
+.density-tight .resume-display-noir .dpn-entry + .dpn-entry {
+  margin-top: 2.8mm;
+  padding-top: 2.8mm;
+}
+.density-tight .resume-display-noir .dpn-bullets {
+  gap: 1.1mm;
+}
+
+.density-roomy .resume-display-noir {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-display-noir .dpn-head {
+  padding: 15mm 18mm 10mm;
+  margin-bottom: 11mm;
+}
+.density-roomy .resume-display-noir .dpn-section + .dpn-section {
+  margin-top: 10mm;
+}
+.density-roomy .resume-display-noir .dpn-h2 {
+  margin: 0 0 7mm;
+  padding-bottom: 3mm;
+}
+.density-roomy .resume-display-noir .dpn-entry + .dpn-entry {
+  margin-top: 5.5mm;
+  padding-top: 5.5mm;
+}
+.density-roomy .resume-display-noir .dpn-bullets {
+  gap: 2.1mm;
+}

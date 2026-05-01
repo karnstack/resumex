@@ -1,0 +1,321 @@
+/* swiss — Swiss / International Style.
+   Akzidenz-Grotesk feel via Helvetica fallback. Strict baseline grid.
+   All-caps tracked-out section labels. Single cobalt color block accent
+   on a cool gray neutral palette. Generous left-aligned whitespace.
+
+   Class prefix: .sw- for stable scoping. Root: .resume-swiss. */
+
+.resume-swiss {
+  --sw-ink: #0f1115;
+  --sw-fg: #14171d;
+  --sw-muted: #5b6473;
+  --sw-faint: #9aa3b1;
+  --sw-rule: #1a1d24;
+  --sw-hair: #d6dae0;
+  --sw-paper: #f7f7f4;
+  --sw-accent: #1f3df0;
+  --sw-accent-soft: #e6ebff;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 18mm) 18mm var(--page-pad-bot, 18mm);
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--sw-fg);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'ss01';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-swiss .sw-head {
+  display: grid;
+  grid-template-columns: 8mm 1fr auto;
+  column-gap: 6mm;
+  align-items: end;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px solid var(--sw-rule);
+  margin-bottom: 8mm;
+}
+.resume-swiss .sw-head-rail {
+  align-self: stretch;
+  background: var(--sw-accent);
+  width: 6mm;
+  min-height: 28mm;
+}
+.resume-swiss .sw-head-body {
+  min-width: 0;
+}
+.resume-swiss .sw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--sw-muted);
+  margin-bottom: 4mm;
+}
+.resume-swiss .sw-eyebrow-block {
+  width: 12px;
+  height: 4px;
+  background: var(--sw-accent);
+  display: inline-block;
+}
+.resume-swiss .sw-name {
+  font-size: 30pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin: 0 0 3mm;
+  color: var(--sw-ink);
+}
+.resume-swiss .sw-title {
+  font-size: 10.5pt;
+  font-weight: 500;
+  color: var(--sw-fg);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.resume-swiss .sw-contact {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 1.5pt;
+  font-size: 8.5pt;
+  color: var(--sw-muted);
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss .sw-contact-row {
+  display: grid;
+  grid-template-columns: 10pt 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+}
+.resume-swiss .sw-key {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--sw-accent);
+}
+.resume-swiss .sw-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--sw-hair);
+}
+.resume-swiss .sw-contact a:hover {
+  color: var(--sw-accent);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-swiss .sw-section {
+  display: grid;
+  grid-template-columns: 38mm 1fr;
+  column-gap: 10mm;
+  padding: 6mm 0;
+  border-top: 1px solid var(--sw-hair);
+}
+.resume-swiss .sw-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.resume-swiss .sw-section-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--sw-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  padding-top: 1pt;
+}
+.resume-swiss .sw-num {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--sw-accent);
+}
+
+.resume-swiss .sw-section-body {
+  min-width: 0;
+}
+
+.resume-swiss .sw-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--sw-fg);
+  text-wrap: pretty;
+  max-width: 145mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-swiss .sw-entry + .sw-entry {
+  margin-top: 5mm;
+  padding-top: 5mm;
+  border-top: 1px solid var(--sw-hair);
+}
+.resume-swiss .sw-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-swiss .sw-entry-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--sw-ink);
+}
+.resume-swiss .sw-entry-meta {
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--sw-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-swiss .sw-entry-sub {
+  margin: 1.5pt 0 2.5mm;
+  font-size: 9pt;
+  color: var(--sw-fg);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.resume-swiss .sw-entry-sub .sw-dot {
+  color: var(--sw-faint);
+}
+
+.resume-swiss .sw-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+}
+.resume-swiss .sw-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--sw-fg);
+}
+.resume-swiss .sw-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--sw-accent);
+}
+
+.resume-swiss .sw-prose {
+  margin: 0;
+  font-size: 9.75pt;
+  line-height: 1.55;
+  color: var(--sw-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-swiss .sw-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-swiss .sw-skill-row {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  column-gap: 6mm;
+  padding: 1.25mm 0;
+  border-bottom: 1px dotted var(--sw-hair);
+  align-items: baseline;
+}
+.resume-swiss .sw-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-swiss .sw-skills dt {
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--sw-muted);
+}
+.resume-swiss .sw-skills dd {
+  margin: 0;
+  font-size: 9.75pt;
+  color: var(--sw-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-swiss .sw-section,
+  .resume-swiss .sw-entry,
+  .resume-swiss [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* DENSITY ------------------------------------------------------------- */
+/* density support - tight reduces type/gaps to fit more; roomy opens it up. */
+
+.density-tight .resume-swiss {
+  font-size: 9.25pt;
+  line-height: 1.42;
+}
+.density-tight .resume-swiss .sw-section {
+  padding: 4.5mm 0;
+}
+.density-tight .resume-swiss .sw-entry + .sw-entry {
+  margin-top: 3.5mm;
+  padding-top: 3.5mm;
+}
+.density-tight .resume-swiss .sw-bullets {
+  gap: 1mm;
+}
+.density-tight .resume-swiss .sw-bullets li {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-swiss .sw-head {
+  padding-bottom: 4.5mm;
+  margin-bottom: 6mm;
+}
+
+.density-roomy .resume-swiss {
+  font-size: 10.5pt;
+  line-height: 1.62;
+}
+.density-roomy .resume-swiss .sw-section {
+  padding: 8mm 0;
+}
+.density-roomy .resume-swiss .sw-entry + .sw-entry {
+  margin-top: 7mm;
+  padding-top: 7mm;
+}
+.density-roomy .resume-swiss .sw-bullets {
+  gap: 2.2mm;
+}
+.density-roomy .resume-swiss .sw-bullets li {
+  font-size: 10.25pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-swiss .sw-head {
+  padding-bottom: 8mm;
+  margin-bottom: 11mm;
+}

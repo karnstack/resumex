@@ -1,0 +1,296 @@
+/* architect-tabular — entries in a strict technical-schedule grid.
+   Columns: NO. / ROLE / FIRM / TENURE / LOC. Tabular numerals. Bullets
+   become rows beneath the role cell. No colored accents.
+   Class prefix: .tb- for stable scoping. Root: .resume-architect-tabular. */
+
+.resume-architect-tabular {
+  --tb-ink: #0f1115;
+  --tb-fg: #1a1d22;
+  --tb-muted: #5d6470;
+  --tb-faint: #9aa1ac;
+  --tb-rule: #1a1d22;
+  --tb-hair: #c8ccd2;
+  --tb-stripe: #f4f4f0;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  padding: var(--page-pad-top, 14mm) 12mm var(--page-pad-bot, 14mm);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  color: var(--tb-fg);
+  background: white;
+  font-feature-settings: 'kern', 'tnum';
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-architect-tabular .tb-head {
+  border: 0.7pt solid var(--tb-rule);
+  margin-bottom: 6mm;
+}
+.resume-architect-tabular .tb-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  background: var(--tb-ink);
+  color: white;
+  padding: 1.5mm 4mm;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.resume-architect-tabular .tb-head-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 6mm;
+  padding: 5mm 5mm 4mm;
+}
+.resume-architect-tabular .tb-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1;
+  color: var(--tb-ink);
+}
+.resume-architect-tabular .tb-title {
+  margin-top: 1.5mm;
+  font-size: 9.5pt;
+  color: var(--tb-fg);
+}
+.resume-architect-tabular .tb-head-stamps {
+  display: grid;
+  row-gap: 1pt;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  color: var(--tb-fg);
+}
+.resume-architect-tabular .tb-stamp-row {
+  display: grid;
+  grid-template-columns: 14mm 1fr;
+  column-gap: 4mm;
+  align-items: baseline;
+}
+.resume-architect-tabular .tb-stamp-row > span:first-child {
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--tb-muted);
+}
+.resume-architect-tabular .tb-stamp-row > span:last-child {
+  font-weight: 600;
+  color: var(--tb-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* SECTION ------------------------------------------------------------- */
+
+.resume-architect-tabular .tb-section {
+  margin-top: 5mm;
+}
+.resume-architect-tabular .tb-section:first-of-type {
+  margin-top: 0;
+}
+.resume-architect-tabular .tb-cap {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--tb-ink);
+  margin-bottom: 2mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 0.7pt solid var(--tb-rule);
+}
+.resume-architect-tabular .tb-cap-mark {
+  color: var(--tb-muted);
+  font-weight: 500;
+}
+.resume-architect-tabular .tb-lede {
+  margin: 1mm 0 0;
+  font-size: 10.25pt;
+  line-height: 1.55;
+  color: var(--tb-fg);
+  text-wrap: pretty;
+  max-width: 165mm;
+}
+
+/* TABLE --------------------------------------------------------------- */
+
+.resume-architect-tabular .tb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.resume-architect-tabular .tb-table thead th {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--tb-muted);
+  text-align: left;
+  padding: 1.5mm 3mm;
+  border-bottom: 0.5pt solid var(--tb-rule);
+  background: var(--tb-stripe);
+  vertical-align: bottom;
+}
+.resume-architect-tabular .tb-table tbody td {
+  padding: 2.5mm 3mm;
+  border-bottom: 0.3pt solid var(--tb-hair);
+  vertical-align: top;
+  color: var(--tb-fg);
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+.resume-architect-tabular .tb-table tbody tr:last-child td {
+  border-bottom: 0.5pt solid var(--tb-rule);
+}
+
+/* column widths */
+.resume-architect-tabular .col-no {
+  width: 9mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  color: var(--tb-muted);
+  font-size: 8.5pt;
+}
+.resume-architect-tabular .col-role {
+  width: auto;
+}
+.resume-architect-tabular .col-firm {
+  width: 30mm;
+  font-weight: 600;
+  color: var(--tb-ink);
+}
+.resume-architect-tabular .col-tenure {
+  width: 32mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.25pt;
+  color: var(--tb-muted);
+  white-space: nowrap;
+}
+.resume-architect-tabular .col-loc {
+  width: 12mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.25pt;
+  color: var(--tb-muted);
+  white-space: nowrap;
+}
+
+.resume-architect-tabular .tb-skills-table .col-cat {
+  width: 26mm;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--tb-muted);
+}
+.resume-architect-tabular .tb-skills-table .col-detail {
+  color: var(--tb-fg);
+}
+.resume-architect-tabular .tb-skills-table a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.4pt solid var(--tb-hair);
+}
+
+/* role cell */
+.resume-architect-tabular .tb-role-title {
+  font-weight: 700;
+  font-size: 10pt;
+  letter-spacing: -0.005em;
+  color: var(--tb-ink);
+  margin-bottom: 1.5mm;
+}
+.resume-architect-tabular .tb-row-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-architect-tabular .tb-row-bullets li {
+  position: relative;
+  padding-left: 5mm;
+  font-size: 9pt;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: var(--tb-fg);
+}
+.resume-architect-tabular .tb-row-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 0.5pt;
+  background: var(--tb-rule);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-architect-tabular .tb-section,
+  .resume-architect-tabular tr,
+  .resume-architect-tabular [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-architect-tabular {
+  font-size: 8.75pt;
+  line-height: 1.38;
+}
+.density-tight .resume-architect-tabular .tb-head {
+  margin-bottom: 4mm;
+}
+.density-tight .resume-architect-tabular .tb-head-row {
+  padding: 3.5mm 4mm 2.5mm;
+}
+.density-tight .resume-architect-tabular .tb-section {
+  margin-top: 3.5mm;
+}
+.density-tight .resume-architect-tabular .tb-table tbody td {
+  padding: 1.7mm 2.5mm;
+  font-size: 8.75pt;
+  line-height: 1.38;
+}
+.density-tight .resume-architect-tabular .tb-row-bullets {
+  gap: 0.7mm;
+}
+.density-tight .resume-architect-tabular .tb-row-bullets li {
+  font-size: 8.5pt;
+  line-height: 1.38;
+}
+
+.density-roomy .resume-architect-tabular {
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.density-roomy .resume-architect-tabular .tb-head {
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-architect-tabular .tb-head-row {
+  padding: 6.5mm 6mm 5.5mm;
+}
+.density-roomy .resume-architect-tabular .tb-section {
+  margin-top: 7mm;
+}
+.density-roomy .resume-architect-tabular .tb-table tbody td {
+  padding: 3.4mm 4mm;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.density-roomy .resume-architect-tabular .tb-row-bullets {
+  gap: 1.4mm;
+}
+.density-roomy .resume-architect-tabular .tb-row-bullets li {
+  font-size: 9.5pt;
+  line-height: 1.55;
+}

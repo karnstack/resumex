@@ -1,0 +1,339 @@
+/* letterpress-monogram — letterpress with thin-rule monogram block.
+   "AP" inside a thin-rule square at top center, name below.
+   Class prefix: .lpm-. Root: .resume-letterpress-monogram. */
+
+.resume-letterpress-monogram {
+  --lpm-ink: #14110d;
+  --lpm-fg: #1d1a14;
+  --lpm-muted: #6b6457;
+  --lpm-faint: #a39c8d;
+  --lpm-hair: #c9c2b3;
+  --lpm-rule: #1d1a14;
+
+  font-family: 'Caslon', 'Garamond', 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  padding: var(--page-pad-top, 22mm) 24mm var(--page-pad-bot, 22mm);
+  font-size: 10.75pt;
+  line-height: 1.6;
+  color: var(--lpm-fg);
+  background: white;
+  font-feature-settings: 'kern', 'liga', 'onum';
+  font-variant-numeric: oldstyle-nums;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-letterpress-monogram .lpm-head {
+  text-align: center;
+  margin-bottom: 9mm;
+}
+
+/* monogram: thin-rule square enclosing "A | P" */
+.resume-letterpress-monogram .lpm-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4mm;
+  width: 22mm;
+  height: 22mm;
+  border: 0.75px solid var(--lpm-rule);
+  margin: 0 auto 6mm;
+  font-size: 18pt;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--lpm-ink);
+  position: relative;
+  font-feature-settings: 'kern', 'liga', 'lnum';
+}
+.resume-letterpress-monogram .lpm-mono-l,
+.resume-letterpress-monogram .lpm-mono-r {
+  display: inline-block;
+  line-height: 1;
+  font-style: italic;
+}
+.resume-letterpress-monogram .lpm-mono-bar {
+  display: inline-block;
+  width: 0;
+  height: 12mm;
+  border-left: 0.5px solid var(--lpm-rule);
+  opacity: 0.85;
+}
+/* corner ticks */
+.resume-letterpress-monogram .lpm-monogram::before,
+.resume-letterpress-monogram .lpm-monogram::after {
+  content: '';
+  position: absolute;
+  width: 2mm;
+  height: 2mm;
+  border: 0.75px solid var(--lpm-rule);
+}
+.resume-letterpress-monogram .lpm-monogram::before {
+  top: -1mm;
+  left: -1mm;
+  border-right: 0;
+  border-bottom: 0;
+}
+.resume-letterpress-monogram .lpm-monogram::after {
+  bottom: -1mm;
+  right: -1mm;
+  border-left: 0;
+  border-top: 0;
+}
+
+.resume-letterpress-monogram .lpm-name {
+  font-size: 26pt;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.05;
+  margin: 0 auto 3mm;
+  color: var(--lpm-ink);
+  font-feature-settings: 'kern', 'liga', 'lnum';
+}
+
+.resume-letterpress-monogram .lpm-title {
+  font-size: 10.5pt;
+  font-style: italic;
+  color: var(--lpm-fg);
+  margin: 0 0 4mm;
+  letter-spacing: 0.01em;
+}
+
+.resume-letterpress-monogram .lpm-rule {
+  display: block;
+  margin: 0 auto 4mm;
+  width: 55mm;
+  max-width: 60%;
+}
+.resume-letterpress-monogram .lpm-rule-double {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4pt;
+}
+.resume-letterpress-monogram .lpm-rule-double span {
+  display: block;
+  height: 0;
+  border-top: 1px solid var(--lpm-rule);
+}
+.resume-letterpress-monogram .lpm-rule-double span:last-child {
+  border-top-width: 0.5px;
+  opacity: 0.65;
+}
+
+.resume-letterpress-monogram .lpm-contact {
+  font-size: 9pt;
+  color: var(--lpm-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+}
+.resume-letterpress-monogram .lpm-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--lpm-faint);
+}
+.resume-letterpress-monogram .lpm-sep {
+  color: var(--lpm-faint);
+}
+
+/* HAIRLINE ------------------------------------------------------------ */
+
+.resume-letterpress-monogram .lpm-hair {
+  border: 0;
+  border-top: 0.5px solid var(--lpm-hair);
+  margin: 6mm 0;
+  width: 100%;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-letterpress-monogram .lpm-section {
+  margin: 4mm 0;
+}
+
+.resume-letterpress-monogram .lpm-section-label {
+  font-size: 9pt;
+  font-weight: 400;
+  font-variant: small-caps;
+  letter-spacing: 0.32em;
+  text-transform: lowercase;
+  color: var(--lpm-ink);
+  text-align: center;
+  margin: 0 0 5mm;
+  font-style: italic;
+}
+
+.resume-letterpress-monogram .lpm-lede {
+  margin: 0;
+  font-size: 11.25pt;
+  line-height: 1.7;
+  color: var(--lpm-fg);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
+  text-indent: 4mm;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-letterpress-monogram .lpm-entry {
+  margin: 0 0 5mm;
+}
+.resume-letterpress-monogram .lpm-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-letterpress-monogram .lpm-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.5mm;
+  flex-wrap: wrap;
+}
+.resume-letterpress-monogram .lpm-entry-title {
+  font-size: 11.25pt;
+  font-weight: 500;
+  color: var(--lpm-ink);
+}
+.resume-letterpress-monogram .lpm-org {
+  font-style: italic;
+  font-weight: 400;
+}
+.resume-letterpress-monogram .lpm-entry-meta {
+  font-size: 9pt;
+  color: var(--lpm-muted);
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.resume-letterpress-monogram .lpm-entry-meta em {
+  font-style: italic;
+}
+.resume-letterpress-monogram .lpm-entry-meta span:not(:first-child)::before {
+  content: '·';
+  color: var(--lpm-faint);
+  margin-right: 6px;
+}
+
+.resume-letterpress-monogram .lpm-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.resume-letterpress-monogram .lpm-bullets li {
+  position: relative;
+  padding-left: 5mm;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  margin: 0.7mm 0;
+  text-wrap: pretty;
+  color: var(--lpm-fg);
+}
+.resume-letterpress-monogram .lpm-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 1.5mm;
+  top: -0.05em;
+  color: var(--lpm-muted);
+  font-size: 14pt;
+  line-height: 1;
+}
+
+.resume-letterpress-monogram .lpm-prose {
+  margin: 0;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--lpm-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-letterpress-monogram .lpm-skills {
+  margin: 0;
+}
+.resume-letterpress-monogram .lpm-skill-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  column-gap: 6mm;
+  padding: 1.4mm 0;
+  align-items: baseline;
+}
+.resume-letterpress-monogram .lpm-skill-row + .lpm-skill-row {
+  border-top: 0.5px dotted var(--lpm-hair);
+}
+.resume-letterpress-monogram .lpm-skills dt {
+  font-size: 9.25pt;
+  font-style: italic;
+  color: var(--lpm-muted);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+.resume-letterpress-monogram .lpm-skills dd {
+  margin: 0;
+  font-size: 10.5pt;
+  color: var(--lpm-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-letterpress-monogram .lpm-section,
+  .resume-letterpress-monogram .lpm-entry,
+  .resume-letterpress-monogram [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10.75pt / 1.6 body, lpm-entry margin 5mm, section margin 4mm,
+   lpm-hair margin 6mm. */
+
+.density-tight .resume-letterpress-monogram {
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.density-tight .resume-letterpress-monogram .lpm-head {
+  margin-bottom: 6.5mm;
+}
+.density-tight .resume-letterpress-monogram .lpm-hair {
+  margin: 4.5mm 0;
+}
+.density-tight .resume-letterpress-monogram .lpm-section {
+  margin: 3mm 0;
+}
+.density-tight .resume-letterpress-monogram .lpm-section-label {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress-monogram .lpm-entry {
+  margin: 0 0 3.5mm;
+}
+.density-tight .resume-letterpress-monogram .lpm-bullets li {
+  margin: 0.4mm 0;
+}
+
+.density-roomy .resume-letterpress-monogram {
+  font-size: 11.25pt;
+  line-height: 1.7;
+}
+.density-roomy .resume-letterpress-monogram .lpm-head {
+  margin-bottom: 12mm;
+}
+.density-roomy .resume-letterpress-monogram .lpm-hair {
+  margin: 8.5mm 0;
+}
+.density-roomy .resume-letterpress-monogram .lpm-section {
+  margin: 6mm 0;
+}
+.density-roomy .resume-letterpress-monogram .lpm-section-label {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress-monogram .lpm-entry {
+  margin: 0 0 7mm;
+}
+.density-roomy .resume-letterpress-monogram .lpm-bullets li {
+  margin: 1.1mm 0;
+}

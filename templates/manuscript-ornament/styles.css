@@ -1,0 +1,329 @@
+/* manuscript-ornament — refined manuscript with small typographic ornaments
+   (§, ❦, ❀, * * *) as mini dividers between sections. */
+
+.resume-manuscript-ornament {
+  --mo-ink: #1a1714;
+  --mo-fg: #2a241f;
+  --mo-muted: #6e6358;
+  --mo-faint: #b3a796;
+  --mo-rule: #2a241f;
+  --mo-hair: #d6cdbf;
+  --mo-paper: #fbf7ee;
+  --mo-accent: #6e2a1b;
+
+  font-family:
+    'Optima', 'Avenir Next', 'Avenir', 'Albertus', 'Trajan Pro', Georgia, 'Times New Roman', serif;
+  padding: var(--page-pad-top, 18mm) 22mm var(--page-pad-bot, 18mm);
+  font-size: 10.25pt;
+  line-height: 1.6;
+  color: var(--mo-fg);
+  background: var(--mo-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-manuscript-ornament .mo-head {
+  text-align: center;
+  margin-bottom: 5mm;
+}
+.resume-manuscript-ornament .mo-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--mo-muted);
+  margin-bottom: 4mm;
+}
+.resume-manuscript-ornament .mo-eyebrow-glyph {
+  color: var(--mo-accent);
+  font-size: 10pt;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.resume-manuscript-ornament .mo-name {
+  font-size: 28pt;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  margin: 0 0 3mm;
+  color: var(--mo-ink);
+}
+.resume-manuscript-ornament .mo-title {
+  font-size: 11pt;
+  color: var(--mo-fg);
+  margin-bottom: 4mm;
+  letter-spacing: 0.04em;
+}
+.resume-manuscript-ornament .mo-title em {
+  font-style: italic;
+}
+.resume-manuscript-ornament .mo-contact {
+  font-size: 8.75pt;
+  color: var(--mo-muted);
+  letter-spacing: 0.04em;
+}
+.resume-manuscript-ornament .mo-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--mo-hair);
+}
+.resume-manuscript-ornament .mo-sep {
+  margin: 0 6px;
+  color: var(--mo-faint);
+}
+
+/* DIVIDERS ------------------------------------------------------------ */
+
+.resume-manuscript-ornament .mo-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 5mm auto;
+  width: 60%;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.resume-manuscript-ornament .mo-divider-line {
+  flex: 1;
+  height: 0;
+  border-top: 0.5px solid var(--mo-hair);
+}
+.resume-manuscript-ornament .mo-ornament {
+  color: var(--mo-accent);
+  font-size: 12pt;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+.resume-manuscript-ornament .mo-divider-end {
+  margin-top: 6mm;
+  width: 100%;
+}
+.resume-manuscript-ornament .mo-divider-end .mo-ornament {
+  font-size: 10pt;
+  letter-spacing: 0.4em;
+}
+
+.resume-manuscript-ornament .mo-mini-divider {
+  text-align: center;
+  font-size: 9pt;
+  color: var(--mo-faint);
+  letter-spacing: 0.5em;
+  margin: 3mm 0 3.5mm;
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-manuscript-ornament .mo-section {
+  margin: 0;
+}
+.resume-manuscript-ornament .mo-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3mm;
+  margin: 0 0 4mm;
+  font-weight: 400;
+}
+.resume-manuscript-ornament .mo-numeral {
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--mo-accent);
+  letter-spacing: 0.05em;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-manuscript-ornament .mo-section-name {
+  font-size: 10.5pt;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mo-ink);
+}
+
+/* LEDE ---------------------------------------------------------------- */
+
+.resume-manuscript-ornament .mo-lede {
+  margin: 0 auto;
+  font-size: 10.75pt;
+  line-height: 1.65;
+  color: var(--mo-fg);
+  text-align: center;
+  text-wrap: pretty;
+  max-width: 145mm;
+  font-style: italic;
+}
+.resume-manuscript-ornament .mo-lede em {
+  font-style: normal;
+  color: var(--mo-ink);
+  font-weight: 600;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-manuscript-ornament .mo-entry {
+  margin: 0;
+}
+.resume-manuscript-ornament .mo-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1mm;
+}
+.resume-manuscript-ornament .mo-entry-title {
+  font-size: 10.75pt;
+  font-weight: 600;
+  color: var(--mo-ink);
+  letter-spacing: 0.01em;
+  margin: 0;
+  line-height: 1.35;
+}
+.resume-manuscript-ornament .mo-entry-title em {
+  font-weight: 400;
+  font-style: italic;
+}
+.resume-manuscript-ornament .mo-comma {
+  font-weight: 400;
+  color: var(--mo-muted);
+}
+.resume-manuscript-ornament .mo-entry-meta {
+  font-size: 9pt;
+  color: var(--mo-muted);
+  white-space: nowrap;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-manuscript-ornament .mo-entry-meta em {
+  font-style: italic;
+  color: var(--mo-fg);
+}
+
+.resume-manuscript-ornament .mo-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding-left: 7mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-manuscript-ornament .mo-bullets li {
+  position: relative;
+  font-size: 10pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--mo-fg);
+}
+.resume-manuscript-ornament .mo-bullets li::before {
+  content: '❦';
+  position: absolute;
+  left: -6mm;
+  top: 0;
+  color: var(--mo-accent);
+  font-size: 7pt;
+  line-height: 1.7;
+}
+
+.resume-manuscript-ornament .mo-prose {
+  margin: 1mm 0 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--mo-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-manuscript-ornament .mo-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-manuscript-ornament .mo-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.25mm 0;
+  border-bottom: 0.5px dotted var(--mo-hair);
+  align-items: baseline;
+}
+.resume-manuscript-ornament .mo-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-manuscript-ornament .mo-skills dt {
+  font-size: 9pt;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--mo-accent);
+  font-weight: 400;
+}
+.resume-manuscript-ornament .mo-skills dd {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--mo-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-manuscript-ornament .mo-section,
+  .resume-manuscript-ornament .mo-entry,
+  .resume-manuscript-ornament [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-manuscript-ornament {
+  font-size: 9.5pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 14mm) 18mm var(--page-pad-bot, 14mm);
+}
+.density-tight .resume-manuscript-ornament .mo-head {
+  margin-bottom: 3.5mm;
+}
+.density-tight .resume-manuscript-ornament .mo-divider {
+  margin: 3.5mm auto;
+}
+.density-tight .resume-manuscript-ornament .mo-mini-divider {
+  margin: 2mm 0 2.5mm;
+}
+.density-tight .resume-manuscript-ornament .mo-section-head {
+  margin: 0 0 2.8mm;
+}
+.density-tight .resume-manuscript-ornament .mo-bullets {
+  gap: 0.9mm;
+  margin-top: 1mm;
+}
+.density-tight .resume-manuscript-ornament .mo-skill-row {
+  padding: 0.9mm 0;
+}
+
+.density-roomy .resume-manuscript-ornament {
+  font-size: 10.75pt;
+  line-height: 1.7;
+  padding: var(--page-pad-top, 22mm) 26mm var(--page-pad-bot, 22mm);
+}
+.density-roomy .resume-manuscript-ornament .mo-head {
+  margin-bottom: 7mm;
+}
+.density-roomy .resume-manuscript-ornament .mo-divider {
+  margin: 7mm auto;
+}
+.density-roomy .resume-manuscript-ornament .mo-mini-divider {
+  margin: 4.5mm 0 5mm;
+}
+.density-roomy .resume-manuscript-ornament .mo-section-head {
+  margin: 0 0 5mm;
+}
+.density-roomy .resume-manuscript-ornament .mo-bullets {
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.density-roomy .resume-manuscript-ornament .mo-skill-row {
+  padding: 1.8mm 0;
+}

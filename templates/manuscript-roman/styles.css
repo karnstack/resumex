@@ -1,0 +1,328 @@
+/* manuscript-roman — heavier emphasis on Roman numerals.
+   Large I., II., III. anchor each section with a ruled underline.
+   Two-column layout: numeral rail on the left, body on the right. */
+
+.resume-manuscript-roman {
+  --mr-ink: #181410;
+  --mr-fg: #2a241f;
+  --mr-muted: #6e6358;
+  --mr-faint: #a59989;
+  --mr-rule: #2a241f;
+  --mr-hair: #d6cdbf;
+  --mr-paper: #fbf7ee;
+  --mr-accent: #6e2a1b;
+
+  font-family:
+    'Optima', 'Avenir Next', 'Avenir', 'Albertus', 'Trajan Pro', Georgia, 'Times New Roman', serif;
+  padding: var(--page-pad-top, 18mm) 20mm var(--page-pad-bot, 18mm);
+  font-size: 10.25pt;
+  line-height: 1.6;
+  color: var(--mr-fg);
+  background: var(--mr-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+/* HEAD ---------------------------------------------------------------- */
+
+.resume-manuscript-roman .mr-head {
+  text-align: center;
+  margin-bottom: 8mm;
+}
+.resume-manuscript-roman .mr-eyebrow {
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--mr-muted);
+  margin-bottom: 4mm;
+}
+.resume-manuscript-roman .mr-name {
+  font-size: 32pt;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin: 0 0 3mm;
+  color: var(--mr-ink);
+  text-transform: none;
+}
+.resume-manuscript-roman .mr-title {
+  font-size: 11pt;
+  color: var(--mr-fg);
+  margin-bottom: 5mm;
+  letter-spacing: 0.04em;
+}
+.resume-manuscript-roman .mr-title em {
+  font-style: italic;
+}
+.resume-manuscript-roman .mr-rule {
+  width: 26mm;
+  height: 0;
+  border-top: 1px solid var(--mr-rule);
+  margin: 0 auto 5mm;
+  position: relative;
+}
+.resume-manuscript-roman .mr-rule::before,
+.resume-manuscript-roman .mr-rule::after {
+  content: '';
+  position: absolute;
+  top: -2.5px;
+  width: 5px;
+  height: 5px;
+  background: var(--mr-accent);
+  transform: rotate(45deg);
+}
+.resume-manuscript-roman .mr-rule::before {
+  left: -3px;
+}
+.resume-manuscript-roman .mr-rule::after {
+  right: -3px;
+}
+.resume-manuscript-roman .mr-contact {
+  font-size: 8.75pt;
+  color: var(--mr-muted);
+  letter-spacing: 0.04em;
+}
+.resume-manuscript-roman .mr-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--mr-hair);
+}
+.resume-manuscript-roman .mr-sep {
+  margin: 0 6px;
+  color: var(--mr-faint);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-manuscript-roman .mr-section {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 7mm;
+  padding: 5mm 0;
+  border-top: 0.5px solid var(--mr-hair);
+}
+.resume-manuscript-roman .mr-section:first-of-type {
+  border-top: none;
+  padding-top: 1mm;
+}
+
+.resume-manuscript-roman .mr-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  align-items: flex-end;
+  text-align: right;
+  padding-top: 1pt;
+}
+.resume-manuscript-roman .mr-numeral {
+  font-family: 'Trajan Pro', 'Cinzel', 'Albertus', Georgia, serif;
+  font-size: 26pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--mr-accent);
+  line-height: 0.95;
+  position: relative;
+  padding-bottom: 2mm;
+  font-variant-numeric: tabular-nums;
+}
+.resume-manuscript-roman .mr-numeral::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12mm;
+  border-bottom: 1.5px solid var(--mr-accent);
+}
+.resume-manuscript-roman .mr-section-name {
+  font-size: 8.75pt;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mr-ink);
+  font-style: italic;
+  font-variant: small-caps;
+}
+
+.resume-manuscript-roman .mr-section-body {
+  min-width: 0;
+  padding-top: 1.5mm;
+}
+
+/* LEDE ---------------------------------------------------------------- */
+
+.resume-manuscript-roman .mr-lede {
+  margin: 0;
+  font-size: 11pt;
+  line-height: 1.65;
+  color: var(--mr-fg);
+  text-wrap: pretty;
+}
+.resume-manuscript-roman .mr-lede em {
+  font-style: italic;
+  color: var(--mr-ink);
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-manuscript-roman .mr-entry {
+  margin-bottom: 4mm;
+}
+.resume-manuscript-roman .mr-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-manuscript-roman .mr-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1mm;
+}
+.resume-manuscript-roman .mr-entry-title {
+  font-size: 10.75pt;
+  font-weight: 600;
+  color: var(--mr-ink);
+  letter-spacing: 0.01em;
+  margin: 0;
+  line-height: 1.35;
+}
+.resume-manuscript-roman .mr-entry-title em {
+  font-weight: 400;
+  font-style: italic;
+}
+.resume-manuscript-roman .mr-em {
+  font-weight: 400;
+  color: var(--mr-muted);
+}
+.resume-manuscript-roman .mr-entry-meta {
+  font-size: 9pt;
+  color: var(--mr-muted);
+  white-space: nowrap;
+  font-variant-numeric: oldstyle-nums;
+}
+.resume-manuscript-roman .mr-entry-meta em {
+  font-style: italic;
+  color: var(--mr-fg);
+}
+
+.resume-manuscript-roman .mr-bullets {
+  list-style: none;
+  margin: 1.5mm 0 0;
+  padding-left: 6mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-manuscript-roman .mr-bullets li {
+  position: relative;
+  font-size: 10pt;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--mr-fg);
+}
+.resume-manuscript-roman .mr-bullets li::before {
+  content: '';
+  position: absolute;
+  left: -4mm;
+  top: 0.55em;
+  width: 1.2mm;
+  height: 1.2mm;
+  background: var(--mr-accent);
+  transform: rotate(45deg);
+}
+
+.resume-manuscript-roman .mr-prose {
+  margin: 1mm 0 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--mr-fg);
+  text-wrap: pretty;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-manuscript-roman .mr-skills {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-manuscript-roman .mr-skill-row {
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  column-gap: 5mm;
+  padding: 1.25mm 0;
+  border-bottom: 0.5px dotted var(--mr-hair);
+  align-items: baseline;
+}
+.resume-manuscript-roman .mr-skill-row:last-child {
+  border-bottom: none;
+}
+.resume-manuscript-roman .mr-skills dt {
+  font-size: 9pt;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--mr-accent);
+  font-weight: 400;
+}
+.resume-manuscript-roman .mr-skills dd {
+  margin: 0;
+  font-size: 10pt;
+  color: var(--mr-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-manuscript-roman .mr-section,
+  .resume-manuscript-roman .mr-entry,
+  .resume-manuscript-roman [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support */
+.density-tight .resume-manuscript-roman {
+  font-size: 9.5pt;
+  line-height: 1.5;
+  padding: var(--page-pad-top, 14mm) 16mm var(--page-pad-bot, 14mm);
+}
+.density-tight .resume-manuscript-roman .mr-head {
+  margin-bottom: 5.5mm;
+}
+.density-tight .resume-manuscript-roman .mr-section {
+  padding: 3.5mm 0;
+}
+.density-tight .resume-manuscript-roman .mr-entry {
+  margin-bottom: 3mm;
+}
+.density-tight .resume-manuscript-roman .mr-bullets {
+  gap: 0.9mm;
+  margin-top: 1mm;
+}
+.density-tight .resume-manuscript-roman .mr-skill-row {
+  padding: 0.9mm 0;
+}
+
+.density-roomy .resume-manuscript-roman {
+  font-size: 10.75pt;
+  line-height: 1.7;
+  padding: var(--page-pad-top, 22mm) 24mm var(--page-pad-bot, 22mm);
+}
+.density-roomy .resume-manuscript-roman .mr-head {
+  margin-bottom: 10mm;
+}
+.density-roomy .resume-manuscript-roman .mr-section {
+  padding: 7mm 0;
+}
+.density-roomy .resume-manuscript-roman .mr-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-manuscript-roman .mr-bullets {
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.density-roomy .resume-manuscript-roman .mr-skill-row {
+  padding: 1.8mm 0;
+}

@@ -1,0 +1,383 @@
+/* magazine-cover — Magazine variant with a color-block masthead at the
+   top of the page (~38mm tall colored band) with the name reversed-out
+   in white inside it. Body below is classical editorial. No actual image.
+
+   Class prefix: .mgc-. Root: .resume-magazine-cover. */
+
+.resume-magazine-cover {
+  --mgc-ink: #0e1116;
+  --mgc-fg: #1c1f25;
+  --mgc-muted: #5c6371;
+  --mgc-faint: #a1a5ad;
+  --mgc-rule: #14171c;
+  --mgc-hair: #d6d8dc;
+  --mgc-paper: #f9f7f1;
+  --mgc-cover: #1f2a44;
+  --mgc-cover-ink: #ffffff;
+  --mgc-accent: #e0a72c;
+
+  font-family: 'Source Serif 4', 'Source Serif Pro', 'Iowan Old Style', Georgia, serif;
+  /* Cover band sits flush with page edges; body padding restored inside .mgc-body. */
+  padding: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--mgc-fg);
+  background: var(--mgc-paper);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* MASTHEAD (color block) ---------------------------------------------- */
+
+.resume-magazine-cover .mgc-masthead {
+  background: var(--mgc-cover);
+  color: var(--mgc-cover-ink);
+  padding: var(--page-pad-top, 12mm) 16mm 9mm;
+  border-bottom: 4px solid var(--mgc-accent);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.resume-magazine-cover .mgc-mast-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: 5mm;
+  padding-bottom: 3mm;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.resume-magazine-cover .mgc-mast-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--mgc-accent);
+}
+.resume-magazine-cover .mgc-mast-price {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.75pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.7);
+}
+.resume-magazine-cover .mgc-name {
+  font-family: 'Playfair Display', 'Didot', 'Bodoni 72', Georgia, serif;
+  font-size: 44pt;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 0.94;
+  margin: 0 0 4mm;
+  color: var(--mgc-cover-ink);
+}
+.resume-magazine-cover .mgc-mast-deck {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 13pt;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.35;
+  max-width: 145mm;
+  margin: 0 0 5mm;
+}
+.resume-magazine-cover .mgc-mast-bottom {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.78);
+}
+.resume-magazine-cover .mgc-mast-rule {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 4mm;
+}
+.resume-magazine-cover .mgc-mast-tag {
+  color: var(--mgc-accent);
+}
+
+/* BODY ---------------------------------------------------------------- */
+
+.resume-magazine-cover .mgc-body {
+  padding: 7mm 16mm var(--page-pad-bot, 12mm);
+}
+
+.resume-magazine-cover .mgc-contact-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6mm;
+  row-gap: 1.5mm;
+  font-size: 9pt;
+  color: var(--mgc-fg);
+  padding: 3mm 0 4mm;
+  border-bottom: 1px solid var(--mgc-hair);
+  margin-bottom: 6mm;
+}
+.resume-magazine-cover .mgc-contact-bar a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--mgc-hair);
+}
+.resume-magazine-cover .mgc-contact-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--mgc-muted);
+  margin-right: 5px;
+}
+
+.resume-magazine-cover .mgc-summary {
+  margin-bottom: 6mm;
+}
+.resume-magazine-cover .mgc-lede {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-size: 11.5pt;
+  line-height: 1.55;
+  color: var(--mgc-fg);
+  margin: 0;
+  text-wrap: pretty;
+}
+.resume-magazine-cover .mgc-dropcap {
+  float: left;
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 38pt;
+  font-weight: 800;
+  line-height: 0.85;
+  margin: 1mm 2.5mm 0 0;
+  color: var(--mgc-cover);
+}
+
+/* SECTIONS ------------------------------------------------------------ */
+
+.resume-magazine-cover .mgc-section {
+  margin-bottom: 6mm;
+}
+.resume-magazine-cover .mgc-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 16pt;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 0 0 4mm;
+  padding-bottom: 2mm;
+  border-bottom: 1.5px solid var(--mgc-rule);
+  color: var(--mgc-ink);
+}
+.resume-magazine-cover .mgc-section-num {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--mgc-cover);
+  padding-right: 4px;
+}
+
+/* ENTRIES ------------------------------------------------------------- */
+
+.resume-magazine-cover .mgc-entry {
+  margin-bottom: 4mm;
+}
+.resume-magazine-cover .mgc-entry:last-child {
+  margin-bottom: 0;
+}
+.resume-magazine-cover .mgc-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.resume-magazine-cover .mgc-entry-head h3 {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-size: 11.5pt;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--mgc-ink);
+}
+.resume-magazine-cover .mgc-entry-date {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8pt;
+  color: var(--mgc-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.resume-magazine-cover .mgc-entry-sub {
+  font-size: 9.5pt;
+  color: var(--mgc-fg);
+  margin: 1pt 0 1.5mm;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-magazine-cover .mgc-entry-sub em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mgc-ink);
+}
+.resume-magazine-cover .mgc-dot {
+  color: var(--mgc-faint);
+}
+
+.resume-magazine-cover .mgc-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25mm;
+}
+.resume-magazine-cover .mgc-bullets li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 9.75pt;
+  line-height: 1.5;
+  color: var(--mgc-fg);
+  text-wrap: pretty;
+}
+.resume-magazine-cover .mgc-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--mgc-cover);
+}
+
+.resume-magazine-cover .mgc-prose {
+  margin: 1mm 0 0;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: var(--mgc-fg);
+  text-wrap: pretty;
+}
+
+/* TWO-COL ------------------------------------------------------------- */
+
+.resume-magazine-cover .mgc-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10mm;
+}
+
+/* SKILLS -------------------------------------------------------------- */
+
+.resume-magazine-cover .mgc-skills {
+  margin: 3mm 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+.resume-magazine-cover .mgc-skills > div {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  column-gap: 4mm;
+  padding: 1.25mm 0;
+  border-bottom: 1px dotted var(--mgc-hair);
+  align-items: baseline;
+}
+.resume-magazine-cover .mgc-skills > div:last-child {
+  border-bottom: none;
+}
+.resume-magazine-cover .mgc-skills dt {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mgc-muted);
+  margin: 0;
+}
+.resume-magazine-cover .mgc-skills dd {
+  margin: 0;
+  font-size: 9.5pt;
+  color: var(--mgc-fg);
+}
+
+/* PRINT --------------------------------------------------------------- */
+
+@media print {
+  .resume-magazine-cover .mgc-masthead,
+  .resume-magazine-cover .mgc-section,
+  .resume-magazine-cover .mgc-summary,
+  .resume-magazine-cover .mgc-contact-bar,
+  .resume-magazine-cover .mgc-entry,
+  .resume-magazine-cover [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* density support --------------------------------------------------------
+   Baseline: 10pt / 1.55 body, mgc-entry margin 4mm, section margin 6mm. */
+
+.density-tight .resume-magazine-cover {
+  font-size: 9.25pt;
+  line-height: 1.45;
+}
+.density-tight .resume-magazine-cover .mgc-masthead {
+  padding-bottom: 6.5mm;
+}
+.density-tight .resume-magazine-cover .mgc-body {
+  padding-top: 5mm;
+}
+.density-tight .resume-magazine-cover .mgc-contact-bar {
+  padding: 2mm 0 3mm;
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-cover .mgc-summary {
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-cover .mgc-section {
+  margin-bottom: 4.5mm;
+}
+.density-tight .resume-magazine-cover .mgc-section-head {
+  margin: 0 0 3mm;
+}
+.density-tight .resume-magazine-cover .mgc-entry {
+  margin-bottom: 2.8mm;
+}
+.density-tight .resume-magazine-cover .mgc-bullets {
+  gap: 0.9mm;
+}
+
+.density-roomy .resume-magazine-cover {
+  font-size: 10.5pt;
+  line-height: 1.65;
+}
+.density-roomy .resume-magazine-cover .mgc-masthead {
+  padding-bottom: 11mm;
+}
+.density-roomy .resume-magazine-cover .mgc-body {
+  padding-top: 9mm;
+}
+.density-roomy .resume-magazine-cover .mgc-contact-bar {
+  padding: 4mm 0 5mm;
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-magazine-cover .mgc-summary {
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-magazine-cover .mgc-section {
+  margin-bottom: 8mm;
+}
+.density-roomy .resume-magazine-cover .mgc-section-head {
+  margin: 0 0 5.5mm;
+}
+.density-roomy .resume-magazine-cover .mgc-entry {
+  margin-bottom: 5.5mm;
+}
+.density-roomy .resume-magazine-cover .mgc-bullets {
+  gap: 1.75mm;
+}
