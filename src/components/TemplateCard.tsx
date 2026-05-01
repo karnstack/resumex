@@ -43,6 +43,18 @@ export function TemplateCard({ meta }: { meta: ResumeTemplateMeta }) {
     if (!inView) setLoaded(false)
   }, [inView])
 
+  const [copied, setCopied] = useState(false)
+  const onCopy = async () => {
+    const prompt = `create a new resume from the "${meta.name}" template (id: ${meta.id}). fork it as a new variant and walk me through replacing the placeholder content with my real experience - start by asking what to put where.`
+    try {
+      await navigator.clipboard.writeText(prompt)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1400)
+    } catch {
+      // best-effort: silently no-op on clipboard failure
+    }
+  }
+
   return (
     <Card className="hover:shadow-card-hover flex h-full flex-col gap-0 overflow-hidden p-0 transition-shadow duration-200">
       <Link
@@ -88,12 +100,60 @@ export function TemplateCard({ meta }: { meta: ResumeTemplateMeta }) {
           ))}
         </div>
         <div className="border-border mt-2 flex items-center justify-between gap-2 border-t pt-3">
-          <span className="text-muted-foreground font-mono text-xs">{meta.id}</span>
-          <Button asChild size="sm" variant="outline" className="font-mono">
-            <Link to="/preview/$templateId" params={{ templateId: meta.id }}>
-              preview →
-            </Link>
-          </Button>
+          <span className="text-muted-foreground truncate font-mono text-xs">{meta.id}</span>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              className="font-mono"
+              onClick={onCopy}
+              aria-label={copied ? 'prompt copied' : 'copy a prompt to fork this template'}
+              title="copy a Claude Code prompt to fork this template"
+            >
+              {copied ? (
+                <>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  copied
+                </>
+              ) : (
+                <>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  copy
+                </>
+              )}
+            </Button>
+            <Button asChild size="sm" variant="outline" className="font-mono">
+              <Link to="/preview/$templateId" params={{ templateId: meta.id }}>
+                preview →
+              </Link>
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
