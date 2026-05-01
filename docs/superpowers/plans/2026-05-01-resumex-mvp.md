@@ -2348,7 +2348,7 @@ git commit -m "feat(templates): karnstack-twocol flagship (two-column, emerald, 
 
 **Files:** `.gallery/sample.md`, `resumes/.keep`, `public/.keep`
 
-- [ ] **Step 1: `.gallery/sample.md`** — synthesized from public content (no PII)
+- [x] **Step 1: `.gallery/sample.md`** — synthesized from public content (no PII)
 
 ```markdown
 ---
@@ -2474,14 +2474,14 @@ Built the course platform from scratch. Full admin dashboard, CI/CD via GitHub A
 
 > Source: synthesized from `karn-performance-reviews/resume/site/src/data/root.ts` (already public via the existing site at karngyan.com/resume). All content shown here is public; no phone number or PII included.
 
-- [ ] **Step 2: Add placeholders so dirs are tracked**
+- [x] **Step 2: Add placeholders so dirs are tracked**
 
 ```bash
 mkdir -p resumes public
 touch resumes/.keep public/.keep
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add .gallery/sample.md resumes/.keep public/.keep
