@@ -1,4 +1,0 @@
-# Cloudflare Pages SPA fallback. Any path not matching a real file is served
-# index.html with a 200 so TanStack Router can handle the route client-side.
-# https://developers.cloudflare.com/pages/configuration/redirects/
-/*    /index.html   200
