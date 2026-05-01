@@ -81,8 +81,8 @@ export function PreviewToolbar({
         <button
           type="button"
           onClick={() => window.print()}
-          className="bg-primary text-primary-foreground inline-flex h-[34px] cursor-pointer items-center gap-2 rounded-md border-0 px-4 text-[12px] font-semibold transition-transform duration-100 ease-out hover:scale-[1.02] active:scale-[0.98]"
-          style={{ boxShadow: 'var(--shadow-derek)' }}
+          className="bg-primary text-primary-foreground inline-flex h-[34px] cursor-pointer items-center gap-2 rounded-md border-0 px-4 text-[12px] font-semibold transition-transform duration-100 ease-out active:scale-[0.98]"
+          style={{ boxShadow: 'var(--shadow-card-hover)' }}
         >
           print / pdf
         </button>

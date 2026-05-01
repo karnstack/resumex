@@ -54,7 +54,7 @@ function IndexRoute() {
             {resumes.map((r) => (
               <li key={r.variant}>
                 <Link to="/$variant" params={{ variant: r.variant }} className="block">
-                  <Card className="hover:shadow-derek cursor-pointer py-4 shadow-none transition-shadow">
+                  <Card className="hover:shadow-card-hover cursor-pointer py-4 shadow-none transition-shadow duration-200">
                     <CardContent className="flex items-center justify-between gap-3 px-4">
                       <span className="font-medium">{r.displayName ?? r.variant}</span>
                       <span className="text-muted-foreground font-mono text-xs">/{r.variant}</span>

@@ -18,7 +18,7 @@ import type { ResumeTemplateMeta } from '@/lib/template-registry'
  */
 export function TemplateCard({ meta }: { meta: ResumeTemplateMeta }) {
   return (
-    <Card className="hover:shadow-derek flex h-full flex-col gap-0 overflow-hidden p-0 transition-shadow">
+    <Card className="hover:shadow-card-hover flex h-full flex-col gap-0 overflow-hidden p-0 transition-shadow duration-200">
       <Link
         to="/preview/$templateId"
         params={{ templateId: meta.id }}
