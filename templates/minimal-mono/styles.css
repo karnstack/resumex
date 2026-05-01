@@ -1,15 +1,17 @@
 /* minimal-mono - single-column, mono, ATS-friendly, quiet hierarchy.
-   Hierarchy is created with size + weight + uppercase-small, never color. */
+   Hierarchy is created with size + weight + uppercase-small, never color.
+
+   Page sizing (210mm width, A4 height, fit-to-page zoom) is owned by
+   <PageFrame>. The template only declares INNER padding + scoped typography.
+   Don't add `max-width: 210mm` or `margin: 0 auto` here - PageFrame's inner
+   div may be wider than 210mm when content is being scaled down. */
 
 .resume-minimal-mono {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  max-width: 210mm;
-  margin: 0 auto;
   padding: var(--page-pad-top, 15mm) 18mm var(--page-pad-bot, 15mm);
   font-size: 9.75pt;
   line-height: 1.55;
   color: #111;
-  background: white;
 }
 
 /* header - name dominant, contact de-emphasized */
@@ -109,8 +111,8 @@
 }
 
 @media print {
-  /* @page is declared once in print-base.css (a4, no margin). Template-level
-     padding stays in place so contact + content don't kiss the page edge. */
+  /* @page is declared in print-base.css (a4, no margin). PageFrame self-clips
+     to one A4 in print via the global :has(.resumex-page-frame) clamp. */
   .resume-minimal-mono .entry,
   .resume-minimal-mono section {
     page-break-inside: avoid;

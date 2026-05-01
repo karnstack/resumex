@@ -1,10 +1,11 @@
 import './styles.css'
 import type { ResumeTemplate } from '@/lib/template-registry'
+import { PageFrame } from '@/components/page-frame/PageFrame'
 
 const MinimalMono: ResumeTemplate = ({ resume }) => {
   const { meta, sections } = resume
   return (
-    <article className="resume-minimal-mono">
+    <PageFrame fitDeps={[resume]} innerClassName="resume-minimal-mono">
       <header className="header">
         <div>
           <h1>{meta.name}</h1>
@@ -74,7 +75,7 @@ const MinimalMono: ResumeTemplate = ({ resume }) => {
           ))}
         </section>
       )}
-    </article>
+    </PageFrame>
   )
 }
 

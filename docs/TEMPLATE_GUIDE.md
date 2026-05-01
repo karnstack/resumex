@@ -21,6 +21,31 @@ export type ResumeTemplate = (props: { resume: ParsedResume }) => JSX.Element
 
 A template is a pure function of `ParsedResume`. No state, no network, no browser APIs.
 
+### `<PageFrame>` is mandatory
+
+Every template MUST render through `<PageFrame>`:
+
+```tsx
+import { PageFrame } from '@/components/page-frame/PageFrame'
+
+const MyTemplate: ResumeTemplate = ({ resume }) => (
+  <PageFrame fitDeps={[resume]} innerClassName="resume-my-template">
+    {/* …content… */}
+  </PageFrame>
+)
+```
+
+`PageFrame` owns:
+
+- 210mm × 297mm article box (the printed page).
+- `useFitToPage` measurement → `zoom: scale` so content always fits one A4.
+- The preview toolbar contract: scale slider (`forcedScale` from `PageFrameContext`), density / padding sliders (re-measured via `fitKey`).
+- WYSIWYG: identical layout in screen preview, print preview, and PDF.
+
+Templates that bypass `PageFrame` (rendering a plain `<article>` directly) appear to work but silently break the toolbar slider and produce a preview that does not match the print. Don't.
+
+Pass the template's root class via `innerClassName`. Don't set `max-width: 210mm` or `margin: 0 auto` in your CSS - PageFrame's inner div may be wider than 210mm when content is being scaled down, and a clamp leaves an asymmetric gap on the right.
+
 ## What `ParsedResume` looks like
 
 See `src/lib/schema.ts`. The shape:
@@ -49,6 +74,14 @@ Render `bullets` / `body` with `dangerouslySetInnerHTML`. They are HTML strings 
 ## CSS scoping
 
 Use class names rooted at `.resume-<id>` to avoid collisions. Don't use Tailwind utility classes - they may not be available when the template is loaded in an isolated iframe (gallery preview).
+
+For the inner padding (the gutter between content and the page edge), use the `--page-pad-top` / `--page-pad-bot` CSS variables so the preview toolbar's padding sliders can override them:
+
+```css
+.resume-my-template {
+  padding: var(--page-pad-top, 15mm) 18mm var(--page-pad-bot, 15mm);
+}
+```
 
 ## Print styles
 

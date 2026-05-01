@@ -1,10 +1,11 @@
 import './styles.css'
 import type { ResumeTemplate } from '@/lib/template-registry'
+import { PageFrame } from '@/components/page-frame/PageFrame'
 
 const Starter: ResumeTemplate = ({ resume }) => {
   const { meta, sections } = resume
   return (
-    <article className="resume-starter">
+    <PageFrame fitDeps={[resume]} innerClassName="resume-starter">
       <header>
         <div className="header-row">
           <div>
@@ -71,7 +72,7 @@ const Starter: ResumeTemplate = ({ resume }) => {
           </ul>
         </section>
       )}
-    </article>
+    </PageFrame>
   )
 }
 

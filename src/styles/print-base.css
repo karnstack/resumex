@@ -6,13 +6,11 @@
     background: white;
     color: black;
   }
-  /* clamp body to a single page only when a PageFrame template is rendering.
-     PageFrame templates self-fit (useFitToPage scales content to 297mm) and
-     need this clamp because sub-pixel rounding (297mm = 1122.52px ->
-     scrollHeight 1123) otherwise spills onto a blank second page.
-     Direct-render templates (minimal-mono, _starter) need natural flow so
-     longer content paginates onto a real second page instead of getting
-     chopped. */
+  /* Every template renders through <PageFrame>, which self-fits content into
+     297mm via useFitToPage. Clamp body to one viewport in print so sub-pixel
+     rounding (297mm = 1122.52px -> scrollHeight 1123) doesn't spill onto a
+     blank second page. The :has() guard is a defensive no-op when no template
+     is mounted. */
   html:has(body .resumex-page-frame),
   body:has(.resumex-page-frame) {
     height: 100vh !important;

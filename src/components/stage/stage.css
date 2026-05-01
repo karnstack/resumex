@@ -14,11 +14,9 @@
 }
 
 /* the page floats above the stage with a subtle shadow + dashed side rules.
-   Applies to PageFrame-based templates (.resumex-page-frame) and to any
-   template whose root carries a `resume-*` class (e.g., .resume-minimal-mono). */
-.resumex-stage .resumex-page-frame,
-.resumex-stage > div > [class^='resume-'],
-.resumex-stage > [class^='resume-'] {
+   Every template wraps in <PageFrame>, which renders .resumex-page-frame as
+   the page-shaped article - so this is the single selector we need. */
+.resumex-stage .resumex-page-frame {
   position: relative;
   z-index: 1;
   box-shadow: var(--shadow-derek);
@@ -218,9 +216,7 @@ input[type='range'].resumex-range,
     margin: 0 !important;
     padding: 0 !important;
   }
-  .resumex-stage .resumex-page-frame,
-  .resumex-stage > div > [class^='resume-'],
-  .resumex-stage > [class^='resume-'] {
+  .resumex-stage .resumex-page-frame {
     box-shadow: none;
     border: none;
     border-radius: 0;

@@ -710,515 +710,521 @@ exports[`templates render against sample.md > emerald-twocol renders without thr
 exports[`templates render against sample.md > minimal-mono renders without throwing 1`] = `
 <div>
   <article
-    class="resume-minimal-mono"
+    class="resumex-page-frame "
+    style="width: 210mm; height: 297mm; position: relative; overflow: hidden; background: white; margin: 0px auto;"
   >
-    <header
-      class="header"
+    <div
+      class="resume-minimal-mono"
+      style="width: 210mm; min-height: 297mm; zoom: 1;"
     >
-      <div>
-        <h1>
-          Avery Park
-        </h1>
-        <div
-          class="title"
-        >
-          senior software engineer · platform
-        </div>
-      </div>
-      <div
-        class="contact"
+      <header
+        class="header"
       >
         <div>
-          <a
-            href="mailto:avery@example.com"
+          <h1>
+            Avery Park
+          </h1>
+          <div
+            class="title"
           >
-            avery@example.com
-          </a>
+            senior software engineer · platform
+          </div>
         </div>
-        <div>
-          New York, NY
+        <div
+          class="contact"
+        >
+          <div>
+            <a
+              href="mailto:avery@example.com"
+            >
+              avery@example.com
+            </a>
+          </div>
+          <div>
+            New York, NY
+          </div>
+          <div>
+            <a
+              href="https://example.com"
+            >
+              averypark.dev
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://github.com"
+            >
+              github.com/averypark
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://linkedin.com"
+            >
+              in/averypark
+            </a>
+          </div>
         </div>
+      </header>
+      <section>
+        <h2>
+          Summary
+        </h2>
         <div>
-          <a
-            href="https://example.com"
+          <p>
+            I build 
+            <strong>
+              resilient backend systems and the platforms that run them
+            </strong>
+            . I prefer small, reversible changes and clear interfaces. Software should be 
+            <em>
+              boring in production
+            </em>
+             and useful to its users.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Experience
+        </h2>
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
           >
-            averypark.dev
-          </a>
+            <div>
+              <span
+                class="entry-title"
+              >
+                Senior Software Engineer
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Coral Labs
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              Mar 2024 – Present
+               · 
+              New York, NY
+            </div>
+          </div>
+          <ul>
+            <li>
+              <p>
+                Led the migration of the events pipeline to a 
+                <strong>
+                  horizontally-sharded Kafka cluster
+                </strong>
+                , reducing p99 latency by 3x.
+              </p>
+            </li>
+            <li>
+              <p>
+                Owned the on-call rotation for the platform team - 
+                <strong>
+                  reduced pages 60%
+                </strong>
+                 over two quarters through better alerting and runbooks.
+              </p>
+            </li>
+            <li>
+              <p>
+                Mentored four engineers through L4 → L5 promotions.
+              </p>
+            </li>
+          </ul>
         </div>
-        <div>
-          <a
-            href="https://github.com"
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
           >
-            github.com/averypark
-          </a>
+            <div>
+              <span
+                class="entry-title"
+              >
+                Software Engineer 2
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Coral Labs
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              Aug 2022 – Mar 2024
+               · 
+              New York, NY
+            </div>
+          </div>
+          <ul>
+            <li>
+              <p>
+                Designed and shipped the 
+                <strong>
+                  billing pipeline
+                </strong>
+                 processing 12M events/day on Kafka + Postgres.
+              </p>
+            </li>
+            <li>
+              <p>
+                Built the 
+                <strong>
+                  internal feature-flag service
+                </strong>
+                 used across 40+ microservices.
+              </p>
+            </li>
+            <li>
+              <p>
+                Drove 
+                <strong>
+                  architecture-level reviews
+                </strong>
+                 for cross-team launches.
+              </p>
+            </li>
+          </ul>
         </div>
-        <div>
-          <a
-            href="https://linkedin.com"
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
           >
-            in/averypark
-          </a>
+            <div>
+              <span
+                class="entry-title"
+              >
+                Software Engineer
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Acme Inc
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              Jan 2020 – Jul 2022
+               · 
+              Remote
+            </div>
+          </div>
+          <ul>
+            <li>
+              <p>
+                Shipped the company's first 
+                <strong>
+                  public API
+                </strong>
+                 with rate limiting, OAuth2, and SDKs in three languages.
+              </p>
+            </li>
+            <li>
+              <p>
+                Migrated the legacy monolith's auth module to a 
+                <strong>
+                  standalone identity service
+                </strong>
+                , unblocking SSO integrations.
+              </p>
+            </li>
+            <li>
+              <p>
+                Cut average build times from 11 min to 90s by parallelizing the test matrix.
+              </p>
+            </li>
+          </ul>
         </div>
-      </div>
-    </header>
-    <section>
-      <h2>
-        Summary
-      </h2>
-      <div>
-        <p>
-          I build 
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
+          >
+            <div>
+              <span
+                class="entry-title"
+              >
+                Software Engineer Intern
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Bytework
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              May 2018 – Aug 2018
+               · 
+              Remote
+            </div>
+          </div>
+          <ul>
+            <li>
+              <p>
+                Built a small 
+                <strong>
+                  internal log aggregator
+                </strong>
+                 in Go on top of Kafka, replacing a brittle cron job.
+              </p>
+            </li>
+            <li>
+              <p>
+                Earned a 
+                <strong>
+                  return offer
+                </strong>
+                 for a full-time role.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Projects
+        </h2>
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
+          >
+            <div>
+              <span
+                class="entry-title"
+              >
+                Loomroute
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                loomroute.dev
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              Live
+               · 
+              Go
+            </div>
+          </div>
+          <div>
+            <p>
+              Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
+            </p>
+          </div>
+        </div>
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
+          >
+            <div>
+              <span
+                class="entry-title"
+              >
+                Tinytrace
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                github.com/example/tinytrace
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              OSS
+               · 
+              Rust
+            </div>
+          </div>
+          <div>
+            <p>
+              Minimal distributed tracing library - span model, OTLP export, ~3k lines.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Awards
+        </h2>
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
+          >
+            <div>
+              <span
+                class="entry-title"
+              >
+                Engineering Excellence
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Coral Labs
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              2025
+            </div>
+          </div>
+        </div>
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
+          >
+            <div>
+              <span
+                class="entry-title"
+              >
+                Best Internship Project
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Bytework
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              2018
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Education
+        </h2>
+        <div
+          class="entry"
+          data-print-entry="true"
+        >
+          <div
+            class="entry-head"
+          >
+            <div>
+              <span
+                class="entry-title"
+              >
+                B.S. Computer Science
+              </span>
+               
+              <span
+                class="entry-subtitle"
+              >
+                @ 
+                Northern State University
+              </span>
+            </div>
+            <div
+              class="entry-meta"
+            >
+              2014 – 2018
+               · 
+              Remote, USA
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Skills
+        </h2>
+        <div
+          class="skills-row"
+        >
           <strong>
-            resilient backend systems and the platforms that run them
+            Languages
+            :
           </strong>
-          . I prefer small, reversible changes and clear interfaces. Software should be 
-          <em>
-            boring in production
-          </em>
-           and useful to its users.
-        </p>
-      </div>
-    </section>
-    <section>
-      <h2>
-        Experience
-      </h2>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
+           
+          Go, TypeScript, Python, Rust
+        </div>
         <div
-          class="entry-head"
+          class="skills-row"
         >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Senior Software Engineer
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Coral Labs
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Mar 2024 – Present
-             · 
-            New York, NY
-          </div>
+          <strong>
+            Backend
+            :
+          </strong>
+           
+          Postgres, Redis, Kafka, gRPC, GraphQL
         </div>
-        <ul>
-          <li>
-            <p>
-              Led the migration of the events pipeline to a 
-              <strong>
-                horizontally-sharded Kafka cluster
-              </strong>
-              , reducing p99 latency by 3x.
-            </p>
-          </li>
-          <li>
-            <p>
-              Owned the on-call rotation for the platform team - 
-              <strong>
-                reduced pages 60%
-              </strong>
-               over two quarters through better alerting and runbooks.
-            </p>
-          </li>
-          <li>
-            <p>
-              Mentored four engineers through L4 → L5 promotions.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
         <div
-          class="entry-head"
+          class="skills-row"
         >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer 2
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Coral Labs
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Aug 2022 – Mar 2024
-             · 
-            New York, NY
-          </div>
+          <strong>
+            Frontend
+            :
+          </strong>
+           
+          React, Next.js, Tailwind, Vite
         </div>
-        <ul>
-          <li>
-            <p>
-              Designed and shipped the 
-              <strong>
-                billing pipeline
-              </strong>
-               processing 12M events/day on Kafka + Postgres.
-            </p>
-          </li>
-          <li>
-            <p>
-              Built the 
-              <strong>
-                internal feature-flag service
-              </strong>
-               used across 40+ microservices.
-            </p>
-          </li>
-          <li>
-            <p>
-              Drove 
-              <strong>
-                architecture-level reviews
-              </strong>
-               for cross-team launches.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
         <div
-          class="entry-head"
+          class="skills-row"
         >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Acme Inc
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Jan 2020 – Jul 2022
-             · 
-            Remote
-          </div>
+          <strong>
+            Platform
+            :
+          </strong>
+           
+          AWS, Kubernetes, Docker, Terraform, GitHub Actions
         </div>
-        <ul>
-          <li>
-            <p>
-              Shipped the company's first 
-              <strong>
-                public API
-              </strong>
-               with rate limiting, OAuth2, and SDKs in three languages.
-            </p>
-          </li>
-          <li>
-            <p>
-              Migrated the legacy monolith's auth module to a 
-              <strong>
-                standalone identity service
-              </strong>
-              , unblocking SSO integrations.
-            </p>
-          </li>
-          <li>
-            <p>
-              Cut average build times from 11 min to 90s by parallelizing the test matrix.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer Intern
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Bytework
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            May 2018 – Aug 2018
-             · 
-            Remote
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Built a small 
-              <strong>
-                internal log aggregator
-              </strong>
-               in Go on top of Kafka, replacing a brittle cron job.
-            </p>
-          </li>
-          <li>
-            <p>
-              Earned a 
-              <strong>
-                return offer
-              </strong>
-               for a full-time role.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <section>
-      <h2>
-        Projects
-      </h2>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Loomroute
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              loomroute.dev
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Live
-             · 
-            Go
-          </div>
-        </div>
-        <div>
-          <p>
-            Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
-          </p>
-        </div>
-      </div>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Tinytrace
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              github.com/example/tinytrace
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            OSS
-             · 
-            Rust
-          </div>
-        </div>
-        <div>
-          <p>
-            Minimal distributed tracing library - span model, OTLP export, ~3k lines.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>
-        Awards
-      </h2>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Engineering Excellence
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Coral Labs
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            2025
-          </div>
-        </div>
-      </div>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Best Internship Project
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Bytework
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            2018
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>
-        Education
-      </h2>
-      <div
-        class="entry"
-        data-print-entry="true"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              B.S. Computer Science
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Northern State University
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            2014 – 2018
-             · 
-            Remote, USA
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>
-        Skills
-      </h2>
-      <div
-        class="skills-row"
-      >
-        <strong>
-          Languages
-          :
-        </strong>
-         
-        Go, TypeScript, Python, Rust
-      </div>
-      <div
-        class="skills-row"
-      >
-        <strong>
-          Backend
-          :
-        </strong>
-         
-        Postgres, Redis, Kafka, gRPC, GraphQL
-      </div>
-      <div
-        class="skills-row"
-      >
-        <strong>
-          Frontend
-          :
-        </strong>
-         
-        React, Next.js, Tailwind, Vite
-      </div>
-      <div
-        class="skills-row"
-      >
-        <strong>
-          Platform
-          :
-        </strong>
-         
-        AWS, Kubernetes, Docker, Terraform, GitHub Actions
-      </div>
-    </section>
+      </section>
+    </div>
   </article>
 </div>
 `;

@@ -1,18 +1,21 @@
 /* _starter - bare-bones single-column scaffold.
    Tiny on purpose. Demonstrates the spacing / type scale conventions described
    in .claude/skills/designing-templates so authors have a sane baseline.
+
+   Page sizing (210mm width, A4 height, fit-to-page zoom) is owned by
+   <PageFrame>. The template only declares INNER padding + scoped typography.
+   Don't add `max-width: 210mm` or `margin: 0 auto` here - PageFrame's inner
+   div may be wider than 210mm when content is being scaled down.
+
    Spacing scale (pt): 2, 4, 8, 12, 16, 24.
    Type scale (pt):    9, 10, 11, 14, 18. */
 
 .resume-starter {
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
-  max-width: 210mm;
-  margin: 0 auto;
-  padding: 15mm 18mm;
+  padding: var(--page-pad-top, 15mm) 18mm var(--page-pad-bot, 15mm);
   font-size: 10.5pt;
   line-height: 1.55;
   color: #111;
-  background: white;
 }
 
 .resume-starter h1 {
@@ -69,7 +72,13 @@
 }
 
 @media print {
-  /* @page is declared in print-base.css (a4, no margin); the template owns
-     its inner padding via the rule above and removes the auto-centering
-     max-width here so the page fills edge-to-edge. */
+  /* @page is declared in print-base.css (a4, no margin). PageFrame self-clips
+     to one A4 in print via the global :has(.resumex-page-frame) clamp. The
+     template only needs to keep entries from splitting across the implicit
+     fit boundary. */
+  .resume-starter section,
+  .resume-starter [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
