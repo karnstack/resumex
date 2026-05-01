@@ -136,7 +136,7 @@ Commit after every task. Commit message convention: `feat: <thing>` or `chore: <
 **Files:**
 - Create: `LICENSE`, `.gitignore`, `.editorconfig`, `README.md` (skeleton)
 
-- [ ] **Step 1: Add LICENSE (MIT)**
+- [x] **Step 1: Add LICENSE (MIT)**
 
 `LICENSE`:
 ```
@@ -163,7 +163,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-- [ ] **Step 2: Add .gitignore**
+- [x] **Step 2: Add .gitignore**
 
 ```
 node_modules
@@ -176,7 +176,7 @@ src/generated/
 public/templates.json
 ```
 
-- [ ] **Step 3: Add .editorconfig**
+- [x] **Step 3: Add .editorconfig**
 
 ```
 root = true
@@ -190,7 +190,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ```
 
-- [ ] **Step 4: README skeleton (full content lands in Task 33)**
+- [x] **Step 4: README skeleton (full content lands in Task 33)**
 
 ```markdown
 # resumex
@@ -200,7 +200,7 @@ AI-first resume builder for Claude Code. Clone, talk naturally, ship a beautiful
 Status: under construction. See `docs/superpowers/plans/` for the implementation plan.
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add LICENSE .gitignore .editorconfig README.md
@@ -213,7 +213,7 @@ git commit -m "chore: initial repo scaffold (license, gitignore, readme skeleton
 
 **Files:** `mise.toml`, `package.json`, `pnpm-workspace.yaml` (skip), `tsconfig.json`, `tsconfig.node.json`, `.prettierrc.json`
 
-- [ ] **Step 1: `mise.toml`**
+- [x] **Step 1: `mise.toml`**
 
 ```toml
 [tools]
@@ -221,7 +221,7 @@ node = "24"
 pnpm = "10"
 ```
 
-- [ ] **Step 2: `package.json`**
+- [x] **Step 2: `package.json`**
 
 ```json
 {
@@ -248,7 +248,7 @@ pnpm = "10"
 
 Dependencies will be added incrementally per task as we touch each subsystem (`pnpm add` calls). This keeps each commit's dep changes scoped.
 
-- [ ] **Step 3: `tsconfig.json`**
+- [x] **Step 3: `tsconfig.json`**
 
 ```json
 {
@@ -278,7 +278,7 @@ Dependencies will be added incrementally per task as we touch each subsystem (`p
 }
 ```
 
-- [ ] **Step 4: `tsconfig.node.json`** (for vite.config.ts)
+- [x] **Step 4: `tsconfig.node.json`** (for vite.config.ts)
 
 ```json
 {
@@ -293,7 +293,7 @@ Dependencies will be added incrementally per task as we touch each subsystem (`p
 }
 ```
 
-- [ ] **Step 5: `.prettierrc.json`**
+- [x] **Step 5: `.prettierrc.json`**
 
 ```json
 {
@@ -305,7 +305,7 @@ Dependencies will be added incrementally per task as we touch each subsystem (`p
 }
 ```
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add mise.toml package.json tsconfig.json tsconfig.node.json .prettierrc.json
@@ -318,14 +318,14 @@ git commit -m "chore: toolchain (mise, package.json, tsconfig, prettier)"
 
 **Files:** `index.html`, `src/main.tsx`, `src/router.tsx`, `src/routes/__root.tsx`, `src/routes/index.tsx`, `vite.config.ts`
 
-- [ ] **Step 1: Install deps**
+- [x] **Step 1: Install deps**
 
 ```bash
 pnpm add react@^19 react-dom@^19 @tanstack/react-router
 pnpm add -D vite @vitejs/plugin-react @tanstack/router-plugin @types/react @types/react-dom @types/node typescript prettier prettier-plugin-tailwindcss
 ```
 
-- [ ] **Step 2: `index.html`**
+- [x] **Step 2: `index.html`**
 
 ```html
 <!doctype html>
@@ -342,7 +342,7 @@ pnpm add -D vite @vitejs/plugin-react @tanstack/router-plugin @types/react @type
 </html>
 ```
 
-- [ ] **Step 3: `vite.config.ts`** (initial — plugins land in later tasks)
+- [x] **Step 3: `vite.config.ts`** (initial — plugins land in later tasks)
 
 ```ts
 import { defineConfig } from 'vite'
@@ -365,7 +365,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 4: `src/main.tsx`**
+- [x] **Step 4: `src/main.tsx`**
 
 ```tsx
 import { StrictMode } from 'react'
@@ -381,7 +381,7 @@ createRoot(document.getElementById('root')!).render(
 )
 ```
 
-- [ ] **Step 5: `src/router.tsx`**
+- [x] **Step 5: `src/router.tsx`**
 
 ```tsx
 import { createRouter } from '@tanstack/react-router'
@@ -396,7 +396,7 @@ declare module '@tanstack/react-router' {
 }
 ```
 
-- [ ] **Step 6: `src/routes/__root.tsx`**
+- [x] **Step 6: `src/routes/__root.tsx`**
 
 ```tsx
 import { Outlet, createRootRoute } from '@tanstack/react-router'
@@ -406,7 +406,7 @@ export const Route = createRootRoute({
 })
 ```
 
-- [ ] **Step 7: `src/routes/index.tsx`** (placeholder; replaced in Task 18)
+- [x] **Step 7: `src/routes/index.tsx`** (placeholder; replaced in Task 18)
 
 ```tsx
 import { createFileRoute } from '@tanstack/react-router'
@@ -421,19 +421,19 @@ export const Route = createFileRoute('/')({
 })
 ```
 
-- [ ] **Step 8: Empty styles file (real content in Task 4)**
+- [x] **Step 8: Empty styles file (real content in Task 4)**
 
 `src/styles.css`:
 ```css
 /* tailwind entry — see Task 4 */
 ```
 
-- [ ] **Step 9: Verify boot**
+- [x] **Step 9: Verify boot**
 
 Run: `pnpm dev`
 Expected: server up on `http://localhost:5173`, page shows "resumex / scaffold ok". Kill with Ctrl-C.
 
-- [ ] **Step 10: Commit**
+- [x] **Step 10: Commit**
 
 ```bash
 git add .
@@ -446,13 +446,13 @@ git commit -m "feat: vite + react 19 + tanstack router minimal app"
 
 **Files:** `src/styles.css`, `src/styles/print-base.css`, `vite.config.ts` (modify)
 
-- [ ] **Step 1: Install**
+- [x] **Step 1: Install**
 
 ```bash
 pnpm add -D tailwindcss @tailwindcss/vite
 ```
 
-- [ ] **Step 2: Update `vite.config.ts` plugins**
+- [x] **Step 2: Update `vite.config.ts` plugins**
 
 ```ts
 import tailwindcss from '@tailwindcss/vite'
@@ -464,7 +464,7 @@ plugins: [
 ],
 ```
 
-- [ ] **Step 3: `src/styles.css`** — Tailwind v4 entry + tokens
+- [x] **Step 3: `src/styles.css`** — Tailwind v4 entry + tokens
 
 ```css
 @import 'tailwindcss';
@@ -486,7 +486,7 @@ body {
 }
 ```
 
-- [ ] **Step 4: `src/styles/print-base.css`** — shared print rules
+- [x] **Step 4: `src/styles/print-base.css`** — shared print rules
 
 ```css
 @media print {
@@ -516,7 +516,7 @@ body {
 }
 ```
 
-- [ ] **Step 5: Smoke test Tailwind in `__root.tsx`**
+- [x] **Step 5: Smoke test Tailwind in `__root.tsx`**
 
 Replace `__root.tsx`:
 ```tsx
@@ -533,7 +533,7 @@ export const Route = createRootRoute({
 
 Run: `pnpm dev` and visit `/`. Expected: light gray background, page renders.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add .
