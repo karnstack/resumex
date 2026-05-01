@@ -71,10 +71,7 @@ export function TemplateCard({ meta }: { meta: ResumeTemplateMeta }) {
               width: '793px',
               height: '1122px',
               opacity: loaded ? 1 : 0,
-              transform: loaded ? 'scale(1)' : 'scale(0.985)',
-              transformOrigin: 'top left',
-              transition:
-                'opacity 360ms cubic-bezier(0.16, 1, 0.3, 1), transform 420ms cubic-bezier(0.16, 1, 0.3, 1)',
+              transition: 'opacity 360ms cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           />
         )}
