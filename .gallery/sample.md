@@ -14,7 +14,6 @@ skills:
   - { group: Frontend, items: [React, Next.js, Tailwind, Vite] }
   - { group: Platform, items: [AWS, Kubernetes, Docker, Terraform, GitHub Actions] }
 sectionOrder: [summary, experience, projects, awards, education]
-paper: a4
 ---
 
 ## Summary

@@ -37,12 +37,7 @@ export function TemplateCard({ meta }: { meta: ResumeTemplateMeta }) {
         <div className="bg-foreground/0 group-hover:bg-foreground/[0.03] absolute inset-0 transition-colors" />
       </Link>
       <CardContent className="flex flex-1 flex-col gap-3 p-5">
-        <div className="flex items-baseline justify-between gap-2">
-          <div className="text-base font-semibold tracking-tight">{meta.name}</div>
-          <span className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
-            {meta.paper ?? 'letter'}
-          </span>
-        </div>
+        <div className="text-base font-semibold tracking-tight">{meta.name}</div>
         <p className="text-muted-foreground flex-1 text-sm leading-relaxed">{meta.description}</p>
         <div className="flex flex-wrap gap-1">
           {meta.tags.map((tag) => (

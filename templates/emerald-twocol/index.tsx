@@ -20,7 +20,7 @@ const EmeraldTwocol: ResumeTemplate = ({ resume }) => {
   )
 
   return (
-    <PageFrame paper="a4" fitDeps={[resume]} className="kt-frame" innerClassName="kt-root">
+    <PageFrame fitDeps={[resume]} className="kt-frame" innerClassName="kt-root">
       <div className="kt-grid">
         <Header meta={meta} />
         {summary && (

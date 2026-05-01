@@ -5,5 +5,4 @@ export const meta: ResumeTemplateMeta = {
   name: 'Starter',
   description: 'Bare-bones single-column starter — duplicate and iterate.',
   tags: ['starter'],
-  paper: 'letter',
 }

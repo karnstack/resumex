@@ -1,6 +1,11 @@
 import { createContext, useContext, useEffect, type ReactNode } from 'react'
 import { useFitToPage } from './use-fit-to-page'
 
+/* A4 is the only supported paper size. Letter was dropped to keep the print
+   pipeline (and density math) one-target. */
+const PAGE_WIDTH_MM = 210
+const PAGE_HEIGHT_MM = 297
+
 type PageFrameContextValue = {
   forcedScale?: number
   onScaleChange?: (scale: number) => void
@@ -29,13 +34,7 @@ export function PageFrameProvider({
   )
 }
 
-const PAPER_DIMS = {
-  a4: { width: 210, height: 297 },
-  letter: { width: 215.9, height: 279.4 },
-} as const
-
 export function PageFrame({
-  paper = 'a4',
   fitDeps = [],
   className,
   innerClassName,
@@ -43,7 +42,6 @@ export function PageFrame({
   onScaleChange,
   children,
 }: {
-  paper?: 'a4' | 'letter'
   fitDeps?: unknown[]
   className?: string
   innerClassName?: string
@@ -56,38 +54,18 @@ export function PageFrame({
   const effectiveForcedScale = forcedScale ?? ctx.forcedScale
   const effectiveOnScaleChange = onScaleChange ?? ctx.onScaleChange
   const { ref, scale } = useFitToPage<HTMLDivElement>(
-    paper,
     [...fitDeps, ctx.fitKey],
     effectiveForcedScale,
   )
-  const dims = PAPER_DIMS[paper]
   useEffect(() => {
     effectiveOnScaleChange?.(scale)
   }, [scale, effectiveOnScaleChange])
-  // Inject the @page size dynamically. Putting @page rules inside individual
-  // template CSS files breaks because all templates' CSS is bundled together,
-  // and @page rules cascade — whichever rule is loaded *last* wins regardless
-  // of which template is currently active. That caused emerald-twocol (A4)
-  // previews to actually print as Letter size and clip the footer.
-  useEffect(() => {
-    const id = 'resumex-page-rule'
-    let style = document.getElementById(id) as HTMLStyleElement | null
-    if (!style) {
-      style = document.createElement('style')
-      style.id = id
-      document.head.appendChild(style)
-    }
-    style.textContent = `@page { size: ${paper}; margin: 0; }`
-    return () => {
-      // leave the style in place; the next template's PageFrame will rewrite it
-    }
-  }, [paper])
   return (
     <article
       className={`resumex-page-frame ${className ?? ''}`}
       style={{
-        width: `${dims.width}mm`,
-        height: `${dims.height}mm`,
+        width: `${PAGE_WIDTH_MM}mm`,
+        height: `${PAGE_HEIGHT_MM}mm`,
         position: 'relative',
         overflow: 'hidden',
         background: 'white',
@@ -98,8 +76,8 @@ export function PageFrame({
         ref={ref}
         className={innerClassName}
         style={{
-          width: `${dims.width / scale}mm`,
-          minHeight: `${dims.height / scale}mm`,
+          width: `${PAGE_WIDTH_MM / scale}mm`,
+          minHeight: `${PAGE_HEIGHT_MM / scale}mm`,
           // `zoom` is preferred over `transform: scale` because Chrome's PDF
           // pipeline preserves layout for `zoom` but renders `transform`
           // visually only — meaning content past the un-transformed layout

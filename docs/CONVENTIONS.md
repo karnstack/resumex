@@ -23,7 +23,6 @@ skills:                             # optional, grouped
   - { group: Languages, items: [Go, TypeScript, Python] }
   - { group: Tools, items: [Postgres, Redis] }
 sectionOrder: [experience, projects, education]   # optional
-paper: letter                       # optional, default 'letter'
 ---
 ```
 

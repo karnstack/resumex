@@ -21,7 +21,6 @@ export const ResumeFrontmatterSchema = z
     links: z.array(LinkSchema).optional(),
     skills: z.array(SkillGroupSchema).optional(),
     sectionOrder: z.array(z.string()).optional(),
-    paper: z.enum(['letter', 'a4']).optional(),
   })
   .strict()
 

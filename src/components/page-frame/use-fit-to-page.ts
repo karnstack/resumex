@@ -1,26 +1,27 @@
 import { useLayoutEffect, useRef, useState, type DependencyList } from 'react'
 
-const PAPER_HEIGHT_MM = { a4: 297, letter: 279.4 } as const
+/* A4 is the only supported page size. */
+const PAGE_WIDTH_MM = 210
+const PAGE_HEIGHT_MM = 297
 const MIN_SCALE = 0.45
 /* leave 2px so sub-pixel rounding from `transform: scale` doesn't push the
    footer past the article's overflow:hidden clip boundary in print. */
 const FIT_SAFETY_PX = 2
 
 /**
- * Measure content and return a scale that fits it into one page.
+ * Measure content and return a scale that fits it into one A4 page.
  *
  * Returns both `autoScale` (computed from measurement) and `scale` (the value
  * a consumer should apply). When `forcedScale` is provided, `scale === forcedScale`
  * and measurement is skipped — useful for a manual override slider in preview tools.
  */
 export function useFitToPage<T extends HTMLElement = HTMLDivElement>(
-  paper: 'a4' | 'letter' = 'a4',
   deps: DependencyList = [],
   forcedScale?: number,
 ) {
   const ref = useRef<T>(null)
   const [autoScale, setAutoScale] = useState(1)
-  const heightPx = (PAPER_HEIGHT_MM[paper] * 96) / 25.4
+  const heightPx = (PAGE_HEIGHT_MM * 96) / 25.4
 
   useLayoutEffect(() => {
     if (forcedScale !== undefined) return
@@ -35,7 +36,7 @@ export function useFitToPage<T extends HTMLElement = HTMLDivElement>(
       const prevMinHeight = el.style.minHeight
 
       el.style.zoom = '1'
-      el.style.width = paper === 'a4' ? '210mm' : '215.9mm'
+      el.style.width = `${PAGE_WIDTH_MM}mm`
       el.style.minHeight = '0'
       // force a synchronous reflow so scrollHeight reads the committed layout
       void el.offsetHeight

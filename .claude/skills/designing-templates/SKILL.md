@@ -40,7 +40,6 @@ export const meta: ResumeTemplateMeta = {
   name: 'My Template',
   description: 'short pitch shown in the gallery',
   tags: ['minimal', 'two-column', ...],
-  paper: 'letter',           // optional
 }
 ```
 
@@ -95,7 +94,7 @@ The user says *"tweak minimal-mono to use a serif"* or *"make two-column-classic
 
 ## Design principles
 
-Resume templates render on a tiny canvas (one A4/letter page) and must survive both screen preview and print. These rules — adapted from Refactoring UI for the resume context — produce templates that look intentional rather than amateur. Apply them when creating *or* iterating.
+Resume templates render on a tiny canvas (one A4 page — A4 is the only supported size) and must survive both screen preview and print. These rules — adapted from Refactoring UI for the resume context — produce templates that look intentional rather than amateur. Apply them when creating *or* iterating.
 
 ### Hierarchy: three levers, never all at once
 
@@ -113,10 +112,10 @@ The *blur test*: squint at the page. The name should dominate, section labels sh
 
 ### Spacing scale
 
-Pick a constrained scale and stick to it. Two scales work well at print scale:
+Pick a constrained scale and stick to it. Two scales work well at A4 scale:
 
-- **Point-based** (good for letter-size, ATS-style): `2, 4, 8, 12, 16, 24pt`.
-- **Millimeter-based** (good for visual A4 layouts): `1, 2, 3, 5, 8, 12mm`.
+- **Point-based** (good for ATS-style, type-anchored layouts): `2, 4, 8, 12, 16, 24pt`.
+- **Millimeter-based** (good for visual two-column A4 layouts): `1, 2, 3, 5, 8, 12mm`.
 
 Spacing within a group (entry title → bullets) should be tighter than spacing between groups (entry → entry → section). Generous whitespace around section headers signals structure; cramped spacing reads as a wall of text. Start with too much space, then remove.
 
@@ -148,7 +147,7 @@ Resume templates are 90% grayscale by necessity. Color is for one or two accents
 This is where most resume templates fall apart. Every template MUST:
 
 1. **Preserve color in print.** Add `print-color-adjust: exact` (and `-webkit-print-color-adjust: exact`) to the root container if the template uses gradient text, colored bullets, chip backgrounds, or any non-grayscale element. Without it, Chrome silently strips them.
-2. **Set `@page` size + margin** matching the frontmatter `paper`. If the template controls its own margin via padding, set `@page { margin: 0 }` and pad inside the frame.
+2. **Don't redeclare `@page`.** A4 is the only supported size and `@page { size: a4; margin: 0 }` lives in `src/styles/print-base.css`. Templates pad *inside* their root container — `@page` rules in template CSS cascade across the bundle and break sibling templates.
 3. **Avoid splitting entries** with `page-break-inside: avoid` (`break-inside: avoid` for modern browsers). Add `data-print-entry="true"` to entry containers — `print-base.css` has the rule.
 4. **Hide editor chrome** with `data-print-hide="true"` on any non-resume element (already handled by `print-base.css`).
 5. **Avoid screen-only effects in print:** transitions, animations, hover states are stripped automatically, but heavy box-shadows print as muddy gray rectangles — wrap shadows in `@media screen` or remove them in `@media print`.
@@ -156,7 +155,7 @@ This is where most resume templates fall apart. Every template MUST:
 ### Layout
 
 - **Left-align text by default.** Center only the name + tagline if the template is symmetric. Left-aligned columns are easier to scan.
-- **Constrain content width.** A4/letter is ~210/216mm; never let bullets stretch full-width without padding — text becomes hard to track. `0.6–0.7in` page padding works for letter; `12mm` works for A4.
+- **Constrain content width.** A4 is 210mm; never let bullets stretch full-width without padding — text becomes hard to track. `12–18mm` page padding works for A4 (use mm, not inches — inches drift on a 210mm page).
 - **Two-column layouts** should split sidebar (~30–35%) from main (~65–70%). Going 50/50 makes both columns awkward.
 - **Don't center long content.** Names, taglines, short headlines — yes. Bullets, dates, multi-line descriptions — never.
 
@@ -174,12 +173,14 @@ This is where most resume templates fall apart. Every template MUST:
 
 ## Print styles
 
-Every template's `styles.css` MUST include `@media print` rules that:
-- Set `@page` size and margins matching the frontmatter `paper` field.
-- Apply `page-break-inside: avoid` to entries (use the `data-print-entry="true"` attribute pattern).
+Page size is fixed at A4 globally — `src/styles/print-base.css` declares `@page { size: a4; margin: 0 }`. Templates do NOT redeclare `@page`; doing so creates cross-template cascade conflicts (the rule that loads last wins regardless of which template is active).
+
+Every template's `@media print` block should:
+- Apply `page-break-inside: avoid` to entries (use the `data-print-entry="true"` attribute pattern, which `print-base.css` already handles).
+- Adjust internal padding for print if on-screen and printed padding should differ (rare).
 - Hide editor chrome via `[data-print-hide="true"] { display: none !important; }` (already in shared `print-base.css`).
 
-Print-base.css handles the common defaults; templates extend it. When creating a new template, copy the print rules from `_starter` and adapt.
+When creating a new template, copy the print rules from `_starter` and adapt.
 
 ## Verification
 

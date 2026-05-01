@@ -32,7 +32,6 @@ skills:                             # optional, grouped tags
   - { group: Languages, items: [Go, TypeScript] }
   - { group: Tools, items: [Postgres, Redis] }
 sectionOrder: [experience, projects, education]   # optional override
-paper: letter                       # optional, 'letter' | 'a4', default 'letter'
 ---
 ```
 

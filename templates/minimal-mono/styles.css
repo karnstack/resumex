@@ -3,9 +3,9 @@
 
 .resume-minimal-mono {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  max-width: 8.5in;
+  max-width: 210mm;
   margin: 0 auto;
-  padding: var(--page-pad-top, 0.6in) 0.7in var(--page-pad-bot, 0.6in);
+  padding: var(--page-pad-top, 15mm) 18mm var(--page-pad-bot, 15mm);
   font-size: 9.75pt;
   line-height: 1.55;
   color: #111;
@@ -109,11 +109,8 @@
 }
 
 @media print {
-  /* @page is injected by PageFrame based on the template's paper field —
-     putting @page rules in template CSS would conflict across templates. */
-  .resume-minimal-mono {
-    padding: 0;
-  }
+  /* @page is declared once in print-base.css (a4, no margin). Template-level
+     padding stays in place so contact + content don't kiss the page edge. */
   .resume-minimal-mono .entry,
   .resume-minimal-mono section {
     page-break-inside: avoid;

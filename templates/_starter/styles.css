@@ -6,9 +6,9 @@
 
 .resume-starter {
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
-  max-width: 8.5in;
+  max-width: 210mm;
   margin: 0 auto;
-  padding: 0.6in 0.7in;
+  padding: 15mm 18mm;
   font-size: 10.5pt;
   line-height: 1.55;
   color: #111;
@@ -69,8 +69,7 @@
 }
 
 @media print {
-  /* @page is injected by PageFrame based on the template's paper field. */
-  .resume-starter {
-    padding: 0;
-  }
+  /* @page is declared in print-base.css (a4, no margin); the template owns
+     its inner padding via the rule above and removes the auto-centering
+     max-width here so the page fills edge-to-edge. */
 }

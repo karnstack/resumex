@@ -27,7 +27,7 @@ See `src/lib/schema.ts`. The shape:
 
 ```ts
 type ParsedResume = {
-  meta: ResumeFrontmatter         // name, title, links, skills, sectionOrder, paper, ...
+  meta: ResumeFrontmatter         // name, title, links, skills, sectionOrder, ...
   sections: Array<{
     key: string                   // 'experience'
     name: string                  // 'Experience'
@@ -52,11 +52,10 @@ Use class names rooted at `.resume-<id>` to avoid collisions. Don't use Tailwind
 
 ## Print styles
 
-Every template's `styles.css` MUST include a `@media print` block that:
+The global `@page { size: a4; margin: 0 }` rule lives in `src/styles/print-base.css` — A4 is the only supported page size. Template `styles.css` should NOT redeclare `@page` (rules cascade across the bundled CSS). Instead, every template's `@media print` block should:
 
-- Sets `@page { size: <letter|a4>; margin: …; }`.
-- Removes any per-template padding that conflicts with `@page` margins.
-- Applies `page-break-inside: avoid` (or modern equivalent `break-inside: avoid`) to entries.
+- Use `page-break-inside: avoid` (or modern `break-inside: avoid`) on entry containers.
+- Adjust internal padding for print if the on-screen padding doesn't match what you want printed.
 
 Use the `data-print-entry="true"` attribute on entry containers — `print-base.css` has a default rule for it.
 

@@ -29,7 +29,12 @@
 }
 
 @media print {
+  /* A4 is the only supported page size. Declared once here (rather than in
+     each template's CSS) because @page rules cascade across the bundled CSS
+     and whichever loaded last would win, which previously caused A4
+     templates to silently print as Letter. */
   @page {
+    size: a4;
     margin: 0;
   }
   .resumex-page-frame {

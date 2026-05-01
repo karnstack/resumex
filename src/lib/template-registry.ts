@@ -8,7 +8,6 @@ export type ResumeTemplateMeta = {
   name: string
   description: string
   tags: string[]
-  paper?: 'letter' | 'a4'
   fonts?: { sans?: string; serif?: string; mono?: string }
 }
 
