@@ -1,5 +1,5 @@
 ---
-template: karnstack-twocol
+template: emerald-twocol
 name: Avery Park
 title: senior software engineer · platform
 location: New York, NY

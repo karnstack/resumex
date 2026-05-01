@@ -1,14 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`templates render against sample.md > karnstack-twocol renders without throwing 1`] = `
+exports[`templates render against sample.md > emerald-twocol renders without throwing 1`] = `
 <div>
   <article
     class="resumex-page-frame kt-frame"
-    style="width: 210mm; height: 297mm; position: relative; overflow: hidden; background: white;"
+    style="width: 210mm; height: 297mm; position: relative; overflow: hidden; background: white; margin: 0px auto;"
   >
     <div
       class="kt-root"
-      style="width: 210mm; min-height: 297mm; transform: scale(1); transform-origin: top left;"
+      style="width: 210mm; min-height: 297mm; zoom: 1;"
     >
       <div
         class="kt-grid"
@@ -276,8 +276,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 loomroute.dev
               </div>
               <div
-                class="meta-line"
-                style="font-family: inherit; text-transform: none; letter-spacing: 0px;"
+                class="kt-side-entry-body"
               >
                 <p>
                   Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
@@ -303,8 +302,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 github.com/example/tinytrace
               </div>
               <div
-                class="meta-line"
-                style="font-family: inherit; text-transform: none; letter-spacing: 0px;"
+                class="kt-side-entry-body"
               >
                 <p>
                   Minimal distributed tracing library — span model, OTLP export, ~3k lines.
@@ -400,17 +398,19 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
             class="kt-section"
           >
             <div
-              class="kt-section-head"
+              class="kt-section-title"
             >
-              <h3>
-                Experience
-              </h3>
+              <span
+                class="kt-eyebrow"
+              >
+                experience
+              </span>
             </div>
             <div
               class="kt-section-group"
             >
               <div
-                class="kt-section-head"
+                class="kt-group-head"
               >
                 <h3>
                   Coral Labs
@@ -548,7 +548,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               class="kt-section-group"
             >
               <div
-                class="kt-section-head"
+                class="kt-group-head"
               >
                 <h3>
                   Acme Inc
@@ -623,7 +623,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               class="kt-section-group"
             >
               <div
-                class="kt-section-head"
+                class="kt-group-head"
               >
                 <h3>
                   Bytework
@@ -695,22 +695,6 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
           class="kt-foot"
         >
           <span>
-            <span
-              class="wordmark"
-            >
-              karnstack
-            </span>
-            <span
-              class="sep"
-            >
-              ·
-            </span>
-            resume
-            <span
-              class="sep"
-            >
-              ·
-            </span>
             avery-park
           </span>
           <span>
@@ -801,6 +785,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </h2>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -855,6 +840,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </div>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -913,6 +899,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </div>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -967,6 +954,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </div>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -1021,6 +1009,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </h2>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -1055,6 +1044,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </div>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -1094,6 +1084,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </h2>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -1121,6 +1112,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </div>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"
@@ -1153,6 +1145,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       </h2>
       <div
         class="entry"
+        data-print-entry="true"
       >
         <div
           class="entry-head"

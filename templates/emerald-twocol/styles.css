@@ -1,4 +1,6 @@
-/* karnstack-twocol — emerald palette, two-column A4 */
+/* emerald-twocol — emerald palette, two-column A4.
+   class prefix .kt- kept for stable internal scoping (don't rename — touches
+   too many selectors and adds zero user-visible value). */
 
 .kt-root {
   --kt-fg: oklch(0.141 0.005 285.823);
@@ -13,6 +15,9 @@
   color: var(--kt-fg);
   background: white;
   font-feature-settings: 'ss01', 'cv11';
+  /* preserve gradient text, bullet dots, and chip backgrounds when printing */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .kt-grid {
@@ -20,14 +25,17 @@
   grid-template-columns: 32.38% 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: 'head head' 'sub sub' 'side main' 'foot foot';
-  width: 210mm;
+  /* width: 100% (not 210mm) so the grid follows the PageFrame's inner div,
+     which may be wider than 210mm when fit-to-page scales content down.
+     Without this, scaled content leaves an asymmetric right gap. */
+  width: 100%;
   min-height: 297mm;
 }
 
 /* head */
 .kt-head {
   grid-area: head;
-  padding: 22mm 12mm 6mm;
+  padding: var(--page-pad-top, 22mm) 12mm 6mm;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -68,8 +76,13 @@
   animation: kt-pulse 1.6s ease-in-out infinite;
 }
 @keyframes kt-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 .kt-contact {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -82,7 +95,9 @@
   color: inherit;
   text-decoration: none;
 }
-.kt-contact a:hover { color: var(--kt-primary); }
+.kt-contact a:hover {
+  color: var(--kt-primary);
+}
 
 /* about */
 .kt-about {
@@ -135,7 +150,11 @@
   flex-direction: column;
   gap: 7mm;
 }
-.kt-side-section { display: flex; flex-direction: column; gap: 2.5mm; }
+.kt-side-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
 .kt-skill-group .label {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8pt;
@@ -164,7 +183,11 @@
   color: var(--kt-emerald-700);
   font-weight: 500;
 }
-.kt-side-entry { display: flex; flex-direction: column; gap: 2px; }
+.kt-side-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 .kt-side-entry + .kt-side-entry {
   margin-top: 3mm;
   padding-top: 3mm;
@@ -190,6 +213,23 @@
   font-size: 7.5pt;
   color: var(--kt-muted-fg);
 }
+/* the prose body (rendered HTML) inside a side entry shouldn't inherit the
+   uppercase mono treatment used for date / location meta-lines */
+.kt-side-entry .meta-line.prose,
+.kt-side-entry .kt-side-entry-body {
+  font-family: inherit;
+  font-size: 9pt;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5;
+  color: var(--kt-fg);
+}
+.kt-side-entry .kt-side-entry-body p {
+  margin: 0;
+}
+.kt-side-entry .kt-bullets {
+  margin-top: 1mm;
+}
 
 /* main */
 .kt-main {
@@ -204,35 +244,62 @@
   padding-top: 5mm;
   border-top: 1px dashed color-mix(in oklch, var(--kt-border) 50%, transparent);
 }
-.kt-section-head {
+
+/* section-level title (e.g., "experience") — small mono eyebrow, quiet
+   anchor; lets per-company group headings dominate. */
+.kt-section-title {
+  margin-bottom: 4mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid color-mix(in oklch, var(--kt-border) 70%, transparent);
+}
+
+/* per-company group: clear separation between Coral Labs / Acme / Bytework */
+.kt-section-group + .kt-section-group {
+  margin-top: 4mm;
+  padding-top: 3mm;
+  border-top: 1px dashed color-mix(in oklch, var(--kt-border) 60%, transparent);
+}
+
+.kt-group-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 3mm;
 }
-.kt-section-head h3 {
+.kt-group-head h3 {
   margin: 0;
-  font-size: 13pt;
+  font-size: 12pt;
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
-.kt-section-head .tenure {
+.kt-group-head .tenure {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8.5pt;
   color: var(--kt-muted-fg);
   white-space: nowrap;
 }
-.kt-entry { display: flex; flex-direction: column; gap: 2mm; }
-.kt-entry + .kt-entry { margin-top: 3mm; }
+.kt-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+.kt-entry + .kt-entry {
+  margin-top: 3.5mm;
+}
 .kt-entry-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.625rem;
 }
-.kt-entry-head .left { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; }
+.kt-entry-head .left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
 .kt-entry-head .idx {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 8pt;
@@ -292,7 +359,7 @@
 /* footer */
 .kt-foot {
   grid-area: foot;
-  padding: 6mm 12mm;
+  padding: 6mm 12mm var(--page-pad-bot, 6mm);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -302,21 +369,7 @@
   color: var(--kt-muted-fg);
   border-top: 1px dashed color-mix(in oklch, var(--kt-border) 60%, transparent);
 }
-.kt-foot .wordmark {
-  font-family: 'Figtree', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(90deg, var(--kt-primary) 0%, var(--kt-primary-end) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.kt-foot .sep {
-  margin: 0 0.4rem;
-  color: color-mix(in oklch, var(--kt-muted-fg) 40%, transparent);
-}
-
-@media print {
-  @page { size: A4; margin: 0; }
-  .kt-grid { width: 210mm; min-height: 297mm; }
-}
+/* @page size is injected dynamically by PageFrame based on the template's
+   `paper` field. Don't add @page rules here — they would cascade with other
+   templates' CSS (all bundled together) and the last-loaded one would win
+   regardless of which template is active. */

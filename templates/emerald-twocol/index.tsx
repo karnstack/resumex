@@ -3,16 +3,10 @@ import type { ResumeFrontmatter, ParsedEntry, ParsedSection } from '@/lib/schema
 import type { ResumeTemplate } from '@/lib/template-registry'
 import { PageFrame } from '@/components/page-frame/PageFrame'
 
-const SIDEBAR_KEYS = new Set([
-  'summary',
-  'about',
-  'projects',
-  'awards',
-  'education',
-])
+const SIDEBAR_KEYS = new Set(['summary', 'about', 'projects', 'awards', 'education'])
 const MAIN_KEYS = new Set(['experience', 'roles'])
 
-const KarnstackTwocol: ResumeTemplate = ({ resume }) => {
+const EmeraldTwocol: ResumeTemplate = ({ resume }) => {
   const { meta, sections } = resume
   const summary = sections.find((s) => s.key === 'summary' || s.key === 'about')
   const experience = sections.find((s) => MAIN_KEYS.has(s.key))
@@ -22,10 +16,7 @@ const KarnstackTwocol: ResumeTemplate = ({ resume }) => {
 
   // anything else (uncommon section) goes into main below experience
   const otherMain = sections.filter(
-    (s) =>
-      !MAIN_KEYS.has(s.key) &&
-      !SIDEBAR_KEYS.has(s.key) &&
-      s !== summary,
+    (s) => !MAIN_KEYS.has(s.key) && !SIDEBAR_KEYS.has(s.key) && s !== summary,
   )
 
   return (
@@ -91,13 +82,7 @@ const KarnstackTwocol: ResumeTemplate = ({ resume }) => {
         </main>
 
         <footer className="kt-foot">
-          <span>
-            <span className="wordmark">karnstack</span>
-            <span className="sep">·</span>
-            resume
-            <span className="sep">·</span>
-            {meta.name.toLowerCase().replace(/\s+/g, '-')}
-          </span>
+          <span>{meta.name.toLowerCase().replace(/\s+/g, '-')}</span>
           <span>{meta.title}</span>
         </footer>
       </div>
@@ -105,7 +90,7 @@ const KarnstackTwocol: ResumeTemplate = ({ resume }) => {
   )
 }
 
-export default KarnstackTwocol
+export default EmeraldTwocol
 
 function Header({ meta }: { meta: ResumeFrontmatter }) {
   const parts = meta.name.trim().split(/\s+/)
@@ -153,15 +138,11 @@ function SideEntry({ entry, compact = false }: { entry: ParsedEntry; compact?: b
       <h4 className="title">{entry.title}</h4>
       {entry.subtitle && <div className="sub">{entry.subtitle}</div>}
       {!compact && entry.body && (
-        <div
-          className="meta-line"
-          style={{ fontFamily: 'inherit', textTransform: 'none', letterSpacing: 0 }}
-          dangerouslySetInnerHTML={{ __html: entry.body }}
-        />
+        <div className="kt-side-entry-body" dangerouslySetInnerHTML={{ __html: entry.body }} />
       )}
       {entry.dateRange && <div className="meta-line">{entry.dateRange}</div>}
       {!compact && entry.bullets.length > 0 && (
-        <ul className="kt-bullets" style={{ marginTop: '1mm' }}>
+        <ul className="kt-bullets">
           {entry.bullets.map((b, i) => (
             <li key={i} dangerouslySetInnerHTML={{ __html: b }} />
           ))}
@@ -177,15 +158,15 @@ function MainSection({ section }: { section: ParsedSection }) {
   let runningIdx = 0
   return (
     <div className="kt-section">
-      <div className="kt-section-head">
-        <h3>{section.name}</h3>
+      <div className="kt-section-title">
+        <span className="kt-eyebrow">{section.name.toLowerCase()}</span>
       </div>
       {section.entries.length === 0 && section.body && (
         <div dangerouslySetInnerHTML={{ __html: section.body }} />
       )}
       {groups.map((group) => (
         <div key={group.subtitle ?? 'no-sub'} className="kt-section-group">
-          <div className="kt-section-head">
+          <div className="kt-group-head">
             <h3>{group.subtitle ?? group.entries[0]?.title}</h3>
             {group.tenure && <span className="tenure">{group.tenure}</span>}
           </div>
