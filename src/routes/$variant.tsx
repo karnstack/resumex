@@ -1,25 +1,72 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
-import { Editor } from '@/components/editor/Editor'
-import { listVariants } from '@/lib/load-resume'
-import { isPublic } from '@/lib/mode'
+import { useState, type CSSProperties } from 'react'
+import { getResume } from '@/lib/resume-registry'
 import { usePageMeta } from '@/lib/use-page-meta'
+import { PreviewToolbar, type Density } from '@/components/preview-toolbar/PreviewToolbar'
+import { PageFrameProvider } from '@/components/page-frame/PageFrame'
+import { Stage } from '@/components/stage/Stage'
 
 export const Route = createFileRoute('/$variant')({
-  beforeLoad: () => {
-    if (isPublic) throw new Error('not available on public deploy')
-  },
   component: VariantRoute,
 })
 
+const DEFAULT_DENSITY: Density = 'regular'
+
 function VariantRoute() {
   const { variant } = Route.useParams()
-  usePageMeta(`${variant}`, `Edit your ${variant} resume - resumex by karnstack.com.`)
-  const [variants, setVariants] = useState<string[]>([])
-  useEffect(() => {
-    listVariants()
-      .then(setVariants)
-      .catch(() => setVariants([]))
-  }, [])
-  return <Editor variant={variant} variants={variants} />
+  const mod = getResume(variant)
+  const displayName = mod?.meta.displayName ?? variant
+  usePageMeta(displayName, `${displayName} - resumex by karnstack.com.`)
+  const [appliedScale, setAppliedScale] = useState(1)
+  const [forcedScale, setForcedScale] = useState<number | undefined>(undefined)
+  const [density, setDensity] = useState<Density>(DEFAULT_DENSITY)
+  const [padTop, setPadTop] = useState<number | undefined>(undefined)
+  const [padBot, setPadBot] = useState<number | undefined>(undefined)
+
+  if (!mod) {
+    return (
+      <main className="p-8">
+        <h1>unknown resume: {variant}</h1>
+      </main>
+    )
+  }
+
+  const Resume = mod.default
+
+  const wrapperStyle: CSSProperties = {}
+  if (padTop !== undefined)
+    (wrapperStyle as Record<string, string>)['--page-pad-top'] = `${padTop}mm`
+  if (padBot !== undefined)
+    (wrapperStyle as Record<string, string>)['--page-pad-bot'] = `${padBot}mm`
+
+  const fitKey = `${density}|${padTop ?? '_'}|${padBot ?? '_'}`
+
+  return (
+    <Stage>
+      <div className={`density-${density}`} style={wrapperStyle}>
+        <PageFrameProvider
+          forcedScale={forcedScale}
+          onScaleChange={setAppliedScale}
+          fitKey={fitKey}
+        >
+          <Resume />
+        </PageFrameProvider>
+      </div>
+      <PreviewToolbar
+        slug={variant}
+        backTo="/"
+        backLabel="home"
+        scale={appliedScale}
+        scaleOverridden={forcedScale !== undefined}
+        onScaleChange={setForcedScale}
+        density={density}
+        defaultDensity={DEFAULT_DENSITY}
+        onDensityChange={setDensity}
+        padTop={padTop}
+        padBot={padBot}
+        onPadTopChange={setPadTop}
+        onPadBotChange={setPadBot}
+      />
+    </Stage>
+  )
 }

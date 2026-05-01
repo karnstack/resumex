@@ -1,112 +1,129 @@
 ---
 name: writing-resumes
-description: Use when the user wants to create, edit, fork, rename, or restructure a resume in this resumex repo. Triggers on requests like "create a new resume from my linkedin", "tighten the karnstack bullet in frontend", "fork frontend as senior-frontend", "rewrite the summary", "swap the template on backend to two-column-classic". Knows the resume schema, file layout, and operations.
+description: Use when the user wants to create, edit, fork, rename, or restructure a resume in this resumex repo. Triggers on requests like "create a new resume from my linkedin", "tighten the karnstack bullet in frontend", "fork frontend as senior-frontend", "rewrite the summary", "swap the look of staff-eng to minimal-mono". Knows the resume folder layout, component contract, and operations.
 ---
 
 # Writing Resumes
 
-This skill encodes everything you need to know to operate on resume *content* in a resumex repo.
+This skill encodes everything you need to know to operate on resume content in a resumex repo.
 
 ## File layout
 
-Each resume is a single file: `resumes/<variant>.md`. The variant name is kebab-case (`frontend`, `senior-frontend`, `default`). Shared assets live in `resumes/assets/`.
+Each resume is a folder: `resumes/<variant>/`. The variant name is kebab-case (`frontend`, `senior-frontend`, `staff-eng`, `default`).
 
-There is no per-user nesting. Each clone of the repo is one user; multiple variants represent different *framings* of the same person's career (e.g., `frontend.md`, `staff-eng.md`, `founder.md`).
-
-## Schema (frontmatter)
-
-YAML frontmatter, validated by zod. Fields:
-
-```yaml
----
-template: emerald-twocol            # required, must match a folder in templates/
-name: Karn Goyani                   # required
-title: Software Engineer            # optional tagline / role
-location: Bangalore, India          # optional
-email: mail@karngyan.com            # optional
-phone: +91 ...                      # optional
-links:                              # optional
-  - { label: GitHub, url: https://github.com/... }
-  - { label: Website, url: https://... }
-skills:                             # optional, grouped tags
-  - { group: Languages, items: [Go, TypeScript] }
-  - { group: Tools, items: [Postgres, Redis] }
-sectionOrder: [experience, projects, education]   # optional override
----
+```
+resumes/<variant>/
+  index.tsx     # default-exports a React component (no props)
+  styles.css    # scoped CSS
+  meta.ts       # exports `meta: ResumeMeta`
 ```
 
-`template` and `name` are required. Everything else is optional.
+Each clone of the repo is one user; multiple variants represent different framings of the same person's career.
 
-## Schema (body)
+## Component contract
 
-The body is markdown with conventions. Each `## Heading` is a section. Inside a section, each `### Heading` is an entry, formatted as:
+`index.tsx` exports a default component that takes no props. Content is hardcoded as JSX. Required wrapper: `<PageFrame>` so fit-to-page and print CSS work.
 
-```markdown
-### <Title> @ <Subtitle>
-*<Date Range> · <Location>*
+```tsx
+import './styles.css'
+import { PageFrame } from '@/components/page-frame/PageFrame'
 
-- bullet 1
-- bullet 2
+export default function Variant() {
+  return (
+    <PageFrame fitDeps={[]} className="..." innerClassName="...">
+      {/* content as JSX */}
+    </PageFrame>
+  )
+}
 ```
 
-- The ` @ ` separator is optional. If absent, the whole heading is the title.
-- The metadata line (italic) directly follows the entry heading. Format: `<dateRange>` or `<dateRange> · <location>`. Both pieces are optional.
-- Bullets follow the metadata. Markdown formatting (links, bold, etc.) inside bullets is supported.
-- Sections that don't fit the entry pattern (e.g., `## Summary`) can have freeform markdown - no `###` headings, just prose.
+`meta.ts`:
+
+```ts
+import type { ResumeMeta } from '@/lib/resume-registry'
+
+export const meta: ResumeMeta = {
+  variant: 'staff-eng',
+  displayName: 'Staff Engineer',
+}
+```
+
+## Templates are starters
+
+Resumes start as forks of a template folder. Templates live in `templates/<id>/` and have the same shape as resumes (no props, content baked in). They contain placeholder content that you replace with the user's real content.
+
+Available templates (see `templates/` for the current list, ignoring `_starter`):
+- `emerald-twocol` - emerald palette, two-column A4, sidebar with skills/projects/education.
+- `minimal-mono` - single-column, monospace, ATS-friendly.
+- `_starter` - bare-bones scaffold for new templates.
 
 ## Operations
 
 ### Create a new resume
 
-The user says something like *"create a new resume named frontend"* or *"new resume from my linkedin"*.
+The user says *"create a new resume from my linkedin"* or *"new resume named frontend"*.
 
-1. Ask the user three things in a single message (don't ping-pong):
-   - **Source material** - one of: paste LinkedIn content directly, share a PDF/file path on disk, or describe themselves from scratch.
-   - **Variant name** - kebab-case (e.g. `frontend`, `staff-eng`). Default `default` if they don't care.
-   - **Template** - list the folders currently in `templates/` (excluding `_starter`). Default `emerald-twocol` if they don't care.
-2. Parse the content into the schema above. Be conservative - if a piece of info is ambiguous, leave it out rather than fabricate.
-3. Use the user's chosen `template`, falling back to `emerald-twocol`.
-4. Write the file via `Write` tool to `resumes/<variant>.md`, using the chosen variant name (default `default`).
-5. Briefly confirm what was created and suggest the user open `http://localhost:5173/<variant>` in their browser.
-6. Vite hot-reloads - the user will see the new resume immediately if the dev server is running.
+1. Ask three things in one message:
+   - **Source material** - paste content directly, share a PDF/file path, or describe from scratch.
+   - **Variant name** - kebab-case (e.g. `frontend`, `staff-eng`). Default `default`.
+   - **Template** - list `templates/<id>` folders (skip `_starter`). Default `emerald-twocol`.
+2. Copy the chosen template folder to `resumes/<variant>/` via `cp -r templates/<id>/* resumes/<variant>/` (Bash). Verify the destination doesn't exist first.
+3. Write `resumes/<variant>/meta.ts` with `{ variant: '<variant>', displayName: '<readable name>' }`.
+4. Edit `resumes/<variant>/index.tsx`: replace the placeholder content with the user's real data. Keep the existing structure and class names so `styles.css` keeps working. Be conservative - don't fabricate.
+   - Rename the function (e.g. `EmeraldTwocol` → `StaffEng`).
+   - Replace the header (name, role pill, contact lines).
+   - Replace the about/summary text.
+   - Replace skills chips with the user's stack.
+   - Rewrite the experience groups: each `<div className="kt-section-group">` is one company; entries within are roles at that company.
+   - Update sidebar sections (projects/education/awards) to match the user's content. Drop sections that don't apply.
+   - Update the footer's name/title.
+5. Briefly confirm what was created and suggest opening `http://localhost:5173/<variant>`.
+
+The dev server's `sync-resumes-plugin` re-generates the registry on folder add. HMR picks up content edits.
 
 ### Iterate
 
-The user says *"tighten the karnstack bullet in frontend"* or *"rewrite the summary to focus on platform work"*.
+The user says *"tighten the karnstack bullet in staff-eng"* or *"rewrite the summary"*.
 
-1. Read `resumes/<variant>.md` via the `Read` tool.
-2. Apply the change with `Edit` (preferred - surgical) or `Write` (only if rewriting wholesale).
-3. Preserve the schema conventions. Don't introduce new heading levels, don't break the entry pattern.
+1. Read `resumes/<variant>/index.tsx` (or `styles.css` for visual tweaks).
+2. Apply the change with `Edit` (preferred - surgical) or `Write` (full rewrite).
+3. Preserve class names and structure unless the change is intentionally structural.
 4. Briefly say what changed.
 
 ### Fork
 
-The user says *"fork frontend as senior-frontend"*.
+The user says *"fork staff-eng as principal-eng"*.
 
-1. Read `resumes/<from>.md`, write to `resumes/<to>.md` (verify destination doesn't exist).
-2. Suggest an immediate iteration: *"want to reframe `senior-frontend` for senior IC roles?"*
+1. Verify `resumes/<to>/` doesn't exist.
+2. `cp -r resumes/<from>/ resumes/<to>/` via Bash.
+3. Update `resumes/<to>/meta.ts` to the new variant id and a fitting display name.
+4. Suggest an immediate iteration ("want to reframe `principal-eng` for principal-IC roles?").
 
-### Swap template
+### Swap look
 
-The user says *"swap backend to two-column-classic"*.
+The user says *"swap the look of staff-eng to minimal-mono"*.
 
-1. Read `resumes/<variant>.md`.
-2. Update only the `template:` field in frontmatter. Use `Edit` for a one-line change.
-3. Confirm.
+This is a manual rewrite, not a one-line change.
+
+1. Capture the current resume's content (read `resumes/<variant>/index.tsx`).
+2. Copy `templates/<new-id>/index.tsx` and `styles.css` over the existing files.
+3. Re-port the user's content into the new layout, mapping section-by-section. Different templates have different structural conventions - don't paste blindly.
+4. Tell the user this was a rewrite. Suggest they review the diff.
 
 ### Delete or rename
 
-These are not skill operations - `rm` and `mv` are the right tools. If the user asks, run those directly via Bash.
+`rm -rf resumes/<variant>/` or `mv resumes/<from>/ resumes/<to>/` via Bash. After rename, update the `variant` field in `meta.ts`.
 
 ## Verification
 
-After any change, the dev server's file watcher picks it up and reloads the preview at `http://localhost:5173/<variant>`. If the dev server isn't running, suggest the user run `/start`.
+After any change, the dev server picks up the edits and reloads `http://localhost:5173/<variant>`. If the dev server isn't running, suggest the user run `/start`.
 
-If the schema validation fails (zod throws on save), the editor UI shows an inline error. When iterating via this skill, you can double-check by reading the file back and ensuring the frontmatter parses cleanly.
+If TypeScript fails (e.g. you removed a class name that styles.css relies on, or a typo), the dev server's overlay surfaces the error.
 
 ## Don't
 
 - Don't fabricate content the user didn't provide. If you need information, ask.
-- Don't change the markdown convention - `### Title @ Subtitle` + italic metadata + bullets is the contract templates rely on.
-- Don't add fields not in the schema. If a user wants something custom, suggest extending the schema in `src/lib/schema.ts` (a separate task).
-- Don't try to render or PDF the resume - the user does that with Cmd+P from `/<variant>/print`.
+- Don't break the component contract: every resume must default-export a no-prop component, and every page must be wrapped in `<PageFrame>`.
+- Don't introduce a parser or markdown layer. Content lives as JSX.
+- Don't render the PDF for the user - they print from the browser via the toolbar's print button (or Cmd+P).
+- Don't write to `src/generated/resumes.ts` directly - it's auto-regenerated.

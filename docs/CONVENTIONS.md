@@ -1,66 +1,58 @@
-# Resume conventions (C3)
+# Conventions
 
-A resume in resumex is a single markdown file: `resumes/<variant>.md`.
+resumex is a local-only, AI-first resume builder. Filesystem is the source of truth.
 
-It has YAML frontmatter (the structured header) and a markdown body (the structured-but-prose-flavored content).
+This document covers project-level rules. For the component contract templates and resumes share, see `TEMPLATE_GUIDE.md`.
 
-This document defines exactly what's expected. The parser at `src/lib/parser.ts` is the source of truth; this doc is a reader-friendly companion.
+## Resumes and templates have the same shape
 
-## Frontmatter
+Both live as folders with three files:
 
-```yaml
----
-template: minimal-mono              # required, must match a folder in templates/
-name: Karn Goyani                   # required
-title: Software Engineer            # optional
-location: Bangalore, India          # optional
-email: mail@karngyan.com            # optional
-phone: +91 …                        # optional
-links:                              # optional
-  - { label: GitHub, url: https://github.com/karngyan }
-  - { label: Website, url: https://karngyan.com }
-skills:                             # optional, grouped
-  - { group: Languages, items: [Go, TypeScript, Python] }
-  - { group: Tools, items: [Postgres, Redis] }
-sectionOrder: [experience, projects, education]   # optional
----
+```
+templates/<id>/         resumes/<variant>/
+  index.tsx               index.tsx
+  styles.css              styles.css
+  meta.ts                 meta.ts
 ```
 
-## Body
+A template is a starter blueprint with placeholder content. A resume is a real instance with the user's content. Forking a template = copying its folder into `resumes/<variant>/` and replacing the placeholder content.
 
-```markdown
-## Section Heading
+There is no parser. There is no markdown content layer. Each `index.tsx` is a no-prop React component that returns JSX with the content baked in.
 
-### Entry Title @ Entry Subtitle
-*<Date Range> · <Location>*
+## Editing happens outside the browser
 
-- bullet 1
-- bullet 2
-- bullet 3
-```
+The browser is a renderer. There is no in-app editor. To change a resume, edit the files - directly, or by asking Claude Code (the `writing-resumes` skill knows the operations).
 
-### Section rules
+## Routes
 
-- `## Heading` opens a new section.
-- Section keys are computed from heading text via slugification (`Experience` → `experience`).
-- A section without `### Entry` headings is "freeform" - its markdown body is rendered as-is by the template.
+| Route | Renders |
+| --- | --- |
+| `/` | List of resumes + featured templates |
+| `/$variant` | A resume from `resumes/<variant>/` |
+| `/preview/$templateId` | A template from `templates/<id>/` |
+| `/templates` | The full template gallery |
 
-### Entry rules
+Both `/$variant` and `/preview/$templateId` use the same shell: `Stage` + `PageFrame` + `PreviewToolbar`. Print = the toolbar's print button (or Cmd+P).
 
-- `### Heading` opens a new entry. Heading text format: `<title>` or `<title> @ <subtitle>`.
-- Optional italic line directly after the entry heading is the metadata: `<dateRange>` or `<dateRange> · <location>`.
-- Bullets follow. Markdown formatting inside bullets (links, bold, code) is fine.
-- Anything after bullets that isn't a bullet falls through to the entry's freeform `body`.
+## Generated registries
 
-## Common section names
+Two Vite plugins watch their respective folders and regenerate registry files at `src/generated/`:
 
-By convention but not requirement:
-- `Summary` - short paragraph, freeform.
-- `Experience` - entries with date ranges.
-- `Projects` - entries, often without subtitles.
-- `Education` - entries (degrees / schools).
-- `Speaking`, `Publications`, `Patents`, `Awards`, etc. - domain-specific, all use the entry pattern.
+- `sync-templates-plugin` → `src/generated/templates.ts`
+- `sync-resumes-plugin` → `src/generated/resumes.ts`
 
-## Validation
+Equivalent standalone scripts (`scripts/sync-{templates,resumes}.mjs`) run during `prepare` and `pretypecheck` so a fresh clone can `pnpm typecheck` without first booting the dev server.
 
-Frontmatter is validated by zod (`src/lib/schema.ts`). Errors show inline in the editor UI. Body is best-effort parsed: malformed sections fall back to freeform rendering rather than crashing.
+Don't edit the generated files. Don't import from them in app code - go through `template-registry.ts` / `resume-registry.ts` instead.
+
+## Mode gating
+
+`VITE_RESUMEX_MODE=public` (set by Cloudflare Pages deploys) flips the home page to redirect to GitHub. All other routes work in public mode since resumes/templates are bundled TS.
+
+## Don't
+
+- Don't add network calls or third-party services. The product is local-only.
+- Don't add a database. The filesystem is the source of truth.
+- Don't reintroduce a markdown / parser content layer.
+- Don't ship templates as Tailwind utility classes - use scoped CSS in `styles.css` (the template gallery loads templates in isolated iframes where Tailwind utilities may not be present).
+- Don't bypass `<PageFrame>`. See `TEMPLATE_GUIDE.md`.

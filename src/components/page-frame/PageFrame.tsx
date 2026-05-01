@@ -18,7 +18,7 @@ type PageFrameContextValue = {
 
 /** Optional outer override - preview pages can wrap a template in this provider
  * to drive PageFrame's scale (e.g., from a slider) without templates needing
- * to know about it. Templates remain pure functions of `ParsedResume`. */
+ * to know about it. Templates remain no-prop standalone components. */
 export const PageFrameContext = createContext<PageFrameContextValue>({})
 
 export function PageFrameProvider({

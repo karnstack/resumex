@@ -13,7 +13,6 @@ import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as VariantRouteImport } from './routes/$variant'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PreviewTemplateIdRouteImport } from './routes/preview.$templateId'
-import { Route as VariantPrintRouteImport } from './routes/$variant.print'
 
 const TemplatesRoute = TemplatesRouteImport.update({
   id: '/templates',
@@ -35,61 +34,37 @@ const PreviewTemplateIdRoute = PreviewTemplateIdRouteImport.update({
   path: '/preview/$templateId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VariantPrintRoute = VariantPrintRouteImport.update({
-  id: '/print',
-  path: '/print',
-  getParentRoute: () => VariantRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/$variant': typeof VariantRouteWithChildren
+  '/$variant': typeof VariantRoute
   '/templates': typeof TemplatesRoute
-  '/$variant/print': typeof VariantPrintRoute
   '/preview/$templateId': typeof PreviewTemplateIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/$variant': typeof VariantRouteWithChildren
+  '/$variant': typeof VariantRoute
   '/templates': typeof TemplatesRoute
-  '/$variant/print': typeof VariantPrintRoute
   '/preview/$templateId': typeof PreviewTemplateIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/$variant': typeof VariantRouteWithChildren
+  '/$variant': typeof VariantRoute
   '/templates': typeof TemplatesRoute
-  '/$variant/print': typeof VariantPrintRoute
   '/preview/$templateId': typeof PreviewTemplateIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/$variant'
-    | '/templates'
-    | '/$variant/print'
-    | '/preview/$templateId'
+  fullPaths: '/' | '/$variant' | '/templates' | '/preview/$templateId'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/$variant'
-    | '/templates'
-    | '/$variant/print'
-    | '/preview/$templateId'
-  id:
-    | '__root__'
-    | '/'
-    | '/$variant'
-    | '/templates'
-    | '/$variant/print'
-    | '/preview/$templateId'
+  to: '/' | '/$variant' | '/templates' | '/preview/$templateId'
+  id: '__root__' | '/' | '/$variant' | '/templates' | '/preview/$templateId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  VariantRoute: typeof VariantRouteWithChildren
+  VariantRoute: typeof VariantRoute
   TemplatesRoute: typeof TemplatesRoute
   PreviewTemplateIdRoute: typeof PreviewTemplateIdRoute
 }
@@ -124,30 +99,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PreviewTemplateIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/$variant/print': {
-      id: '/$variant/print'
-      path: '/print'
-      fullPath: '/$variant/print'
-      preLoaderRoute: typeof VariantPrintRouteImport
-      parentRoute: typeof VariantRoute
-    }
   }
 }
 
-interface VariantRouteChildren {
-  VariantPrintRoute: typeof VariantPrintRoute
-}
-
-const VariantRouteChildren: VariantRouteChildren = {
-  VariantPrintRoute: VariantPrintRoute,
-}
-
-const VariantRouteWithChildren =
-  VariantRoute._addFileChildren(VariantRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  VariantRoute: VariantRouteWithChildren,
+  VariantRoute: VariantRoute,
   TemplatesRoute: TemplatesRoute,
   PreviewTemplateIdRoute: PreviewTemplateIdRoute,
 }

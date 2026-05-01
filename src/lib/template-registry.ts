@@ -1,7 +1,6 @@
 import type { JSX } from 'react'
-import type { ParsedResume } from './schema'
 
-export type ResumeTemplate = (props: { resume: ParsedResume }) => JSX.Element
+export type ResumeComponent = () => JSX.Element
 
 export type ResumeTemplateMeta = {
   id: string
@@ -12,11 +11,10 @@ export type ResumeTemplateMeta = {
 }
 
 export type TemplateModule = {
-  default: ResumeTemplate
+  default: ResumeComponent
   meta: ResumeTemplateMeta
 }
 
-// loaded from generated registry - see Task 10
 import * as Generated from '@/generated/templates'
 
 const registry: Record<string, TemplateModule> =

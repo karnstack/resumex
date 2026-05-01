@@ -1,79 +1,83 @@
 import './styles.css'
-import type { ResumeTemplate } from '@/lib/template-registry'
 import { PageFrame } from '@/components/page-frame/PageFrame'
 
-const Starter: ResumeTemplate = ({ resume }) => {
-  const { meta, sections } = resume
+export default function Starter() {
   return (
-    <PageFrame fitDeps={[resume]} innerClassName="resume-starter">
+    <PageFrame fitDeps={[]} innerClassName="resume-starter">
       <header>
         <div className="header-row">
           <div>
-            <h1>{meta.name}</h1>
-            {meta.title && <div className="meta">{meta.title}</div>}
+            <h1>Avery Park</h1>
+            <div className="meta">senior software engineer</div>
           </div>
           <div className="links">
-            {meta.email && (
-              <div>
-                <a href={`mailto:${meta.email}`}>{meta.email}</a>
-              </div>
-            )}
-            {meta.phone && <div>{meta.phone}</div>}
-            {meta.location && <div>{meta.location}</div>}
-            {meta.links?.map((l) => (
-              <div key={l.url}>
-                <a href={l.url}>{l.label}</a>
-              </div>
-            ))}
+            <div>
+              <a href="mailto:avery@example.com">avery@example.com</a>
+            </div>
+            <div>New York, NY</div>
+            <div>
+              <a href="https://example.com">averypark.dev</a>
+            </div>
           </div>
         </div>
       </header>
 
-      {sections.map((s) => (
-        <section key={s.key} data-print-entry="true">
-          <h2>{s.name}</h2>
-          {s.entries.length > 0
-            ? s.entries.map((e, i) => (
-                <div key={i} data-print-entry="true">
-                  <h3>
-                    {e.title}
-                    {e.subtitle && <span> @ {e.subtitle}</span>}
-                  </h3>
-                  {(e.dateRange || e.location) && (
-                    <div className="meta">
-                      {e.dateRange}
-                      {e.dateRange && e.location ? ' · ' : ''}
-                      {e.location}
-                    </div>
-                  )}
-                  {e.bullets.length > 0 && (
-                    <ul>
-                      {e.bullets.map((b, j) => (
-                        <li key={j} dangerouslySetInnerHTML={{ __html: b }} />
-                      ))}
-                    </ul>
-                  )}
-                  {e.body && <div dangerouslySetInnerHTML={{ __html: e.body }} />}
-                </div>
-              ))
-            : s.body && <div dangerouslySetInnerHTML={{ __html: s.body }} />}
-        </section>
-      ))}
+      <section data-print-entry="true">
+        <h2>Summary</h2>
+        <p>One-line summary. Replace with your own.</p>
+      </section>
 
-      {meta.skills && meta.skills.length > 0 && (
-        <section>
-          <h2>Skills</h2>
+      <section data-print-entry="true">
+        <h2>Experience</h2>
+
+        <div data-print-entry="true">
+          <h3>
+            Senior Software Engineer <span>@ Coral Labs</span>
+          </h3>
+          <div className="meta">Mar 2024 - Present · New York, NY</div>
           <ul>
-            {meta.skills.map((g) => (
-              <li key={g.group}>
-                <strong>{g.group}:</strong> {g.items.join(', ')}
-              </li>
-            ))}
+            <li>Led migration of the events pipeline to a sharded Kafka cluster.</li>
+            <li>Owned platform on-call; reduced pages 60% with better alerting.</li>
+            <li>Mentored four engineers through promotions.</li>
           </ul>
-        </section>
-      )}
+        </div>
+
+        <div data-print-entry="true">
+          <h3>
+            Software Engineer 2 <span>@ Coral Labs</span>
+          </h3>
+          <div className="meta">Aug 2022 - Mar 2024 · New York, NY</div>
+          <ul>
+            <li>Designed the billing pipeline (12M events/day on Kafka + Postgres).</li>
+            <li>Built the internal feature-flag service used across 40+ services.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section data-print-entry="true">
+        <h2>Education</h2>
+        <div data-print-entry="true">
+          <h3>
+            B.S. Computer Science <span>@ Northern State University</span>
+          </h3>
+          <div className="meta">2014 - 2018</div>
+        </div>
+      </section>
+
+      <section data-print-entry="true">
+        <h2>Skills</h2>
+        <ul>
+          <li>
+            <strong>Languages:</strong> Go, TypeScript, Python, Rust
+          </li>
+          <li>
+            <strong>Backend:</strong> Postgres, Redis, Kafka, gRPC
+          </li>
+          <li>
+            <strong>Platform:</strong> AWS, Kubernetes, Docker, Terraform
+          </li>
+        </ul>
+      </section>
     </PageFrame>
   )
 }
-
-export default Starter
