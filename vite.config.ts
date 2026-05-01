@@ -5,11 +5,13 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 import { syncTemplatesPlugin } from './src/lib/sync-templates-plugin'
 import { saveMiddlewarePlugin } from './src/lib/save-middleware'
+import { listMiddlewarePlugin } from './src/lib/list-middleware'
 
 export default defineConfig({
   plugins: [
     syncTemplatesPlugin(),
     saveMiddlewarePlugin(),
+    listMiddlewarePlugin(),
     TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
     react(),
     tailwindcss(),
