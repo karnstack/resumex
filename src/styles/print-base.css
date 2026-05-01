@@ -1,16 +1,22 @@
 @media print {
-  /* zero the page chrome and clamp body to the page itself. Without this,
-     sub-pixel rounding (297mm = 1122.52px → scrollHeight 1123) makes Chrome
-     spill onto a blank second page. The fixed-height + overflow:hidden tells
-     the print engine "stop here, no more pages." */
   html,
   body {
     margin: 0 !important;
     padding: 0 !important;
-    height: 100vh !important;
-    overflow: hidden !important;
     background: white;
     color: black;
+  }
+  /* clamp body to a single page only when a PageFrame template is rendering.
+     PageFrame templates self-fit (useFitToPage scales content to 297mm) and
+     need this clamp because sub-pixel rounding (297mm = 1122.52px ->
+     scrollHeight 1123) otherwise spills onto a blank second page.
+     Direct-render templates (minimal-mono, _starter) need natural flow so
+     longer content paginates onto a real second page instead of getting
+     chopped. */
+  html:has(body .resumex-page-frame),
+  body:has(.resumex-page-frame) {
+    height: 100vh !important;
+    overflow: hidden !important;
   }
   /* hide editor chrome by default; templates can override */
   [data-print-hide='true'] {
