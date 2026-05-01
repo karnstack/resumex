@@ -1,4 +1,6 @@
 import type { ResumeFrontmatter } from '@/lib/schema'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 export function FrontmatterForm({
   value,
@@ -15,38 +17,40 @@ export function FrontmatterForm({
   }
 
   return (
-    <div className="space-y-3 rounded border border-neutral-200 p-3 text-sm">
-      <Field label="name">
-        <input
-          className="w-full rounded border border-neutral-300 px-2 py-1"
+    <div className="space-y-4 rounded-xl border border-border bg-card p-4 text-sm">
+      <Field label="name" htmlFor="fm-name">
+        <Input
+          id="fm-name"
           value={value.name}
           onChange={(e) => update('name', e.target.value)}
         />
       </Field>
-      <Field label="title">
-        <input
-          className="w-full rounded border border-neutral-300 px-2 py-1"
+      <Field label="title" htmlFor="fm-title">
+        <Input
+          id="fm-title"
           value={value.title ?? ''}
           onChange={(e) => update('title', e.target.value || undefined)}
         />
       </Field>
-      <Field label="email">
-        <input
-          className="w-full rounded border border-neutral-300 px-2 py-1"
+      <Field label="email" htmlFor="fm-email">
+        <Input
+          id="fm-email"
+          type="email"
           value={value.email ?? ''}
           onChange={(e) => update('email', e.target.value || undefined)}
         />
       </Field>
-      <Field label="phone">
-        <input
-          className="w-full rounded border border-neutral-300 px-2 py-1"
+      <Field label="phone" htmlFor="fm-phone">
+        <Input
+          id="fm-phone"
+          type="tel"
           value={value.phone ?? ''}
           onChange={(e) => update('phone', e.target.value || undefined)}
         />
       </Field>
-      <Field label="location">
-        <input
-          className="w-full rounded border border-neutral-300 px-2 py-1"
+      <Field label="location" htmlFor="fm-location">
+        <Input
+          id="fm-location"
           value={value.location ?? ''}
           onChange={(e) => update('location', e.target.value || undefined)}
         />
@@ -56,13 +60,24 @@ export function FrontmatterForm({
   )
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string
+  htmlFor: string
+  children: React.ReactNode
+}) {
   return (
-    <label className="block">
-      <span className="mb-1 block text-xs font-medium uppercase tracking-wide text-neutral-500">
+    <div className="flex flex-col gap-1.5">
+      <Label
+        htmlFor={htmlFor}
+        className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
+      >
         {label}
-      </span>
+      </Label>
       {children}
-    </label>
+    </div>
   )
 }

@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
 
 export function TopBar({
   variant,
@@ -16,15 +17,18 @@ export function TopBar({
   onSwitchVariant: (v: string) => void
 }) {
   return (
-    <div className="flex items-center justify-between gap-3 border-b border-neutral-200 bg-white p-3">
+    <div className="flex items-center justify-between gap-3 border-b border-border bg-background p-3">
       <div className="flex items-center gap-3">
-        <Link to="/" className="text-sm text-neutral-600 hover:underline">
+        <Link
+          to="/"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
           ←
         </Link>
         <select
           value={variant}
           onChange={(e) => onSwitchVariant(e.target.value)}
-          className="rounded border border-neutral-300 px-2 py-1 text-sm"
+          className="rounded-md border border-input bg-background px-3 py-1.5 text-sm text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/50 transition-[color,box-shadow]"
         >
           {variants.map((v) => (
             <option key={v} value={v}>
@@ -35,7 +39,7 @@ export function TopBar({
         <select
           value={templateId}
           onChange={(e) => onTemplateChange(e.target.value)}
-          className="rounded border border-neutral-300 px-2 py-1 text-sm"
+          className="rounded-md border border-input bg-background px-3 py-1.5 text-sm text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/50 transition-[color,box-shadow]"
         >
           {templateOptions.map((t) => (
             <option key={t.id} value={t.id}>
@@ -44,14 +48,11 @@ export function TopBar({
           ))}
         </select>
       </div>
-      <a
-        href={`/${variant}/print`}
-        target="_blank"
-        rel="noreferrer"
-        className="rounded bg-neutral-900 px-3 py-1.5 text-sm text-white"
-      >
-        print
-      </a>
+      <Button asChild size="sm">
+        <a href={`/${variant}/print`} target="_blank" rel="noreferrer">
+          print
+        </a>
+      </Button>
     </div>
   )
 }
