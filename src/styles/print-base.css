@@ -1,0 +1,25 @@
+@media print {
+  /* hide editor chrome by default; templates can override */
+  [data-print-hide='true'] {
+    display: none !important;
+  }
+  /* avoid splitting an entry across pages */
+  [data-print-entry='true'] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  /* link-as-text default; templates can override */
+  a::after {
+    content: ' (' attr(href) ')';
+    font-weight: normal;
+    font-size: 0.85em;
+  }
+  /* but suppress for in-page anchors */
+  a[href^='#']::after {
+    content: '';
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}

@@ -1,1 +1,17 @@
-/* tailwind entry — see Task 4 */
+@import 'tailwindcss';
+@import './styles/print-base.css';
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+body {
+  font-family: var(--font-sans);
+  background: white;
+  color: black;
+}
