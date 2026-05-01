@@ -623,14 +623,14 @@ git commit -m "feat(schema): zod frontmatter schema + ParsedResume types"
 
 **Files:** `src/lib/parser.ts`, `src/lib/parser.test.ts`, `src/lib/test-fixtures/`
 
-- [ ] **Step 1: Install parser deps**
+- [x] **Step 1: Install parser deps**
 
 ```bash
 pnpm add gray-matter unified remark-parse remark-gfm remark-rehype rehype-stringify unist-util-visit
 pnpm add -D vitest
 ```
 
-- [ ] **Step 2: Add vitest config to `vite.config.ts`**
+- [x] **Step 2: Add vitest config to `vite.config.ts`**
 
 ```ts
 import { defineConfig } from 'vitest/config'
@@ -645,7 +645,7 @@ test: {
 
 (If type errors with the dual import, use `defineConfig` from `vitest/config` which extends Vite's.)
 
-- [ ] **Step 3: Write the failing test first**
+- [x] **Step 3: Write the failing test first**
 
 `src/lib/parser.test.ts`:
 ```ts
@@ -703,12 +703,12 @@ bar
 })
 ```
 
-- [ ] **Step 4: Run — verify fail**
+- [x] **Step 4: Run — verify fail**
 
 Run: `pnpm test:run src/lib/parser.test.ts`
 Expected: FAIL — "Cannot find module './parser'".
 
-- [ ] **Step 5: Write `src/lib/parser.ts` (initial — sections only, no entries yet)**
+- [x] **Step 5: Write `src/lib/parser.ts` (initial — sections only, no entries yet)**
 
 ```ts
 import matter from 'gray-matter'
@@ -794,12 +794,12 @@ export function parseResume(source: string): ParsedResume {
 }
 ```
 
-- [ ] **Step 6: Run tests**
+- [x] **Step 6: Run tests**
 
 Run: `pnpm test:run src/lib/parser.test.ts`
 Expected: PASS (3 tests).
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/lib/parser.ts src/lib/parser.test.ts vite.config.ts package.json pnpm-lock.yaml
