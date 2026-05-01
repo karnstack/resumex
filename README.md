@@ -40,12 +40,30 @@ claude        # then say:  /start
 
 ## templates
 
-Browse all 100+ at [resumex.karnstack.com/templates](https://resumex.karnstack.com/templates). Source for each lives in [`templates/`](./templates).
+Browse all 100+ at [resumex.karnstack.com/templates](https://resumex.karnstack.com/templates). Source for each is in [`templates/`](./templates).
+
+**Fork one for your own resume.** Just ask:
+
+```
+create a new resume from the swiss template
+```
+
+Claude copies the template into `resumes/<your-variant>/` and walks you through replacing the placeholder content with your real experience.
+
+**Make a brand new template.** If none of the 100+ hit the look you want, build your own:
+
+```
+create a new template called <name>. here's the look i'm going for: ...
+```
+
+The contract is in [docs/TEMPLATE_GUIDE.md](./docs/TEMPLATE_GUIDE.md), and the `designing-templates` skill carries Claude through it.
+
+**Send a PR.** If your new template is something other people would actually use, open a pull request and it joins the gallery. Beautiful contributions welcome, anything goes as long as it ships as one A4 page and follows the template contract.
 
 ## files
 
 - [`resumes/<variant>/`](./resumes): your resumes. each variant is a folder with `index.tsx`, `styles.css`, and `meta.ts`. See [docs/CONVENTIONS.md](./docs/CONVENTIONS.md).
-- [`templates/<id>/`](./templates): bundled templates. fork one with *"create a new resume from the swiss template"*. See [docs/TEMPLATE_GUIDE.md](./docs/TEMPLATE_GUIDE.md).
+- [`templates/<id>/`](./templates): bundled templates. See [docs/TEMPLATE_GUIDE.md](./docs/TEMPLATE_GUIDE.md).
 
 ## stack
 

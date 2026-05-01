@@ -7,3 +7,7 @@ dist
 src/generated/
 public/templates.json
 .worktrees/
+
+# Ad-hoc one-off scripts (underscore-prefixed). Use for personal social
+# posts, marketing renders, etc. Don't ship to the public repo.
+scripts/_*.mjs
