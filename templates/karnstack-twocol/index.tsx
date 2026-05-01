@@ -224,24 +224,37 @@ type Group = {
 }
 
 function groupBySubtitle(entries: ParsedEntry[]): Group[] {
+  // Dedup ALL entries with the same subtitle (not just contiguous ones), so
+  // non-contiguous roles at the same company merge into one group. Insertion
+  // order = first appearance of each company, preserving chronological feel
+  // without scattering same-company entries across the page.
   const groups: Group[] = []
+  const byKey = new Map<string, Group>()
+
   for (const entry of entries) {
-    const last = groups[groups.length - 1]
-    if (last && last.subtitle === entry.subtitle) {
-      last.entries.push(entry)
-    } else {
-      groups.push({ subtitle: entry.subtitle, entries: [entry] })
+    const key = entry.subtitle ?? `__no-sub__${groups.length}`
+    let g = byKey.get(key)
+    if (!g) {
+      g = { subtitle: entry.subtitle, entries: [] }
+      byKey.set(key, g)
+      groups.push(g)
     }
+    g.entries.push(entry)
   }
+
+  // Tenure spans the company's earliest start to latest end. Entries are
+  // newest-first by markdown convention, so first entry's end ≈ latest end
+  // and last entry's start ≈ earliest start.
   for (const g of groups) {
     if (g.entries.length === 0) continue
-    const first = g.entries[g.entries.length - 1]
-    const lastE = g.entries[0]
-    if (first.dateRange || lastE.dateRange) {
-      const start = (first.dateRange ?? '').split('–')[0]?.trim()
-      const end = (lastE.dateRange ?? '').split('–').slice(-1)[0]?.trim()
-      g.tenure = start && end ? `${start} – ${end}` : (lastE.dateRange ?? first.dateRange)
+    const newest = g.entries[0]
+    const oldest = g.entries[g.entries.length - 1]
+    const start = (oldest.dateRange ?? '').split('–')[0]?.trim()
+    const end = (newest.dateRange ?? '').split('–').slice(-1)[0]?.trim()
+    if (start || end) {
+      g.tenure = start && end ? `${start} – ${end}` : (newest.dateRange ?? oldest.dateRange)
     }
   }
+
   return groups
 }

@@ -20,12 +20,12 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
             <h1
               class="kt-name"
             >
-              Gyan Prakash
+              Avery
                
               <span
                 class="kt-name-grad"
               >
-                Karn
+                Park
               </span>
               .
             </h1>
@@ -35,7 +35,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               <span
                 class="dot"
               />
-              senior software engineer · fullstack
+              senior software engineer · platform
             </span>
           </div>
           <div
@@ -43,40 +43,33 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
           >
             <div>
               <a
-                href="mailto:mail@karngyan.com"
+                href="mailto:avery@example.com"
               >
-                mail@karngyan.com
+                avery@example.com
               </a>
             </div>
             <div>
-              Bangalore, India
+              New York, NY
             </div>
             <div>
               <a
-                href="https://karngyan.com"
+                href="https://example.com"
               >
-                karngyan.com
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://karnstack.com"
-              >
-                karnstack.com
+                example.com
               </a>
             </div>
             <div>
               <a
-                href="https://github.com/karngyan"
+                href="https://github.com"
               >
-                github.com/karngyan
+                github.com
               </a>
             </div>
             <div>
               <a
-                href="https://linkedin.com/in/karngyan"
+                href="https://linkedin.com"
               >
-                linkedin.com/in/karngyan
+                linkedin.com
               </a>
             </div>
           </div>
@@ -93,13 +86,13 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
             <p>
               I build 
               <strong>
-                backend and frontend systems end-to-end
+                resilient backend systems and the platforms that run them
               </strong>
-              . I make the plan clear, ship in small steps, and leave things easier to run after I'm done. Software should be 
+              . I prefer small, reversible changes and clear interfaces. Software should be 
               <em>
                 boring in production
               </em>
-               and useful to users.
+               and useful to its users.
             </p>
           </div>
         </section>
@@ -144,12 +137,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 <span
                   class="kt-chip"
                 >
-                  Java
-                </span>
-                <span
-                  class="kt-chip"
-                >
-                  SQL
+                  Rust
                 </span>
               </div>
             </div>
@@ -183,27 +171,12 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 <span
                   class="kt-chip"
                 >
-                  Temporal
-                </span>
-                <span
-                  class="kt-chip"
-                >
-                  NSQ
-                </span>
-                <span
-                  class="kt-chip"
-                >
                   gRPC
                 </span>
                 <span
                   class="kt-chip"
                 >
-                  D1
-                </span>
-                <span
-                  class="kt-chip"
-                >
-                  BadgerDB
+                  GraphQL
                 </span>
               </div>
             </div>
@@ -222,12 +195,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 <span
                   class="kt-chip"
                 >
-                  React 19
-                </span>
-                <span
-                  class="kt-chip"
-                >
-                  TanStack Start
+                  React
                 </span>
                 <span
                   class="kt-chip"
@@ -237,17 +205,12 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 <span
                   class="kt-chip"
                 >
-                  Ember.js
-                </span>
-                <span
-                  class="kt-chip"
-                >
                   Tailwind
                 </span>
                 <span
                   class="kt-chip"
                 >
-                  Vue / Nuxt
+                  Vite
                 </span>
               </div>
             </div>
@@ -266,12 +229,12 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 <span
                   class="kt-chip"
                 >
-                  Cloudflare Workers
+                  AWS
                 </span>
                 <span
                   class="kt-chip"
                 >
-                  AWS / EKS
+                  Kubernetes
                 </span>
                 <span
                   class="kt-chip"
@@ -281,17 +244,12 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 <span
                   class="kt-chip"
                 >
-                  k6
+                  Terraform
                 </span>
                 <span
                   class="kt-chip"
                 >
                   GitHub Actions
-                </span>
-                <span
-                  class="kt-chip"
-                >
-                  Ansible
                 </span>
               </div>
             </div>
@@ -310,19 +268,19 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               <h4
                 class="title"
               >
-                Karnstack
+                Loomroute
               </h4>
               <div
                 class="sub"
               >
-                karnstack.com
+                loomroute.dev
               </div>
               <div
                 class="meta-line"
                 style="font-family: inherit; text-transform: none; letter-spacing: 0px;"
               >
                 <p>
-                  Deep-technical course platform for engineers. One-time pricing, lifetime access. ~50 students enrolled and growing. Built solo, end-to-end.
+                  Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
                 </p>
               </div>
               <div
@@ -337,52 +295,25 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               <h4
                 class="title"
               >
-                Gomantics
+                Tinytrace
               </h4>
               <div
                 class="sub"
               >
-                gomantics.dev
+                github.com/example/tinytrace
               </div>
               <div
                 class="meta-line"
                 style="font-family: inherit; text-transform: none; letter-spacing: 0px;"
               >
                 <p>
-                  Thoughtfully crafted Go libraries for smarter code and smoother workflows. Inspired by unjs.
+                  Minimal distributed tracing library — span model, OTLP export, ~3k lines.
                 </p>
               </div>
               <div
                 class="meta-line"
               >
                 OSS
-              </div>
-            </div>
-            <div
-              class="kt-side-entry"
-            >
-              <h4
-                class="title"
-              >
-                InterviewReady
-              </h4>
-              <div
-                class="sub"
-              >
-                get.interviewready.io
-              </div>
-              <div
-                class="meta-line"
-                style="font-family: inherit; text-transform: none; letter-spacing: 0px;"
-              >
-                <p>
-                  Built the course platform from scratch. Full admin dashboard, CI/CD via GitHub Actions.
-                </p>
-              </div>
-              <div
-                class="meta-line"
-              >
-                Freelance
               </div>
             </div>
           </div>
@@ -400,17 +331,17 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               <h4
                 class="title"
               >
-                Employee of the Month
+                Engineering Excellence
               </h4>
               <div
                 class="sub"
               >
-                Customer.io
+                Coral Labs
               </div>
               <div
                 class="meta-line"
               >
-                Jun 2024
+                2025
               </div>
             </div>
             <div
@@ -419,31 +350,17 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               <h4
                 class="title"
               >
-                Ultimate Go: Web Services with Kubernetes
+                Best Internship Project
               </h4>
               <div
                 class="sub"
               >
-                Ardan Labs
+                Bytework
               </div>
               <div
                 class="meta-line"
               >
-                Certification
-              </div>
-            </div>
-            <div
-              class="kt-side-entry"
-            >
-              <h4
-                class="title"
-              >
-                ACM ICPC Asia Regionals
-              </h4>
-              <div
-                class="meta-line"
-              >
-                Ranked 20th of 115+ teams
+                2018
               </div>
             </div>
           </div>
@@ -461,17 +378,17 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
               <h4
                 class="title"
               >
-                B.E. — Information Technology
+                B.S. Computer Science
               </h4>
               <div
                 class="sub"
               >
-                Birla Institute of Technology, Mesra
+                Northern State University
               </div>
               <div
                 class="meta-line"
               >
-                2017 – 2021
+                2014 – 2018
               </div>
             </div>
           </div>
@@ -496,12 +413,12 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 class="kt-section-head"
               >
                 <h3>
-                  Karnstack
+                  Coral Labs
                 </h3>
                 <span
                   class="tenure"
                 >
-                  Aug 2025 – Present
+                  Aug 2022 – Present
                 </span>
               </div>
               <div
@@ -521,18 +438,18 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                     <span
                       class="role"
                     >
-                      Founder
+                      Senior Software Engineer
                     </span>
                     <span
                       class="team"
                     >
-                      Bangalore
+                      New York, NY
                     </span>
                   </div>
                   <span
                     class="dates"
                   >
-                    Aug 2025 – Present
+                    Mar 2024 – Present
                   </span>
                 </div>
                 <ul
@@ -540,48 +457,28 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 >
                   <li>
                     <p>
-                      Built and shipped a 
+                      Led the migration of the events pipeline to a 
                       <strong>
-                        deep-technical course platform end-to-end
+                        horizontally-sharded Kafka cluster
                       </strong>
-                       on TanStack Start, deployed to Cloudflare Workers with D1, Clerk auth, and Dodo Payments billing.
+                      , reducing p99 latency by 3x.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Authored the first course (
+                      Owned the on-call rotation for the platform team — 
                       <strong>
-                        Distributed Systems in a Day
+                        reduced pages 60%
                       </strong>
-                      ) and grew it to ~50 paying students through a custom video pipeline — Playwright renders, ElevenLabs TTS, Mux delivery.
+                       over two quarters through better alerting and runbooks.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Operate the full stack solo: 
-                      <strong>
-                        payments, auth, analytics, content, and deploys
-                      </strong>
-                      . One-time pricing, lifetime access, no subscription.
+                      Mentored four engineers through L4 → L5 promotions.
                     </p>
                   </li>
                 </ul>
-              </div>
-            </div>
-            <div
-              class="kt-section-group"
-            >
-              <div
-                class="kt-section-head"
-              >
-                <h3>
-                  Customer.io
-                </h3>
-                <span
-                  class="tenure"
-                >
-                  Mar 2022 – Present
-                </span>
               </div>
               <div
                 class="kt-entry"
@@ -600,18 +497,18 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                     <span
                       class="role"
                     >
-                      Senior Fullstack Engineer
+                      Software Engineer 2
                     </span>
                     <span
                       class="team"
                     >
-                      Remote
+                      New York, NY
                     </span>
                   </div>
                   <span
                     class="dates"
                   >
-                    Sep 2025 – Present
+                    Aug 2022 – Mar 2024
                   </span>
                 </div>
                 <ul
@@ -619,40 +516,48 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 >
                   <li>
                     <p>
-                      Built and maintain the 
+                      Designed and shipped the 
                       <strong>
-                        Customer.io MCP external server
+                        billing pipeline
                       </strong>
-                       and its companion 
-                      <strong>
-                        OAuth server
-                      </strong>
-                      , opening the platform to AI clients like Cursor and Claude.
+                       processing 12M events/day on Kafka + Postgres.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Shipped 
+                      Built the 
                       <strong>
-                        custom domains
+                        internal feature-flag service
                       </strong>
-                       for the link shortener with 
-                      <strong>
-                        automated certificate management
-                      </strong>
-                      , then extended cert orchestration to email link-tracking domains.
+                       used across 40+ microservices.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Received 
+                      Drove 
                       <strong>
-                        CEO ESOP grants twice in a row
+                        architecture-level reviews
                       </strong>
-                       for performance.
+                       for cross-team launches.
                     </p>
                   </li>
                 </ul>
+              </div>
+            </div>
+            <div
+              class="kt-section-group"
+            >
+              <div
+                class="kt-section-head"
+              >
+                <h3>
+                  Acme Inc
+                </h3>
+                <span
+                  class="tenure"
+                >
+                  Jan 2020 – Jul 2022
+                </span>
               </div>
               <div
                 class="kt-entry"
@@ -671,7 +576,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                     <span
                       class="role"
                     >
-                      Software Engineer 3 — Fullstack
+                      Software Engineer
                     </span>
                     <span
                       class="team"
@@ -682,7 +587,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                   <span
                     class="dates"
                   >
-                    Oct 2024 – Sep 2025
+                    Jan 2020 – Jul 2022
                   </span>
                 </div>
                 <ul
@@ -690,41 +595,44 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 >
                   <li>
                     <p>
-                      Designed and shipped a 
+                      Shipped the company's first 
                       <strong>
-                        link shortener processing 10M+ links/day
+                        public API
                       </strong>
-                      , unlocking SMS link tracking across the platform.
+                       with rate limiting, OAuth2, and SDKs in three languages.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Built a service to 
+                      Migrated the legacy monolith's auth module to a 
                       <strong>
-                        aggregate anonymous in-app engagement metrics
+                        standalone identity service
                       </strong>
-                      , unlocking a new messaging channel for product.
+                      , unblocking SSO integrations.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Drove 
-                      <strong>
-                        architecture-level improvements
-                      </strong>
-                       for real-time in-app message delivery, taking p99 latency down sharply.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Stood up an 
-                      <strong>
-                        internal MCP server
-                      </strong>
-                       to query data and toggle feature flags from Cursor and Claude.
+                      Cut average build times from 11 min to 90s by parallelizing the test matrix.
                     </p>
                   </li>
                 </ul>
+              </div>
+            </div>
+            <div
+              class="kt-section-group"
+            >
+              <div
+                class="kt-section-head"
+              >
+                <h3>
+                  Bytework
+                </h3>
+                <span
+                  class="tenure"
+                >
+                  May 2018 – Aug 2018
+                </span>
               </div>
               <div
                 class="kt-entry"
@@ -743,252 +651,6 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                     <span
                       class="role"
                     >
-                      Software Engineer 2 — Fullstack
-                    </span>
-                    <span
-                      class="team"
-                    >
-                      Remote
-                    </span>
-                  </div>
-                  <span
-                    class="dates"
-                  >
-                    Mar 2022 – Sep 2024
-                  </span>
-                </div>
-                <ul
-                  class="kt-bullets"
-                >
-                  <li>
-                    <p>
-                      Integrated the 
-                      <strong>
-                        Parcel editor
-                      </strong>
-                       for in-app message authoring, accelerating go-to-market by months.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Led the frontend for 
-                      <strong>
-                        anonymous in-app messaging
-                      </strong>
-                       through a successful GA launch — improving reach and engagement for logged-out users.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Revamped the legacy campaign list to support 
-                      <strong>
-                        multichannel metrics, token-based sorting, and saved custom views
-                      </strong>
-                      .
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Added 
-                      <strong>
-                        MMS support
-                      </strong>
-                       to the SMS composer and unified the transactional push + micro-survey UIs for a cohesive feel.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="kt-section-group"
-            >
-              <div
-                class="kt-section-head"
-              >
-                <h3>
-                  Sendworks
-                </h3>
-                <span
-                  class="tenure"
-                >
-                  Jul 2021 – Mar 2022
-                </span>
-              </div>
-              <div
-                class="kt-entry"
-              >
-                <div
-                  class="kt-entry-head"
-                >
-                  <div
-                    class="left"
-                  >
-                    <span
-                      class="idx"
-                    >
-                      05
-                    </span>
-                    <span
-                      class="role"
-                    >
-                      Software Engineer — Fullstack
-                    </span>
-                    <span
-                      class="team"
-                    >
-                      Bangalore
-                    </span>
-                  </div>
-                  <span
-                    class="dates"
-                  >
-                    Jul 2021 – Mar 2022
-                  </span>
-                </div>
-                <ul
-                  class="kt-bullets"
-                >
-                  <li>
-                    <p>
-                      Led end-to-end development of 
-                      <strong>
-                        SendHealth.io
-                      </strong>
-                       on Nuxt + Go.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Engineered an 
-                      <strong>
-                        SMTP relay
-                      </strong>
-                       for SendPost with Postgres-based auth and TLS/SSL support.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Automated 
-                      <strong>
-                        BadgerDB maintenance
-                      </strong>
-                       for consistent storage performance, and expanded the SendPost API with cc/bcc and attachments.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Played a key role in the 
-                      <strong>
-                        acquisition of SendX
-                      </strong>
-                      .
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="kt-section-group"
-            >
-              <div
-                class="kt-section-head"
-              >
-                <h3>
-                  Amazon
-                </h3>
-                <span
-                  class="tenure"
-                >
-                  Jan 2021 – Jul 2021
-                </span>
-              </div>
-              <div
-                class="kt-entry"
-              >
-                <div
-                  class="kt-entry-head"
-                >
-                  <div
-                    class="left"
-                  >
-                    <span
-                      class="idx"
-                    >
-                      06
-                    </span>
-                    <span
-                      class="role"
-                    >
-                      SDE Intern — 6 months
-                    </span>
-                    <span
-                      class="team"
-                    >
-                      Bangalore
-                    </span>
-                  </div>
-                  <span
-                    class="dates"
-                  >
-                    Jan 2021 – Jul 2021
-                  </span>
-                </div>
-                <ul
-                  class="kt-bullets"
-                >
-                  <li>
-                    <p>
-                      Migrated 
-                      <strong>
-                        FASTag recharge
-                      </strong>
-                       from a webview to React Native with native API integrations.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Built the 
-                      <strong>
-                        send-to-self
-                      </strong>
-                       flow on Amazon Pay's Send Money page.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="kt-section-group"
-            >
-              <div
-                class="kt-section-head"
-              >
-                <h3>
-                  Sendworks
-                </h3>
-                <span
-                  class="tenure"
-                >
-                  Jul 2020 – Jan 2021
-                </span>
-              </div>
-              <div
-                class="kt-entry"
-              >
-                <div
-                  class="kt-entry-head"
-                >
-                  <div
-                    class="left"
-                  >
-                    <span
-                      class="idx"
-                    >
-                      07
-                    </span>
-                    <span
-                      class="role"
-                    >
                       Software Engineer Intern
                     </span>
                     <span
@@ -1000,7 +662,7 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                   <span
                     class="dates"
                   >
-                    Jul 2020 – Jan 2021
+                    May 2018 – Aug 2018
                   </span>
                 </div>
                 <ul
@@ -1008,155 +670,20 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
                 >
                   <li>
                     <p>
-                      Core contributor to 
+                      Built a small 
                       <strong>
-                        SendPost.io
+                        internal log aggregator
                       </strong>
-                      , a transactional email platform — built mock previews, JWT-based domain/member verification, and the full onboarding flow.
+                       in Go on top of Kafka, replacing a brittle cron job.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Created an internal 
+                      Earned a 
                       <strong>
-                        CRM
+                        return offer
                       </strong>
-                       for handling subaccount and IP incidents.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="kt-section-group"
-            >
-              <div
-                class="kt-section-head"
-              >
-                <h3>
-                  Amazon
-                </h3>
-                <span
-                  class="tenure"
-                >
-                  May 2020 – Jun 2020
-                </span>
-              </div>
-              <div
-                class="kt-entry"
-              >
-                <div
-                  class="kt-entry-head"
-                >
-                  <div
-                    class="left"
-                  >
-                    <span
-                      class="idx"
-                    >
-                      08
-                    </span>
-                    <span
-                      class="role"
-                    >
-                      SDE Intern — 2 months
-                    </span>
-                    <span
-                      class="team"
-                    >
-                      Remote
-                    </span>
-                  </div>
-                  <span
-                    class="dates"
-                  >
-                    May 2020 – Jun 2020
-                  </span>
-                </div>
-                <ul
-                  class="kt-bullets"
-                >
-                  <li>
-                    <p>
-                      Built a modular 
-                      <strong>
-                        React Native expense splitter
-                      </strong>
-                       with custom search using a trie — backend on Spring Boot + DynamoDB. Shipped early, earned a 
-                      <strong>
-                        pre-placement offer
-                      </strong>
-                      .
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="kt-section-group"
-            >
-              <div
-                class="kt-section-head"
-              >
-                <h3>
-                  Crio.do
-                </h3>
-                <span
-                  class="tenure"
-                >
-                  Oct 2019 – Apr 2020
-                </span>
-              </div>
-              <div
-                class="kt-entry"
-              >
-                <div
-                  class="kt-entry-head"
-                >
-                  <div
-                    class="left"
-                  >
-                    <span
-                      class="idx"
-                    >
-                      09
-                    </span>
-                    <span
-                      class="role"
-                    >
-                      Software Engineer Intern
-                    </span>
-                    <span
-                      class="team"
-                    >
-                      Bangalore
-                    </span>
-                  </div>
-                  <span
-                    class="dates"
-                  >
-                    Oct 2019 – Apr 2020
-                  </span>
-                </div>
-                <ul
-                  class="kt-bullets"
-                >
-                  <li>
-                    <p>
-                      Built 
-                      <strong>
-                        scalable workspace infra
-                      </strong>
-                       on Docker and AWS EKS; automated EC2 / container lifecycle with Ansible and rolled out AWS EFS.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Optimized the Jenkins user-purge job, 
-                      <strong>
-                        improving execution time by 1500%
-                      </strong>
-                      .
+                       for a full-time role.
                     </p>
                   </li>
                 </ul>
@@ -1184,10 +711,10 @@ exports[`templates render against sample.md > karnstack-twocol renders without t
             >
               ·
             </span>
-            gyan-prakash-karn
+            avery-park
           </span>
           <span>
-            senior software engineer · fullstack
+            senior software engineer · platform
           </span>
         </footer>
       </div>
@@ -1206,12 +733,12 @@ exports[`templates render against sample.md > minimal-mono renders without throw
     >
       <div>
         <h1>
-          Gyan Prakash Karn
+          Avery Park
         </h1>
         <div
           class="title"
         >
-          senior software engineer · fullstack
+          senior software engineer · platform
         </div>
       </div>
       <div
@@ -1219,40 +746,33 @@ exports[`templates render against sample.md > minimal-mono renders without throw
       >
         <div>
           <a
-            href="mailto:mail@karngyan.com"
+            href="mailto:avery@example.com"
           >
-            mail@karngyan.com
+            avery@example.com
           </a>
         </div>
         <div>
-          Bangalore, India
+          New York, NY
         </div>
         <div>
           <a
-            href="https://karngyan.com"
+            href="https://example.com"
           >
-            karngyan.com
-          </a>
-        </div>
-        <div>
-          <a
-            href="https://karnstack.com"
-          >
-            karnstack.com
+            averypark.dev
           </a>
         </div>
         <div>
           <a
-            href="https://github.com/karngyan"
+            href="https://github.com"
           >
-            github.com/karngyan
+            github.com/averypark
           </a>
         </div>
         <div>
           <a
-            href="https://linkedin.com/in/karngyan"
+            href="https://linkedin.com"
           >
-            in/karngyan
+            in/averypark
           </a>
         </div>
       </div>
@@ -1265,13 +785,13 @@ exports[`templates render against sample.md > minimal-mono renders without throw
         <p>
           I build 
           <strong>
-            backend and frontend systems end-to-end
+            resilient backend systems and the platforms that run them
           </strong>
-          . I make the plan clear, ship in small steps, and leave things easier to run after I'm done. Software should be 
+          . I prefer small, reversible changes and clear interfaces. Software should be 
           <em>
             boring in production
           </em>
-           and useful to users.
+           and useful to its users.
         </p>
       </div>
     </section>
@@ -1289,50 +809,46 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              Founder
+              Senior Software Engineer
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              Karnstack
+              Coral Labs
             </span>
           </div>
           <div
             class="entry-meta"
           >
-            Aug 2025 – Present
+            Mar 2024 – Present
              · 
-            Bangalore
+            New York, NY
           </div>
         </div>
         <ul>
           <li>
             <p>
-              Built and shipped a 
+              Led the migration of the events pipeline to a 
               <strong>
-                deep-technical course platform end-to-end
+                horizontally-sharded Kafka cluster
               </strong>
-               on TanStack Start, deployed to Cloudflare Workers with D1, Clerk auth, and Dodo Payments billing.
+              , reducing p99 latency by 3x.
             </p>
           </li>
           <li>
             <p>
-              Authored the first course (
+              Owned the on-call rotation for the platform team — 
               <strong>
-                Distributed Systems in a Day
+                reduced pages 60%
               </strong>
-              ) and grew it to ~50 paying students through a custom video pipeline — Playwright renders, ElevenLabs TTS, Mux delivery.
+               over two quarters through better alerting and runbooks.
             </p>
           </li>
           <li>
             <p>
-              Operate the full stack solo: 
-              <strong>
-                payments, auth, analytics, content, and deploys
-              </strong>
-              . One-time pricing, lifetime access, no subscription.
+              Mentored four engineers through L4 → L5 promotions.
             </p>
           </li>
         </ul>
@@ -1347,308 +863,104 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              Senior Fullstack Engineer
+              Software Engineer 2
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              Customer.io
+              Coral Labs
             </span>
           </div>
           <div
             class="entry-meta"
           >
-            Sep 2025 – Present
+            Aug 2022 – Mar 2024
              · 
-            Remote
+            New York, NY
           </div>
         </div>
         <ul>
           <li>
             <p>
-              Built and maintain the 
+              Designed and shipped the 
               <strong>
-                Customer.io MCP external server
+                billing pipeline
               </strong>
-               and its companion 
-              <strong>
-                OAuth server
-              </strong>
-              , opening the platform to AI clients like Cursor and Claude.
-            </p>
-          </li>
-          <li>
-            <p>
-              Shipped 
-              <strong>
-                custom domains
-              </strong>
-               for the link shortener with 
-              <strong>
-                automated certificate management
-              </strong>
-              , then extended cert orchestration to email link-tracking domains.
-            </p>
-          </li>
-          <li>
-            <p>
-              Received 
-              <strong>
-                CEO ESOP grants twice in a row
-              </strong>
-               for performance.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer 3 — Fullstack
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Customer.io
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Oct 2024 – Sep 2025
-             · 
-            Remote
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Designed and shipped a 
-              <strong>
-                link shortener processing 10M+ links/day
-              </strong>
-              , unlocking SMS link tracking across the platform.
-            </p>
-          </li>
-          <li>
-            <p>
-              Built a service to 
-              <strong>
-                aggregate anonymous in-app engagement metrics
-              </strong>
-              , unlocking a new messaging channel for product.
-            </p>
-          </li>
-          <li>
-            <p>
-              Drove 
-              <strong>
-                architecture-level improvements
-              </strong>
-               for real-time in-app message delivery, taking p99 latency down sharply.
-            </p>
-          </li>
-          <li>
-            <p>
-              Stood up an 
-              <strong>
-                internal MCP server
-              </strong>
-               to query data and toggle feature flags from Cursor and Claude.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer 2 — Fullstack
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Customer.io
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Mar 2022 – Sep 2024
-             · 
-            Remote
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Integrated the 
-              <strong>
-                Parcel editor
-              </strong>
-               for in-app message authoring, accelerating go-to-market by months.
-            </p>
-          </li>
-          <li>
-            <p>
-              Led the frontend for 
-              <strong>
-                anonymous in-app messaging
-              </strong>
-               through a successful GA launch — improving reach and engagement for logged-out users.
-            </p>
-          </li>
-          <li>
-            <p>
-              Revamped the legacy campaign list to support 
-              <strong>
-                multichannel metrics, token-based sorting, and saved custom views
-              </strong>
-              .
-            </p>
-          </li>
-          <li>
-            <p>
-              Added 
-              <strong>
-                MMS support
-              </strong>
-               to the SMS composer and unified the transactional push + micro-survey UIs for a cohesive feel.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer — Fullstack
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Sendworks
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Jul 2021 – Mar 2022
-             · 
-            Bangalore
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Led end-to-end development of 
-              <strong>
-                SendHealth.io
-              </strong>
-               on Nuxt + Go.
-            </p>
-          </li>
-          <li>
-            <p>
-              Engineered an 
-              <strong>
-                SMTP relay
-              </strong>
-               for SendPost with Postgres-based auth and TLS/SSL support.
-            </p>
-          </li>
-          <li>
-            <p>
-              Automated 
-              <strong>
-                BadgerDB maintenance
-              </strong>
-               for consistent storage performance, and expanded the SendPost API with cc/bcc and attachments.
-            </p>
-          </li>
-          <li>
-            <p>
-              Played a key role in the 
-              <strong>
-                acquisition of SendX
-              </strong>
-              .
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              SDE Intern — 6 months
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Amazon
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Jan 2021 – Jul 2021
-             · 
-            Bangalore
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Migrated 
-              <strong>
-                FASTag recharge
-              </strong>
-               from a webview to React Native with native API integrations.
+               processing 12M events/day on Kafka + Postgres.
             </p>
           </li>
           <li>
             <p>
               Built the 
               <strong>
-                send-to-self
+                internal feature-flag service
               </strong>
-               flow on Amazon Pay's Send Money page.
+               used across 40+ microservices.
+            </p>
+          </li>
+          <li>
+            <p>
+              Drove 
+              <strong>
+                architecture-level reviews
+              </strong>
+               for cross-team launches.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="entry"
+      >
+        <div
+          class="entry-head"
+        >
+          <div>
+            <span
+              class="entry-title"
+            >
+              Software Engineer
+            </span>
+             
+            <span
+              class="entry-subtitle"
+            >
+              @ 
+              Acme Inc
+            </span>
+          </div>
+          <div
+            class="entry-meta"
+          >
+            Jan 2020 – Jul 2022
+             · 
+            Remote
+          </div>
+        </div>
+        <ul>
+          <li>
+            <p>
+              Shipped the company's first 
+              <strong>
+                public API
+              </strong>
+               with rate limiting, OAuth2, and SDKs in three languages.
+            </p>
+          </li>
+          <li>
+            <p>
+              Migrated the legacy monolith's auth module to a 
+              <strong>
+                standalone identity service
+              </strong>
+              , unblocking SSO integrations.
+            </p>
+          </li>
+          <li>
+            <p>
+              Cut average build times from 11 min to 90s by parallelizing the test matrix.
             </p>
           </li>
         </ul>
@@ -1670,13 +982,13 @@ exports[`templates render against sample.md > minimal-mono renders without throw
               class="entry-subtitle"
             >
               @ 
-              Sendworks
+              Bytework
             </span>
           </div>
           <div
             class="entry-meta"
           >
-            Jul 2020 – Jan 2021
+            May 2018 – Aug 2018
              · 
             Remote
           </div>
@@ -1684,113 +996,20 @@ exports[`templates render against sample.md > minimal-mono renders without throw
         <ul>
           <li>
             <p>
-              Core contributor to 
+              Built a small 
               <strong>
-                SendPost.io
+                internal log aggregator
               </strong>
-              , a transactional email platform — built mock previews, JWT-based domain/member verification, and the full onboarding flow.
+               in Go on top of Kafka, replacing a brittle cron job.
             </p>
           </li>
           <li>
             <p>
-              Created an internal 
+              Earned a 
               <strong>
-                CRM
+                return offer
               </strong>
-               for handling subaccount and IP incidents.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              SDE Intern — 2 months
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Amazon
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            May 2020 – Jun 2020
-             · 
-            Remote
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Built a modular 
-              <strong>
-                React Native expense splitter
-              </strong>
-               with custom search using a trie — backend on Spring Boot + DynamoDB. Shipped early, earned a 
-              <strong>
-                pre-placement offer
-              </strong>
-              .
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              Software Engineer Intern
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              Crio.do
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Oct 2019 – Apr 2020
-             · 
-            Bangalore
-          </div>
-        </div>
-        <ul>
-          <li>
-            <p>
-              Built 
-              <strong>
-                scalable workspace infra
-              </strong>
-               on Docker and AWS EKS; automated EC2 / container lifecycle with Ansible and rolled out AWS EFS.
-            </p>
-          </li>
-          <li>
-            <p>
-              Optimized the Jenkins user-purge job, 
-              <strong>
-                improving execution time by 1500%
-              </strong>
-              .
+               for a full-time role.
             </p>
           </li>
         </ul>
@@ -1810,14 +1029,14 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              Karnstack
+              Loomroute
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              karnstack.com
+              loomroute.dev
             </span>
           </div>
           <div
@@ -1825,12 +1044,12 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           >
             Live
              · 
-            TanStack Start
+            Go
           </div>
         </div>
         <div>
           <p>
-            Deep-technical course platform for engineers. One-time pricing, lifetime access. ~50 students enrolled and growing. Built solo, end-to-end.
+            Open-source URL routing library used by ~200 small SaaS apps. Live since 2024.
           </p>
         </div>
       </div>
@@ -1844,14 +1063,14 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              Gomantics
+              Tinytrace
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              gomantics.dev
+              github.com/example/tinytrace
             </span>
           </div>
           <div
@@ -1859,46 +1078,12 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           >
             OSS
              · 
-            Go
+            Rust
           </div>
         </div>
         <div>
           <p>
-            Thoughtfully crafted Go libraries for smarter code and smoother workflows. Inspired by unjs.
-          </p>
-        </div>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              InterviewReady
-            </span>
-             
-            <span
-              class="entry-subtitle"
-            >
-              @ 
-              get.interviewready.io
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Freelance
-             · 
-            Go
-          </div>
-        </div>
-        <div>
-          <p>
-            Built the course platform from scratch. Full admin dashboard, CI/CD via GitHub Actions.
+            Minimal distributed tracing library — span model, OTLP export, ~3k lines.
           </p>
         </div>
       </div>
@@ -1917,20 +1102,20 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              Employee of the Month
+              Engineering Excellence
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              Customer.io
+              Coral Labs
             </span>
           </div>
           <div
             class="entry-meta"
           >
-            Jun 2024
+            2025
           </div>
         </div>
       </div>
@@ -1944,40 +1129,20 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              Ultimate Go: Web Services with Kubernetes
+              Best Internship Project
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              Ardan Labs
+              Bytework
             </span>
           </div>
           <div
             class="entry-meta"
           >
-            Certification
-          </div>
-        </div>
-      </div>
-      <div
-        class="entry"
-      >
-        <div
-          class="entry-head"
-        >
-          <div>
-            <span
-              class="entry-title"
-            >
-              ACM ICPC Asia Regionals
-            </span>
-          </div>
-          <div
-            class="entry-meta"
-          >
-            Ranked 20th of 115+ teams
+            2018
           </div>
         </div>
       </div>
@@ -1996,22 +1161,22 @@ exports[`templates render against sample.md > minimal-mono renders without throw
             <span
               class="entry-title"
             >
-              B.E. — Information Technology
+              B.S. Computer Science
             </span>
              
             <span
               class="entry-subtitle"
             >
               @ 
-              Birla Institute of Technology, Mesra
+              Northern State University
             </span>
           </div>
           <div
             class="entry-meta"
           >
-            2017 – 2021
+            2014 – 2018
              · 
-            Mesra, India
+            Remote, USA
           </div>
         </div>
       </div>
@@ -2028,7 +1193,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           :
         </strong>
          
-        Go, TypeScript, Python, Java, SQL
+        Go, TypeScript, Python, Rust
       </div>
       <div
         class="skills-row"
@@ -2038,7 +1203,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           :
         </strong>
          
-        Postgres, Redis, Kafka, Temporal, NSQ, gRPC, D1, BadgerDB
+        Postgres, Redis, Kafka, gRPC, GraphQL
       </div>
       <div
         class="skills-row"
@@ -2048,7 +1213,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           :
         </strong>
          
-        React 19, TanStack Start, Next.js, Ember.js, Tailwind, Vue / Nuxt
+        React, Next.js, Tailwind, Vite
       </div>
       <div
         class="skills-row"
@@ -2058,7 +1223,7 @@ exports[`templates render against sample.md > minimal-mono renders without throw
           :
         </strong>
          
-        Cloudflare Workers, AWS / EKS, Docker, k6, GitHub Actions, Ansible
+        AWS, Kubernetes, Docker, Terraform, GitHub Actions
       </div>
     </section>
   </article>

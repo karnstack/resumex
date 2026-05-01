@@ -18,7 +18,7 @@ describe('templates render against sample.md', () => {
     resume.meta.template = 'minimal-mono'
     const { container } = render(<MinimalMono resume={resume} />)
     expect(container.querySelector('.resume-minimal-mono')).toBeTruthy()
-    expect(container.querySelector('h1')?.textContent).toContain('Karn')
+    expect(container.querySelector('h1')?.textContent).toContain('Park')
     expect(container.querySelectorAll('section').length).toBeGreaterThan(0)
     expect(container).toMatchSnapshot()
   })
@@ -28,7 +28,7 @@ describe('templates render against sample.md', () => {
     resume.meta.template = 'karnstack-twocol'
     const { container } = render(<KarnstackTwocol resume={resume} />)
     expect(container.querySelector('.kt-grid')).toBeTruthy()
-    expect(container.querySelector('.kt-name')?.textContent).toContain('Karn')
+    expect(container.querySelector('.kt-name')?.textContent).toContain('Park')
     expect(container.querySelector('.kt-side')).toBeTruthy()
     expect(container.querySelector('.kt-main')).toBeTruthy()
     expect(container).toMatchSnapshot()
