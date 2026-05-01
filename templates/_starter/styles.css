@@ -1,0 +1,24 @@
+.resume-starter {
+  font-family: var(--font-sans);
+  max-width: 8.5in;
+  margin: 0 auto;
+  padding: 0.6in 0.7in;
+  font-size: 10.5pt;
+  line-height: 1.4;
+  color: black;
+  background: white;
+}
+.resume-starter h1 { font-size: 18pt; margin: 0 0 4pt; }
+.resume-starter h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 0.06em; margin: 14pt 0 4pt; border-bottom: 1px solid #000; padding-bottom: 2pt; }
+.resume-starter h3 { font-size: 11pt; margin: 10pt 0 2pt; font-weight: 600; }
+.resume-starter .meta { font-size: 9.5pt; color: #444; margin: 0 0 4pt; }
+.resume-starter ul { margin: 4pt 0; padding-left: 1em; }
+.resume-starter li { margin: 1pt 0; }
+.resume-starter .header-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; }
+.resume-starter .links { font-size: 9.5pt; color: #333; }
+.resume-starter .links a { color: inherit; text-decoration: none; border-bottom: 1px dotted #888; }
+
+@media print {
+  @page { size: letter; margin: 0.5in; }
+  .resume-starter { padding: 0; }
+}

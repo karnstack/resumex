@@ -1411,7 +1411,7 @@ git commit -m "feat(engine): PageFrame + useFitToPage utility"
 
 > The `_starter` directory begins with `_` so the plugin in Task 10 ignores it. The `designing-templates` skill (Task 30) copies its contents when scaffolding a new template.
 
-- [ ] **Step 1: `templates/_starter/meta.ts`**
+- [x] **Step 1: `templates/_starter/meta.ts`**
 
 ```ts
 import type { ResumeTemplateMeta } from '@/lib/template-registry'
@@ -1425,7 +1425,7 @@ export const meta: ResumeTemplateMeta = {
 }
 ```
 
-- [ ] **Step 2: `templates/_starter/styles.css`**
+- [x] **Step 2: `templates/_starter/styles.css`**
 
 ```css
 .resume-starter {
@@ -1454,7 +1454,7 @@ export const meta: ResumeTemplateMeta = {
 }
 ```
 
-- [ ] **Step 3: `templates/_starter/index.tsx`**
+- [x] **Step 3: `templates/_starter/index.tsx`**
 
 ```tsx
 import './styles.css'
@@ -1537,7 +1537,7 @@ const Starter: ResumeTemplate = ({ resume }) => {
 export default Starter
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add templates/_starter
