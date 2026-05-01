@@ -1,6 +1,7 @@
 {
   "short_name": "resumex",
-  "name": "resumex",
+  "name": "resumex by karnstack.com",
+  "description": "AI-first resume builder for Claude Code. Local-only. Beautiful, print-native templates.",
   "icons": [
     {
       "src": "favicon.ico",

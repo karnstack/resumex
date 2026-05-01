@@ -93,6 +93,85 @@ The user says *"tweak minimal-mono to use a serif"* or *"make two-column-classic
 2. Apply the design change. Often just CSS — touch `index.tsx` only if structure needs to change.
 3. Suggest reviewing at `/preview/<id>`.
 
+## Design principles
+
+Resume templates render on a tiny canvas (one A4/letter page) and must survive both screen preview and print. These rules — adapted from Refactoring UI for the resume context — produce templates that look intentional rather than amateur. Apply them when creating *or* iterating.
+
+### Hierarchy: three levers, never all at once
+
+Use **size**, **weight**, and **color** to separate primary content from secondary, but combine them — don't multiply.
+
+| Element | Treatment |
+|---|---|
+| Name (h1) | Largest type (16–32pt), bold, dark — the *one* place "all three" is allowed. |
+| Section heading | Medium type (10–13pt), bold or uppercase-small — pick one, not both. |
+| Entry title (role) | Slightly larger than body, semibold; subtitle (company) one tier lighter. |
+| Dates / location / labels | Small (8–9pt), muted color, often mono — they support the entry, they don't compete. |
+| Body / bullets | Base size (9.5–10.5pt), normal weight, dark-but-not-black (`#111` over pure black). |
+
+The *blur test*: squint at the page. The name should dominate, section labels should read next, entry titles should anchor each block. If everything reads at the same volume, the hierarchy is broken — quiet down dates and metadata first.
+
+### Spacing scale
+
+Pick a constrained scale and stick to it. Two scales work well at print scale:
+
+- **Point-based** (good for letter-size, ATS-style): `2, 4, 8, 12, 16, 24pt`.
+- **Millimeter-based** (good for visual A4 layouts): `1, 2, 3, 5, 8, 12mm`.
+
+Spacing within a group (entry title → bullets) should be tighter than spacing between groups (entry → entry → section). Generous whitespace around section headers signals structure; cramped spacing reads as a wall of text. Start with too much space, then remove.
+
+### Type scale
+
+Constrain to ~5 sizes per template. Print resumes live in a narrow band — going outside it reads as broken:
+
+- Body: `9.5–10.5pt`
+- Entry title: `10–11pt`
+- Section heading: `9–13pt`
+- Title meta (date, location): `8.5–9pt`
+- Name (h1): `16–32pt`
+
+Line height: `1.45–1.6` for body, `1.05–1.25` for the name and section headings. Avoid weights below `400` for body — they go thready in print.
+
+Use **two font families maximum** (e.g., one sans for body, one mono for meta/eyebrow). More than two reads as visual noise on a one-page document.
+
+### Color
+
+Resume templates are 90% grayscale by necessity. Color is for one or two accents — the name, a section rule, a bullet glyph — not for body text.
+
+- The "darkest" value is `#111` / `oklch(0.14 …)`, **not** pure black. Pure black against white on print looks harsh.
+- Muted text (dates, eyebrows, subtitles) should land around `#555–#888` on white. Below 4.5:1 contrast, body text becomes unreadable.
+- Saturated grays (cool: blue tint; warm: brown tint) feel more intentional than pure neutral grays. Anchor them to the same hue family as your accent color so they harmonize.
+- Design grayscale-first. Add the accent only after the layout works without it.
+
+### Print is a first-class target
+
+This is where most resume templates fall apart. Every template MUST:
+
+1. **Preserve color in print.** Add `print-color-adjust: exact` (and `-webkit-print-color-adjust: exact`) to the root container if the template uses gradient text, colored bullets, chip backgrounds, or any non-grayscale element. Without it, Chrome silently strips them.
+2. **Set `@page` size + margin** matching the frontmatter `paper`. If the template controls its own margin via padding, set `@page { margin: 0 }` and pad inside the frame.
+3. **Avoid splitting entries** with `page-break-inside: avoid` (`break-inside: avoid` for modern browsers). Add `data-print-entry="true"` to entry containers — `print-base.css` has the rule.
+4. **Hide editor chrome** with `data-print-hide="true"` on any non-resume element (already handled by `print-base.css`).
+5. **Avoid screen-only effects in print:** transitions, animations, hover states are stripped automatically, but heavy box-shadows print as muddy gray rectangles — wrap shadows in `@media screen` or remove them in `@media print`.
+
+### Layout
+
+- **Left-align text by default.** Center only the name + tagline if the template is symmetric. Left-aligned columns are easier to scan.
+- **Constrain content width.** A4/letter is ~210/216mm; never let bullets stretch full-width without padding — text becomes hard to track. `0.6–0.7in` page padding works for letter; `12mm` works for A4.
+- **Two-column layouts** should split sidebar (~30–35%) from main (~65–70%). Going 50/50 makes both columns awkward.
+- **Don't center long content.** Names, taglines, short headlines — yes. Bullets, dates, multi-line descriptions — never.
+
+### Common pitfalls (and the fix)
+
+| Symptom | Fix |
+|---|---|
+| Looks amateurish | Increase whitespace between sections; constrain content width. |
+| Body text looks too dark / harsh | Switch pure black to `#111`, muted text to `#555`. |
+| Print PDF lost the gradient/colored bullets | Add `print-color-adjust: exact` to the root. |
+| Entry split across two pages | Wrap entry container with `data-print-entry="true"`. |
+| Everything fights for attention | Quiet down dates, locations, and labels — small + muted + mono. |
+| Feels cramped | Increase line-height to 1.55+, gaps between entries to 0.7em+. |
+| Inconsistent spacing throughout | Pick a 6-step spacing scale and *only* use those values. |
+
 ## Print styles
 
 Every template's `styles.css` MUST include `@media print` rules that:

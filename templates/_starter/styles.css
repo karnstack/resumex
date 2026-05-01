@@ -1,24 +1,76 @@
+/* _starter — bare-bones single-column scaffold.
+   Tiny on purpose. Demonstrates the spacing / type scale conventions described
+   in .claude/skills/designing-templates so authors have a sane baseline.
+   Spacing scale (pt): 2, 4, 8, 12, 16, 24.
+   Type scale (pt):    9, 10, 11, 14, 18. */
+
 .resume-starter {
-  font-family: var(--font-sans);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   max-width: 8.5in;
   margin: 0 auto;
   padding: 0.6in 0.7in;
   font-size: 10.5pt;
-  line-height: 1.4;
-  color: black;
+  line-height: 1.55;
+  color: #111;
   background: white;
 }
-.resume-starter h1 { font-size: 18pt; margin: 0 0 4pt; }
-.resume-starter h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 0.06em; margin: 14pt 0 4pt; border-bottom: 1px solid #000; padding-bottom: 2pt; }
-.resume-starter h3 { font-size: 11pt; margin: 10pt 0 2pt; font-weight: 600; }
-.resume-starter .meta { font-size: 9.5pt; color: #444; margin: 0 0 4pt; }
-.resume-starter ul { margin: 4pt 0; padding-left: 1em; }
-.resume-starter li { margin: 1pt 0; }
-.resume-starter .header-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; }
-.resume-starter .links { font-size: 9.5pt; color: #333; }
-.resume-starter .links a { color: inherit; text-decoration: none; border-bottom: 1px dotted #888; }
+
+.resume-starter h1 {
+  font-size: 18pt;
+  font-weight: 700;
+  margin: 0 0 4pt;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+.resume-starter h2 {
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 16pt 0 8pt;
+  padding-bottom: 3pt;
+  border-bottom: 1px solid #111;
+}
+.resume-starter h3 {
+  font-size: 11pt;
+  font-weight: 600;
+  margin: 12pt 0 2pt;
+}
+.resume-starter .meta {
+  font-size: 9.5pt;
+  color: #555;
+  margin: 0 0 4pt;
+}
+.resume-starter ul {
+  margin: 4pt 0 0;
+  padding-left: 1.1em;
+}
+.resume-starter li {
+  margin: 2pt 0;
+  text-wrap: pretty;
+}
+
+.resume-starter .header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+.resume-starter .links {
+  font-size: 9.5pt;
+  color: #333;
+  text-align: right;
+  line-height: 1.5;
+}
+.resume-starter .links a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted #888;
+}
 
 @media print {
-  @page { size: letter; margin: 0.5in; }
-  .resume-starter { padding: 0; }
+  /* @page is injected by PageFrame based on the template's paper field. */
+  .resume-starter {
+    padding: 0;
+  }
 }
