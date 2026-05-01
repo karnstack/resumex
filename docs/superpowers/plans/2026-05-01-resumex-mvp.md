@@ -312,6 +312,8 @@ git add mise.toml package.json tsconfig.json tsconfig.node.json .prettierrc.json
 git commit -m "chore: toolchain (mise, package.json, tsconfig, prettier)"
 ```
 
+> Note: TypeScript 6 dropped `baseUrl`; we use repo-relative `paths` instead.
+
 ---
 
 ### Task 3: Vite + React 19 + TanStack Router minimal app
