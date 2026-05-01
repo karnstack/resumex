@@ -1003,7 +1003,7 @@ git commit -m "feat(parser): entry extraction with title @ subtitle + metadata +
 
 **Files:** `src/lib/parser.ts` (small additions), `src/lib/parser.test.ts` (extend)
 
-- [ ] **Step 1: Add tests for freeform sections + edge cases**
+- [x] **Step 1: Add tests for freeform sections + edge cases**
 
 ```ts
 describe('parseResume — freeform + edges', () => {
@@ -1049,12 +1049,12 @@ just some text with no headings
 })
 ```
 
-- [ ] **Step 2: Run tests**
+- [x] **Step 2: Run tests**
 
 Run: `pnpm test:run src/lib/parser.test.ts`
 Expected: PASS (9 tests). Existing freeform branch should already cover the first case; the others test schema/empty-body behavior already implemented.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/lib/parser.test.ts

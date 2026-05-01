@@ -122,3 +122,45 @@ name: Karn
     expect(result.sections[0].entries[0].bullets).toHaveLength(0)
   })
 })
+
+describe('parseResume — freeform + edges', () => {
+  it('renders freeform section when no entries (e.g. ## Summary)', () => {
+    const source = `---
+template: minimal-mono
+name: Karn
+---
+
+## Summary
+
+A staff engineer with deep experience in *distributed systems*.
+
+Built things, scaled stuff.
+`
+    const result = parseResume(source)
+    const sum = result.sections[0]
+    expect(sum.entries).toHaveLength(0)
+    expect(sum.body).toContain('staff engineer')
+    expect(sum.body).toContain('<em>distributed systems</em>')
+  })
+
+  it('errors on invalid template type', () => {
+    const source = `---
+template: 123
+name: Karn
+---
+`
+    expect(() => parseResume(source)).toThrow()
+  })
+
+  it('returns empty sections when body has no H2', () => {
+    const source = `---
+template: minimal-mono
+name: Karn
+---
+
+just some text with no headings
+`
+    const result = parseResume(source)
+    expect(result.sections).toHaveLength(0)
+  })
+})
