@@ -15,11 +15,10 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "templates", "vite.config.ts"],
+  "include": ["src", "templates"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
