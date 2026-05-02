@@ -8,6 +8,12 @@ src/generated/
 public/templates.json
 .worktrees/
 
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
+
 # Ad-hoc one-off scripts (underscore-prefixed). Use for personal social
 # posts, marketing renders, etc. Don't ship to the public repo.
 scripts/_*.mjs
